@@ -1,0 +1,29 @@
+<template id="myth-music-bard">
+    <div class="block block-rounded block-link-pop border-top border-thieving border-4x">
+        <div class="text-center mb-1">
+            <div class="row gutters-tiny">
+                <div class="col-12 pt-3 font-size-lg mb-3" v-if="bard.id">
+                    <img class="instrument-icon" v-bind:src="bard.media" />
+                    <span>Bard: {{ bard.name }}</span>
+                </div>
+
+                <div class="col-12 pb-3" v-if="bard.id">
+                    <div
+                        v-for="modifier in modifiers"
+                        :class="{ 'text-success': modifier.isActive, 'myth-text-grey': !modifier.isActive }"
+                    >
+                        <span v-if="!modifier.isActive">
+                            (<img class="skill-icon-xxs mr-1" :src="cdnMedia('assets/media/main/mastery_header.svg')" />
+                            {{ modifier.level }})
+                        </span>
+                        <span>{{ modifier.description }}</span>
+                    </div>
+                </div>
+
+                <div class="col-12 font-size-lg pt-3 pb-3" v-if="!bard.id">
+                    <span>Bard: Not currently hired</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

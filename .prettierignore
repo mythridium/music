@@ -1,0 +1,9 @@
+node_modules
+.output
+/coverage
+angular.json
+package.json
+package-lock.json
+README.md
+.browserslistrc
+.npmrc

@@ -1,0 +1,42 @@
+<template id="myth-music">
+    <div class="content d-none" id="music-container">
+        <div class="skill-info">
+            <div class="block block-rounded mb-2" id="skill-header-mythMusic:Music">
+                <div class="progress active mb-1 border border-top border-1x border-dark" style="height: 8px">
+                    <div
+                        class="progress-bar bg-info"
+                        id="skill-progress-bar-mythMusic:Music"
+                        role="progressbar"
+                        style="width: 0%"
+                    ></div>
+                </div>
+                <div class="block-header text-center pt-0 pb-0">
+                    <ul class="nav-main nav-main-horizontal nav-main-horizontal-override font-size-xs w-100">
+                        <li class="m-1" style="min-width: 30%">
+                            <span class="font-w600"
+                                ><lang-string lang-id="MENU_TEXT_SKILL_LEVEL">Skill Level</lang-string></span
+                            >
+                            <span class="p-1 bg-success rounded font-w600" id="skill-progress-level-mythMusic:Music"
+                                >1 / 99</span
+                            >
+                        </li>
+                        <li class="m-1" style="min-width: 30%">
+                            <span class="font-w600"
+                                ><lang-string lang-id="MENU_TEXT_SKILL XP">Skill XP</lang-string></span
+                            >
+                            <span class="p-1 bg-info rounded font-w600" id="skill-progress-xp-mythMusic:Music"
+                                >1 / 99</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-deck">
+            <div class="col-12" id="bard-container"></div>
+        </div>
+
+        <div class="row row-deck gutters-tiny" id="instruments-container"></div>
+    </div>
+</template>

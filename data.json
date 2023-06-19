@@ -1,0 +1,1242 @@
+{
+    "$schema": "https://melvoridle.com/assets/schema/gameData.json",
+    "namespace": "mythMusic",
+    "modifications": {
+        "items": [
+            {
+                "id": "melvorF:Potion_Box_II",
+                "dropTable": {
+                    "add": [
+                        {
+                            "itemID": "mythMusic:Generous_Gratuity_Potion_I",
+                            "minQuantity": 422,
+                            "maxQuantity": 422,
+                            "weight": 10
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "data": {
+        "pages": [
+            {
+                "id": "Music",
+                "media": "assets/instruments/guitar.png",
+                "containerID": "music-container",
+                "headerBgClass": "bg-music",
+                "hasGameGuide": false,
+                "canBeDefault": true,
+                "customName": "Music",
+                "action": "mythMusic:Music",
+                "skills": ["mythMusic:Music"]
+            }
+        ],
+        "bankSortOrder": [
+            {
+                "insertAt": "After",
+                "afterID": "melvorF:Farming_Potion_IV",
+                "ids": [
+                    "mythMusic:Generous_Gratuity_Potion_I",
+                    "mythMusic:Generous_Gratuity_Potion_II",
+                    "mythMusic:Generous_Gratuity_Potion_III",
+                    "mythMusic:Generous_Gratuity_Potion_IV"
+                ]
+            }
+        ],
+        "items": [
+            {
+                "itemType": "Equipment",
+                "id": "Bards_Hat",
+                "name": "Bards Hat",
+                "category": "Summoning",
+                "type": "Equipment",
+                "media": "assets/township/skilling-outfit-hat-music.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 2000,
+                "customDescription": "+2% Music Skill XP<br><span class=\"text-warning\">With all four Bards Outfit equipped: +8% Music Mastery XP</span>",
+                "tier": "none",
+                "validSlots": ["Helmet"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {
+                    "increasedSkillXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Bards_Body",
+                "name": "Bards Body",
+                "category": "Woodcutting",
+                "type": "Equipment",
+                "media": "assets/township/skilling-outfit-body-music.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 2000,
+                "customDescription": "+2% Music Skill XP<br><span class=\"text-warning\">With all four Bards Outfit equipped: +8% Music Mastery XP</span>",
+                "tier": "none",
+                "validSlots": ["Platebody"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {
+                    "increasedSkillXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Bards_Leggings",
+                "name": "Bards Leggings",
+                "category": "Summoning",
+                "type": "Equipment",
+                "media": "assets/township/skilling-outfit-leggings-music.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 2000,
+                "customDescription": "+2% Music Skill XP<br><span class=\"text-warning\">With all four Bards Outfit equipped: +8% Music Mastery XP</span>",
+                "tier": "none",
+                "validSlots": ["Platelegs"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {
+                    "increasedSkillXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Bards_Boots",
+                "name": "Bards Boots",
+                "category": "Summoning",
+                "type": "Equipment",
+                "media": "assets/township/skilling-outfit-boots-music.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 2000,
+                "customDescription": "+2% Music Skill XP<br><span class=\"text-warning\">With all four Bards Outfit equipped: +8% Music Mastery XP</span>",
+                "tier": "none",
+                "validSlots": ["Boots"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {
+                    "increasedSkillXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Music_Scroll_Of_XP",
+                "name": "Music Scroll of XP",
+                "category": "Township",
+                "type": "Equipment",
+                "media": "assets/township/music-scroll-of-xp.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 80,
+                "tier": "none",
+                "validSlots": ["Consumable"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {
+                    "increasedSkillXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 3
+                        }
+                    ]
+                },
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    }
+                ]
+            },
+            {
+                "id": "Generous_Gratuity_Potion_I",
+                "name": "Generous Gratuity Potion I",
+                "category": "Herblore",
+                "type": "Potion",
+                "media": "assets/potion/music-potion-i.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 50,
+                "itemType": "Potion",
+                "modifiers": {
+                    "increasedMusicGP": 10
+                },
+                "charges": 15,
+                "tier": 0,
+                "action": "mythMusic:Music",
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    }
+                ]
+            },
+            {
+                "id": "Generous_Gratuity_Potion_II",
+                "name": "Generous Gratuity Potion II",
+                "category": "Herblore",
+                "type": "Potion",
+                "media": "assets/potion/music-potion-ii.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 100,
+                "itemType": "Potion",
+                "modifiers": {
+                    "increasedMusicGP": 20
+                },
+                "charges": 25,
+                "tier": 1,
+                "action": "mythMusic:Music",
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    }
+                ]
+            },
+            {
+                "id": "Generous_Gratuity_Potion_III",
+                "name": "Generous Gratuity Potion III",
+                "category": "Herblore",
+                "type": "Potion",
+                "media": "assets/potion/music-potion-iii.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 150,
+                "itemType": "Potion",
+                "modifiers": {
+                    "increasedMusicGP": 30
+                },
+                "charges": 35,
+                "tier": 2,
+                "action": "mythMusic:Music",
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    }
+                ]
+            },
+            {
+                "id": "Generous_Gratuity_Potion_IV",
+                "name": "Generous Gratuity Potion IV",
+                "category": "Herblore",
+                "type": "Potion",
+                "media": "assets/potion/music-potion-iv.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 200,
+                "itemType": "Potion",
+                "modifiers": {
+                    "increasedMusicGP": 50
+                },
+                "charges": 50,
+                "tier": 3,
+                "action": "mythMusic:Music",
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    }
+                ]
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Summoning_Familiar_Bard",
+                "name": "Bard",
+                "category": "Summoning",
+                "type": "Familiar",
+                "media": "assets/summoning/bard-tablet.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 0,
+                "tier": "Tier 1 Summon",
+                "validSlots": ["Summon1", "Summon2"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [
+                    {
+                        "key": "summoningMaxhit",
+                        "value": 19.2
+                    }
+                ],
+                "modifiers": {
+                    "increasedMusicGP": 5
+                },
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    },
+                    {
+                        "type": "PlayerSummonAttack"
+                    }
+                ]
+            },
+            {
+                "id": "Mastery_Token_Music",
+                "name": "Mastery Token (Music)",
+                "category": "Mastery",
+                "type": "Token",
+                "media": "assets/mastery-token.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 1500,
+                "itemType": "Token",
+                "modifiers": {
+                    "masteryToken": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 0.1
+                        }
+                    ]
+                }
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Music_Skillcape",
+                "name": "Music Skillcape",
+                "category": "Combat",
+                "type": "Armour",
+                "media": "assets/music-skillcape.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 250000,
+                "tier": "Skillcape",
+                "validSlots": ["Cape"],
+                "occupiesSlots": [],
+                "equipRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 99
+                    }
+                ],
+                "equipmentStats": [
+                    {
+                        "key": "meleeDefenceBonus",
+                        "value": 9
+                    },
+                    {
+                        "key": "rangedDefenceBonus",
+                        "value": 9
+                    },
+                    {
+                        "key": "magicDefenceBonus",
+                        "value": 9
+                    }
+                ],
+                "modifiers": {
+                    "decreasedSkillInterval": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 500
+                        }
+                    ],
+                    "decreasedMusicHireCost": 5,
+                    "increasedMusicGP": 5
+                }
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Superior_Music_Skillcape",
+                "name": "Superior Music Skillcape",
+                "category": "Combat",
+                "type": "Armour",
+                "media": "assets/music-superior-skillcape.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 1000000,
+                "tier": "Skillcape",
+                "validSlots": ["Cape"],
+                "occupiesSlots": [],
+                "equipRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 120
+                    }
+                ],
+                "equipmentStats": [
+                    {
+                        "key": "meleeDefenceBonus",
+                        "value": 9
+                    },
+                    {
+                        "key": "rangedDefenceBonus",
+                        "value": 9
+                    },
+                    {
+                        "key": "magicDefenceBonus",
+                        "value": 9
+                    }
+                ],
+                "modifiers": {
+                    "decreasedSkillInterval": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 800
+                        }
+                    ],
+                    "decreasedMusicHireCost": 10,
+                    "increasedMusicGP": 10,
+                    "increasedMasteryXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 10
+                        }
+                    ]
+                }
+            }
+        ],
+        "itemUpgrades": [
+            {
+                "upgradedItemID": "mythMusic:Generous_Gratuity_Potion_II",
+                "gpCost": 0,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "mythMusic:Generous_Gratuity_Potion_I",
+                        "quantity": 3
+                    }
+                ],
+                "rootItemIDs": ["mythMusic:Generous_Gratuity_Potion_I"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Generous_Gratuity_Potion_III",
+                "gpCost": 0,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "mythMusic:Generous_Gratuity_Potion_II",
+                        "quantity": 3
+                    }
+                ],
+                "rootItemIDs": ["mythMusic:Generous_Gratuity_Potion_II"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Generous_Gratuity_Potion_IV",
+                "gpCost": 0,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "mythMusic:Generous_Gratuity_Potion_III",
+                        "quantity": 3
+                    }
+                ],
+                "rootItemIDs": ["mythMusic:Generous_Gratuity_Potion_III"],
+                "isDowngrade": false
+            }
+        ],
+        "shopPurchases": [
+            {
+                "id": "Music_Skillcape",
+                "media": "assets/music-skillcape.png",
+                "category": "melvorD:Skillcapes",
+                "contains": {
+                    "items": [
+                        {
+                            "id": "mythMusic:Music_Skillcape",
+                            "quantity": 1
+                        }
+                    ]
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 1000000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": false,
+                "unlockRequirements": [],
+                "purchaseRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 99
+                    }
+                ],
+                "defaultBuyLimit": 1,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false
+            },
+            {
+                "id": "Superior_Music_Skillcape",
+                "media": "assets/music-superior-skillcape.png",
+                "category": "melvorTotH:SuperiorSkillcapes",
+                "contains": {
+                    "items": [
+                        {
+                            "id": "mythMusic:Superior_Music_Skillcape",
+                            "quantity": 1
+                        }
+                    ]
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 10000000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": false,
+                "unlockRequirements": [],
+                "purchaseRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 120
+                    }
+                ],
+                "defaultBuyLimit": 1,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false
+            },
+            {
+                "id": "Bards_Hat",
+                "media": "assets/township/skilling-outfit-hat-music.png",
+                "category": "melvorF:Township",
+                "contains": {
+                    "items": [
+                        {
+                            "id": "mythMusic:Bards_Hat",
+                            "quantity": 1
+                        }
+                    ]
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 100000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": false,
+                "unlockRequirements": [],
+                "purchaseRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "melvorD:Township",
+                        "level": 10
+                    },
+                    {
+                        "type": "TownshipTask",
+                        "count": 20
+                    }
+                ],
+                "defaultBuyLimit": 0,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false
+            },
+            {
+                "id": "Bards_Body",
+                "media": "assets/township/skilling-outfit-body-music.png",
+                "category": "melvorF:Township",
+                "contains": {
+                    "items": [
+                        {
+                            "id": "mythMusic:Bards_Body",
+                            "quantity": 1
+                        }
+                    ]
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 100000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": false,
+                "unlockRequirements": [],
+                "purchaseRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "melvorD:Township",
+                        "level": 20
+                    },
+                    {
+                        "type": "TownshipTask",
+                        "count": 40
+                    }
+                ],
+                "defaultBuyLimit": 0,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false
+            },
+            {
+                "id": "Bards_Leggings",
+                "media": "assets/township/skilling-outfit-leggings-music.png",
+                "category": "melvorF:Township",
+                "contains": {
+                    "items": [
+                        {
+                            "id": "mythMusic:Bards_Leggings",
+                            "quantity": 1
+                        }
+                    ]
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 100000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": false,
+                "unlockRequirements": [],
+                "purchaseRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "melvorD:Township",
+                        "level": 40
+                    },
+                    {
+                        "type": "TownshipTask",
+                        "count": 60
+                    }
+                ],
+                "defaultBuyLimit": 0,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false
+            },
+            {
+                "id": "Bards_Boots",
+                "media": "assets/township/skilling-outfit-boots-music.png",
+                "category": "melvorF:Township",
+                "contains": {
+                    "items": [
+                        {
+                            "id": "mythMusic:Bards_Boots",
+                            "quantity": 1
+                        }
+                    ]
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 100000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": false,
+                "unlockRequirements": [],
+                "purchaseRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "melvorD:Township",
+                        "level": 60
+                    },
+                    {
+                        "type": "TownshipTask",
+                        "count": 80
+                    }
+                ],
+                "defaultBuyLimit": 0,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false
+            }
+        ],
+        "shopDisplayOrder": [
+            {
+                "insertAt": "After",
+                "afterID": "melvorF:Township_Skillcape",
+                "ids": ["mythMusic:Music_Skillcape"]
+            },
+            {
+                "insertAt": "After",
+                "afterID": "melvorTotH:Superior_Township_Skillcape",
+                "ids": ["mythMusic:Superior_Music_Skillcape"]
+            },
+            {
+                "insertAt": "After",
+                "afterID": "melvorF:Star_Gazing_Boots",
+                "ids": [
+                    "mythMusic:Bards_Hat",
+                    "mythMusic:Bards_Body",
+                    "mythMusic:Bards_Leggings",
+                    "mythMusic:Bards_Boots"
+                ]
+            }
+        ],
+        "pets": [
+            {
+                "id": "Muse",
+                "name": "Muse",
+                "media": "assets/muse.png",
+                "ignoreCompletion": true,
+                "modifiers": {
+                    "decreasedSkillIntervalPercent": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 1
+                        }
+                    ]
+                },
+                "activeInRaid": false,
+                "scaleChanceWithMasteryPool": true,
+                "skillID": "mythMusic:Music"
+            }
+        ],
+        "skillData": [
+            {
+                "skillID": "mythMusic:Music",
+                "data": {
+                    "pets": ["mythMusic:Muse"],
+                    "rareDrops": [
+                        {
+                            "itemID": "melvorD:Gold_Topaz_Ring",
+                            "altItemID": "melvorD:Signet_Ring_Half_A",
+                            "quantity": 1,
+                            "requirements": [],
+                            "chance": {
+                                "type": "LevelScaling",
+                                "maxChance": 100,
+                                "baseChance": 0,
+                                "scalingFactor": 0.000006060606060606061
+                            }
+                        },
+                        {
+                            "itemID": "melvorD:Circlet_of_Rhaelyx",
+                            "quantity": 1,
+                            "requirements": [],
+                            "chance": {
+                                "type": "TotalMasteryScaling",
+                                "maxChance": 0.001,
+                                "baseChance": 0.00001,
+                                "scalingFactor": 4e-8
+                            }
+                        },
+                        {
+                            "itemID": "melvorD:Mysterious_Stone",
+                            "quantity": 1,
+                            "requirements": [
+                                {
+                                    "type": "ItemFound",
+                                    "itemID": "melvorD:Crown_of_Rhaelyx"
+                                }
+                            ],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.025
+                            }
+                        }
+                    ],
+                    "minibar": {
+                        "defaultItems": ["mythMusic:Music_Skillcape", "mythMusic:Superior_Music_Skillcape"],
+                        "upgrades": [],
+                        "pets": ["mythMusic:Muse"]
+                    },
+                    "masteryTokenID": "mythMusic:Mastery_Token_Music",
+                    "masteryLevelUnlocks": [
+                        {
+                            "level": "1",
+                            "description": "Each level provides +15 GP acquired for this instrument only."
+                        },
+                        {
+                            "level": "1",
+                            "description": "Each level increases the bard hire cost exponentially up to a max of 200m GP."
+                        },
+                        {
+                            "level": "1",
+                            "description": "Unlocks a hire modifier."
+                        },
+                        {
+                            "level": "40",
+                            "description": "Unlocks a hire modifier."
+                        },
+                        {
+                            "level": "75",
+                            "description": "Unlocks a hire modifier."
+                        },
+                        {
+                            "level": "90",
+                            "description": "-10% Bard Hire Cost for this instrument only."
+                        },
+                        {
+                            "level": "99",
+                            "description": "Unlocks a hire modifier."
+                        }
+                    ],
+                    "instruments": [
+                        {
+                            "id": "Guitar",
+                            "name": "Guitar",
+                            "media": "assets/instruments/guitar.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 7,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Guitar",
+                            "level": 1,
+                            "skills": ["melvorD:Woodcutting", "melvorD:Firemaking"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedBirdNestDropRate",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSkillIntervalPercent",
+                                    "skill": "melvorD:Firemaking",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedMasteryXP",
+                                    "skill": "melvorD:Firemaking",
+                                    "value": 15
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedMinBirdNestQuantity",
+                                    "value": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Drum",
+                            "name": "Drum",
+                            "media": "assets/instruments/drum.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 19,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Drum",
+                            "level": 15,
+                            "skills": ["melvorD:Fishing", "melvorD:Cooking"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Fishing",
+                                    "value": 500
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSkillIntervalPercent",
+                                    "skill": "melvorD:Cooking",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedChanceToFindLostChest",
+                                    "value": 15
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "decreasedPassiveCookInterval",
+                                    "value": 30
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Banjo",
+                            "name": "Banjo",
+                            "media": "assets/instruments/banjo.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 33,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Banjo",
+                            "level": 30,
+                            "skills": ["melvorD:Mining", "melvorD:Smithing"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Mining",
+                                    "value": 200
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Smithing",
+                                    "value": 200
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedFlatSmithingCoalCost",
+                                    "value": 3
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "doubleOresMining",
+                                    "value": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Saxophone",
+                            "name": "Saxophone",
+                            "media": "assets/instruments/saxophone.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 43,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Saxophone",
+                            "level": 45,
+                            "skills": [
+                                "melvorD:Attack",
+                                "melvorD:Strength",
+                                "melvorD:Defence",
+                                "melvorD:Hitpoints",
+                                "melvorD:Ranged",
+                                "melvorD:Magic"
+                            ],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedGlobalAccuracy",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedGlobalEvasion",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedMinHitBasedOnMaxHit",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedFlatMaxHitpoints",
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Maraca",
+                            "name": "Maraca",
+                            "media": "assets/instruments/maraca.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 57,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Maraca",
+                            "level": 60,
+                            "skills": ["melvorD:Fletching", "melvorD:Crafting"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedSkillXP",
+                                    "skill": "melvorD:Crafting",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedSkillXP",
+                                    "skill": "melvorD:Fletching",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "doubleItemsSkill",
+                                    "skill": "melvorD:Fletching",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "doubleItemsSkill",
+                                    "skill": "melvorD:Crafting",
+                                    "value": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Violin",
+                            "name": "Violin",
+                            "media": "assets/instruments/violin.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 67,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Violin",
+                            "level": 75,
+                            "skills": ["melvorD:Runecrafting", "melvorD:Prayer"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedRunecraftingEssencePreservation",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedPrayerPointsWhenHit",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedAdditionalRunecraftCountRunes",
+                                    "value": 6
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedFlatPrayerCostReduction",
+                                    "value": 3
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Bongo",
+                            "name": "Bongo",
+                            "media": "assets/instruments/bongo.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 87,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Bongo",
+                            "level": 90,
+                            "skills": ["melvorD:Agility", "melvorD:Slayer"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedAgilityObstacleCost",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedAgilityPillarCost",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedSlayerCoins",
+                                    "value": 15
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedSlayerAreaEffectNegationFlat",
+                                    "value": 10
+                                }
+                            ]
+                        },
+                        {
+                            "id": "French_Horn",
+                            "name": "French Horn",
+                            "media": "assets/instruments/french-horn.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 155,
+                            "maxGP": 150,
+                            "productId": "mythMusic:French_Horn",
+                            "level": 100,
+                            "skills": ["melvorD:Summoning", "melvorD:Astrology"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Astrology",
+                                    "value": 500
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedChanceToFindMeteorite",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Summoning",
+                                    "value": 1000
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedSummoningCreationCharges",
+                                    "value": 15
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Harp",
+                            "name": "Harp",
+                            "media": "assets/instruments/harp.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 235,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Harp",
+                            "level": 105,
+                            "skills": ["melvorD:Thieving", "melvorD:Herblore"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedChanceRandomPotionHerblore",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedThievingStealth",
+                                    "value": 50
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "doubleItemsSkill",
+                                    "skill": "melvorD:Herblore",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedThievingAreaUniqueChance",
+                                    "value": 15
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Tambourine",
+                            "name": "Tambourine",
+                            "media": "assets/instruments/tambourine.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 335,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Tambourine",
+                            "level": 110,
+                            "skills": ["melvorD:Township", "melvorD:Farming"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedFarmingYield",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedFlatFarmingYield",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedTownshipGPProduction",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedTownshipHappiness",
+                                    "value": 50
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Trumpet",
+                            "name": "Trumpet",
+                            "media": "assets/instruments/trumpet.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 475,
+                            "maxGP": 150,
+                            "productId": "mythMusic:Trumpet",
+                            "level": 115,
+                            "skills": [
+                                "melvorD:Attack",
+                                "melvorD:Strength",
+                                "melvorD:Defence",
+                                "melvorD:Hitpoints",
+                                "melvorD:Ranged",
+                                "melvorD:Magic"
+                            ],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedMaxHitPercent",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedLifesteal",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedAttackInterval",
+                                    "value": 500
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedDamageReduction",
+                                    "value": 10
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,55 @@
+<template id="myth-music-instrument">
+    <div class="col-6 col-lg-3" :id="localId" @vue:mounted="mounted">
+        <div
+            class="block block-content block-content-full block-rounded-extra block-link-pop border-top border-music border-4x text-center"
+        >
+            <div class="row gutters-tiny">
+                <div class="col-12 p-2">
+                    <img class="instrument-img" v-bind:src="media" />
+                </div>
+                <div class="col-12 pt-2">
+                    <h4 class="font-w700 mb-2">{{ instrumentName }}</h4>
+                </div>
+                <div class="col-12">
+                    <img class="skill-icon-xs m-2" v-for="skillIcon in getSkillIcons()" :src="skillIcon" />
+                </div>
+                <div class="col-12 row justify-content-center gutters-tiny text-center" id="grants-container"></div>
+                <div class="col-12 p-2 mt-3">
+                    <div class="progress active mb-2 ml-2 mr-2" style="height: 15px">
+                        <div
+                            class="progress-bar bg-secondary progress-fast"
+                            id="progress-bar"
+                            role="progressbar"
+                            style="width: 0%"
+                            aria-valuenow="0"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                        ></div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-alt-success ml-3 mr-3 mb-3 mt-1" @click="train()">Train</button>
+                    <button class="btn btn-alt-info ml-3 mr-3 mb-3 mt-1" @click="hire()" :disabled="disabled">
+                        {{ disabled ? 'Hired' : 'Hire' }}
+                    </button>
+                </div>
+                <div class="col-12">
+                    <small
+                        ><img
+                            class="skill-icon-xs mr-2"
+                            src="https://cdn.melvor.net/core/v018/assets/media/main/coins.svg"
+                        />
+                        {{ numberWithCommas(minGP) }}-{{ numberWithCommas(maxGP) }} GP</small
+                    >
+                </div>
+                <div class="col-12">
+                    <mastery-display
+                        class="mastery-6"
+                        data-skill-id="mythMusic:Music"
+                        v-bind:data-action-id="id"
+                    ></mastery-display>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

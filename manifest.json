@@ -1,0 +1,5 @@
+{
+    "namespace": "mythMusic",
+    "setup": "setup.mjs",
+    "icon": "assets/logo.png"
+}
