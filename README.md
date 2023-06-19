@@ -165,6 +165,8 @@ The Music skill adds a Music Outfit, which is fully integrated just like all the
 
 ![Bards Outfit](images/bard-outfit.png)
 
+![Skiller Upgrade](images/skiller-upgrade.png)
+
 ### Bard Bonuses
 
 The bonuses each bard provides is as follows:
