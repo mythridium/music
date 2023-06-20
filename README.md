@@ -2,11 +2,11 @@
 
 Does not contain actual music. Sorry. :(
 
-Disclaimer: Please backup your save file into a new save slot, so that if anything happens, you can revert back to a save from before installing this mod.
+Disclaimer: Please backup your save file before installing this mod, preferably importing it into a new save slot. That way if anything happens, or you decide to not want this mod anymore, you can easily uninstall the mod, delete the save, and go back to the existing save from before installing this mod.
 
 Please provide any feedback or bug reports, would love to hear your thoughts.
 
-Note: I've checked Android and iOS to maximise people giving this skill a go, however I only have an android phone available and I have NOT tested on mobile, only on Steam and Browser. Let me know if something goes wrong on mobile and I'll try to fix it.
+Note: I've checked Android and iOS to maximize people giving this skill a go, however I only have an android phone available and I have NOT tested on mobile, only on Steam and Browser. Let me know if something goes wrong on mobile and I'll try to fix it.
 
 ![Music](images/music.png)
 
@@ -14,9 +14,9 @@ Note: I've checked Android and iOS to maximise people giving this skill a go, ho
 
 Music is a brand new skill which combines themes from Astrology, Thieving and Agility. It provides an easy way to obtain gold and powerful bonuses that benefit other skills.
 
-Earn tips (GP) while you train bards with various instruments, then hire the bards you have trained to provide you with powerful bonuses.
+Earn tips (GP) while you train bards with various instruments, then hire the bards you have trained to provide you with powerful bonuses while you train other skills.
 
-The mod includes a new mastery token for the skill and both skill cape and superior skill cape.
+This mod includes a new mastery token for the skill and both skill cape and superior skill cape.
 
 ### Drops
 
@@ -41,10 +41,10 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 ## Change Log
 
 ### 1.3.0
-* reduced file size by ~46%
 * added a potion to Herblore which increases GP obtained while training Music
 * added a summoning tablet for the Music skill, the Bard
 * added a Music Scroll of XP which can be purchased from the Township trader with Planks
+* added a Music Outfit to the Township category of the shop, it functions the same all other skilling outfits
 
 ### 1.2.0
 
@@ -113,7 +113,7 @@ The Music skill also contains a pet: Muse which provides -1% Music Interval
 
 ![Muse](images/muse-pet.png)
 
-## Potion
+## Herblore
 
 The Generous Gratuity Potion can be brewed using the Herblore skill.
 
@@ -143,7 +143,7 @@ The Music skill has its own tablet. The Bard! The Bard is both a combat and skil
 * Summoning Max Hit: 192
 * Skill Bonus: +5% Music GP
 
-In addition, the Bard has synergies with every single other tablet, since Music is a skill that focuses on boosting other skills, it's synergy helps all other skills. It basically doubles the tablet effect of the tablet it is synergizing with (by granting the same tablet modifiers via the synergy).
+In addition, the Bard has synergies with every single other tablet. Since Music is a skill that focuses on boosting other skills, its synergy helps all other skills. It basically doubles the tablet effect of the tablet it is synergizing with (by granting the same tablet modifiers via the synergy).
 
 Example: Devil gives -5% Firemaking Interval, if synergized with the Bard, the synergy will provide an addition -5% Firemaking Interval for a total of -10% Firemaking Interval being provided from the tablets.
 
@@ -349,4 +349,4 @@ Images obtained from the following sources, attribution provided.
 
 <a href="https://www.freepik.com/free-vector/musical-instrument-set_8610228.htm#query=cartoon%20instrument&position=0&from_view=keyword&track=ais">Image by pch.vector on Freepik</a>
 
-<a href="https://www.flaticon.com/free-icons/troubadour" title="troubadour icons">Troubadour icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/troubadour">Troubadour icons created by Freepik - Flaticon</a>
