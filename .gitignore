@@ -2,3 +2,4 @@ node_modules
 packed
 dist
 build
+images/backup

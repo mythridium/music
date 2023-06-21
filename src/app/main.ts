@@ -1,11 +1,17 @@
 import { BardComponent } from './bard/bard';
-import { Herblore } from './herblore/herblore';
 import { InstrumentComponent } from './instrument/instrument';
-import { MusicActionEventMatcher } from './music/event';
-import { Modifiers } from './music/modifiers';
+import { MusicActionEventMatcher, MusicActionEventMatcherOptions } from './music/event';
+import { MythModifiers } from './music/modifiers';
 import { Music } from './music/music';
-import { Summoning } from './summoning/summoning';
-import { Township } from './township/township';
+import { MythHerblore } from './herblore/herblore';
+import { MythSummoning } from './summoning/summoning';
+import { MythTownship } from './township/township';
+
+declare global {
+    interface Game {
+        constructEventMatcher(data: GameEventMatcherData | MusicActionEventMatcherOptions): GameEventMatcher;
+    }
+}
 
 export class App {
     constructor(private readonly context: Modding.ModContext) {}
@@ -15,18 +21,59 @@ export class App {
         await this.context.loadTemplates('instrument/instrument.html');
         await this.context.loadTemplates('bard/bard.html');
 
-        const modifiers = new Modifiers();
-
-        modifiers.registerModifiers();
+        this.patchEventManager();
+        this.initModifiers();
 
         const music = game.registerSkill(game.registeredNamespaces.getNamespace('mythMusic'), Music);
 
         await this.context.gameData.addPackage('data.json');
 
-        this.initSummoning();
         this.initHerblore();
+        this.initSummoning();
         this.initTownship();
 
+        this.initUI(music);
+    }
+
+    private patchEventManager() {
+        this.context.patch(Game, 'constructEventMatcher').after((_patch, data) => {
+            if (this.isMusicEvent(data)) {
+                return new MusicActionEventMatcher(data, game);
+            }
+        });
+    }
+
+    private isMusicEvent(
+        data: GameEventMatcherData | MusicActionEventMatcherOptions
+    ): data is MusicActionEventMatcherOptions {
+        return data.type === 'MusicAction';
+    }
+
+    private initModifiers() {
+        const modifiers = new MythModifiers();
+
+        modifiers.registerModifiers();
+    }
+
+    private initSummoning() {
+        const summoning = new MythSummoning(this.context);
+
+        summoning.register();
+    }
+
+    private initHerblore() {
+        const herblore = new MythHerblore(this.context);
+
+        herblore.registerPotion();
+    }
+
+    private initTownship() {
+        const township = new MythTownship(this.context);
+
+        township.registerTraderItems();
+    }
+
+    private initUI(music: Music) {
         this.context.onInterfaceAvailable(async () => {
             const mainContainer = document.getElementById('main-container');
             mainContainer.append(...music.elements());
@@ -40,46 +87,14 @@ export class App {
             });
 
             const bardContainer = document.getElementById('bard-container');
-            const component = BardComponent(music, game);
-            ui.create(component, bardContainer);
-            music.bardComponent = component;
+
+            const bard1 = BardComponent(music, game);
+            ui.create(bard1, bardContainer);
+            music.bardComponent = bard1;
+
+            const bard2 = BardComponent(music, game);
+            ui.create(bard2, bardContainer);
+            music.bard2Component = bard2;
         });
-    }
-
-    private initSummoning() {
-        const summoning = new Summoning(this.context);
-
-        summoning.register();
-        this.attachEventMatcher(summoning.eventItemIds);
-    }
-
-    private initHerblore() {
-        const herblore = new Herblore(this.context);
-
-        herblore.registerPotion();
-        this.attachEventMatcher(herblore.eventItemIds);
-    }
-
-    private initTownship() {
-        const township = new Township(this.context);
-
-        township.registerTraderItems();
-        this.attachEventMatcher(township.eventItemIds);
-    }
-
-    private attachEventMatcher(itemIds: string[]) {
-        for (const itemId of itemIds) {
-            const item = game.items.getObjectByID(itemId) as EquipmentItem | PotionItem;
-
-            if (item) {
-                item.consumesOn = item.consumesOn?.map(consume => {
-                    if (consume) {
-                        return consume;
-                    }
-
-                    return new MusicActionEventMatcher({ type: 'MusicAction' }, game);
-                });
-            }
-        }
     }
 }

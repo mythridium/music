@@ -1,40 +1,7 @@
 import { Instrument, Music } from '../music/music';
+import './instrument.scss';
 
-export interface IInstrumentComponent extends ComponentProps {
-    $template: string;
-    instrument: Instrument;
-    instrumentName: string;
-    media: string;
-    id: string;
-    localId: string;
-    minGP: number;
-    maxGP: number;
-    disabled: boolean;
-    progressBar?: ProgressBar;
-    xpIcon?: XPIcon;
-    masteryIcon?: MasteryXPIcon;
-    masteryPoolIcon?: MasteryPoolIcon;
-    intervalIcon?: IntervalIcon;
-    mounted: () => void;
-    updateGrants: (
-        xp: number,
-        baseXP: number,
-        masteryXP: number,
-        baseMasteryXP: number,
-        masteryPoolXP: number,
-        interval: number
-    ) => void;
-    updateGPRange: () => void;
-    train: () => void;
-    hire: () => void;
-    updateDisabled: () => void;
-    getSkillIcons: () => string[];
-    getMinGPRoll: () => number;
-    getMaxGPRoll: () => number;
-    getGPModifier: () => number;
-}
-
-export function InstrumentComponent(music: Music, instrument: Instrument, game: Game): IInstrumentComponent {
+export function InstrumentComponent(music: Music, instrument: Instrument, game: Game) {
     return {
         $template: '#myth-music-instrument',
         instrument,
@@ -45,6 +12,7 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
         minGP: 0,
         maxGP: 0,
         disabled: false,
+        progressBar: {} as ProgressBar,
         mounted: function () {
             const grantsContainer = document
                 .querySelector(`#${this.localId}`)
@@ -98,7 +66,7 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             music.hire(instrument);
         },
         updateDisabled: function () {
-            this.disabled = music.hiredBard?.id === instrument.id;
+            this.disabled = music.hiredBard?.id === instrument.id || music.hiredBard2?.id === instrument.id;
         },
         getSkillIcons: function () {
             return instrument.skills.map(skillId => {
@@ -109,11 +77,11 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             return Math.max(1, Math.floor(this.getMaxGPRoll() / 100));
         },
         getMaxGPRoll: function () {
-            return instrument.maxGP + music.getMasteryLevel(instrument) * 15;
+            return instrument.maxGP + music.getMasteryLevel(instrument) * 10;
         },
         getGPModifier: function () {
             let increasedGPModifier = game.modifiers.increasedGPGlobal - game.modifiers.decreasedGPGlobal;
-            increasedGPModifier += (<any>game.modifiers).increasedMusicGP - (<any>game.modifiers).decreasedMusicGP;
+            increasedGPModifier += game.modifiers.increasedMusicGP - game.modifiers.decreasedMusicGP;
 
             return increasedGPModifier;
         }

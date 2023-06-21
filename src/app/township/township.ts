@@ -5,14 +5,12 @@ interface Upgrades {
     boots: ItemUpgrade;
 }
 
-export class Township {
-    public readonly eventItemIds = ['mythMusic:Music_Scroll_Of_XP'];
+export class MythTownship {
+    private readonly itemType = ['Hat', 'Body', 'Leggings', 'Boots'];
 
     constructor(private readonly context: Modding.ModContext) {}
 
     public registerTraderItems() {
-        const upgrades = this.getRootUpgrades();
-
         this.context.gameData
             .buildPackage(builder => {
                 builder.skillData.add({
@@ -38,11 +36,7 @@ export class Township {
                     }
                 });
 
-                this.clearItemUpgrades(upgrades);
-                this.setHatUpgrade(builder, upgrades);
-                this.setBodyUpgrade(builder, upgrades);
-                this.setLeggingsUpgrade(builder, upgrades);
-                this.setBootsUpgrade(builder, upgrades);
+                this.updateSkillingOutfitItemUpgrade(builder);
 
                 builder.itemSynergies.add({
                     itemIDs: [
@@ -67,7 +61,7 @@ export class Township {
     }
 
     private modifyTradeOrder() {
-        // Switch order if trades so scroll of xp is first.
+        // Switch order of trades so scroll of xp is first.
         const planks = game.township.resources.getObjectByID('melvorF:Planks');
         const trades = game.township.itemConversions.fromTownship.get(planks);
 
@@ -79,126 +73,44 @@ export class Township {
         game.township.itemConversions.fromTownship.set(planks, trades);
     }
 
-    private getRootUpgrades(): Upgrades {
-        return {
-            hat: game.bank.itemUpgrades.get(game.items.getObjectByID('melvorF:Woodcutters_Hat'))[0],
-            body: game.bank.itemUpgrades.get(game.items.getObjectByID('melvorF:Woodcutters_Body'))[0],
-            leggings: game.bank.itemUpgrades.get(game.items.getObjectByID('melvorF:Woodcutters_Leggings'))[0],
-            boots: game.bank.itemUpgrades.get(game.items.getObjectByID('melvorF:Woodcutters_Boots'))[0]
-        };
-    }
+    private updateSkillingOutfitItemUpgrade(builder: Modding.GameDataPackageBuilder) {
+        for (const type of this.itemType) {
+            // Get the item upgrade from woodcutters, all outfits share the same item upgrade so this will modify
+            // all of them.
+            const itemUpgrades = game.bank.itemUpgrades.get(game.items.getObjectByID(`melvorF:Woodcutters_${type}`));
 
-    private getItemCosts(itemUpgrade: ItemUpgrade) {
-        return itemUpgrade.itemCosts.filter(cost => cost.item.id !== 'melvorF:Skilling_Outfit_Upgrade');
-    }
+            if (!itemUpgrades?.length) {
+                return;
+            }
 
-    private clearItemUpgrades({ hat, body, leggings, boots }: Upgrades) {
-        for (const cost of this.getItemCosts(hat)) {
-            game.bank.itemUpgrades.delete(cost.item);
+            const itemUpgrade = itemUpgrades.find(upgrade => upgrade.upgradedItem.id === `melvorF:Skillers_${type}`);
+
+            if (!itemUpgrade) {
+                return;
+            }
+
+            // Delete the existing item upgrade as we need to amend it with the new data.
+            // Could optionally add to the item upgrade, but I want to use the builder
+            // so I don't need to think about all the little details for registration. Let Malc
+            // deal with it.
+            for (const item of itemUpgrade.rootItems) {
+                game.bank.itemUpgrades.delete(item);
+            }
+
+            builder.itemUpgrades.add({
+                upgradedItemID: itemUpgrade.upgradedItem.id,
+                gpCost: itemUpgrade.gpCost,
+                scCost: itemUpgrade.scCost,
+                itemCosts: [
+                    ...itemUpgrade.itemCosts.map(cost => ({ id: cost.item.id, quantity: 1 })),
+                    {
+                        id: `mythMusic:Bards_${type}`,
+                        quantity: 1
+                    }
+                ],
+                rootItemIDs: [...itemUpgrade.rootItems.map(item => item.id), `mythMusic:Bards_${type}`],
+                isDowngrade: itemUpgrade.isDowngrade
+            });
         }
-
-        for (const cost of this.getItemCosts(body)) {
-            game.bank.itemUpgrades.delete(cost.item);
-        }
-
-        for (const cost of this.getItemCosts(leggings)) {
-            game.bank.itemUpgrades.delete(cost.item);
-        }
-
-        for (const cost of this.getItemCosts(boots)) {
-            game.bank.itemUpgrades.delete(cost.item);
-        }
-    }
-
-    private setHatUpgrade(builder: Modding.GameDataPackageBuilder, { hat }: Upgrades) {
-        const costs = this.getItemCosts(hat);
-
-        builder.itemUpgrades.add({
-            upgradedItemID: 'melvorF:Skillers_Hat',
-            gpCost: 0,
-            scCost: 0,
-            itemCosts: [
-                {
-                    id: 'melvorF:Skilling_Outfit_Upgrade',
-                    quantity: 1
-                },
-                ...costs.map(cost => ({ id: cost.item.id, quantity: 1 })),
-                {
-                    id: 'mythMusic:Bards_Hat',
-                    quantity: 1
-                }
-            ],
-            rootItemIDs: [...costs.map(cost => cost.item.id), 'mythMusic:Bards_Hat'],
-            isDowngrade: false
-        });
-    }
-
-    private setBodyUpgrade(builder: Modding.GameDataPackageBuilder, { body }: Upgrades) {
-        const costs = this.getItemCosts(body);
-
-        builder.itemUpgrades.add({
-            upgradedItemID: 'melvorF:Skillers_Body',
-            gpCost: 0,
-            scCost: 0,
-            itemCosts: [
-                {
-                    id: 'melvorF:Skilling_Outfit_Upgrade',
-                    quantity: 1
-                },
-                ...costs.map(cost => ({ id: cost.item.id, quantity: 1 })),
-                {
-                    id: 'mythMusic:Bards_Body',
-                    quantity: 1
-                }
-            ],
-            rootItemIDs: [...costs.map(cost => cost.item.id), 'mythMusic:Bards_Body'],
-            isDowngrade: false
-        });
-    }
-
-    private setLeggingsUpgrade(builder: Modding.GameDataPackageBuilder, { leggings }: Upgrades) {
-        const costs = this.getItemCosts(leggings);
-
-        builder.itemUpgrades.add({
-            upgradedItemID: 'melvorF:Skillers_Leggings',
-            gpCost: 0,
-            scCost: 0,
-            itemCosts: [
-                {
-                    id: 'melvorF:Skilling_Outfit_Upgrade',
-                    quantity: 1
-                },
-                ...costs.map(cost => ({ id: cost.item.id, quantity: 1 })),
-                {
-                    id: 'mythMusic:Bards_Leggings',
-                    quantity: 1
-                }
-            ],
-            rootItemIDs: [...costs.map(cost => cost.item.id), 'mythMusic:Bards_Leggings'],
-            isDowngrade: false
-        });
-    }
-
-    private setBootsUpgrade(builder: Modding.GameDataPackageBuilder, { boots }: Upgrades) {
-        const costs = this.getItemCosts(boots);
-
-        builder.itemUpgrades.add({
-            upgradedItemID: 'melvorF:Skillers_Boots',
-            gpCost: 0,
-            scCost: 0,
-            itemCosts: [
-                {
-                    id: 'melvorF:Skilling_Outfit_Upgrade',
-                    quantity: 1
-                },
-                ...costs.map(cost => ({ id: cost.item.id, quantity: 1 })),
-                {
-                    id: 'mythMusic:Bards_Boots',
-                    quantity: 1
-                }
-            ],
-            rootItemIDs: [...costs.map(cost => cost.item.id), 'mythMusic:Bards_Boots'],
-            isDowngrade: false
-        });
     }
 }

@@ -1,8 +1,6 @@
 import { synergies } from './synergies';
 
-export class Summoning {
-    public readonly eventItemIds = ['mythMusic:Summoning_Familiar_Bard'];
-
+export class MythSummoning {
     constructor(private readonly context: Modding.ModContext) {}
 
     public register() {
@@ -41,7 +39,7 @@ export class Summoning {
                                 skillIDs: ['mythMusic:Music']
                             }
                         ],
-                        synergies: synergies
+                        synergies
                     }
                 });
             })

@@ -24,6 +24,20 @@ While training you have a chance to obtain Signet Ring Half A, Circlet of Rhaely
 
 Tips (GP) earned while training do scale with global gold increases.
 
+### Sheet Music and Essence of Music
+
+Training Music has a 1/100 chance to drop sheet music, these can be upgraded into Essence of Music for 50 Sheet Music + 1M GP.
+
+![Items](images/items.png)
+
+![Upgrade](images/essence-of-music-upgrade.png)
+
+1 Essence of Music is used to upgrade Hired Bard instruments, which unlocks a 5th modifier.
+
+Upgrades are destroyed if you hire a new bard. Re-hiring a previously hired bard will require using another Essence of Music to unlock the upgrade modifier.
+
+![Upgrade](images/upgrade-bard-instrument.png)
+
 ## Hiring a Bard
 
 You can hire various bards to play on your behalf. These bards provide powerful bonuses to help you while you train other skills, however the more skilled a bard is, the more expensive it will become to hire them.
@@ -34,11 +48,37 @@ The cost of hiring a bard grows exponentially more expensive per mastery level.
 
 ![Hire a Bard](images/hire-bard.png)
 
+## Band Practice
+
+The shop sells an upgrade which unlocks a second bard slot. This upgrade requires Level 110 Music and costs 1B GP.
+
+![Band Practice](images/band-practice.png)
+
+![Double Bard](images/double-bard.png)
+
 ## Design Methodology
 
 When designing this skill, my aims were to take pressure off early game gold, while also providing a late game gold siphon. This makes it an attractive early game skill for adventure mode, and late game, especially once Township is up and running, the buffs are designed to be powerful enough that spending the gold is deemed worth it. By limiting to only one bard, the player will need to spend their masses of gold to get the bonuses for the skills they are training.
 
 ## Change Log
+
+### 1.4.0
+* reduced tips (GP) scaling from mastery level from +15 GP each level to +10 GP each level, base instrument GP is no longer the same across all instruments, higher level instruments have a higher base GP than lower level instruments. This should hopefully make higher instruments feel a little better, this does result in less GP from lower instruments than the previous version.
+* added three more instruments; the accordion, bouzouki and xylophone
+* modified some instrument unlock levels and bonuses
+  * drum - Unlock Level 15 -> Level 10
+  * banjo - Unlock Level 30 -> Level 20
+  * saxophone - Unlock Level 45 -> Level 70, now focused on defensive modifiers only
+  * maraca - Unlock Level 60 -> Level 50
+  * violin - Unlock Level 75 -> Level 80
+  * bongo - now focused entirely on slayer, agility has been moved to xylophone
+  * french horn - switched level 1 and 40 modifier bonuses
+  * tambourine - increased level 1 farming yield % from 5 to 10 and level 40 flat farming yield from 5 to 15
+  * trumpet - now focused on damage dealing only
+* added a new shop purchase which lets you hire two bards at once
+* added a new item, sheet music which is dropped while training Music
+* added a new item, essence of music, which is upgraded from sheet music
+* added the ability to upgrade hired bard instruments which unlocks a 5th modifier
 
 ### 1.3.0
 * added a potion to Herblore which increases GP obtained while training Music
@@ -176,66 +216,98 @@ Guitar: Unlocked at skill level 1
 * Mastery Level 40: -10% Firemaking Interval
 * Mastery Level 75: +15% Firemaking Mastery XP
 * Mastery Level 99: +2 minimum Bird Nest's received from Woodcutting
+* Upgrade: Bonfires in Firemaking require no logs to light. Automatically relights Bonfires when depleted
 
-Drum: Unlocked at skill level 15
+Drum: Unlocked at skill level 10
 * Mastery Level 1: -0.5s Fishing Interval
 * Mastery Level 40: -10% Cooking Interval
 * Mastery Level 75: +15% chance to find a Lost Chest while Fishing (This is separate to the Special Fishing Chance)
 * Mastery Level 99: -30% Passive Cook Interval
+* Upgrade: +25% chance to gain 1 cooked version of a fish when Fishing
 
-Banjo: Unlocked at skill level 30
+Banjo: Unlocked at skill level 20
 * Mastery Level 1: -0.2s Mining Interval
 * Mastery Level 40: -0.2s Smithing Interval
 * Mastery Level 75: -3 Coal Ore Cost when Smithing
 * Mastery Level 99: x4 Ores received from Mining
+* Upgrade: x4 Rune Essence received from Mining
 
-Saxaphone: Unlocked at skill level 45
-* Mastery Level 1: +5% Accuracy Rating
-* Mastery Level 40: +5% Global Evasion
-* Mastery Level 75: +10% of Maximum Hit added to Minimum Hit
-* Mastery Level 99: +50 Maximum Hitpoints
+Accordion: Unlocked at skill level 30
+* Mastery Level 1: +5% Hitpoint Regeneration
+* Mastery Level 40: +15% Auto Eat Efficiency
+* Mastery Level 75: +10% Chance To Double Loot in Combat
+* Mastery Level 99: Target Damage Reduction is decreased by flat 10%
+* Upgrade: +10% Auto Eat Threshold
 
-Maraca: Unlocked at skill level 60
+Bouzouki: Unlocked at skill level 40
+* Mastery Level 1: +10% Chance to Preserve Resources in Skills
+* Mastery Level 40: +10% Global GP (except Item Sales)
+* Mastery Level 75: +15% Chance to Double Items Globally
+* Mastery Level 99: 10% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
+* Upgrade: +15% GP From Sales
+
+Maraca: Unlocked at skill level 50
 * Mastery Level 1: +5% Crafting Skill XP
 * Mastery Level 40: +5% Fletching Skill XP
 * Mastery Level 75: x4 Items received from Fletching
 * Mastery Level 99: x4 Items received from Crafting
+* Upgrade: +2 base Javelins produced per action in Fletching
 
-Violin: Unlocked at skill level 75
+Xylophone: Unlocked at skill level 60
+* Mastery Level 1: -10% Agility Obstacle Build Costs
+* Mastery Level 40: +15% GP From Agility
+* Mastery Level 75: -15% Agility Interval
+* Mastery Level 99: -10% Agility Pillar build costs
+* Upgrade: +25% GP from Agility per active Obstacle
+
+Saxaphone: Unlocked at skill level 70
+* Mastery Level 1: +5% Global Evasion
+* Mastery Level 40: +10% Lifesteal
+* Mastery Level 75: +100 Maximum Hitpoints
+* Mastery Level 99: +10% Damage Reduction
+* Upgrade: +5% Maximum Hitpoints
+
+Violin: Unlocked at skill level 80
 * Mastery Level 1: +10% chance to preserve resources when Runecrafting runes
 * Mastery Level 40: Gain +1 Prayer Points for each successful Enemy hit on you
 * Mastery Level 75: Create +6 Additional Runes of the same type in Runecrafting
 * Mastery Level 99: -3 Prayer Point Cost for Prayers
+* Upgrade: +50% Chance to receive random Elemental Runes from Runecrafting when creating Runes
 
 Bongo: Unlocked at skill level 90
-* Mastery Level 1: -10% Agility Obstacle Build Costs
-* Mastery Level 40: -10% Agility Pillar build costs
-* Mastery Level 75: +15% Slayer Coins
-* Mastery Level 99: +10% Flat Slayer Area Effect Negation
+* Mastery Level 1: -5% Slayer Task monster Accuracy Rating
+* Mastery Level 40: +10% Damage To Slayer Tasks
+* Mastery Level 75: +40% Slayer Coins
+* Mastery Level 99: +25% Flat Slayer Area Effect Negation
+* Upgrade: +20% Slayer Skill XP
 
 French Horn: Unlocked at skill level 100
-* Mastery Level 1: -0.5s Astrology Interval
-* Mastery Level 40: +5% chance to locate a Meteorite in Astrology
+* Mastery Level 1: +5% chance to locate a Meteorite in Astrology
+* Mastery Level 40: -0.5s Astrology Interval
 * Mastery Level 75: -1s Summoning Interval
 * Mastery Level 99: +15 Base Quantity for Summoning Tablet Creation
+* Upgrade: +35% Summoning Maximum Hit
 
 Harp: Unlocked at skill level 105
 * Mastery Level 1: +10% Chance to receive a Random Tier of the same Potion in Herblore
 * Mastery Level 40: +50 Stealth while Thieving
 * Mastery Level 75: x4 Items received from Herblore
 * Mastery Level 99: +15% chance to receive Thieving Area Unique Item
+* Upgrade: +20% Chance to Double Items in Thieving
 
 Tambourine: Unlocked at skill level 110
-* Mastery Level 1: +5% Farming Yield
-* Mastery Level 40: +5 harvest quantity from Farming (Cannot be doubled or multiplied)
+* Mastery Level 1: +10% Farming Yield
+* Mastery Level 40: +15 harvest quantity from Farming (Cannot be doubled or multiplied)
 * Mastery Level 75: +10% Township GP Production
 * Mastery Level 99: +50% Township Happiness
+* Upgrade: +25% Chance to Double Farming Yield
 
 Trumpet: Unlocked at skill level 115
-* Mastery Level 1: +5% Maximum Hit
-* Mastery Level 40: +10% Lifesteal
-* Mastery Level 75: -0.5s Attack Interval
-* Mastery Level 99: +10% Damage Reduction
+* Mastery Level 1: +5% Accuracy Rating
+* Mastery Level 40: +5% of Maximum Hit added to Minimum Hit
+* Mastery Level 75: +10% Maximum Hit
+* Mastery Level 99: -0.5s Attack Interval
+* Upgrade: +20% chance to apply Decay Curse to the Target per hit
 
 ### Cost to Hire a Bard
 
@@ -350,3 +422,7 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.freepik.com/free-vector/musical-instrument-set_8610228.htm#query=cartoon%20instrument&position=0&from_view=keyword&track=ais">Image by pch.vector on Freepik</a>
 
 <a href="https://www.flaticon.com/free-icons/troubadour">Troubadour icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/sheet-music" title="sheet music icons">Sheet music icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Dragon Icons - Flaticon</a>

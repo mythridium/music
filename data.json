@@ -42,14 +42,58 @@
                     "mythMusic:Generous_Gratuity_Potion_III",
                     "mythMusic:Generous_Gratuity_Potion_IV"
                 ]
+            },
+            {
+                "insertAt": "After",
+                "afterID": "melvorF:Township_Skillcape",
+                "ids": ["mythMusic:Music_Skillcape"]
+            },
+            {
+                "insertAt": "After",
+                "afterID": "melvorTotH:Superior_Township_Skillcape",
+                "ids": ["mythMusic:Superior_Music_Skillcape"]
+            },
+            {
+                "insertAt": "After",
+                "afterID": "melvorF:Star_Gazing_Boots",
+                "ids": [
+                    "mythMusic:Bards_Hat",
+                    "mythMusic:Bards_Body",
+                    "mythMusic:Bards_Leggings",
+                    "mythMusic:Bards_Boots"
+                ]
             }
         ],
         "items": [
             {
+                "itemType": "Item",
+                "id": "Sheet_Music",
+                "name": "Sheet Music",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/sheet-music.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 5000
+            },
+            {
+                "itemType": "Item",
+                "id": "Essence_Of_Music",
+                "name": "Essence of Music",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/essence-of-music.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 500000
+            },
+            {
                 "itemType": "Equipment",
                 "id": "Bards_Hat",
                 "name": "Bards Hat",
-                "category": "Summoning",
+                "category": "Music",
                 "type": "Equipment",
                 "media": "assets/township/skilling-outfit-hat-music.png",
                 "ignoreCompletion": true,
@@ -75,7 +119,7 @@
                 "itemType": "Equipment",
                 "id": "Bards_Body",
                 "name": "Bards Body",
-                "category": "Woodcutting",
+                "category": "Music",
                 "type": "Equipment",
                 "media": "assets/township/skilling-outfit-body-music.png",
                 "ignoreCompletion": true,
@@ -101,7 +145,7 @@
                 "itemType": "Equipment",
                 "id": "Bards_Leggings",
                 "name": "Bards Leggings",
-                "category": "Summoning",
+                "category": "Music",
                 "type": "Equipment",
                 "media": "assets/township/skilling-outfit-leggings-music.png",
                 "ignoreCompletion": true,
@@ -127,7 +171,7 @@
                 "itemType": "Equipment",
                 "id": "Bards_Boots",
                 "name": "Bards Boots",
-                "category": "Summoning",
+                "category": "Music",
                 "type": "Equipment",
                 "media": "assets/township/skilling-outfit-boots-music.png",
                 "ignoreCompletion": true,
@@ -425,6 +469,19 @@
         ],
         "itemUpgrades": [
             {
+                "upgradedItemID": "mythMusic:Essence_Of_Music",
+                "gpCost": 1000000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 50
+                    }
+                ],
+                "rootItemIDs": ["mythMusic:Sheet_Music"],
+                "isDowngrade": false
+            },
+            {
                 "upgradedItemID": "mythMusic:Generous_Gratuity_Potion_II",
                 "gpCost": 0,
                 "scCost": 0,
@@ -465,6 +522,46 @@
             }
         ],
         "shopPurchases": [
+            {
+                "id": "Band_Practice",
+                "media": "assets/band-practice.png",
+                "category": "melvorD:General",
+                "contains": {
+                    "items": [],
+                    "modifiers": {
+                        "increasedBardHireLimit": 1
+                    }
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 1000000000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": false,
+                "unlockRequirements": [],
+                "purchaseRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 110
+                    }
+                ],
+                "defaultBuyLimit": 1,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false,
+                "customName": "Band Practice",
+                "customDescription": "Unlock the ability to hire 2 different bards in Music."
+            },
             {
                 "id": "Music_Skillcape",
                 "media": "assets/music-skillcape.png",
@@ -742,6 +839,11 @@
                     "mythMusic:Bards_Leggings",
                     "mythMusic:Bards_Boots"
                 ]
+            },
+            {
+                "insertAt": "After",
+                "afterID": "melvorD:Multi_Tree",
+                "ids": ["mythMusic:Band_Practice"]
             }
         ],
         "pets": [
@@ -769,6 +871,15 @@
                 "data": {
                     "pets": ["mythMusic:Muse"],
                     "rareDrops": [
+                        {
+                            "itemID": "mythMusic:Sheet_Music",
+                            "quantity": 1,
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.1
+                            }
+                        },
                         {
                             "itemID": "melvorD:Gold_Topaz_Ring",
                             "altItemID": "melvorD:Signet_Ring_Half_A",
@@ -816,7 +927,7 @@
                     "masteryLevelUnlocks": [
                         {
                             "level": "1",
-                            "description": "Each level provides +15 GP acquired for this instrument only."
+                            "description": "Each level provides +10 GP acquired for this instrument only."
                         },
                         {
                             "level": "1",
@@ -849,8 +960,8 @@
                             "name": "Guitar",
                             "media": "assets/instruments/guitar.png",
                             "baseInterval": 3000,
-                            "baseExperience": 7,
-                            "maxGP": 150,
+                            "baseExperience": 5,
+                            "maxGP": 141,
                             "productId": "mythMusic:Guitar",
                             "level": 1,
                             "skills": ["melvorD:Woodcutting", "melvorD:Firemaking"],
@@ -876,6 +987,11 @@
                                     "level": 99,
                                     "key": "increasedMinBirdNestQuantity",
                                     "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "freeBonfires",
+                                    "value": 1
                                 }
                             ]
                         },
@@ -884,10 +1000,10 @@
                             "name": "Drum",
                             "media": "assets/instruments/drum.png",
                             "baseInterval": 3000,
-                            "baseExperience": 19,
-                            "maxGP": 150,
+                            "baseExperience": 13,
+                            "maxGP": 182,
                             "productId": "mythMusic:Drum",
-                            "level": 15,
+                            "level": 10,
                             "skills": ["melvorD:Fishing", "melvorD:Cooking"],
                             "modifiers": [
                                 {
@@ -911,6 +1027,11 @@
                                     "level": 99,
                                     "key": "decreasedPassiveCookInterval",
                                     "value": 30
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedFishingCookedChance",
+                                    "value": 25
                                 }
                             ]
                         },
@@ -919,10 +1040,10 @@
                             "name": "Banjo",
                             "media": "assets/instruments/banjo.png",
                             "baseInterval": 3000,
-                            "baseExperience": 33,
-                            "maxGP": 150,
+                            "baseExperience": 21,
+                            "maxGP": 223,
                             "productId": "mythMusic:Banjo",
-                            "level": 30,
+                            "level": 20,
                             "skills": ["melvorD:Mining", "melvorD:Smithing"],
                             "modifiers": [
                                 {
@@ -946,46 +1067,87 @@
                                     "level": 99,
                                     "key": "doubleOresMining",
                                     "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "doubleRuneEssenceMining",
+                                    "value": 2
                                 }
                             ]
                         },
                         {
-                            "id": "Saxophone",
-                            "name": "Saxophone",
-                            "media": "assets/instruments/saxophone.png",
+                            "id": "Accordion",
+                            "name": "Accordion",
+                            "media": "assets/instruments/accordion.png",
                             "baseInterval": 3000,
-                            "baseExperience": 43,
-                            "maxGP": 150,
-                            "productId": "mythMusic:Saxophone",
-                            "level": 45,
-                            "skills": [
-                                "melvorD:Attack",
-                                "melvorD:Strength",
-                                "melvorD:Defence",
-                                "melvorD:Hitpoints",
-                                "melvorD:Ranged",
-                                "melvorD:Magic"
-                            ],
+                            "baseExperience": 29,
+                            "maxGP": 264,
+                            "productId": "mythMusic:Accordion",
+                            "level": 30,
+                            "skills": ["melvorD:Hitpoints"],
                             "modifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedGlobalAccuracy",
+                                    "key": "increasedHitpointRegeneration",
                                     "value": 5
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedGlobalEvasion",
-                                    "value": 5
+                                    "key": "increasedAutoEatEfficiency",
+                                    "value": 15
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedMinHitBasedOnMaxHit",
+                                    "key": "increasedChanceToDoubleLootCombat",
                                     "value": 10
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedFlatMaxHitpoints",
-                                    "value": 5
+                                    "key": "decreasedEnemyDamageReduction",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedAutoEatThreshold",
+                                    "value": 10
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Bouzouki",
+                            "name": "Bouzouki",
+                            "media": "assets/instruments/bouzouki.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 37,
+                            "maxGP": 305,
+                            "productId": "mythMusic:Bouzouki",
+                            "level": 40,
+                            "skills": ["melvorD:Woodcutting", "melvorD:Mining", "melvorD:Firemaking"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedGlobalPreservationChance",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedGPGlobal",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedChanceToDoubleItemsGlobal",
+                                    "value": 15
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedOffItemChance",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedGPFromSales",
+                                    "value": 15
                                 }
                             ]
                         },
@@ -994,10 +1156,10 @@
                             "name": "Maraca",
                             "media": "assets/instruments/maraca.png",
                             "baseInterval": 3000,
-                            "baseExperience": 57,
-                            "maxGP": 150,
+                            "baseExperience": 45,
+                            "maxGP": 346,
                             "productId": "mythMusic:Maraca",
-                            "level": 60,
+                            "level": 50,
                             "skills": ["melvorD:Fletching", "melvorD:Crafting"],
                             "modifiers": [
                                 {
@@ -1023,6 +1185,88 @@
                                     "key": "doubleItemsSkill",
                                     "skill": "melvorD:Crafting",
                                     "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedJavelinProduction",
+                                    "value": 2
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Xylophone",
+                            "name": "Xylophone",
+                            "media": "assets/instruments/xylophone.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 53,
+                            "maxGP": 387,
+                            "productId": "mythMusic:Xylophone",
+                            "level": 60,
+                            "skills": ["melvorD:Agility"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedAgilityObstacleCost",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedGPFromAgility",
+                                    "value": 15
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedSkillIntervalPercent",
+                                    "skill": "melvorD:Agility",
+                                    "value": 15
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "decreasedAgilityPillarCost",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedGPFromAgilityPerActiveObstacle",
+                                    "value": 25
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Saxophone",
+                            "name": "Saxophone",
+                            "media": "assets/instruments/saxophone.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 61,
+                            "maxGP": 428,
+                            "productId": "mythMusic:Saxophone",
+                            "level": 70,
+                            "skills": ["melvorD:Defence", "melvorD:Hitpoints"],
+                            "modifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedGlobalEvasion",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedLifesteal",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedFlatMaxHitpoints",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedDamageReduction",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedMaxHitpoints",
+                                    "value": 5
                                 }
                             ]
                         },
@@ -1031,10 +1275,10 @@
                             "name": "Violin",
                             "media": "assets/instruments/violin.png",
                             "baseInterval": 3000,
-                            "baseExperience": 67,
-                            "maxGP": 150,
+                            "baseExperience": 69,
+                            "maxGP": 469,
                             "productId": "mythMusic:Violin",
-                            "level": 75,
+                            "level": 80,
                             "skills": ["melvorD:Runecrafting", "melvorD:Prayer"],
                             "modifiers": [
                                 {
@@ -1056,6 +1300,11 @@
                                     "level": 99,
                                     "key": "increasedFlatPrayerCostReduction",
                                     "value": 3
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceForElementalRune",
+                                    "value": 50
                                 }
                             ]
                         },
@@ -1064,31 +1313,37 @@
                             "name": "Bongo",
                             "media": "assets/instruments/bongo.png",
                             "baseInterval": 3000,
-                            "baseExperience": 87,
-                            "maxGP": 150,
+                            "baseExperience": 81,
+                            "maxGP": 510,
                             "productId": "mythMusic:Bongo",
                             "level": 90,
-                            "skills": ["melvorD:Agility", "melvorD:Slayer"],
+                            "skills": ["melvorD:Slayer"],
                             "modifiers": [
                                 {
                                     "level": 1,
-                                    "key": "decreasedAgilityObstacleCost",
-                                    "value": 10
+                                    "key": "decreasedSlayerTaskMonsterAccuracy",
+                                    "value": 5
                                 },
                                 {
                                     "level": 40,
-                                    "key": "decreasedAgilityPillarCost",
+                                    "key": "increasedDamageToSlayerTasks",
                                     "value": 10
                                 },
                                 {
                                     "level": 75,
                                     "key": "increasedSlayerCoins",
-                                    "value": 15
+                                    "value": 40
                                 },
                                 {
                                     "level": 99,
                                     "key": "increasedSlayerAreaEffectNegationFlat",
-                                    "value": 10
+                                    "value": 25
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedSkillXP",
+                                    "skill": "melvorD:Slayer",
+                                    "value": 20
                                 }
                             ]
                         },
@@ -1098,21 +1353,21 @@
                             "media": "assets/instruments/french-horn.png",
                             "baseInterval": 3000,
                             "baseExperience": 155,
-                            "maxGP": 150,
+                            "maxGP": 551,
                             "productId": "mythMusic:French_Horn",
                             "level": 100,
                             "skills": ["melvorD:Summoning", "melvorD:Astrology"],
                             "modifiers": [
                                 {
                                     "level": 1,
-                                    "key": "decreasedSkillInterval",
-                                    "skill": "melvorD:Astrology",
-                                    "value": 500
+                                    "key": "increasedChanceToFindMeteorite",
+                                    "value": 5
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedChanceToFindMeteorite",
-                                    "value": 5
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Astrology",
+                                    "value": 500
                                 },
                                 {
                                     "level": 75,
@@ -1124,6 +1379,11 @@
                                     "level": 99,
                                     "key": "increasedSummoningCreationCharges",
                                     "value": 15
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedSummoningMaxHit",
+                                    "value": 35
                                 }
                             ]
                         },
@@ -1133,7 +1393,7 @@
                             "media": "assets/instruments/harp.png",
                             "baseInterval": 3000,
                             "baseExperience": 235,
-                            "maxGP": 150,
+                            "maxGP": 592,
                             "productId": "mythMusic:Harp",
                             "level": 105,
                             "skills": ["melvorD:Thieving", "melvorD:Herblore"],
@@ -1158,6 +1418,12 @@
                                     "level": 99,
                                     "key": "increasedThievingAreaUniqueChance",
                                     "value": 15
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceToDoubleItemsSkill",
+                                    "skill": "melvorD:Thieving",
+                                    "value": 20
                                 }
                             ]
                         },
@@ -1167,7 +1433,7 @@
                             "media": "assets/instruments/tambourine.png",
                             "baseInterval": 3000,
                             "baseExperience": 335,
-                            "maxGP": 150,
+                            "maxGP": 633,
                             "productId": "mythMusic:Tambourine",
                             "level": 110,
                             "skills": ["melvorD:Township", "melvorD:Farming"],
@@ -1175,12 +1441,12 @@
                                 {
                                     "level": 1,
                                     "key": "increasedFarmingYield",
-                                    "value": 5
+                                    "value": 10
                                 },
                                 {
                                     "level": 40,
                                     "key": "increasedFlatFarmingYield",
-                                    "value": 5
+                                    "value": 15
                                 },
                                 {
                                     "level": 75,
@@ -1191,6 +1457,11 @@
                                     "level": 99,
                                     "key": "increasedTownshipHappiness",
                                     "value": 50
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceDoubleHarvest",
+                                    "value": 25
                                 }
                             ]
                         },
@@ -1200,37 +1471,35 @@
                             "media": "assets/instruments/trumpet.png",
                             "baseInterval": 3000,
                             "baseExperience": 475,
-                            "maxGP": 150,
+                            "maxGP": 680,
                             "productId": "mythMusic:Trumpet",
                             "level": 115,
-                            "skills": [
-                                "melvorD:Attack",
-                                "melvorD:Strength",
-                                "melvorD:Defence",
-                                "melvorD:Hitpoints",
-                                "melvorD:Ranged",
-                                "melvorD:Magic"
-                            ],
+                            "skills": ["melvorD:Attack", "melvorD:Strength", "melvorD:Ranged", "melvorD:Magic"],
                             "modifiers": [
                                 {
-                                    "level": 1,
-                                    "key": "increasedMaxHitPercent",
+                                    "level": 40,
+                                    "key": "increasedGlobalAccuracy",
                                     "value": 5
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedLifesteal",
-                                    "value": 10
+                                    "key": "increasedMinHitBasedOnMaxHit",
+                                    "value": 5
                                 },
                                 {
                                     "level": 75,
+                                    "key": "increasedMaxHitPercent",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 99,
                                     "key": "decreasedAttackInterval",
                                     "value": 500
                                 },
                                 {
-                                    "level": 99,
-                                    "key": "increasedDamageReduction",
-                                    "value": 10
+                                    "level": 999,
+                                    "key": "increasedChanceToApplyDecayCurse",
+                                    "value": 20
                                 }
                             ]
                         }

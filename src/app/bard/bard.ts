@@ -1,61 +1,82 @@
-import { Instrument, Music } from '../music/music';
+import { BardModifiers, Instrument, Music } from '../music/music';
 import './bard.scss';
 
-interface BardModifiers {
-    description: string;
-    isActive: boolean;
-    level: number;
-}
-
-export interface IBardComponent extends ComponentProps {
-    $template: string;
-    bard: {};
-    modifiers: BardModifiers[];
-    setBard: (instrument: Instrument) => void;
-    updateModifiers: () => BardModifiers[];
-    getModifiers: (instrument: Instrument) => BardModifiers[];
-}
-
-export function BardComponent(music: Music, game: Game): IBardComponent {
+export function BardComponent(music: Music, game: Game) {
     return {
         $template: '#myth-music-bard',
-        bard: {},
+        bard: {} as Instrument,
+        isEnabled: false,
+        isUpgraded: false,
         modifiers: [] as BardModifiers[],
-        setBard: function (instrument: Instrument) {
+        essenceIcon: function () {
+            return music.essenceIcon;
+        },
+        setBard: function (instrument: Instrument, isUpgraded: boolean) {
             this.bard = instrument;
+            this.isUpgraded = isUpgraded;
+        },
+        updateEnabled: function (enabled: boolean) {
+            this.isEnabled = enabled;
         },
         updateModifiers: function () {
-            if (!this.bard.id) {
-                return [] as BardModifiers[];
-            }
-
-            this.modifiers = this.getModifiers(this.bard);
+            this.modifiers = music.getBardModifiers(this.bard);
         },
-        getModifiers: function (instrument: Instrument) {
-            if (!instrument.id) {
-                return [] as BardModifiers[];
-            }
+        upgrade: function () {
+            const upgradeItem = game.items.getObjectByID('mythMusic:Essence_Of_Music');
+            const canAfford = game.bank.getQty(upgradeItem) > 0;
 
-            return instrument.modifiers.map((modifier: any) => {
-                let description = '';
+            if (!canAfford) {
+                let html = `
+                    <h5 class="font-w400 text-combat-smoke font-size-sm mb-2">You do not have enough materials to upgrade this bards instrument.</h5>
+                    <h5 class="mt-2">
+                        <span class="text-danger">1</span>
+                        <img class="skill-icon-xs ml-2 mr-1" src="${upgradeItem.media}" />
+                        <span class="text-danger">${upgradeItem.name}</span>
+                    </h5>
+                `;
 
-                if ('skill' in modifier) {
-                    const mod = { ...modifier };
-                    mod.skill = game.skills.find(skill => skill.id === modifier.skill);
-                    [description] = printPlayerModifier(modifier.key, mod);
-                } else {
-                    [description] = printPlayerModifier(modifier.key, modifier.value);
+                const modifiers = music.getHiddenModifierDescriptions(this.bard);
+
+                for (const modifier of modifiers) {
+                    html += `<div><small><span class="myth-text-grey">${modifier}</span></small></div>`;
                 }
 
-                const bard = music.actions.find(action => action.id === instrument.id);
-                const masteryLevel = music.getMasteryLevel(bard);
+                SwalLocale.fire({
+                    html,
+                    showCancelButton: false,
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                });
+            } else {
+                let html = `
+                    <h5 class="font-w400 text-combat-smoke font-size-sm mb-2">Would you like to upgrade this bards instrument?</h5>
+                    <h5 class="mt-2">
+                        <span class="text-success">1</span>
+                        <img class="skill-icon-xs ml-2 mr-1" src="${upgradeItem.media}" />
+                        <span class="text-success">${upgradeItem.name}</span>
+                    </h5>
+                `;
 
-                return {
-                    description,
-                    isActive: masteryLevel >= modifier.level,
-                    level: modifier.level
-                };
-            });
+                const modifiers = music.getHiddenModifierDescriptions(this.bard);
+
+                for (const modifier of modifiers) {
+                    html += `<div><small><span class="text-success">${modifier}</span></small></div>`;
+                }
+
+                SwalLocale.fire({
+                    html,
+                    showCancelButton: true,
+                    icon: 'info',
+                    confirmButtonText: 'Upgrade'
+                }).then(result => {
+                    if (result.isConfirmed) {
+                        game.bank.removeItemQuantity(upgradeItem, 1, true);
+                        this.isUpgraded = true;
+                        music.upgrade(this.bard);
+                        this.updateModifiers();
+                    }
+                });
+            }
         }
     };
 }
