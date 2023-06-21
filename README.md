@@ -10,52 +10,6 @@ Note: I've checked Android and iOS to maximize people giving this skill a go, ho
 
 ![Music](images/music.png)
 
-## Training
-
-Music is a brand new skill which combines themes from Astrology, Thieving and Agility. It provides an easy way to obtain gold and powerful bonuses that benefit other skills.
-
-Earn tips (GP) while you train bards with various instruments, then hire the bards you have trained to provide you with powerful bonuses while you train other skills.
-
-This mod includes a new mastery token for the skill and both skill cape and superior skill cape.
-
-### Drops
-
-While training you have a chance to obtain Signet Ring Half A, Circlet of Rhaelyx and Mysterious Stones, just like any other non combat skill.
-
-Tips (GP) earned while training do scale with global gold increases.
-
-### Sheet Music and Essence of Music
-
-Training Music has a 1/100 chance to drop sheet music, these can be upgraded into Essence of Music for 50 Sheet Music + 1M GP.
-
-![Items](images/items.png)
-
-![Upgrade](images/essence-of-music-upgrade.png)
-
-1 Essence of Music is used to upgrade Hired Bard instruments, which unlocks a 5th modifier.
-
-Upgrades are destroyed if you hire a new bard. Re-hiring a previously hired bard will require using another Essence of Music to unlock the upgrade modifier.
-
-![Upgrade](images/upgrade-bard-instrument.png)
-
-## Hiring a Bard
-
-You can hire various bards to play on your behalf. These bards provide powerful bonuses to help you while you train other skills, however the more skilled a bard is, the more expensive it will become to hire them.
-
-You can only hire a single bard at a time.
-
-The cost of hiring a bard grows exponentially more expensive per mastery level.
-
-![Hire a Bard](images/hire-bard.png)
-
-## Band Practice
-
-The shop sells an upgrade which unlocks a second bard slot. This upgrade requires Level 110 Music and costs 1B GP.
-
-![Band Practice](images/band-practice.png)
-
-![Double Bard](images/double-bard.png)
-
 ## Design Methodology
 
 When designing this skill, my aims were to take pressure off early game gold, while also providing a late game gold siphon. This makes it an attractive early game skill for adventure mode, and late game, especially once Township is up and running, the buffs are designed to be powerful enough that spending the gold is deemed worth it. By limiting to only one bard, the player will need to spend their masses of gold to get the bonuses for the skills they are training.
@@ -118,6 +72,52 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 ### 1.0.0
 
 * initial release
+
+## Training
+
+Music is a brand new skill which combines themes from Astrology, Thieving and Agility. It provides an easy way to obtain gold and powerful bonuses that benefit other skills.
+
+Earn tips (GP) while you train bards with various instruments, then hire the bards you have trained to provide you with powerful bonuses while you train other skills.
+
+This mod includes a new mastery token for the skill and both skill cape and superior skill cape.
+
+### Drops
+
+While training you have a chance to obtain Signet Ring Half A, Circlet of Rhaelyx and Mysterious Stones, just like any other non combat skill.
+
+Tips (GP) earned while training do scale with global gold increases.
+
+### Sheet Music and Essence of Music
+
+Training Music has a 1/100 chance to drop sheet music, these can be upgraded into Essence of Music for 50 Sheet Music + 1M GP.
+
+![Items](images/items.png)
+
+![Upgrade](images/essence-of-music-upgrade.png)
+
+1 Essence of Music is used to upgrade Hired Bard instruments, which unlocks a 5th modifier.
+
+Upgrades are destroyed if you hire a new bard. Re-hiring a previously hired bard will require using another Essence of Music to unlock the upgrade modifier.
+
+![Upgrade](images/upgrade-bard-instrument.png)
+
+## Hiring a Bard
+
+You can hire various bards to play on your behalf. These bards provide powerful bonuses to help you while you train other skills, however the more skilled a bard is, the more expensive it will become to hire them.
+
+You can only hire a single bard at a time.
+
+The cost of hiring a bard grows exponentially more expensive per mastery level.
+
+![Hire a Bard](images/hire-bard.png)
+
+## Band Practice
+
+The shop sells an upgrade which unlocks a second bard slot. This upgrade requires Level 110 Music and costs 1B GP.
+
+![Band Practice](images/band-practice.png)
+
+![Double Bard](images/double-bard.png)
 
 ## Skill Unlocks
 
