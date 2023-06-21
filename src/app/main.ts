@@ -1,5 +1,5 @@
-import { BardComponent } from './bard/bard';
-import { InstrumentComponent } from './instrument/instrument';
+import { BardComponent } from './music/bard/bard';
+import { InstrumentComponent } from './music/instrument/instrument';
 import { MusicActionEventMatcher, MusicActionEventMatcherOptions } from './music/event';
 import { MythModifiers } from './music/modifiers';
 import { Music } from './music/music';
@@ -18,8 +18,8 @@ export class App {
 
     public async init() {
         await this.context.loadTemplates('music/music.html');
-        await this.context.loadTemplates('instrument/instrument.html');
-        await this.context.loadTemplates('bard/bard.html');
+        await this.context.loadTemplates('music/instrument/instrument.html');
+        await this.context.loadTemplates('music/bard/bard.html');
 
         this.patchEventManager();
         this.initModifiers();

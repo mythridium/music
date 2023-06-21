@@ -1,5 +1,5 @@
-import { BardComponent } from '../bard/bard';
-import { InstrumentComponent } from '../instrument/instrument';
+import { BardComponent } from './bard/bard';
+import { InstrumentComponent } from './instrument/instrument';
 import { MusicActionEvent } from './event';
 import './music.scss';
 

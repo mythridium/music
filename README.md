@@ -12,7 +12,7 @@ Note: I've checked Android and iOS to maximize people giving this skill a go, ho
 
 ## Design Methodology
 
-When designing this skill, my aims were to take pressure off early game gold, while also providing a late game gold siphon. This makes it an attractive early game skill for adventure mode, and late game, especially once Township is up and running, the buffs are designed to be powerful enough that spending the gold is deemed worth it. By limiting to only one bard, the player will need to spend their masses of gold to get the bonuses for the skills they are training.
+When designing this skill, my aims were to take pressure off early game gold, while also providing a late game gold siphon. This makes it an attractive early game skill for adventure mode, and late game, especially once Township is up and running, the buffs are designed to be powerful enough that spending the gold is deemed worth it. By limiting to only a couple of bards, the player will need to spend their masses of gold to get the bonuses for the skills they are training.
 
 ## Change Log
 
@@ -105,7 +105,7 @@ Upgrades are destroyed if you hire a new bard. Re-hiring a previously hired bard
 
 You can hire various bards to play on your behalf. These bards provide powerful bonuses to help you while you train other skills, however the more skilled a bard is, the more expensive it will become to hire them.
 
-You can only hire a single bard at a time.
+You can only hire a single bard at a time (two if you purchase the Band Practice upgrade).
 
 The cost of hiring a bard grows exponentially more expensive per mastery level.
 

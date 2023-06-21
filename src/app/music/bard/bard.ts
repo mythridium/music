@@ -1,4 +1,4 @@
-import { BardModifiers, Instrument, Music } from '../music/music';
+import { BardModifiers, Instrument, Music } from '../music';
 import './bard.scss';
 
 export function BardComponent(music: Music, game: Game) {

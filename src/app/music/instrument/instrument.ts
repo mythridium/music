@@ -1,4 +1,4 @@
-import { Instrument, Music } from '../music/music';
+import { Instrument, Music } from '../music';
 import './instrument.scss';
 
 export function InstrumentComponent(music: Music, instrument: Instrument, game: Game) {
