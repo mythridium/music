@@ -1,4 +1,6 @@
-import { BardModifiers, Instrument, Music } from '../music';
+import { Instrument, Music } from '../music';
+import { BardModifier } from '../music.types';
+
 import './bard.scss';
 
 export function BardComponent(music: Music, game: Game) {
@@ -7,9 +9,9 @@ export function BardComponent(music: Music, game: Game) {
         bard: {} as Instrument,
         isEnabled: false,
         isUpgraded: false,
-        modifiers: [] as BardModifiers[],
+        modifiers: [] as BardModifier[],
         essenceIcon: function () {
-            return music.essenceIcon;
+            return music.manager.essenceOfMusicIcon;
         },
         setBard: function (instrument: Instrument, isUpgraded: boolean) {
             this.bard = instrument;
@@ -19,7 +21,7 @@ export function BardComponent(music: Music, game: Game) {
             this.isEnabled = enabled;
         },
         updateModifiers: function () {
-            this.modifiers = music.getBardModifiers(this.bard);
+            this.modifiers = music.manager.getModifiers(this.bard);
         },
         upgrade: function () {
             const upgradeItem = game.items.getObjectByID('mythMusic:Essence_Of_Music');
@@ -35,10 +37,10 @@ export function BardComponent(music: Music, game: Game) {
                     </h5>
                 `;
 
-                const modifiers = music.getHiddenModifierDescriptions(this.bard);
+                const modifiers = music.manager.getModifiers(this.bard).filter(modifier => modifier.isUpgrade);
 
                 for (const modifier of modifiers) {
-                    html += `<div><small><span class="myth-text-grey">${modifier}</span></small></div>`;
+                    html += `<div><small><span class="myth-text-grey">${modifier.description}</span></small></div>`;
                 }
 
                 SwalLocale.fire({
@@ -57,10 +59,10 @@ export function BardComponent(music: Music, game: Game) {
                     </h5>
                 `;
 
-                const modifiers = music.getHiddenModifierDescriptions(this.bard);
+                const modifiers = music.manager.getModifiers(this.bard).filter(modifier => modifier.isUpgrade);
 
                 for (const modifier of modifiers) {
-                    html += `<div><small><span class="text-success">${modifier}</span></small></div>`;
+                    html += `<div><small><span class="text-success">${modifier.description}</span></small></div>`;
                 }
 
                 SwalLocale.fire({

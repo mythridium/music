@@ -18,7 +18,7 @@ export interface MusicActionEventMatcherOptions extends SkillActionEventMatcherO
 
 export class MusicActionEventMatcher extends SkillActionEventMatcher {
     /** If present, the recipe of the action must match a member */
-    actions?: Set<Instrument>;
+    public actions?: Set<Instrument>;
 
     constructor(options: MusicActionEventMatcherOptions, game: Game) {
         super(options, game);
@@ -29,7 +29,7 @@ export class MusicActionEventMatcher extends SkillActionEventMatcher {
         }
     }
 
-    doesEventMatch(event: GameEvent): boolean {
+    public doesEventMatch(event: GameEvent): boolean {
         return (
             event instanceof MusicActionEvent &&
             (this.actions === undefined || this.actions.has(event.action)) &&

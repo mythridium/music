@@ -1,11 +1,10 @@
-import { BardComponent } from './music/bard/bard';
-import { InstrumentComponent } from './music/instrument/instrument';
 import { MusicActionEventMatcher, MusicActionEventMatcherOptions } from './music/event';
 import { MythModifiers } from './music/modifiers';
 import { Music } from './music/music';
 import { MythHerblore } from './herblore/herblore';
 import { MythSummoning } from './summoning/summoning';
 import { MythTownship } from './township/township';
+import { UserInterface } from './music/user-interface';
 
 declare global {
     interface Game {
@@ -32,7 +31,7 @@ export class App {
         this.initSummoning();
         this.initTownship();
 
-        this.initUI(music);
+        music.userInterface = this.initInterface(music);
     }
 
     private patchEventManager() {
@@ -73,28 +72,11 @@ export class App {
         township.registerTraderItems();
     }
 
-    private initUI(music: Music) {
-        this.context.onInterfaceAvailable(async () => {
-            const mainContainer = document.getElementById('main-container');
-            mainContainer.append(...music.elements());
+    private initInterface(music: Music) {
+        const userInterface = new UserInterface(this.context, music);
 
-            const instrumentContainer = document.getElementById('instruments-container');
+        userInterface.init();
 
-            music.actions.forEach(instrument => {
-                const component = InstrumentComponent(music, instrument, game);
-                ui.create(component, instrumentContainer);
-                music.instruments.set(instrument, component);
-            });
-
-            const bardContainer = document.getElementById('bard-container');
-
-            const bard1 = BardComponent(music, game);
-            ui.create(bard1, bardContainer);
-            music.bardComponent = bard1;
-
-            const bard2 = BardComponent(music, game);
-            ui.create(bard2, bardContainer);
-            music.bard2Component = bard2;
-        });
+        return userInterface;
     }
 }
