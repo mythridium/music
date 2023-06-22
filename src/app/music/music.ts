@@ -2,11 +2,12 @@ import { MusicActionEvent } from './event';
 import { UserInterface } from './user-interface';
 import { MusicManager } from './manager';
 import { InstrumentData, InstrumentModifier, MusicSkillData } from './music.types';
+import { Decoder } from './decoder';
 
 import './music.scss';
 
 export class Music extends GatheringSkill<Instrument, MusicSkillData> {
-    public readonly version = 1;
+    public readonly version = 2;
     public readonly _media = 'assets/instruments/guitar.png';
     public readonly renderQueue = new MusicRenderQueue();
 
@@ -30,9 +31,9 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public registerData(namespace: DataNamespace, data: MusicSkillData) {
         super.registerData(namespace, data);
 
-        data.instruments.forEach(instrument => {
+        for (const instrument of data.instruments) {
             this.actions.registerObject(new Instrument(namespace, instrument));
-        });
+        }
 
         loadedLangJson['MASTERY_CHECKPOINT_Music_0'] = '+3% increased Music Skill XP';
         loadedLangJson['MASTERY_CHECKPOINT_Music_1'] = '+5% increased Music Mastery XP';
@@ -240,11 +241,13 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
     public onLevelUp(oldLevel: number, newLevel: number) {
         super.onLevelUp(oldLevel, newLevel);
+
         this.renderQueue.visibleInstruments = true;
     }
 
     public onMasteryLevelUp(action: Instrument, oldLevel: number, newLevel: number): void {
         super.onMasteryLevelUp(action, oldLevel, newLevel);
+
         this.renderQueue.gpRange = true;
         this.renderQueue.bardModifiers = true;
 
@@ -255,6 +258,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
     public onModifierChange() {
         super.onModifierChange();
+
         this.renderQueue.grants = true;
         this.renderQueue.gpRange = true;
         this.renderQueue.bardModifiers = true;
@@ -349,10 +353,12 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                 component.instrument,
                 this.getInstrumentInterval(component.instrument)
             );
+
             const baseMasteryXP = this.getBaseMasteryXPToAddForAction(
                 component.instrument,
                 this.getInstrumentInterval(component.instrument)
             );
+
             const poolXP = this.getMasteryXPToAddToPool(masteryXP);
 
             component.updateGrants(
@@ -385,7 +391,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             return;
         }
 
-        this.userInterface.bard1.updateEnabled(true);
+        this.userInterface.bard1.updateEnabled(true); // Bard 1 is always available.
         this.userInterface.bard2.updateEnabled(this.manager.isBandPracticeUnlocked);
 
         this.userInterface.bard1.updateModifiers();
@@ -461,7 +467,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public encode(writer: SaveWriter): SaveWriter {
         super.encode(writer);
 
-        writer.writeString(`mythMusicVersion:${this.version}:`);
+        writer.writeUint32(this.version);
         writer.writeBoolean(this.activeInstrument !== undefined);
 
         if (this.activeInstrument) {
@@ -486,83 +492,11 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     }
 
     public decode(reader: SaveWriter, version: number): void {
-        let start = reader.byteOffset;
+        super.decode(reader, version);
 
-        try {
-            super.decode(reader, version);
+        const decoder = new Decoder(this, reader.byteOffset);
 
-            const preVersionBytes = reader.byteOffset;
-            const skillVersionString = reader.getString();
-            const skillVersion = this.getVersion(skillVersionString);
-
-            if (!skillVersion) {
-                reader.byteOffset = preVersionBytes;
-            }
-
-            if (reader.getBoolean()) {
-                const instrument = reader.getNamespacedObject(this.actions);
-                if (typeof instrument === 'string' || instrument.level > this.level) {
-                    this.shouldResetAction = true;
-                } else {
-                    this.activeInstrument = instrument;
-                }
-            }
-
-            if (reader.getBoolean()) {
-                const instrument = reader.getNamespacedObject(this.actions);
-
-                if (typeof instrument === 'string' || instrument.level > this.level) {
-                    this.shouldResetAction = true;
-                } else {
-                    this.hiredBard = instrument;
-
-                    if (skillVersion >= 1 && reader.getBoolean()) {
-                        this.isBard1Upgraded = true;
-                    }
-
-                    this.userInterface.bard1.setBard(this.hiredBard, this.isBard1Upgraded);
-                }
-            }
-
-            if (skillVersion >= 1 && reader.getBoolean()) {
-                const instrument = reader.getNamespacedObject(this.actions);
-
-                if (typeof instrument === 'string' || instrument.level > this.level) {
-                    this.shouldResetAction = true;
-                } else {
-                    this.hiredBard2 = instrument;
-
-                    if (reader.getBoolean()) {
-                        this.isBard2Upgraded = true;
-                    }
-
-                    this.userInterface.bard2.setBard(this.hiredBard2, this.isBard2Upgraded);
-                }
-            }
-
-            if (this.shouldResetAction) {
-                this.resetActionState();
-            }
-        } catch (e) {
-            console.log(e);
-            reader.byteOffset = start;
-        }
-    }
-
-    /**
-     * Not a good way of doing this, I should have saved a version since the initial release.
-     * Gotta do it this stupid way now so that I don't brick existing saves.
-     */
-    private getVersion(str: string) {
-        if (str.includes('mythMusicVersion')) {
-            try {
-                return parseInt(str.split('mythMusicVersion:')[1].split(':')[0]);
-            } catch (e) {
-                return 1;
-            }
-        }
-
-        return 0;
+        decoder.decode(reader);
     }
 
     public getActionIDFromOldID(oldActionID: number, idMap: NumericIDMap) {

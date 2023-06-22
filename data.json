@@ -931,7 +931,7 @@
                         },
                         {
                             "level": "1",
-                            "description": "Each level increases the bard hire cost exponentially up to a max of 200m GP."
+                            "description": "Each level increases the bard hire cost up to a max of 200M GP."
                         },
                         {
                             "level": "1",
@@ -1477,7 +1477,7 @@
                             "skills": ["melvorD:Attack", "melvorD:Strength", "melvorD:Ranged", "melvorD:Magic"],
                             "modifiers": [
                                 {
-                                    "level": 40,
+                                    "level": 1,
                                     "key": "increasedGlobalAccuracy",
                                     "value": 5
                                 },
