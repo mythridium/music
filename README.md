@@ -2,11 +2,11 @@
 
 Does not contain actual music. Sorry. :(
 
-Disclaimer: Please backup your save file before installing this mod, preferably importing it into a new save slot. That way if anything happens, or you decide to not want this mod anymore, you can easily uninstall the mod, delete the save, and go back to the existing save from before installing this mod.
+Disclaimer: **Please backup your save file before installing this mod.**
+
+This mod should be safe to install and uninstall at any time, however the game is designed to automatically delete data for mods that aren't loaded. **So if you uninstall this mod and load your save game, the Music data will be deleted by the game.** If you re-install the mod after the data is deleted, the skill will be reset to level 1, including masteries. If you uninstall and re-install without ever loading your save game, the data should be safe and retained.
 
 Please provide any feedback or bug reports, would love to hear your thoughts.
-
-Note: I've checked Android and iOS to maximize people giving this skill a go, however I only have an android phone available and I have NOT tested on mobile, only on Steam and Browser. Let me know if something goes wrong on mobile and I'll try to fix it.
 
 ![Music](images/music.png)
 
