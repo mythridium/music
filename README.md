@@ -16,6 +16,9 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.4.1
+* fixed trumpet mastery level 1 modifier incorrectly requiring mastery level 40
+
 ### 1.4.0
 * reduced tips (GP) scaling from mastery level from +15 GP each level to +10 GP each level, base instrument GP is no longer the same across all instruments, higher level instruments have a higher base GP than lower level instruments. This should hopefully make higher instruments feel a little better, this does result in less GP from lower instruments than the previous version.
 * added three more instruments; the accordion, bouzouki and xylophone
