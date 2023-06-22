@@ -25,6 +25,8 @@ export class UserInterface {
         this.context.onInterfaceAvailable(async () => {
             this.mainContainer.append(...this.music.manager.elements);
 
+            this.modifySkillInfoClass(this.mainContainer);
+
             for (const instrument of this.music.actions.registeredObjects.values()) {
                 const component = InstrumentComponent(this.music, instrument, game);
 
@@ -39,5 +41,23 @@ export class UserInterface {
             ui.create(this.bard1, this.bardContainer);
             ui.create(this.bard2, this.bardContainer);
         });
+    }
+
+    private modifySkillInfoClass(mainContainer: HTMLElement) {
+        // The isMobile function is bugged as it doesn't actually call isAndroid???
+        const isMobile = isIOS() || isAndroid() || location.pathname.includes('index_mobile.php');
+
+        if (!isMobile) {
+            return;
+        }
+
+        const skillInfo = mainContainer.querySelector('#music-container .music-skill-info');
+
+        if (!skillInfo) {
+            return;
+        }
+
+        skillInfo.classList.remove('skill-info');
+        skillInfo.classList.add('skill-info-mobile');
     }
 }

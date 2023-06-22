@@ -16,6 +16,11 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.4.2
+* fixed skill info header not displaying as intended on mobile
+* fixed Aorpheats Signet Ring not providing +100% GP to Music
+* fixed Max Skillcape, Cape of Completion, Superior Max Skillcape and Superior Cape of Completion not inheriting Music Skillcape modifiers (these capes still DO NOT require any Music skill levels, they just inherit the modifiers of the Music skillcapes)
+
 ### 1.4.1
 * fixed trumpet mastery level 1 modifier incorrectly requiring mastery level 40
 

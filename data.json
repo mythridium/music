@@ -15,6 +15,86 @@
                         }
                     ]
                 }
+            },
+            {
+                "id": "melvorD:Aorpheats_Signet_Ring",
+                "modifiers": {
+                    "add": {
+                        "increasedMusicGP": 100
+                    }
+                }
+            },
+            {
+                "id": "melvorF:Max_Skillcape",
+                "modifiers": {
+                    "add": {
+                        "decreasedSkillInterval": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 500
+                            }
+                        ],
+                        "decreasedMusicHireCost": 5,
+                        "increasedMusicGP": 5
+                    }
+                }
+            },
+            {
+                "id": "melvorF:Cape_of_Completion",
+                "modifiers": {
+                    "add": {
+                        "decreasedSkillInterval": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 500
+                            }
+                        ],
+                        "decreasedMusicHireCost": 5,
+                        "increasedMusicGP": 5
+                    }
+                }
+            },
+            {
+                "id": "melvorTotH:Superior_Max_Skillcape",
+                "modifiers": {
+                    "add": {
+                        "decreasedSkillInterval": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 800
+                            }
+                        ],
+                        "decreasedMusicHireCost": 10,
+                        "increasedMusicGP": 10,
+                        "increasedMasteryXP": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 10
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "melvorTotH:Superior_Cape_Of_Completion",
+                "modifiers": {
+                    "add": {
+                        "decreasedSkillInterval": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 800
+                            }
+                        ],
+                        "decreasedMusicHireCost": 10,
+                        "increasedMusicGP": 10,
+                        "increasedMasteryXP": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 10
+                            }
+                        ]
+                    }
+                }
             }
         ]
     },
