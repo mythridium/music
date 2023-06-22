@@ -1,8 +1,6 @@
 import { MusicActionEventMatcher, MusicActionEventMatcherOptions } from './music/event';
 import { MythModifiers } from './music/modifiers';
 import { Music } from './music/music';
-import { MythHerblore } from './herblore/herblore';
-import { MythSummoning } from './summoning/summoning';
 import { MythTownship } from './township/township';
 import { UserInterface } from './music/user-interface';
 
@@ -27,8 +25,6 @@ export class App {
 
         await this.context.gameData.addPackage('data.json');
 
-        this.initHerblore();
-        this.initSummoning();
         this.initTownship();
 
         music.userInterface = this.initInterface(music);
@@ -52,18 +48,6 @@ export class App {
         const modifiers = new MythModifiers();
 
         modifiers.registerModifiers();
-    }
-
-    private initSummoning() {
-        const summoning = new MythSummoning(this.context);
-
-        summoning.register();
-    }
-
-    private initHerblore() {
-        const herblore = new MythHerblore(this.context);
-
-        herblore.registerPotion();
     }
 
     private initTownship() {
