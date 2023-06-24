@@ -115,6 +115,8 @@ Tips (GP) earned while training do scale with global gold increases.
 
 Training Music has a 5% chance to drop sheet music, these are used for hired bard instrument upgrades.
 
+Sheet Music drop chance is a flat 5% and is not modified by any rarity increases, the only other boost to sheet music drop chance is applying Diamond String to your hired bards instrument. With two bards, this means you can get a total of 15% drop chance for Sheet Music.
+
 ![Items](images/items.png)
 
 ## Hired Bard Instrument
