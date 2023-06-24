@@ -142,6 +142,20 @@
                     "mythMusic:Bards_Leggings",
                     "mythMusic:Bards_Boots"
                 ]
+            },
+            {
+                "insertAt": "After",
+                "afterID": "melvorD:Diamond",
+                "ids": [
+                    "mythMusic:Sheet_Music",
+                    "mythMusic:Essence_Of_Music",
+                    "mythMusic:Polished_Topaz_Gem",
+                    "mythMusic:Polished_Ruby_Gem",
+                    "mythMusic:Polished_Sapphire_Gem",
+                    "mythMusic:Diamond_String",
+                    "mythMusic:Pristine_Leather",
+                    "mythMusic:Mystic_Oil"
+                ]
             }
         ],
         "items": [
@@ -155,6 +169,7 @@
                 "ignoreCompletion": true,
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
+                "customDescription": "Used for Music upgrades.",
                 "sellsFor": 5000
             },
             {
@@ -167,7 +182,86 @@
                 "ignoreCompletion": true,
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
+                "customDescription": "Used to upgrade hired bard instruments. Unlocks a 5th modifier when upgraded.",
                 "sellsFor": 500000
+            },
+            {
+                "itemType": "Item",
+                "id": "Polished_Topaz_Gem",
+                "name": "Polished Topaz Gem",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/polished-topaz-gem.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Can be socketed into hired bard instruments. Grants +5% Music GP when socketed.",
+                "sellsFor": 25000
+            },
+            {
+                "itemType": "Item",
+                "id": "Polished_Ruby_Gem",
+                "name": "Polished Ruby Gem",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/polished-ruby-gem.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Can be socketed into hired bard instruments. Grants +5% Music Skill XP when socketed.",
+                "sellsFor": 250000
+            },
+            {
+                "itemType": "Item",
+                "id": "Polished_Sapphire_Gem",
+                "name": "Polished Sapphire Gem",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/polished-sapphire-gem.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Can be socketed into hired bard instruments. Grants +5% Music Mastery XP when socketed.",
+                "sellsFor": 25000
+            },
+            {
+                "itemType": "Item",
+                "id": "Diamond_String",
+                "name": "Diamond String",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/diamond-string.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Can be applied hired bard instruments. Grants +5% Sheet Music drop chance when applied.",
+                "sellsFor": 100000
+            },
+            {
+                "itemType": "Item",
+                "id": "Pristine_Leather",
+                "name": "Pristine Leather",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/pristine-leather.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Can be applied hired bard instruments. Grants -5% Music Interval when applied.",
+                "sellsFor": 100000
+            },
+            {
+                "itemType": "Item",
+                "id": "Mystic_Oil",
+                "name": "Mystic Oil",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/mystic-oil.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Can be applied hired bard instruments. Grants +1 Unlock tier for instrument without needing to meet mastery level when applied.",
+                "sellsFor": 100000
             },
             {
                 "itemType": "Equipment",
@@ -549,19 +643,6 @@
         ],
         "itemUpgrades": [
             {
-                "upgradedItemID": "mythMusic:Essence_Of_Music",
-                "gpCost": 1000000,
-                "scCost": 0,
-                "itemCosts": [
-                    {
-                        "id": "mythMusic:Sheet_Music",
-                        "quantity": 50
-                    }
-                ],
-                "rootItemIDs": ["mythMusic:Sheet_Music"],
-                "isDowngrade": false
-            },
-            {
                 "upgradedItemID": "mythMusic:Generous_Gratuity_Potion_II",
                 "gpCost": 0,
                 "scCost": 0,
@@ -598,6 +679,133 @@
                     }
                 ],
                 "rootItemIDs": ["mythMusic:Generous_Gratuity_Potion_III"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Essence_Of_Music",
+                "gpCost": 1000000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 50
+                    }
+                ],
+                "rootItemIDs": ["mythMusic:Sheet_Music"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Polished_Topaz_Gem",
+                "gpCost": 50000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "melvorD:Topaz",
+                        "quantity": 50
+                    },
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 10
+                    }
+                ],
+                "rootItemIDs": ["melvorD:Topaz"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Polished_Ruby_Gem",
+                "gpCost": 50000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "melvorD:Ruby",
+                        "quantity": 50
+                    },
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 10
+                    }
+                ],
+                "rootItemIDs": ["melvorD:Ruby"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Polished_Sapphire_Gem",
+                "gpCost": 50000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "melvorD:Sapphire",
+                        "quantity": 50
+                    },
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 10
+                    }
+                ],
+                "rootItemIDs": ["melvorD:Sapphire"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Diamond_String",
+                "gpCost": 50000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "melvorD:Bowstring",
+                        "quantity": 100
+                    },
+                    {
+                        "id": "melvorD:Diamond",
+                        "quantity": 100
+                    },
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 50
+                    }
+                ],
+                "rootItemIDs": ["melvorD:Bowstring"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Pristine_Leather",
+                "gpCost": 50000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "melvorD:Leather",
+                        "quantity": 100
+                    },
+                    {
+                        "id": "melvorD:Diamond",
+                        "quantity": 100
+                    },
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 50
+                    }
+                ],
+                "rootItemIDs": ["melvorD:Leather"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Mystic_Oil",
+                "gpCost": 50000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "melvorD:Weird_Gloop",
+                        "quantity": 100
+                    },
+                    {
+                        "id": "melvorD:Diamond",
+                        "quantity": 100
+                    },
+                    {
+                        "id": "mythMusic:Sheet_Music",
+                        "quantity": 50
+                    }
+                ],
+                "rootItemIDs": ["melvorD:Weird_Gloop"],
                 "isDowngrade": false
             }
         ],
@@ -951,15 +1159,6 @@
                 "data": {
                     "pets": ["mythMusic:Muse"],
                     "rareDrops": [
-                        {
-                            "itemID": "mythMusic:Sheet_Music",
-                            "quantity": 1,
-                            "requirements": [],
-                            "chance": {
-                                "type": "Fixed",
-                                "chance": 0.1
-                            }
-                        },
                         {
                             "itemID": "melvorD:Gold_Topaz_Ring",
                             "altItemID": "melvorD:Signet_Ring_Half_A",

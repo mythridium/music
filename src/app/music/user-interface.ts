@@ -1,6 +1,7 @@
 import { BardComponent } from './bard/bard';
 import { InstrumentComponent } from './instrument/instrument';
-import { Instrument, Music } from './music';
+import { Music } from './music';
+import { Instrument } from './music.types';
 
 export class UserInterface {
     public readonly instruments = new Map<Instrument, ReturnType<typeof InstrumentComponent>>();

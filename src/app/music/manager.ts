@@ -1,5 +1,5 @@
-import { Instrument, Music } from './music';
-import { BardModifier, InstrumentModifier, InstrumentSkillModifier } from './music.types';
+import { Music } from './music';
+import { BardModifier, Instrument, InstrumentModifier, InstrumentSkillModifier } from './music.types';
 
 export class MusicManager {
     public get elements() {
@@ -20,20 +20,6 @@ export class MusicManager {
 
     constructor(private readonly music: Music, private readonly game: Game) {}
 
-    public isUpgraded(instrument: Instrument) {
-        const bard = this.music.actions.find(action => action.id === instrument.id);
-
-        if (this.music.userInterface.bard1.bard?.id === bard?.id) {
-            return this.music.isBard1Upgraded;
-        }
-
-        if (this.music.userInterface.bard2.bard?.id === bard?.id) {
-            return this.music.isBard2Upgraded;
-        }
-
-        return false;
-    }
-
     /** Gets modifier metadata. */
     public getModifiers(instrument: Instrument) {
         if (!instrument.id) {
@@ -52,13 +38,9 @@ export class MusicManager {
                 [description] = printPlayerModifier(modifier.key, modifier.value);
             }
 
-            // Need to fetch the exact action to suceed with the mastery level lookup.
-            const bard = this.music.actions.find(action => action.id === instrument.id);
-            const masteryLevel = this.music.getMasteryLevel(bard);
-
             return {
                 description,
-                isActive: masteryLevel >= modifier.level || (this.isUpgraded(bard) && modifier.level === 999),
+                isActive: this.isModifierActive(instrument, modifier),
                 isUpgrade: modifier.level === 999,
                 level: modifier.level
             } as BardModifier;
@@ -71,12 +53,8 @@ export class MusicManager {
             return [];
         }
 
-        const masteryLevel = this.music.getMasteryLevel(instrument);
-
         return instrument.modifiers
-            .filter(
-                modifier => masteryLevel >= modifier.level || (modifier.level === 999 && this.isUpgraded(instrument))
-            )
+            .filter(modifier => this.isModifierActive(instrument, modifier))
             .map(modifier => {
                 if ('skill' in modifier) {
                     return {
@@ -154,6 +132,37 @@ export class MusicManager {
         }
 
         return Math.max(modifier, -95);
+    }
+
+    private isModifierActive(instrument: Instrument, modifier: InstrumentModifier) {
+        instrument = this.music.actions.find(action => action.id === instrument.id);
+
+        const masteryLevel = this.music.getMasteryLevel(instrument);
+        const bard = this.music.bards.get(instrument);
+
+        if (bard?.utility?.id === 'mythMusic:Mystic_Oil') {
+            const validModifiers: InstrumentModifier[] = [];
+
+            for (const bardModifier of bard.instrument.modifiers) {
+                if (bardModifier.level <= masteryLevel) {
+                    validModifiers.push(bardModifier);
+                    continue;
+                }
+
+                if (bardModifier.level > masteryLevel && bardModifier.level !== 999) {
+                    validModifiers.push(bardModifier);
+                    break;
+                }
+            }
+
+            const doesExist = validModifiers.find(validModifier => validModifier.key === modifier.key);
+
+            if (doesExist) {
+                return true;
+            }
+        }
+
+        return masteryLevel >= modifier.level || (bard?.isUpgraded && modifier.level === 999);
     }
 
     private isSkillModifier(modifier: InstrumentModifier): modifier is InstrumentSkillModifier {

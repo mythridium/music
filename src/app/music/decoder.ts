@@ -1,10 +1,12 @@
 import { Music } from './music';
+import { HiredBard } from './music.types';
 
 export class Decoder {
     constructor(private readonly music: Music, private readonly start: number) {}
 
     public decode(reader: SaveWriter) {
         const saveVersions = [
+            this.loadSaveFactory(() => this.version3(reader)),
             this.loadSaveFactory(() => this.version2(reader)),
             this.loadSaveFactory(() => this.version1(reader)),
             this.loadSaveFactory(() => this.version0(reader))
@@ -55,8 +57,17 @@ export class Decoder {
             if (typeof instrument === 'string' || instrument.level > this.music.level) {
                 this.music.shouldResetAction = true;
             } else {
-                this.music.hiredBard = instrument;
-                this.music.userInterface.bard1.setBard(this.music.hiredBard, false);
+                const hiredBard: HiredBard = {
+                    instrument,
+                    slot: 1,
+                    isUpgraded: false,
+                    socket: undefined,
+                    utility: undefined
+                };
+
+                this.music.bards.set(instrument, hiredBard);
+
+                this.music.userInterface.bard1.setBard(hiredBard);
             }
         }
 
@@ -96,13 +107,21 @@ export class Decoder {
             if (typeof instrument === 'string' || instrument.level > this.music.level) {
                 this.music.shouldResetAction = true;
             } else {
-                this.music.hiredBard = instrument;
+                const hiredBard: HiredBard = {
+                    instrument,
+                    slot: 1,
+                    isUpgraded: false,
+                    socket: undefined,
+                    utility: undefined
+                };
 
                 if (reader.getBoolean()) {
-                    this.music.isBard1Upgraded = true;
+                    hiredBard.isUpgraded = true;
                 }
 
-                this.music.userInterface.bard1.setBard(this.music.hiredBard, this.music.isBard1Upgraded);
+                this.music.bards.set(instrument, hiredBard);
+
+                this.music.userInterface.bard1.setBard(hiredBard);
             }
         }
 
@@ -112,13 +131,21 @@ export class Decoder {
             if (typeof instrument === 'string' || instrument.level > this.music.level) {
                 this.music.shouldResetAction = true;
             } else {
-                this.music.hiredBard2 = instrument;
+                const hiredBard: HiredBard = {
+                    instrument,
+                    slot: 2,
+                    isUpgraded: false,
+                    socket: undefined,
+                    utility: undefined
+                };
 
                 if (reader.getBoolean()) {
-                    this.music.isBard2Upgraded = true;
+                    hiredBard.isUpgraded = true;
                 }
 
-                this.music.userInterface.bard2.setBard(this.music.hiredBard2, this.music.isBard2Upgraded);
+                this.music.bards.set(instrument, hiredBard);
+
+                this.music.userInterface.bard2.setBard(hiredBard);
             }
         }
 
@@ -149,13 +176,21 @@ export class Decoder {
             if (typeof instrument === 'string' || instrument.level > this.music.level) {
                 this.music.shouldResetAction = true;
             } else {
-                this.music.hiredBard = instrument;
+                const hiredBard: HiredBard = {
+                    instrument,
+                    slot: 1,
+                    isUpgraded: false,
+                    socket: undefined,
+                    utility: undefined
+                };
 
                 if (reader.getBoolean()) {
-                    this.music.isBard1Upgraded = true;
+                    hiredBard.isUpgraded = true;
                 }
 
-                this.music.userInterface.bard1.setBard(this.music.hiredBard, this.music.isBard1Upgraded);
+                this.music.bards.set(instrument, hiredBard);
+
+                this.music.userInterface.bard1.setBard(hiredBard);
             }
         }
 
@@ -165,18 +200,85 @@ export class Decoder {
             if (typeof instrument === 'string' || instrument.level > this.music.level) {
                 this.music.shouldResetAction = true;
             } else {
-                this.music.hiredBard2 = instrument;
+                const hiredBard: HiredBard = {
+                    instrument,
+                    slot: 2,
+                    isUpgraded: false,
+                    socket: undefined,
+                    utility: undefined
+                };
 
                 if (reader.getBoolean()) {
-                    this.music.isBard2Upgraded = true;
+                    hiredBard.isUpgraded = true;
                 }
 
-                this.music.userInterface.bard2.setBard(this.music.hiredBard2, this.music.isBard2Upgraded);
+                this.music.bards.set(instrument, hiredBard);
+
+                this.music.userInterface.bard2.setBard(hiredBard);
             }
         }
 
         if (this.music.shouldResetAction) {
             this.music.resetActionState();
         }
+    }
+
+    private version3(reader: SaveWriter) {
+        const version = reader.getUint32();
+
+        if (version !== 3) {
+            throw new Error(`Did not read correct version number: ${version} - trying version 3`);
+        }
+
+        if (reader.getBoolean()) {
+            const instrument = reader.getNamespacedObject(this.music.actions);
+            if (typeof instrument === 'string' || instrument.level > this.music.level) {
+                this.music.shouldResetAction = true;
+            } else {
+                this.music.activeInstrument = instrument;
+            }
+        }
+
+        reader.getComplexMap(reader => {
+            const instrument = reader.getNamespacedObject(this.music.actions);
+            const slot = reader.getUint32();
+            const isUpgraded = reader.getBoolean();
+            let socket: string | Item;
+
+            if (reader.getBoolean()) {
+                socket = reader.getNamespacedObject(game.items);
+            }
+
+            let utility: string | Item;
+
+            if (reader.getBoolean()) {
+                utility = reader.getNamespacedObject(game.items);
+            }
+
+            let hiredBard: HiredBard;
+
+            if (typeof instrument !== 'string') {
+                hiredBard = {
+                    instrument,
+                    slot,
+                    isUpgraded,
+                    socket: typeof socket !== 'string' ? socket : undefined,
+                    utility: typeof utility !== 'string' ? utility : undefined
+                };
+
+                this.music.bards.set(instrument, hiredBard);
+            }
+
+            const bard1 = this.music.bards.get(1);
+            const bard2 = this.music.bards.get(2);
+
+            this.music.userInterface.bard1.setBard(bard1);
+            this.music.userInterface.bard2.setBard(bard2);
+
+            return {
+                key: instrument,
+                value: hiredBard
+            };
+        });
     }
 }

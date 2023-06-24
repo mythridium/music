@@ -1,28 +1,28 @@
 import { MusicActionEvent } from './event';
 import { UserInterface } from './user-interface';
 import { MusicManager } from './manager';
-import { InstrumentData, InstrumentModifier, MusicSkillData } from './music.types';
+import { HiredBard, Instrument, MusicSkillData } from './music.types';
 import { Decoder } from './decoder';
 
 import './music.scss';
+import { HiredBards } from './hired-bards';
+import { Upgrades } from './equipment/upgrades';
 
 export class Music extends GatheringSkill<Instrument, MusicSkillData> {
-    public readonly version = 2;
+    public readonly version = 3;
     public readonly _media = 'assets/instruments/guitar.png';
     public readonly renderQueue = new MusicRenderQueue();
 
-    public isBard1Upgraded = false;
-    public isBard2Upgraded = false;
     public activeInstrument: Instrument;
-    public hiredBard?: Instrument;
-    public hiredBard2?: Instrument;
-
-    private renderedProgressBar?: ProgressBar;
-
+    public bards = new HiredBards(this);
     public userInterface: UserInterface;
     public modifiers = new MappedModifiers();
 
+    private renderedProgressBar?: ProgressBar;
+    private sheetMusicChance = 5;
+
     public readonly manager = new MusicManager(this, this.game);
+    public upgrades: Upgrades;
 
     constructor(namespace: DataNamespace, public readonly game: Game) {
         super(namespace, 'Music', game);
@@ -75,29 +75,15 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         }
     }
 
-    public upgrade(instrument: Instrument) {
-        const bard = this.actions.find(action => action.id === instrument.id);
-
-        if (this.userInterface.bard1.bard?.id === bard?.id) {
-            this.isBard1Upgraded = true;
-        }
-
-        if (this.userInterface.bard2.bard?.id === bard?.id) {
-            this.isBard2Upgraded = true;
-        }
-
-        this.computeProvidedStats(true);
-    }
-
     public hire(instrument: Instrument) {
-        if (this.hiredBard === instrument) {
+        if (this.bards.isHired(instrument)) {
             return;
         }
 
         const hireModifier = this.manager.getHireCostModifier(instrument);
         const hireCost = Math.floor(this.manager.calculateHireCost(instrument) * (1 + hireModifier / 100));
 
-        const canAfford = this.game.gp.amount >= hireCost;
+        const canAfford = this.game.gp.canAfford(hireCost);
 
         if (!canAfford) {
             let html = `
@@ -166,15 +152,18 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                 html += `<span>${modifier.description}</span></small><br />`;
             }
 
-            html += `<h5 class="font-w600 text-danger font-size-sm mt-3 mb-1">This will replace the hired bard that is selected and destroys the upgrade on the instrument.</h5>`;
+            html += `<h5 class="font-w600 text-danger font-size-sm mt-3 mb-1">This will replace the hired bard that is selected and destroys all upgrades, gems and utilities on the instrument.</h5>`;
+
+            const bard1 = this.bards.get(1);
+            const bard2 = this.bards.get(2);
 
             SwalLocale.fire({
                 html,
                 showCancelButton: true,
                 showDenyButton: this.manager.isBandPracticeUnlocked,
                 icon: 'info',
-                confirmButtonText: this.hiredBard ? `Replace ${this.hiredBard.name}` : 'Hire',
-                denyButtonText: this.hiredBard2 ? `Replace ${this.hiredBard2.name}` : 'Hire'
+                confirmButtonText: bard1 ? `Replace ${bard1.instrument.name}` : 'Hire',
+                denyButtonText: bard2 ? `Replace ${bard2.instrument.name}` : 'Hire'
             }).then(result => {
                 if (result.isDismissed) {
                     return;
@@ -183,15 +172,39 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                 this.game.gp.remove(hireCost);
 
                 if (result.isConfirmed) {
-                    this.hiredBard = instrument;
-                    this.isBard1Upgraded = false;
-                    this.userInterface.bard1.setBard(this.hiredBard, this.isBard1Upgraded);
+                    if (bard1) {
+                        this.bards.remove(bard1.instrument);
+                    }
+
+                    const hiredBard: HiredBard = {
+                        instrument,
+                        slot: 1,
+                        isUpgraded: false,
+                        socket: undefined,
+                        utility: undefined
+                    };
+
+                    this.bards.set(instrument, hiredBard);
+
+                    this.userInterface.bard1.setBard(hiredBard);
                 }
 
                 if (result.isDenied) {
-                    this.hiredBard2 = instrument;
-                    this.isBard2Upgraded = false;
-                    this.userInterface.bard2.setBard(this.hiredBard2, this.isBard2Upgraded);
+                    if (bard2) {
+                        this.bards.remove(bard2?.instrument);
+                    }
+
+                    const hiredBard: HiredBard = {
+                        instrument,
+                        slot: 2,
+                        isUpgraded: false,
+                        socket: undefined,
+                        utility: undefined
+                    };
+
+                    this.bards.set(instrument, hiredBard);
+
+                    this.userInterface.bard2.setBard(hiredBard);
                 }
 
                 this.computeProvidedStats(true);
@@ -207,8 +220,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         return this.modifyInterval(instrument.baseInterval, instrument);
     }
 
-    public getFlatIntervalModifier(action: Instrument) {
-        let modifier = super.getFlatIntervalModifier(action);
+    public getFlatIntervalModifier(instrument: Instrument) {
+        let modifier = super.getFlatIntervalModifier(instrument);
 
         if (this.isPoolTierActive(2)) {
             modifier -= 250;
@@ -248,12 +261,12 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public onMasteryLevelUp(action: Instrument, oldLevel: number, newLevel: number): void {
         super.onMasteryLevelUp(action, oldLevel, newLevel);
 
-        this.renderQueue.gpRange = true;
-        this.renderQueue.bardModifiers = true;
-
         if (newLevel >= action.level) {
             this.computeProvidedStats(true);
         }
+
+        this.renderQueue.gpRange = true;
+        this.renderQueue.bardModifiers = true;
     }
 
     public onModifierChange() {
@@ -281,6 +294,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         this.milestones.push(...this.actions.allObjects);
 
         this.sortMilestones();
+        this.upgrades = new Upgrades(this, this.game);
     }
 
     public preAction() {}
@@ -294,14 +308,29 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public computeProvidedStats(updatePlayer = true) {
         this.modifiers.reset();
 
-        if (this.hiredBard) {
-            const modifiers = this.manager.getModifiersForApplication(this.hiredBard);
+        for (const bard of this.bards.all()) {
+            const modifiers = this.manager.getModifiersForApplication(bard.instrument);
             this.modifiers.addArrayModifiers(modifiers);
-        }
 
-        if (this.hiredBard2) {
-            const modifiers = this.manager.getModifiersForApplication(this.hiredBard2);
-            this.modifiers.addArrayModifiers(modifiers);
+            if (bard.socket) {
+                const upgrade = this.upgrades.modifiers.find(
+                    modifier => `mythMusic:${modifier.itemId}` === bard.socket.id
+                );
+
+                if (upgrade) {
+                    this.modifiers.addArrayModifiers(upgrade.modifiers);
+                }
+            }
+
+            if (bard.utility) {
+                const upgrade = this.upgrades.modifiers.find(
+                    modifier => `mythMusic:${modifier.itemId}` === bard.utility.id
+                );
+
+                if (upgrade) {
+                    this.modifiers.addArrayModifiers(upgrade.modifiers);
+                }
+            }
         }
 
         if (updatePlayer) {
@@ -316,6 +345,19 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         rewards.addXP(this, this.activeInstrument.baseExperience);
         rewards.addGP(this.manager.getGoldToAward(this.activeInstrument));
 
+        let sheetMusicChance = this.sheetMusicChance;
+
+        for (const bard of this.bards.all()) {
+            if (bard?.socket?.id === 'mythMusic:Diamond_String') {
+                sheetMusicChance +=
+                    this.game.modifiers.increasedSheetMusicDropRate - this.game.modifiers.decreasedSheetMusicDropRate;
+            }
+        }
+
+        if (rollPercentage(sheetMusicChance)) {
+            rewards.addItemByID('mythMusic:Sheet_Music', 1);
+        }
+
         this.addCommonRewards(rewards);
 
         this.game.processEvent(actionEvent, this.currentActionInterval);
@@ -323,8 +365,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         return rewards;
     }
 
-    getXPModifier(masteryAction: NamespacedObject) {
-        let modifier = super.getXPModifier(masteryAction);
+    getXPModifier(instrument?: Instrument) {
+        let modifier = super.getXPModifier(instrument);
 
         if (this.isPoolTierActive(0)) {
             modifier += 3;
@@ -333,8 +375,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         return modifier;
     }
 
-    getMasteryXPModifier(action: Instrument) {
-        let modifier = super.getMasteryXPModifier(action);
+    getMasteryXPModifier(instrument: Instrument) {
+        let modifier = super.getMasteryXPModifier(instrument);
 
         if (this.isPoolTierActive(1)) {
             modifier += 5;
@@ -460,8 +502,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         super.resetActionState();
 
         this.activeInstrument = undefined;
-        this.hiredBard = undefined;
-        this.hiredBard2 = undefined;
+        this.bards.clear();
     }
 
     public encode(writer: SaveWriter): SaveWriter {
@@ -474,19 +515,27 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             writer.writeNamespacedObject(this.activeInstrument);
         }
 
-        writer.writeBoolean(this.hiredBard !== undefined);
+        writer.writeComplexMap(this.bards.bards, (key, value, writer) => {
+            writer.writeNamespacedObject(key);
+            writer.writeUint32(value.slot);
+            writer.writeBoolean(value.isUpgraded);
 
-        if (this.hiredBard) {
-            writer.writeNamespacedObject(this.hiredBard);
-            writer.writeBoolean(this.isBard1Upgraded);
-        }
+            writer.writeBoolean(value.socket !== undefined);
 
-        writer.writeBoolean(this.hiredBard2 !== undefined);
+            if (value.socket) {
+                const socket = this.game.items.getObjectByID(value.socket.id);
 
-        if (this.hiredBard2) {
-            writer.writeNamespacedObject(this.hiredBard2);
-            writer.writeBoolean(this.isBard2Upgraded);
-        }
+                writer.writeNamespacedObject(socket);
+            }
+
+            writer.writeBoolean(value.utility !== undefined);
+
+            if (value.utility) {
+                const utility = this.game.items.getObjectByID(value.utility.id);
+
+                writer.writeNamespacedObject(utility);
+            }
+        });
 
         return writer;
     }
@@ -501,30 +550,6 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
     public getActionIDFromOldID(oldActionID: number, idMap: NumericIDMap) {
         return '';
-    }
-}
-
-export class Instrument extends BasicSkillRecipe {
-    baseInterval: number;
-    maxGP: number;
-    modifiers: InstrumentModifier[];
-    skills: string[];
-
-    public get name() {
-        return this.data.name;
-    }
-
-    public get media() {
-        return this.getMediaURL(this.data.media);
-    }
-
-    constructor(namespace: DataNamespace, private readonly data: InstrumentData) {
-        super(namespace, data);
-
-        this.baseInterval = data.baseInterval;
-        this.maxGP = data.maxGP;
-        this.modifiers = data.modifiers;
-        this.skills = data.skills;
     }
 }
 

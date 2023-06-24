@@ -17,6 +17,7 @@ export class App {
         await this.context.loadTemplates('music/music.html');
         await this.context.loadTemplates('music/instrument/instrument.html');
         await this.context.loadTemplates('music/bard/bard.html');
+        await this.context.loadTemplates('music/equipment/equipment.html');
 
         this.patchEventManager();
         this.initModifiers();

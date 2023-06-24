@@ -16,6 +16,12 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.5.0
+* increased drop rate of sheet music from 1% to 5%
+* expanded the ability to upgrade hired bard instruments which boost the Music skill itself
+  * one of three new gems can be socketed into a hired bards instrument
+  * one of three new utilities can be applied onto a hired bards instrument
+
 ### 1.4.2
 * fixed skill info header not displaying as intended on mobile
 * fixed Aorpheats Signet Ring not providing +100% GP to Music
@@ -89,26 +95,6 @@ Earn tips (GP) while you train bards with various instruments, then hire the bar
 
 This mod includes a new mastery token for the skill and both skill cape and superior skill cape.
 
-### Drops
-
-While training you have a chance to obtain Signet Ring Half A, Circlet of Rhaelyx and Mysterious Stones, just like any other non combat skill.
-
-Tips (GP) earned while training do scale with global gold increases.
-
-### Sheet Music and Essence of Music
-
-Training Music has a 1/100 chance to drop sheet music, these can be upgraded into Essence of Music for 50 Sheet Music + 1M GP.
-
-![Items](images/items.png)
-
-![Upgrade](images/essence-of-music-upgrade.png)
-
-1 Essence of Music is used to upgrade Hired Bard instruments, which unlocks a 5th modifier.
-
-Upgrades are destroyed if you hire a new bard. Re-hiring a previously hired bard will require using another Essence of Music to unlock the upgrade modifier.
-
-![Upgrade](images/upgrade-bard-instrument.png)
-
 ## Hiring a Bard
 
 You can hire various bards to play on your behalf. These bards provide powerful bonuses to help you while you train other skills, however the more skilled a bard is, the more expensive it will become to hire them.
@@ -118,6 +104,87 @@ You can only hire a single bard at a time (two if you purchase the Band Practice
 The cost of hiring a bard grows exponentially more expensive per mastery level.
 
 ![Hire a Bard](images/hire-bard.png)
+
+### Drops
+
+While training you have a chance to obtain Signet Ring Half A, Circlet of Rhaelyx and Mysterious Stones, just like any other non combat skill.
+
+Tips (GP) earned while training do scale with global gold increases.
+
+### Sheet Music, Essence of Music, Gems and Utilities
+
+Training Music has a 5% chance to drop sheet music, these are used for hired bard instrument upgrades.
+
+![Items](images/items.png)
+
+## Hired Bard Instrument
+
+Hired bard instruments can be enhanced in various ways. They can be upgraded, socketed with a gem and applied with an utility.
+
+Upgrades are destroyed if you hire a new bard. Re-hiring a previously hired bard will require upgrading, socketing and applying the instrument again.
+
+![Upgrade Instrument](images/upgrade-bard-instrument.png)
+
+### Upgrade
+
+Upgrading a hired bards instrument unlocks a 5th modifier, to do so, you require an Essence of Music.
+
+Essence of Music
+Upgrade from Sheet Music
+1,000,000GP + 50 Sheet Music
+Unlocks a 5th modifier on hired bard instrument when upgraded.
+
+![Upgrade](images/upgrade.png)
+
+### Gem Socket
+
+You can select one of three gems to socket into your bards instrument. Only one can be active at a time, and you may freely switch provided you have the resources.
+
+Polished Topaz Gem
+Upgrade from Topaz
+50,000 GP + 50 Topaz + 10 Sheet Music
++5% Music GP
+
+Polished Ruby Gem
+Upgrade from Ruby
+50,000 GP + 50 Ruby + 10 Sheet Music
++5% Music Skill XP
+
+Polished Sapphire Gem
+Upgrade from Sapphire
+50,000 GP + 50 Sapphire + 10 Sheet Music
++5% Music Mastery XP
+
+![Socket](images/gem.png)
+
+### Utility
+
+You can select one of three utilities to apply onto your bards instrument. Only one can be active at a time, and you may freely switch provided you have the resources.
+
+Diamond String
+Upgrade from Bowstring
+50,000 GP + 100 Diamond + 100 Bowstring + 50 Music Sheet
++5% Sheet Music drop chance
+
+Pristine Leather
+Upgrade from Leather
+50,000 GP + 100 Diamond + 100 Leather + 50 Music Sheet
+-5% Music Interval
+
+Mystic Oil
+Upgrade from Weird Gloop
+50,000 GP + 100 Diamond + 100 Weird Gloop + 50 Music Sheet
++1 Unlock tier for instrument without needing to meet mastery level
+
+Mystic Oil will unlock the next modifier available even if you don't have the mastery level for it.
+
+For example: You are mastery level 1, and apply Mystic Oil. You will get the level 1 and level 40 modifiers.
+
+Once you reach level 40 mastery, you'll also unlock the level 75 modifier.
+
+This means that when you reach level 99 mastery, this utility does nothing, so switch to one of the others.
+
+![Apply](images/apply.png)
 
 ## Band Practice
 
@@ -434,3 +501,5 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.flaticon.com/free-icons/sheet-music" title="sheet music icons">Sheet music icons created by Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Dragon Icons - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/gemstone" title="gemstone icons">Gemstone icons created by Kroffle - Flaticon</a>

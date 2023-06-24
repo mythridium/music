@@ -1,4 +1,5 @@
-import { Instrument, Music } from '../music';
+import { Music } from '../music';
+import { Instrument } from '../music.types';
 
 import './instrument.scss';
 
@@ -67,7 +68,7 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             music.hire(instrument);
         },
         updateDisabled: function () {
-            this.disabled = music.hiredBard?.id === instrument.id || music.hiredBard2?.id === instrument.id;
+            this.disabled = music.bards.isHired(instrument);
         },
         getSkillIcons: function () {
             return instrument.skills.map(skillId => {

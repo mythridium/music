@@ -1,4 +1,5 @@
-import { Instrument, Music } from './music';
+import { Music } from './music';
+import { Instrument } from './music.types';
 
 export class MusicActionEvent extends SkillActionEvent {
     public skill: Music;

@@ -1,0 +1,316 @@
+<template id="myth-music-equipment">
+    <div class="myth-music-equipment">
+        <h5 class="mb-0">
+            Manage Bard Instrument: <img class="skill-icon-xs ml-2 mr-1" :src="bard.instrument.media" />
+            {{ bard.instrument.name }}
+        </h5>
+
+        <div class="manage" v-if="state === 'manage'">
+            <div class="manage-section with-border upgrade">
+                <div class="myth-info text-success font-size-sm" v-if="bard.isUpgraded">
+                    <img class="skill-icon-xs mr-1" :src="items.Essence_Of_Music.item.media" />
+                    <span>Upgraded</span>
+                </div>
+                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.isUpgraded">Not Upgraded</div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success ml-2"
+                    @click="setState('upgrade')"
+                    :disabled="bard.isUpgraded"
+                >
+                    Upgrade
+                </button>
+            </div>
+
+            <div class="manage-section socket">
+                <div class="myth-info text-success" v-if="bard.socket">
+                    <img class="skill-icon-xs mr-1" :src="bard.socket.media" />
+                    <span
+                        v-for="description of getModifier(bard.socket.localID)"
+                        class="text-success font-size-sm mt-1 text-left"
+                    >
+                        {{ description }}
+                    </span>
+                </div>
+                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.socket">No Gem</div>
+
+                <button type="button" class="btn btn-lg btn-success ml-2" @click="setState('socket')">Socket</button>
+            </div>
+
+            <div class="manage-section with-border utility">
+                <div class="myth-info text-success" v-if="bard.utility">
+                    <img class="skill-icon-xs mr-1" :src="bard.utility.media" />
+                    <span
+                        v-for="description of getModifier(bard.utility.localID)"
+                        class="text-success font-size-sm mt-1 text-left"
+                    >
+                        {{ description }}
+                    </span>
+                </div>
+                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.utility">No Utility</div>
+
+                <button type="button" class="btn btn-lg btn-success ml-2" @click="setState('utility')">Utility</button>
+            </div>
+
+            <button type="button" class="btn btn-lg btn-primary" @click="ok()">OK</button>
+        </div>
+
+        <!-- Upgrade -->
+        <div class="upgrade" v-if="state === 'upgrade'">
+            <h5 v-if="items.Essence_Of_Music.quantity > 0" class="mt-3 font-w400 font-size-sm">
+                Would you like to upgrade this instrument?
+            </h5>
+            <h5 v-if="items.Essence_Of_Music.quantity === 0" class="mt-3 font-w400 font-size-sm">
+                You do not have enough materials to upgrade this instrument.
+            </h5>
+
+            <div class="font-size-sm">
+                <span :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'text-danger'">1</span>
+                <img class="skill-icon-xs ml-1 mr-1" :src="items.Essence_Of_Music.item.media" />
+                <span :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'text-danger'">
+                    {{ items.Essence_Of_Music.item.name }}
+                </span>
+            </div>
+
+            <div class="mt-1">
+                <small :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'myth-text-grey'">
+                    {{ upgradeModifier.description }}
+                </small>
+            </div>
+
+            <div class="mt-4 font-size-xs" v-if="items.Essence_Of_Music.quantity > 0">
+                <span>You have {{ items.Essence_Of_Music.quantity }}</span>
+                <img class="skill-icon-xs ml-1 mr-1" :src="items.Essence_Of_Music.item.media" />
+                <span>{{ items.Essence_Of_Music.item.name }}</span>
+            </div>
+
+            <div class="myth-footer-buttons mt-4">
+                <button
+                    type="button"
+                    class="btn btn-lg btn-primary mr-2"
+                    @click="upgrade()"
+                    v-if="items.Essence_Of_Music.quantity > 0"
+                >
+                    Upgrade
+                </button>
+                <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">Back</button>
+            </div>
+        </div>
+
+        <!-- Socket -->
+        <div class="socket" v-if="state === 'socket'">
+            <div class="manage-section with-border">
+                <div class="upgrade-item text-left mr-3">
+                    <small>
+                        <img class="skill-icon-xxs ml-1 mr-1" :src="items.Polished_Topaz_Gem.item.media" />
+                        <span>{{ items.Polished_Topaz_Gem.item.name }}</span>
+                    </small>
+
+                    <div class="mt-1 text-left">
+                        <small
+                            v-for="description of items.Polished_Topaz_Gem.descriptions"
+                            :class="isSocket('Polished_Topaz_Gem') ? 'text-success' : 'myth-text-grey'"
+                        >
+                            {{ description }}
+                        </small>
+                    </div>
+
+                    <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Polished_Topaz_Gem.quantity === 0 }">
+                        <span>You have {{ items.Polished_Topaz_Gem.quantity }}</span>
+                        <img class="skill-icon-xxs" :src="items.Polished_Topaz_Gem.item.media" />
+                        <span>{{ items.Polished_Topaz_Gem.item.name }}</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success"
+                    @click="socket('Polished_Topaz_Gem')"
+                    :disabled="items.Polished_Topaz_Gem.quantity === 0 || isSocket('Polished_Topaz_Gem')"
+                >
+                    Socket
+                </button>
+            </div>
+
+            <div class="manage-section">
+                <div class="upgrade-item text-left mr-3">
+                    <small>
+                        <img class="skill-icon-xxs ml-1 mr-1" :src="items.Polished_Ruby_Gem.item.media" />
+                        <span>{{ items.Polished_Ruby_Gem.item.name }}</span>
+                    </small>
+
+                    <div class="mt-1">
+                        <small
+                            v-for="description of items.Polished_Ruby_Gem.descriptions"
+                            :class="isSocket('Polished_Ruby_Gem') ? 'text-success' : 'myth-text-grey'"
+                        >
+                            {{ description }}
+                        </small>
+                    </div>
+
+                    <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Polished_Ruby_Gem.quantity === 0 }">
+                        <span>You have {{ items.Polished_Ruby_Gem.quantity }}</span>
+                        <img class="skill-icon-xxs" :src="items.Polished_Ruby_Gem.item.media" />
+                        <span>{{ items.Polished_Ruby_Gem.item.name }}</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success"
+                    @click="socket('Polished_Ruby_Gem')"
+                    :disabled="items.Polished_Ruby_Gem.quantity === 0 || isSocket('Polished_Ruby_Gem')"
+                >
+                    Socket
+                </button>
+            </div>
+
+            <div class="manage-section with-border">
+                <div class="upgrade-item text-left mr-3">
+                    <small>
+                        <img class="skill-icon-xxs ml-1 mr-1" :src="items.Polished_Sapphire_Gem.item.media" />
+                        <span>{{ items.Polished_Sapphire_Gem.item.name }}</span>
+                    </small>
+
+                    <div class="mt-1">
+                        <small
+                            v-for="description of items.Polished_Sapphire_Gem.descriptions"
+                            :class="isSocket('Polished_Sapphire_Gem') ? 'text-success' : 'myth-text-grey'"
+                        >
+                            {{ description }}
+                        </small>
+                    </div>
+
+                    <div
+                        class="mt-2 font-size-xs"
+                        :class="{ 'text-danger': items.Polished_Sapphire_Gem.quantity === 0 }"
+                    >
+                        <span>You have {{ items.Polished_Sapphire_Gem.quantity }}</span>
+                        <img class="skill-icon-xxs" :src="items.Polished_Sapphire_Gem.item.media" />
+                        <span>{{ items.Polished_Sapphire_Gem.item.name }}</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success"
+                    @click="socket('Polished_Sapphire_Gem')"
+                    :disabled="items.Polished_Sapphire_Gem.quantity === 0 || isSocket('Polished_Sapphire_Gem')"
+                >
+                    Socket
+                </button>
+            </div>
+
+            <div class="myth-footer-buttons mt-4">
+                <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">Back</button>
+            </div>
+        </div>
+
+        <!-- Utility -->
+        <div class="utility" v-if="state === 'utility'">
+            <div class="manage-section with-border">
+                <div class="upgrade-item text-left mr-3">
+                    <small>
+                        <img class="skill-icon-xxs ml-1 mr-1" :src="items.Diamond_String.item.media" />
+                        <span>{{ items.Diamond_String.item.name }}</span>
+                    </small>
+
+                    <div class="mt-1 text-left">
+                        <small
+                            v-for="description of items.Diamond_String.descriptions"
+                            :class="isUtility('Diamond_String') ? 'text-success' : 'myth-text-grey'"
+                        >
+                            {{ description }}
+                        </small>
+                    </div>
+
+                    <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Diamond_String.quantity === 0 }">
+                        <span>You have {{ items.Diamond_String.quantity }}</span>
+                        <img class="skill-icon-xxs" :src="items.Diamond_String.item.media" />
+                        <span>{{ items.Diamond_String.item.name }}</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success"
+                    @click="utility('Diamond_String')"
+                    :disabled="items.Diamond_String.quantity === 0 || isUtility('Diamond_String')"
+                >
+                    Apply
+                </button>
+            </div>
+
+            <div class="manage-section">
+                <div class="upgrade-item text-left mr-3">
+                    <small>
+                        <img class="skill-icon-xxs ml-1 mr-1" :src="items.Pristine_Leather.item.media" />
+                        <span>{{ items.Pristine_Leather.item.name }}</span>
+                    </small>
+
+                    <div class="mt-1">
+                        <small
+                            v-for="description of items.Pristine_Leather.descriptions"
+                            :class="isUtility('Pristine_Leather') ? 'text-success' : 'myth-text-grey'"
+                        >
+                            {{ description }}
+                        </small>
+                    </div>
+
+                    <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Pristine_Leather.quantity === 0 }">
+                        <span>You have {{ items.Pristine_Leather.quantity }}</span>
+                        <img class="skill-icon-xxs" :src="items.Pristine_Leather.item.media" />
+                        <span>{{ items.Pristine_Leather.item.name }}</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success"
+                    @click="utility('Pristine_Leather')"
+                    :disabled="items.Pristine_Leather.quantity === 0 || isUtility('Pristine_Leather')"
+                >
+                    Apply
+                </button>
+            </div>
+
+            <div class="manage-section with-border">
+                <div class="upgrade-item text-left mr-3">
+                    <small>
+                        <img class="skill-icon-xxs ml-1 mr-1" :src="items.Mystic_Oil.item.media" />
+                        <span>{{ items.Mystic_Oil.item.name }}</span>
+                    </small>
+
+                    <div class="mt-1">
+                        <small
+                            v-for="description of items.Mystic_Oil.descriptions"
+                            :class="isUtility('Mystic_Oil') ? 'text-success' : 'myth-text-grey'"
+                        >
+                            {{ description }}
+                        </small>
+                    </div>
+
+                    <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Mystic_Oil.quantity === 0 }">
+                        <span>You have {{ items.Mystic_Oil.quantity }}</span>
+                        <img class="skill-icon-xxs" :src="items.Mystic_Oil.item.media" />
+                        <span>{{ items.Mystic_Oil.item.name }}</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success"
+                    @click="utility('Mystic_Oil')"
+                    :disabled="items.Mystic_Oil.quantity === 0 || isUtility('Mystic_Oil')"
+                >
+                    Apply
+                </button>
+            </div>
+
+            <div class="myth-footer-buttons mt-4">
+                <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">Back</button>
+            </div>
+        </div>
+    </div>
+</template>

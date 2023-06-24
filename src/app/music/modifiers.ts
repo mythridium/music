@@ -6,6 +6,10 @@ declare global {
         decreasedMusicGP: Standard;
         increasedBardHireLimit: Standard;
         decreasedBardHireLimit: Standard;
+        increasedSheetMusicDropRate: Standard;
+        decreasedSheetMusicDropRate: Standard;
+        increasedUnlockTierForInstrument: Standard;
+        decreasedUnlockTierForInstrument: Standard;
     }
 
     interface PlayerModifiers {
@@ -15,6 +19,10 @@ declare global {
         decreasedMusicGP: number;
         increasedBardHireLimit: number;
         decreasedBardHireLimit: number;
+        increasedSheetMusicDropRate: number;
+        decreasedSheetMusicDropRate: number;
+        increasedUnlockTierForInstrument: number;
+        decreasedUnlockTierForInstrument: number;
     }
 }
 
@@ -75,6 +83,46 @@ export class MythModifiers {
                 return '-${value} Bard Hire Limit';
             },
             description: '-${value} Bard Hire Limit',
+            isSkill: false,
+            isNegative: true,
+            tags: []
+        };
+
+        modifierData.increasedSheetMusicDropRate = {
+            get langDescription() {
+                return '+${value}% Sheet Music drop chance';
+            },
+            description: '+${value}% Sheet Music drop chance',
+            isSkill: false,
+            isNegative: false,
+            tags: []
+        };
+
+        modifierData.decreasedSheetMusicDropRate = {
+            get langDescription() {
+                return '-${value}% Sheet Music drop chance';
+            },
+            description: '-${value}% Sheet Music drop chance',
+            isSkill: false,
+            isNegative: true,
+            tags: []
+        };
+
+        modifierData.increasedUnlockTierForInstrument = {
+            get langDescription() {
+                return '+${value} Unlock tier for instrument without needing to meet mastery level';
+            },
+            description: '+${value} Unlock tier for instrument without needing to meet mastery level',
+            isSkill: false,
+            isNegative: false,
+            tags: []
+        };
+
+        modifierData.decreasedUnlockTierForInstrument = {
+            get langDescription() {
+                return '-${value} Unlock tier for instrument without needing to meet mastery level';
+            },
+            description: '-${value} Unlock tier for instrument without needing to meet mastery level',
             isSkill: false,
             isNegative: true,
             tags: []

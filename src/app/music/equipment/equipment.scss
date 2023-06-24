@@ -1,0 +1,33 @@
+.manage-section {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.with-border {
+        margin: 15px 0;
+        padding: 15px 10px;
+        border-top: dashed 1px grey;
+        border-bottom: dashed 1px grey;
+    }
+
+    .btn {
+        min-width: 101px;
+    }
+
+    .myth-info {
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .upgrade-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.myth-header {
+    min-height: 32px;
+    line-height: 32px;
+}

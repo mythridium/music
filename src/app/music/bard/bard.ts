@@ -1,84 +1,46 @@
-import { Instrument, Music } from '../music';
-import { BardModifier } from '../music.types';
+import { EquipmentComponent } from '../equipment/equipment';
+import { Music } from '../music';
+import { BardModifier, HiredBard, Instrument } from '../music.types';
 
 import './bard.scss';
 
 export function BardComponent(music: Music, game: Game) {
     return {
         $template: '#myth-music-bard',
-        bard: {} as Instrument,
+        bard: undefined as HiredBard,
         isEnabled: false,
-        isUpgraded: false,
         modifiers: [] as BardModifier[],
         essenceIcon: function () {
             return music.manager.essenceOfMusicIcon;
         },
-        setBard: function (instrument: Instrument, isUpgraded: boolean) {
-            this.bard = instrument;
-            this.isUpgraded = isUpgraded;
+        setBard: function (bard: HiredBard) {
+            this.bard = bard;
         },
         updateEnabled: function (enabled: boolean) {
             this.isEnabled = enabled;
         },
         updateModifiers: function () {
-            this.modifiers = music.manager.getModifiers(this.bard);
-        },
-        upgrade: function () {
-            const upgradeItem = game.items.getObjectByID('mythMusic:Essence_Of_Music');
-            const canAfford = game.bank.getQty(upgradeItem) > 0;
+            this.modifiers = [];
 
-            if (!canAfford) {
-                let html = `
-                    <h5 class="font-w400 text-combat-smoke font-size-sm mb-2">You do not have enough materials to upgrade this bards instrument.</h5>
-                    <h5 class="mt-2">
-                        <span class="text-danger">1</span>
-                        <img class="skill-icon-xs ml-2 mr-1" src="${upgradeItem.media}" />
-                        <span class="text-danger">${upgradeItem.name}</span>
-                    </h5>
-                `;
-
-                const modifiers = music.manager.getModifiers(this.bard).filter(modifier => modifier.isUpgrade);
-
-                for (const modifier of modifiers) {
-                    html += `<div><small><span class="myth-text-grey">${modifier.description}</span></small></div>`;
-                }
-
-                SwalLocale.fire({
-                    html,
-                    showCancelButton: false,
-                    icon: 'warning',
-                    confirmButtonText: 'Ok'
-                });
-            } else {
-                let html = `
-                    <h5 class="font-w400 text-combat-smoke font-size-sm mb-2">Would you like to upgrade this bards instrument?</h5>
-                    <h5 class="mt-2">
-                        <span class="text-success">1</span>
-                        <img class="skill-icon-xs ml-2 mr-1" src="${upgradeItem.media}" />
-                        <span class="text-success">${upgradeItem.name}</span>
-                    </h5>
-                `;
-
-                const modifiers = music.manager.getModifiers(this.bard).filter(modifier => modifier.isUpgrade);
-
-                for (const modifier of modifiers) {
-                    html += `<div><small><span class="text-success">${modifier.description}</span></small></div>`;
-                }
-
-                SwalLocale.fire({
-                    html,
-                    showCancelButton: true,
-                    icon: 'info',
-                    confirmButtonText: 'Upgrade'
-                }).then(result => {
-                    if (result.isConfirmed) {
-                        game.bank.removeItemQuantity(upgradeItem, 1, true);
-                        this.isUpgraded = true;
-                        music.upgrade(this.bard);
-                        this.updateModifiers();
-                    }
-                });
+            if (this.bard) {
+                this.modifiers = music.manager.getModifiers(this.bard.instrument);
             }
+        },
+        equipment: function () {
+            const bard = this.bard;
+
+            SwalLocale.fire({
+                html: '<div id="myth-music-equipment-container"></div>',
+                showConfirmButton: false,
+                showCancelButton: false,
+                showDenyButton: false,
+                didOpen: popup => {
+                    ui.create(
+                        EquipmentComponent(music, game, bard),
+                        popup.querySelector('#myth-music-equipment-container')
+                    );
+                }
+            });
         }
     };
 }
