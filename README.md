@@ -16,6 +16,12 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.6.0
+* added concert pass half a, concert pass half b and concert pass
+* half a and half b can drop while training music
+* both halves + 10M GP can be used to purchase 1,000 charges of a concert pass
+* the concert pass can be equipped in the offhand and while training Music you also gain Skill XP for the skills the instrument supports
+
 ### 1.5.0
 * increased drop rate of sheet music from 1% to 5%
 * expanded the ability to upgrade hired bard instruments which boost the Music skill itself
@@ -195,6 +201,34 @@ The shop sells an upgrade which unlocks a second bard slot. This upgrade require
 ![Band Practice](images/band-practice.png)
 
 ![Double Bard](images/double-bard.png)
+
+## Concert Pass
+
+![Concert Pass Purchase](images/concert-pass-purchase.png)
+
+The shop sells item charges for a Concert Pass.
+* Purchase Cost: Concert Pass Half (A) + Concert Pass Half (B) + 10M GP
+* When equipped in the offhand and has charges, the concert pass will provide skill xp for the skills the instrument supports.
+* Drop rate for Concert Pass Halves is 0.015% or roughly equivalent to the Ancient Ring of Skill and Ancient Ring of Mastery drop chance from Fishing.
+
+![Concert Pass](images/concert-pass.png)
+
+For example, the Guitar supports Woodcutting and Firemaking, while training the Guitar with the Concert Pass equipped and charges available. Woodcutting and Firemaking will also gain Skill XP.
+
+**The skill must be unlocked to gain skill xp in Adventure mode.**
+
+The amount of Skill XP should be roughly 1 level worth for every 1,000 charges. This is done by finding the xp difference between the current level and the next level, then dividing the amount by 1,000.
+
+For example:
+* level 55 requires 166,636 total experience and level 56 requires 184,040 total experience.
+* 184,040 - 166,636 = 15,764 experience to level up from 55 to 56
+* 15,764 / 1,000 = 15 experience per charge used
+
+When you level up, it will shift the calculation to the next level.
+
+The level calculation is clamped to a max skill level of 120, which roughly equates to ~10,000 xp per charge used at max level, and the minimum xp gained is clamped to 1, so the early levels will progress faster then 1 level per 1,000 charges since they would grant less then 1 xp without the clamp.
+
+![Concert Pass Charges](images/concert-pass-charges.png)
 
 ## Skill Unlocks
 
@@ -505,3 +539,7 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Dragon Icons - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/gemstone" title="gemstone icons">Gemstone icons created by Kroffle - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/access" title="access icons">Access icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/famous" title="famous icons">Famous icons created by Freepik - Flaticon</a>

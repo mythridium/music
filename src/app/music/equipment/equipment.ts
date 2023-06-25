@@ -1,8 +1,8 @@
 import { Music } from '../music';
 import { HiredBard } from '../music.types';
+import { UpgradeType } from './upgrades';
 
 import './equipment.scss';
-import { UpgradeType, Upgrades } from './upgrades';
 
 enum State {
     Manage = 'manage',

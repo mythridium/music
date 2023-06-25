@@ -1,6 +1,6 @@
 import { EquipmentComponent } from '../equipment/equipment';
 import { Music } from '../music';
-import { BardModifier, HiredBard, Instrument } from '../music.types';
+import { BardModifier, HiredBard } from '../music.types';
 
 import './bard.scss';
 

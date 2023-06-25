@@ -1,10 +1,3 @@
-interface Upgrades {
-    hat: ItemUpgrade;
-    body: ItemUpgrade;
-    leggings: ItemUpgrade;
-    boots: ItemUpgrade;
-}
-
 export class MythTownship {
     private readonly itemType = ['Hat', 'Body', 'Leggings', 'Boots'];
 

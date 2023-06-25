@@ -2,11 +2,11 @@ import { MusicActionEvent } from './event';
 import { UserInterface } from './user-interface';
 import { MusicManager } from './manager';
 import { HiredBard, Instrument, MusicSkillData } from './music.types';
-import { Decoder } from './decoder';
-
-import './music.scss';
+import { Decoder } from './decoder/decoder';
 import { HiredBards } from './hired-bards';
 import { Upgrades } from './equipment/upgrades';
+
+import './music.scss';
 
 export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public readonly version = 3;
@@ -344,6 +344,26 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         rewards.addXP(this, this.activeInstrument.baseExperience);
         rewards.addGP(this.manager.getGoldToAward(this.activeInstrument));
+
+        const concertPass = this.game.items.getObjectByID('mythMusic:Concert_Pass') as EquipmentItem;
+
+        if (
+            concertPass &&
+            this.game.combat.player.equipment.checkForItem(concertPass) &&
+            this.game.itemCharges.getCharges(concertPass)
+        ) {
+            for (const skillId of this.activeInstrument.skills) {
+                const skill = this.game.skills.getObjectByID(skillId);
+
+                if (skill?.isUnlocked) {
+                    const level = Math.min(skill.level, 120);
+                    const expRequired = exp.level_to_xp(level + 1) - exp.level_to_xp(level);
+                    const xp = Math.max(expRequired / 1000, 1);
+
+                    rewards.addXP(skill, xp);
+                }
+            }
+        }
 
         let sheetMusicChance = this.sheetMusicChance;
 

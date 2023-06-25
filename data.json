@@ -264,6 +264,52 @@
                 "sellsFor": 100000
             },
             {
+                "itemType": "Item",
+                "id": "Concert_Pass_Half_A",
+                "name": "Concert Pass Half (A)",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/concert-pass-a.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Used with Concert Pass Half (B) to purchase a Concert Pass.",
+                "sellsFor": 1000
+            },
+            {
+                "itemType": "Item",
+                "id": "Concert_Pass_Half_B",
+                "name": "Concert Pass Half (B)",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/concert-pass-b.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Used with Concert Pass Half (A) to purchase a Concert Pass.",
+                "sellsFor": 1000
+            },
+            {
+                "itemType": "Equipment",
+                "id": "Concert_Pass",
+                "name": "Concert Pass",
+                "category": "Music",
+                "type": "Equipment",
+                "media": "assets/items/concert-pass.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 2500,
+                "customDescription": "When worn and training the Music skill, gain Skill XP per charge in the skills the instrument supports.",
+                "tier": "none",
+                "consumesChargesOn": [{ "type": "MusicAction" }],
+                "validSlots": ["Shield"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {}
+            },
+            {
                 "itemType": "Equipment",
                 "id": "Bards_Hat",
                 "name": "Bards Hat",
@@ -851,6 +897,42 @@
                 "customDescription": "Unlock the ability to hire 2 different bards in Music."
             },
             {
+                "id": "Concert",
+                "media": "assets/concert.png",
+                "category": "melvorD:General",
+                "contains": {
+                    "items": [],
+                    "itemCharges": {
+                        "id": "mythMusic:Concert_Pass",
+                        "quantity": 1000
+                    }
+                },
+                "cost": {
+                    "gp": {
+                        "type": "Fixed",
+                        "cost": 10000000
+                    },
+                    "slayerCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    },
+                    "items": [
+                        { "id": "mythMusic:Concert_Pass_Half_A", "quantity": 1 },
+                        { "id": "mythMusic:Concert_Pass_Half_B", "quantity": 1 }
+                    ],
+                    "raidCoins": {
+                        "type": "Fixed",
+                        "cost": 0
+                    }
+                },
+                "allowQuantityPurchase": true,
+                "unlockRequirements": [],
+                "purchaseRequirements": [],
+                "defaultBuyLimit": 0,
+                "buyLimitOverrides": [],
+                "showBuyLimit": false
+            },
+            {
                 "id": "Music_Skillcape",
                 "media": "assets/music-skillcape.png",
                 "category": "melvorD:Skillcapes",
@@ -1131,7 +1213,7 @@
             {
                 "insertAt": "After",
                 "afterID": "melvorD:Multi_Tree",
-                "ids": ["mythMusic:Band_Practice"]
+                "ids": ["mythMusic:Band_Practice", "mythMusic:Concert"]
             }
         ],
         "pets": [
@@ -1194,6 +1276,24 @@
                             "chance": {
                                 "type": "Fixed",
                                 "chance": 0.025
+                            }
+                        },
+                        {
+                            "itemID": "mythMusic:Concert_Pass_Half_A",
+                            "quantity": 1,
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.015
+                            }
+                        },
+                        {
+                            "itemID": "mythMusic:Concert_Pass_Half_B",
+                            "quantity": 1,
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.015
                             }
                         }
                     ],
