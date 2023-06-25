@@ -42,6 +42,29 @@ export class UserInterface {
             ui.create(this.bard1, this.bardContainer);
             ui.create(this.bard2, this.bardContainer);
         });
+
+        this.context.patch(NotificationQueue, 'notify').replace(patch => {
+            const concertPassId = 'mythMusic:Concert_Pass';
+
+            const notifications = game.combat.notifications.queue
+                .map((notification, index) => ({ notification, index }))
+                .filter(
+                    ({ notification }) =>
+                        notification.type === 'ItemCharges' && notification.args[0]?.id === concertPassId
+                )
+                .sort((a, b) => b.index - a.index);
+
+            for (const { index } of notifications) {
+                const item = game.items.getObjectByID(concertPassId);
+
+                if (item) {
+                    imageNotify(item.media, 'Your Concert Pass has run out!', 'danger');
+                    game.combat.notifications.queue.splice(index, 1);
+                }
+            }
+
+            return patch();
+        });
     }
 
     private modifySkillInfoClass(mainContainer: HTMLElement) {

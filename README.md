@@ -16,6 +16,9 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.6.2
+* fixed message when the concert pass runs out to be more context specific
+
 ### 1.6.1
 * fixed bank sort order for concert pass items
 
