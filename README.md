@@ -16,6 +16,9 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.6.1
+* fixed bank sort order for concert pass items
+
 ### 1.6.0
 * added concert pass half a, concert pass half b and concert pass
 * half a and half b can drop while training music
