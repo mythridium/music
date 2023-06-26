@@ -385,7 +385,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         return rewards;
     }
 
-    getXPModifier(instrument?: Instrument) {
+    public getXPModifier(instrument?: Instrument) {
         let modifier = super.getXPModifier(instrument);
 
         if (this.isPoolTierActive(0)) {
@@ -395,7 +395,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         return modifier;
     }
 
-    getMasteryXPModifier(instrument: Instrument) {
+    public getMasteryXPModifier(instrument: Instrument) {
         let modifier = super.getMasteryXPModifier(instrument);
 
         if (this.isPoolTierActive(1)) {
@@ -566,6 +566,16 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         const decoder = new Decoder(this.game, this, reader.byteOffset);
 
         decoder.decode(reader);
+    }
+
+    /** Fix completion log bug which passes through base game namespace even for modded skills. */
+    public getMaxTotalMasteryLevels() {
+        return super.getMaxTotalMasteryLevels(this.namespace);
+    }
+
+    /** Fix completion log bug which passes through base game namespace even for modded skills. */
+    public getTotalCurrentMasteryLevels() {
+        return super.getTotalCurrentMasteryLevels(this.namespace);
     }
 
     public getActionIDFromOldID(oldActionID: number, idMap: NumericIDMap) {

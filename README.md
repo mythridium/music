@@ -16,6 +16,9 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.6.4
+* workaround game bugs with completion log not correctly displaying for custom skills
+
 ### 1.6.3
 * fixed concert pass halves dropping more often then intended
 * adjusted the Music pet, Muse, to provide a flat -0.15s Music Interval from -1% Music Interval
@@ -270,7 +273,7 @@ The Superior Music Skill Cape
 
 ## Pet
 
-The Music skill also contains a pet: Muse which provides -1% Music Interval
+The Music skill also contains a pet: Muse which provides -0.15s Music Interval
 
 ![Muse](images/muse-pet.png)
 
