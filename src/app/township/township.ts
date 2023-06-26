@@ -1,7 +1,7 @@
 export class MythTownship {
     private readonly itemType = ['Hat', 'Body', 'Leggings', 'Boots'];
 
-    constructor(private readonly context: Modding.ModContext) {}
+    constructor(private readonly context: Modding.ModContext, private readonly game: Game) {}
 
     public registerTraderItems() {
         this.context.gameData
@@ -55,22 +55,24 @@ export class MythTownship {
 
     private modifyTradeOrder() {
         // Switch order of trades so scroll of xp is first.
-        const planks = game.township.resources.getObjectByID('melvorF:Planks');
-        const trades = game.township.itemConversions.fromTownship.get(planks);
+        const planks = this.game.township.resources.getObjectByID('melvorF:Planks');
+        const trades = this.game.township.itemConversions.fromTownship.get(planks);
 
         const scrollOfMusicXP = trades.find(trade => trade.item.id === 'mythMusic:Music_Scroll_Of_XP');
 
         trades.splice(trades.indexOf(scrollOfMusicXP), 1);
         trades.splice(0, 0, scrollOfMusicXP);
 
-        game.township.itemConversions.fromTownship.set(planks, trades);
+        this.game.township.itemConversions.fromTownship.set(planks, trades);
     }
 
     private updateSkillingOutfitItemUpgrade(builder: Modding.GameDataPackageBuilder) {
         for (const type of this.itemType) {
             // Get the item upgrade from woodcutters, all outfits share the same item upgrade so this will modify
             // all of them.
-            const itemUpgrades = game.bank.itemUpgrades.get(game.items.getObjectByID(`melvorF:Woodcutters_${type}`));
+            const itemUpgrades = this.game.bank.itemUpgrades.get(
+                this.game.items.getObjectByID(`melvorF:Woodcutters_${type}`)
+            );
 
             if (!itemUpgrades?.length) {
                 return;
@@ -87,7 +89,7 @@ export class MythTownship {
             // so I don't need to think about all the little details for registration. Let Malc
             // deal with it.
             for (const item of itemUpgrade.rootItems) {
-                game.bank.itemUpgrades.delete(item);
+                this.game.bank.itemUpgrades.delete(item);
             }
 
             builder.itemUpgrades.add({

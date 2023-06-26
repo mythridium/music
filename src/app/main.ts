@@ -11,7 +11,7 @@ declare global {
 }
 
 export class App {
-    constructor(private readonly context: Modding.ModContext) {}
+    constructor(private readonly context: Modding.ModContext, private readonly game: Game) {}
 
     public async init() {
         await this.context.loadTemplates('music/music.html');
@@ -22,7 +22,7 @@ export class App {
         this.patchEventManager();
         this.initModifiers();
 
-        const music = game.registerSkill(game.registeredNamespaces.getNamespace('mythMusic'), Music);
+        const music = this.game.registerSkill(this.game.registeredNamespaces.getNamespace('mythMusic'), Music);
 
         await this.context.gameData.addPackage('data.json');
 
@@ -34,7 +34,7 @@ export class App {
     private patchEventManager() {
         this.context.patch(Game, 'constructEventMatcher').after((_patch, data) => {
             if (this.isMusicEvent(data)) {
-                return new MusicActionEventMatcher(data, game);
+                return new MusicActionEventMatcher(data, this.game);
             }
         });
     }
@@ -52,13 +52,13 @@ export class App {
     }
 
     private initTownship() {
-        const township = new MythTownship(this.context);
+        const township = new MythTownship(this.context, this.game);
 
         township.registerTraderItems();
     }
 
     private initInterface(music: Music) {
-        const userInterface = new UserInterface(this.context, music);
+        const userInterface = new UserInterface(this.context, this.game, music);
 
         userInterface.init();
 

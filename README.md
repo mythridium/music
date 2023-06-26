@@ -16,6 +16,10 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.6.3
+* fixed concert pass halves dropping more often then intended
+* adjusted the Music pet, Muse, to provide a flat -0.15s Music Interval from -1% Music Interval
+
 ### 1.6.2
 * fixed message when the concert pass runs out to be more context specific
 
@@ -215,7 +219,7 @@ The shop sells an upgrade which unlocks a second bard slot. This upgrade require
 The shop sells item charges for a Concert Pass.
 * Purchase Cost: Concert Pass Half (A) + Concert Pass Half (B) + 10M GP
 * When equipped in the offhand and has charges, the concert pass will provide skill xp for the skills the instrument supports.
-* Drop rate for Concert Pass Halves is 0.015% or roughly equivalent to the Ancient Ring of Skill and Ancient Ring of Mastery drop chance from Fishing.
+* Drop rate for Concert Pass Halves is 0.00075% or roughly equivalent to the Ancient Ring of Skill and Ancient Ring of Mastery drop chance from Fishing with a special chance of 5%.
 
 ![Concert Pass](images/concert-pass.png)
 

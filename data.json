@@ -1226,10 +1226,10 @@
                 "media": "assets/muse.png",
                 "ignoreCompletion": true,
                 "modifiers": {
-                    "decreasedSkillIntervalPercent": [
+                    "decreasedSkillInterval": [
                         {
                             "skillID": "mythMusic:Music",
-                            "value": 1
+                            "value": 150
                         }
                     ]
                 },
@@ -1287,7 +1287,7 @@
                             "requirements": [],
                             "chance": {
                                 "type": "Fixed",
-                                "chance": 0.015
+                                "chance": 0.00075
                             }
                         },
                         {
@@ -1296,7 +1296,7 @@
                             "requirements": [],
                             "chance": {
                                 "type": "Fixed",
-                                "chance": 0.015
+                                "chance": 0.00075
                             }
                         }
                     ],

@@ -4,7 +4,7 @@ import { BardModifier, HiredBard } from '../music.types';
 
 import './bard.scss';
 
-export function BardComponent(music: Music, game: Game) {
+export function BardComponent(music: Music) {
     return {
         $template: '#myth-music-bard',
         bard: undefined as HiredBard,
@@ -35,10 +35,7 @@ export function BardComponent(music: Music, game: Game) {
                 showCancelButton: false,
                 showDenyButton: false,
                 didOpen: popup => {
-                    ui.create(
-                        EquipmentComponent(music, game, bard),
-                        popup.querySelector('#myth-music-equipment-container')
-                    );
+                    ui.create(EquipmentComponent(music, bard), popup.querySelector('#myth-music-equipment-container'));
                 }
             });
         }

@@ -3,7 +3,7 @@ import { HiredBard } from '../music.types';
 import { DecodeVersion } from './version.base';
 
 export class Version3 implements DecodeVersion {
-    constructor(private readonly music: Music) {}
+    constructor(private readonly game: Game, private readonly music: Music) {}
 
     public decode(reader: SaveWriter) {
         const version = reader.getUint32();
@@ -28,13 +28,13 @@ export class Version3 implements DecodeVersion {
             let socket: string | Item;
 
             if (reader.getBoolean()) {
-                socket = reader.getNamespacedObject(game.items);
+                socket = reader.getNamespacedObject(this.game.items);
             }
 
             let utility: string | Item;
 
             if (reader.getBoolean()) {
-                utility = reader.getNamespacedObject(game.items);
+                utility = reader.getNamespacedObject(this.game.items);
             }
 
             let hiredBard: HiredBard;

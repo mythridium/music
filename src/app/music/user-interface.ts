@@ -20,7 +20,11 @@ export class UserInterface {
         return document.getElementById('bard-container');
     }
 
-    constructor(private readonly context: Modding.ModContext, private readonly music: Music) {}
+    constructor(
+        private readonly context: Modding.ModContext,
+        private readonly game: Game,
+        private readonly music: Music
+    ) {}
 
     public init() {
         this.context.onInterfaceAvailable(async () => {
@@ -29,15 +33,15 @@ export class UserInterface {
             this.modifySkillInfoClass(this.mainContainer);
 
             for (const instrument of this.music.actions.registeredObjects.values()) {
-                const component = InstrumentComponent(this.music, instrument, game);
+                const component = InstrumentComponent(this.music, instrument, this.game);
 
                 ui.create(component, this.instrumentsContainer);
 
                 this.instruments.set(instrument, component);
             }
 
-            this.bard1 = BardComponent(this.music, game);
-            this.bard2 = BardComponent(this.music, game);
+            this.bard1 = BardComponent(this.music);
+            this.bard2 = BardComponent(this.music);
 
             ui.create(this.bard1, this.bardContainer);
             ui.create(this.bard2, this.bardContainer);
@@ -46,7 +50,7 @@ export class UserInterface {
         this.context.patch(NotificationQueue, 'notify').replace(patch => {
             const concertPassId = 'mythMusic:Concert_Pass';
 
-            const notifications = game.combat.notifications.queue
+            const notifications = this.game.combat.notifications.queue
                 .map((notification, index) => ({ notification, index }))
                 .filter(
                     ({ notification }) =>
@@ -55,11 +59,11 @@ export class UserInterface {
                 .sort((a, b) => b.index - a.index);
 
             for (const { index } of notifications) {
-                const item = game.items.getObjectByID(concertPassId);
+                const item = this.game.items.getObjectByID(concertPassId);
 
                 if (item) {
                     imageNotify(item.media, 'Your Concert Pass has run out!', 'danger');
-                    game.combat.notifications.queue.splice(index, 1);
+                    this.game.combat.notifications.queue.splice(index, 1);
                 }
             }
 

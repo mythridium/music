@@ -563,7 +563,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public decode(reader: SaveWriter, version: number): void {
         super.decode(reader, version);
 
-        const decoder = new Decoder(this, reader.byteOffset);
+        const decoder = new Decoder(this.game, this, reader.byteOffset);
 
         decoder.decode(reader);
     }

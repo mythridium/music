@@ -5,11 +5,11 @@ import { Version2 } from './version-2';
 import { Version3 } from './version-3';
 
 export class Decoder {
-    constructor(private readonly music: Music, private readonly start: number) {}
+    constructor(private readonly game: Game, private readonly music: Music, private readonly start: number) {}
 
     public decode(reader: SaveWriter) {
         const saveVersions = [
-            this.loadSaveFactory(() => new Version3(this.music).decode(reader)),
+            this.loadSaveFactory(() => new Version3(this.game, this.music).decode(reader)),
             this.loadSaveFactory(() => new Version2(this.music).decode(reader)),
             this.loadSaveFactory(() => new Version1(this.music).decode(reader)),
             this.loadSaveFactory(() => new Version0(this.music).decode(reader))

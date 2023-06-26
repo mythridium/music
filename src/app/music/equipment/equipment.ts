@@ -11,7 +11,7 @@ enum State {
     Utility = 'utility'
 }
 
-export function EquipmentComponent(music: Music, game: Game, bard: HiredBard) {
+export function EquipmentComponent(music: Music, bard: HiredBard) {
     return {
         $template: '#myth-music-equipment',
         bard,
