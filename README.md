@@ -16,6 +16,9 @@ When designing this skill, my aims were to take pressure off early game gold, wh
 
 ## Change Log
 
+### 1.6.5
+* added the ability to see the next available instrument in a locked state; like in Woodcutting and Mining
+
 ### 1.6.4
 * workaround game bugs with completion log not correctly displaying for custom skills
 
@@ -556,3 +559,5 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.flaticon.com/free-icons/access" title="access icons">Access icons created by Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/famous" title="famous icons">Famous icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">Guitar icons created by Freepik - Flaticon</a>

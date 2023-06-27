@@ -1,10 +1,12 @@
 import { BardComponent } from './bard/bard';
 import { InstrumentComponent } from './instrument/instrument';
+import { LockedComponent } from './locked/locked';
 import { Music } from './music';
 import { Instrument } from './music.types';
 
 export class UserInterface {
     public readonly instruments = new Map<Instrument, ReturnType<typeof InstrumentComponent>>();
+    public locked: ReturnType<typeof LockedComponent>;
     public bard1: ReturnType<typeof BardComponent>;
     public bard2: ReturnType<typeof BardComponent>;
 
@@ -39,6 +41,9 @@ export class UserInterface {
 
                 this.instruments.set(instrument, component);
             }
+
+            this.locked = LockedComponent(this.music);
+            ui.create(this.locked, this.instrumentsContainer);
 
             this.bard1 = BardComponent(this.music);
             this.bard2 = BardComponent(this.music);

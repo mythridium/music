@@ -511,6 +511,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             }
         }
 
+        this.userInterface.locked.update();
+
         this.renderQueue.visibleInstruments = false;
     }
 

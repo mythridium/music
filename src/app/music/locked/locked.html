@@ -1,0 +1,23 @@
+<template id="myth-instrument-locked">
+    <div class="col-6 col-lg-3" id="instrument-locked" v-if="isVisible">
+        <div
+            class="block block-rounded block-link-pop block-rounded-extra border-top border-danger border-4x justify-vertical-center bg-gray-dark"
+        >
+            <div class="block-content block-content-full pb-0">
+                <div class="font-size-sm font-w600 text-center mb-3">
+                    <span id="instrument-locked-text">Locked</span>
+
+                    <br />
+
+                    <img class="locked-instrument-icon m-3" :src="icon" />
+
+                    <br />
+
+                    <span class="badge badge-danger badge-pill mb-1" id="instrument-next-level">
+                        Level {{ level }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
