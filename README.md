@@ -561,3 +561,5 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.flaticon.com/free-icons/famous" title="famous icons">Famous icons created by Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">Guitar icons created by Freepik - Flaticon</a>
+
+<a href="https://www.freepik.com/free-vector/aesthetic-jazz-background-musical-instrument-border-blue-vector_20346432.htm#query=musical%20background&position=16&from_view=search&track=ais">Image by rawpixel.com on Freepik</a>
