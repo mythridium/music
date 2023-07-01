@@ -15,99 +15,7 @@ Please provide any feedback or bug reports, would love to hear your thoughts.
 When designing this skill, my aims were to take pressure off early game gold, while also providing a late game gold siphon. This makes it an attractive early game skill for adventure mode, and late game, especially once Township is up and running, the buffs are designed to be powerful enough that spending the gold is deemed worth it. By limiting to only a couple of bards, the player will need to spend their masses of gold to get the bonuses for the skills they are training.
 
 ## Change Log
-
-### 1.6.5
-* added the ability to see the next available instrument in a locked state; like in Woodcutting and Mining
-
-### 1.6.4
-* workaround game bugs with completion log not correctly displaying for custom skills
-
-### 1.6.3
-* fixed concert pass halves dropping more often then intended
-* adjusted the Music pet, Muse, to provide a flat -0.15s Music Interval from -1% Music Interval
-
-### 1.6.2
-* fixed message when the concert pass runs out to be more context specific
-
-### 1.6.1
-* fixed bank sort order for concert pass items
-
-### 1.6.0
-* added concert pass half a, concert pass half b and concert pass
-* half a and half b can drop while training music
-* both halves + 10M GP can be used to purchase 1,000 charges of a concert pass
-* the concert pass can be equipped in the offhand and while training Music you also gain Skill XP for the skills the instrument supports
-
-### 1.5.0
-* increased drop rate of sheet music from 1% to 5%
-* expanded the ability to upgrade hired bard instruments which boost the Music skill itself
-  * one of three new gems can be socketed into a hired bards instrument
-  * one of three new utilities can be applied onto a hired bards instrument
-
-### 1.4.2
-* fixed skill info header not displaying as intended on mobile
-* fixed Aorpheats Signet Ring not providing +100% GP to Music
-* fixed Max Skillcape, Cape of Completion, Superior Max Skillcape and Superior Cape of Completion not inheriting Music Skillcape modifiers (these capes still DO NOT require any Music skill levels, they just inherit the modifiers of the Music skillcapes)
-
-### 1.4.1
-* fixed trumpet mastery level 1 modifier incorrectly requiring mastery level 40
-
-### 1.4.0
-* reduced tips (GP) scaling from mastery level from +15 GP each level to +10 GP each level, base instrument GP is no longer the same across all instruments, higher level instruments have a higher base GP than lower level instruments. This should hopefully make higher instruments feel a little better, this does result in less GP from lower instruments than the previous version.
-* added three more instruments; the accordion, bouzouki and xylophone
-* modified some instrument unlock levels and bonuses
-  * drum - Unlock Level 15 -> Level 10
-  * banjo - Unlock Level 30 -> Level 20
-  * saxophone - Unlock Level 45 -> Level 70, now focused on defensive modifiers only
-  * maraca - Unlock Level 60 -> Level 50
-  * violin - Unlock Level 75 -> Level 80
-  * bongo - now focused entirely on slayer, agility has been moved to xylophone
-  * french horn - switched level 1 and 40 modifier bonuses
-  * tambourine - increased level 1 farming yield % from 5 to 10 and level 40 flat farming yield from 5 to 15
-  * trumpet - now focused on damage dealing only
-* added a new shop purchase which lets you hire two bards at once
-* added a new item, sheet music which is dropped while training Music
-* added a new item, essence of music, which is upgraded from sheet music
-* added the ability to upgrade hired bard instruments which unlocks a 5th modifier
-
-### 1.3.0
-* added a potion to Herblore which increases GP obtained while training Music
-* added a summoning tablet for the Music skill, the Bard
-* added a Music Scroll of XP which can be purchased from the Township trader with Planks
-* added a Music Outfit to the Township category of the shop, it functions the same all other skilling outfits
-
-### 1.2.0
-
-* updated description of mastery and mastery pool hire cost reduction to better align with skill capes (no functional change)
-* updated exponential calculation to clamp mastery between level 1 and 99 instead of throwing an error if outside this range
-* adjusted the level that instruments are available at
-* adjusted the experience gained from training. The time it takes to level should be roughly equivalent to Astrology, assuming no interval increases, xp modifiers, etc and you train the highest level instrument available
-* added 3 new instruments; the harp, tambourine and maraca
-
-### 1.1.0
-
-* fixed hire dialog allowing to hire without enough gold
-* updated instrument icons
-
-### 1.0.3
-
-* fixed violin 99 mastery bonus to reduce prayer cost instead of increase it
-
-### 1.0.2
-
-* fixed music mastery token granting no experience
-
-### 1.0.1
-
-* fixed the spelling of saxophone
-* removed mastery token, capes and pet from being required for completion log
-* removed music from being required for max and superior max capes
-* skill cape now also reduces bard hire cost by 5% and increased gold earned from music by 5%
-* superior skill cape now also reduces bard hire cost by 10% and increased gold earned from music by 10%
-
-### 1.0.0
-
-* initial release
+ Has been moved to the end of the mod description page.
 
 ## Training
 
@@ -320,6 +228,18 @@ The Fox synergy actually works in reverse, kind of... the Bard synergy doubles t
 
 ![Summoning](images/summoning-2.png)
 
+## Agility
+
+Agility has been modified so that the Obstacle 10 - Waterfall now also benefits the Music skill.
+
+![Agility](images/agility.png)
+
+## Astrology
+
+Astrology has been modified so that the Variel constellation now also benefits the Music skill.
+
+![Astrology](images/astrology.png)
+
 ## Township
 
 The Music skill adds a Music Scroll of XP granting +3% Music Skill XP. It functions the same as other scrolls of xp.
@@ -345,14 +265,14 @@ Guitar: Unlocked at skill level 1
 * Mastery Level 99: +2 minimum Bird Nest's received from Woodcutting
 * Upgrade: Bonfires in Firemaking require no logs to light. Automatically relights Bonfires when depleted
 
-Drum: Unlocked at skill level 10
+Banjo: Unlocked at skill level 10
 * Mastery Level 1: -0.5s Fishing Interval
 * Mastery Level 40: -10% Cooking Interval
 * Mastery Level 75: +15% chance to find a Lost Chest while Fishing (This is separate to the Special Fishing Chance)
 * Mastery Level 99: -30% Passive Cook Interval
 * Upgrade: +25% chance to gain 1 cooked version of a fish when Fishing
 
-Banjo: Unlocked at skill level 20
+Snare Drum: Unlocked at skill level 20
 * Mastery Level 1: -0.2s Mining Interval
 * Mastery Level 40: -0.2s Smithing Interval
 * Mastery Level 75: -3 Coal Ore Cost when Smithing
@@ -373,7 +293,7 @@ Bouzouki: Unlocked at skill level 40
 * Mastery Level 99: 10% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
 * Upgrade: +15% GP From Sales
 
-Maraca: Unlocked at skill level 50
+Maracas: Unlocked at skill level 50
 * Mastery Level 1: +5% Crafting Skill XP
 * Mastery Level 40: +5% Fletching Skill XP
 * Mastery Level 75: x4 Items received from Fletching
@@ -401,7 +321,7 @@ Violin: Unlocked at skill level 80
 * Mastery Level 99: -3 Prayer Point Cost for Prayers
 * Upgrade: +50% Chance to receive random Elemental Runes from Runecrafting when creating Runes
 
-Bongo: Unlocked at skill level 90
+Djembe: Unlocked at skill level 90
 * Mastery Level 1: -5% Slayer Task monster Accuracy Rating
 * Mastery Level 40: +10% Damage To Slayer Tasks
 * Mastery Level 75: +40% Slayer Coins
@@ -440,105 +360,212 @@ Trumpet: Unlocked at skill level 115
 
 The cost for hiring a bard is as follows: (Starts at 10,000 GP and maxes out at 200M GP)
 
-* Mastery Level: 1 - GP Cost:10000
-* Mastery Level: 2 - GP Cost:11000
-* Mastery Level: 3 - GP Cost:12000
-* Mastery Level: 4 - GP Cost:14000
-* Mastery Level: 5 - GP Cost:15000
-* Mastery Level: 6 - GP Cost:17000
-* Mastery Level: 7 - GP Cost:18000
-* Mastery Level: 8 - GP Cost:20000
-* Mastery Level: 9 - GP Cost:22000
-* Mastery Level: 10 - GP Cost: 25000
-* Mastery Level: 11 - GP Cost: 27000
-* Mastery Level: 12 - GP Cost: 30000
-* Mastery Level: 13 - GP Cost: 34000
-* Mastery Level: 14 - GP Cost: 37000
-* Mastery Level: 15 - GP Cost: 41000
-* Mastery Level: 16 - GP Cost: 46000
-* Mastery Level: 17 - GP Cost: 50000
-* Mastery Level: 18 - GP Cost: 56000
-* Mastery Level: 19 - GP Cost: 62000
-* Mastery Level: 20 - GP Cost: 68000
-* Mastery Level: 21 - GP Cost: 75000
-* Mastery Level: 22 - GP Cost: 83000
-* Mastery Level: 23 - GP Cost: 92000
-* Mastery Level: 24 - GP Cost: 102000
-* Mastery Level: 25 - GP Cost: 113000
-* Mastery Level: 26 - GP Cost: 125000
-* Mastery Level: 27 - GP Cost: 138000
-* Mastery Level: 28 - GP Cost: 153000
-* Mastery Level: 29 - GP Cost: 169000
-* Mastery Level: 30 - GP Cost: 187000
-* Mastery Level: 31 - GP Cost: 207000
-* Mastery Level: 32 - GP Cost: 229000
-* Mastery Level: 33 - GP Cost: 254000
-* Mastery Level: 34 - GP Cost: 281000
-* Mastery Level: 35 - GP Cost: 311000
-* Mastery Level: 36 - GP Cost: 344000
-* Mastery Level: 37 - GP Cost: 380000
-* Mastery Level: 38 - GP Cost: 421000
-* Mastery Level: 39 - GP Cost: 465000
-* Mastery Level: 40 - GP Cost: 515000
-* Mastery Level: 41 - GP Cost: 570000
-* Mastery Level: 42 - GP Cost: 630000
-* Mastery Level: 43 - GP Cost: 697000
-* Mastery Level: 44 - GP Cost: 771000
-* Mastery Level: 45 - GP Cost: 853000
-* Mastery Level: 46 - GP Cost: 944000
-* Mastery Level: 47 - GP Cost: 1044000
-* Mastery Level: 48 - GP Cost: 1155000
-* Mastery Level: 49 - GP Cost: 1278000
-* Mastery Level: 50 - GP Cost: 1414000
-* Mastery Level: 51 - GP Cost: 1565000
-* Mastery Level: 52 - GP Cost: 1731000
-* Mastery Level: 53 - GP Cost: 1915000
-* Mastery Level: 54 - GP Cost: 2119000
-* Mastery Level: 55 - GP Cost: 2344000
-* Mastery Level: 56 - GP Cost: 2593000
-* Mastery Level: 57 - GP Cost: 2869000
-* Mastery Level: 58 - GP Cost: 3174000
-* Mastery Level: 59 - GP Cost: 3512000
-* Mastery Level: 60 - GP Cost: 3885000
-* Mastery Level: 61 - GP Cost: 4298000
-* Mastery Level: 62 - GP Cost: 4755000
-* Mastery Level: 63 - GP Cost: 5261000
-* Mastery Level: 64 - GP Cost: 5820000
-* Mastery Level: 65 - GP Cost: 6439000
-* Mastery Level: 66 - GP Cost: 7124000
-* Mastery Level: 67 - GP Cost: 7882000
-* Mastery Level: 68 - GP Cost: 8720000
-* Mastery Level: 69 - GP Cost: 9647000
-* Mastery Level: 70 - GP Cost: 10673000
-* Mastery Level: 71 - GP Cost: 11808000
-* Mastery Level: 72 - GP Cost: 13063000
-* Mastery Level: 73 - GP Cost: 14452000
-* Mastery Level: 74 - GP Cost: 15989000
-* Mastery Level: 75 - GP Cost: 17690000
-* Mastery Level: 76 - GP Cost: 19571000
-* Mastery Level: 77 - GP Cost: 21652000
-* Mastery Level: 78 - GP Cost: 23954000
-* Mastery Level: 79 - GP Cost: 26501000
-* Mastery Level: 80 - GP Cost: 29320000
-* Mastery Level: 81 - GP Cost: 32437000
-* Mastery Level: 82 - GP Cost: 35887000
-* Mastery Level: 83 - GP Cost: 39703000
-* Mastery Level: 84 - GP Cost: 43925000
-* Mastery Level: 85 - GP Cost: 48596000
-* Mastery Level: 86 - GP Cost: 53763000
-* Mastery Level: 87 - GP Cost: 59480000
-* Mastery Level: 88 - GP Cost: 65805000
-* Mastery Level: 89 - GP Cost: 72803000
-* Mastery Level: 90 - GP Cost: 80545000
-* Mastery Level: 91 - GP Cost: 89110000
-* Mastery Level: 92 - GP Cost: 98586000
-* Mastery Level: 93 - GP Cost: 109069000
-* Mastery Level: 94 - GP Cost: 120667000
-* Mastery Level: 95 - GP Cost: 133499000
-* Mastery Level: 96 - GP Cost: 147695000
-* Mastery Level: 97 - GP Cost: 163401000
-* Mastery Level: 98 - GP Cost: 180776000
-* Mastery Level: 99 - GP Cost: 200000000
+* Mastery Level: 1 - GP Cost:10,000
+* Mastery Level: 2 - GP Cost:11,000
+* Mastery Level: 3 - GP Cost:12,000
+* Mastery Level: 4 - GP Cost:14,000
+* Mastery Level: 5 - GP Cost:15,000
+* Mastery Level: 6 - GP Cost:17,000
+* Mastery Level: 7 - GP Cost:18,000
+* Mastery Level: 8 - GP Cost:20,000
+* Mastery Level: 9 - GP Cost:22,000
+* Mastery Level: 10 - GP Cost: 25,000
+* Mastery Level: 11 - GP Cost: 27,000
+* Mastery Level: 12 - GP Cost: 30,000
+* Mastery Level: 13 - GP Cost: 34,000
+* Mastery Level: 14 - GP Cost: 37,000
+* Mastery Level: 15 - GP Cost: 41,000
+* Mastery Level: 16 - GP Cost: 46,000
+* Mastery Level: 17 - GP Cost: 50,000
+* Mastery Level: 18 - GP Cost: 56,000
+* Mastery Level: 19 - GP Cost: 62,000
+* Mastery Level: 20 - GP Cost: 68,000
+* Mastery Level: 21 - GP Cost: 75,000
+* Mastery Level: 22 - GP Cost: 83,000
+* Mastery Level: 23 - GP Cost: 92,000
+* Mastery Level: 24 - GP Cost: 102,000
+* Mastery Level: 25 - GP Cost: 113,000
+* Mastery Level: 26 - GP Cost: 125,000
+* Mastery Level: 27 - GP Cost: 138,000
+* Mastery Level: 28 - GP Cost: 153,000
+* Mastery Level: 29 - GP Cost: 169,000
+* Mastery Level: 30 - GP Cost: 187,000
+* Mastery Level: 31 - GP Cost: 207,000
+* Mastery Level: 32 - GP Cost: 229,000
+* Mastery Level: 33 - GP Cost: 254,000
+* Mastery Level: 34 - GP Cost: 281,000
+* Mastery Level: 35 - GP Cost: 311,000
+* Mastery Level: 36 - GP Cost: 344,000
+* Mastery Level: 37 - GP Cost: 380,000
+* Mastery Level: 38 - GP Cost: 421,000
+* Mastery Level: 39 - GP Cost: 465,000
+* Mastery Level: 40 - GP Cost: 515,000
+* Mastery Level: 41 - GP Cost: 570,000
+* Mastery Level: 42 - GP Cost: 630,000
+* Mastery Level: 43 - GP Cost: 697,000
+* Mastery Level: 44 - GP Cost: 771,000
+* Mastery Level: 45 - GP Cost: 853,000
+* Mastery Level: 46 - GP Cost: 944,000
+* Mastery Level: 47 - GP Cost: 1,044,000
+* Mastery Level: 48 - GP Cost: 1,155,000
+* Mastery Level: 49 - GP Cost: 1,278,000
+* Mastery Level: 50 - GP Cost: 1,414,000
+* Mastery Level: 51 - GP Cost: 1,565,000
+* Mastery Level: 52 - GP Cost: 1,731,000
+* Mastery Level: 53 - GP Cost: 1,915,000
+* Mastery Level: 54 - GP Cost: 2,119,000
+* Mastery Level: 55 - GP Cost: 2,344,000
+* Mastery Level: 56 - GP Cost: 2,593,000
+* Mastery Level: 57 - GP Cost: 2,869,000
+* Mastery Level: 58 - GP Cost: 3,174,000
+* Mastery Level: 59 - GP Cost: 3,512,000
+* Mastery Level: 60 - GP Cost: 3,885,000
+* Mastery Level: 61 - GP Cost: 4,298,000
+* Mastery Level: 62 - GP Cost: 4,755,000
+* Mastery Level: 63 - GP Cost: 5,261,000
+* Mastery Level: 64 - GP Cost: 5,820,000
+* Mastery Level: 65 - GP Cost: 6,439,000
+* Mastery Level: 66 - GP Cost: 7,124,000
+* Mastery Level: 67 - GP Cost: 7,882,000
+* Mastery Level: 68 - GP Cost: 8,720,000
+* Mastery Level: 69 - GP Cost: 9,647,000
+* Mastery Level: 70 - GP Cost: 10,673,000
+* Mastery Level: 71 - GP Cost: 11,808,000
+* Mastery Level: 72 - GP Cost: 13,063,000
+* Mastery Level: 73 - GP Cost: 14,452,000
+* Mastery Level: 74 - GP Cost: 15,989,000
+* Mastery Level: 75 - GP Cost: 17,690,000
+* Mastery Level: 76 - GP Cost: 19,571,000
+* Mastery Level: 77 - GP Cost: 21,652,000
+* Mastery Level: 78 - GP Cost: 23,954,000
+* Mastery Level: 79 - GP Cost: 26,501,000
+* Mastery Level: 80 - GP Cost: 29,320,000
+* Mastery Level: 81 - GP Cost: 32,437,000
+* Mastery Level: 82 - GP Cost: 35,887,000
+* Mastery Level: 83 - GP Cost: 39,703,000
+* Mastery Level: 84 - GP Cost: 43,925,000
+* Mastery Level: 85 - GP Cost: 48,596,000
+* Mastery Level: 86 - GP Cost: 53,763,000
+* Mastery Level: 87 - GP Cost: 59,480,000
+* Mastery Level: 88 - GP Cost: 65,805,000
+* Mastery Level: 89 - GP Cost: 72,803,000
+* Mastery Level: 90 - GP Cost: 80,545,000
+* Mastery Level: 91 - GP Cost: 89,110,000
+* Mastery Level: 92 - GP Cost: 98,586,000
+* Mastery Level: 93 - GP Cost: 109,069,000
+* Mastery Level: 94 - GP Cost: 120,667,000
+* Mastery Level: 95 - GP Cost: 133,499,000
+* Mastery Level: 96 - GP Cost: 147,695,000
+* Mastery Level: 97 - GP Cost: 163,401,000
+* Mastery Level: 98 - GP Cost: 180,776,000
+* Mastery Level: 99 - GP Cost: 200,000,000
+
+## Change Log
+
+### 1.7.0
+* agility obstacle 10 waterfall now also benefits the Music skill
+* astrology variel constellation now also benefits the Music skill
+* added compatibility between Tiny Passive Icons mod and the Music skill mod for Agility and Astrology
+* switched the banjo and drum instruments
+  * no functional change, just switched the type of instrument
+  * the banjo now benefits fishing and cooking and is still unlocked at level 10
+  * the drum now benefits mining and smithing and is still unlocked at level 20
+* renamed the drum to snare drum
+* renamed the bongo to djembe
+* renamed the maraca to maracas
+
+### 1.6.5
+* added the ability to see the next available instrument in a locked state; like in Woodcutting and Mining
+
+### 1.6.4
+* workaround game bugs with completion log not correctly displaying for custom skills
+
+### 1.6.3
+* fixed concert pass halves dropping more often then intended
+* adjusted the Music pet, Muse, to provide a flat -0.15s Music Interval from -1% Music Interval
+
+### 1.6.2
+* fixed message when the concert pass runs out to be more context specific
+
+### 1.6.1
+* fixed bank sort order for concert pass items
+
+### 1.6.0
+* added concert pass half a, concert pass half b and concert pass
+* half a and half b can drop while training music
+* both halves + 10M GP can be used to purchase 1,000 charges of a concert pass
+* the concert pass can be equipped in the offhand and while training Music you also gain Skill XP for the skills the instrument supports
+
+### 1.5.0
+* increased drop rate of sheet music from 1% to 5%
+* expanded the ability to upgrade hired bard instruments which boost the Music skill itself
+  * one of three new gems can be socketed into a hired bards instrument
+  * one of three new utilities can be applied onto a hired bards instrument
+
+### 1.4.2
+* fixed skill info header not displaying as intended on mobile
+* fixed Aorpheats Signet Ring not providing +100% GP to Music
+* fixed Max Skillcape, Cape of Completion, Superior Max Skillcape and Superior Cape of Completion not inheriting Music Skillcape modifiers (these capes still DO NOT require any Music skill levels, they just inherit the modifiers of the Music skillcapes)
+
+### 1.4.1
+* fixed trumpet mastery level 1 modifier incorrectly requiring mastery level 40
+
+### 1.4.0
+* reduced tips (GP) scaling from mastery level from +15 GP each level to +10 GP each level, base instrument GP is no longer the same across all instruments, higher level instruments have a higher base GP than lower level instruments. This should hopefully make higher instruments feel a little better, this does result in less GP from lower instruments than the previous version.
+* added three more instruments; the accordion, bouzouki and xylophone
+* modified some instrument unlock levels and bonuses
+  * drum - Unlock Level 15 -> Level 10
+  * banjo - Unlock Level 30 -> Level 20
+  * saxophone - Unlock Level 45 -> Level 70, now focused on defensive modifiers only
+  * maraca - Unlock Level 60 -> Level 50
+  * violin - Unlock Level 75 -> Level 80
+  * bongo - now focused entirely on slayer, agility has been moved to xylophone
+  * french horn - switched level 1 and 40 modifier bonuses
+  * tambourine - increased level 1 farming yield % from 5 to 10 and level 40 flat farming yield from 5 to 15
+  * trumpet - now focused on damage dealing only
+* added a new shop purchase which lets you hire two bards at once
+* added a new item, sheet music which is dropped while training Music
+* added a new item, essence of music, which is upgraded from sheet music
+* added the ability to upgrade hired bard instruments which unlocks a 5th modifier
+
+### 1.3.0
+* added a potion to Herblore which increases GP obtained while training Music
+* added a summoning tablet for the Music skill, the Bard
+* added a Music Scroll of XP which can be purchased from the Township trader with Planks
+* added a Music Outfit to the Township category of the shop, it functions the same all other skilling outfits
+
+### 1.2.0
+
+* updated description of mastery and mastery pool hire cost reduction to better align with skill capes (no functional change)
+* updated exponential calculation to clamp mastery between level 1 and 99 instead of throwing an error if outside this range
+* adjusted the level that instruments are available at
+* adjusted the experience gained from training. The time it takes to level should be roughly equivalent to Astrology, assuming no interval increases, xp modifiers, etc and you train the highest level instrument available
+* added 3 new instruments; the harp, tambourine and maraca
+
+### 1.1.0
+
+* fixed hire dialog allowing to hire without enough gold
+* updated instrument icons
+
+### 1.0.3
+
+* fixed violin 99 mastery bonus to reduce prayer cost instead of increase it
+
+### 1.0.2
+
+* fixed music mastery token granting no experience
+
+### 1.0.1
+
+* fixed the spelling of saxophone
+* removed mastery token, capes and pet from being required for completion log
+* removed music from being required for max and superior max capes
+* skill cape now also reduces bard hire cost by 5% and increased gold earned from music by 5%
+* superior skill cape now also reduces bard hire cost by 10% and increased gold earned from music by 10%
+
+### 1.0.0
+
+* initial release
 
 ## Attribution
 

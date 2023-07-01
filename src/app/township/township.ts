@@ -3,7 +3,7 @@ export class MythTownship {
 
     constructor(private readonly context: Modding.ModContext, private readonly game: Game) {}
 
-    public registerTraderItems() {
+    public register() {
         this.context.gameData
             .buildPackage(builder => {
                 builder.skillData.add({

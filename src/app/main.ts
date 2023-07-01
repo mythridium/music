@@ -1,8 +1,11 @@
 import { MusicActionEventMatcher, MusicActionEventMatcherOptions } from './music/event';
-import { MythModifiers } from './music/modifiers';
 import { Music } from './music/music';
-import { MythTownship } from './township/township';
 import { UserInterface } from './music/user-interface';
+import { MythModifiers } from './music/modifiers';
+import { MythTownship } from './township/township';
+import { MythAgility } from './agility/agility';
+import { MythAstrology } from './astrology/astrology';
+import { TinyPassiveIconsCompatibility } from './compatibility/tiny-passive-icons';
 
 declare global {
     interface Game {
@@ -27,6 +30,9 @@ export class App {
 
         await this.context.gameData.addPackage('data.json');
 
+        this.initCompatibility(music);
+        this.initAgility(music);
+        this.initAstrology(music);
         this.initTownship();
 
         music.userInterface = this.initInterface(music);
@@ -55,7 +61,25 @@ export class App {
     private initTownship() {
         const township = new MythTownship(this.context, this.game);
 
-        township.registerTraderItems();
+        township.register();
+    }
+
+    private initAgility(music: Music) {
+        const agility = new MythAgility(this.game, music);
+
+        agility.register();
+    }
+
+    private initAstrology(music: Music) {
+        const astrology = new MythAstrology(this.game, music);
+
+        astrology.register();
+    }
+
+    private initCompatibility(music: Music) {
+        const tinyPassiveIcons = new TinyPassiveIconsCompatibility(this.context, music);
+
+        tinyPassiveIcons.patch();
     }
 
     private initInterface(music: Music) {

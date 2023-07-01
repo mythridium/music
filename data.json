@@ -1379,8 +1379,8 @@
                         },
                         {
                             "id": "Drum",
-                            "name": "Drum",
-                            "media": "assets/instruments/drum.png",
+                            "name": "Banjo",
+                            "media": "assets/instruments/banjo.png",
                             "baseInterval": 3000,
                             "baseExperience": 13,
                             "maxGP": 182,
@@ -1419,8 +1419,8 @@
                         },
                         {
                             "id": "Banjo",
-                            "name": "Banjo",
-                            "media": "assets/instruments/banjo.png",
+                            "name": "Snare Drum",
+                            "media": "assets/instruments/drum.png",
                             "baseInterval": 3000,
                             "baseExperience": 21,
                             "maxGP": 223,
@@ -1535,7 +1535,7 @@
                         },
                         {
                             "id": "Maraca",
-                            "name": "Maraca",
+                            "name": "Maracas",
                             "media": "assets/instruments/maraca.png",
                             "baseInterval": 3000,
                             "baseExperience": 45,
@@ -1692,7 +1692,7 @@
                         },
                         {
                             "id": "Bongo",
-                            "name": "Bongo",
+                            "name": "Djembe",
                             "media": "assets/instruments/bongo.png",
                             "baseInterval": 3000,
                             "baseExperience": 81,
