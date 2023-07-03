@@ -173,7 +173,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Used for Music upgrades.",
-                "sellsFor": 5000
+                "sellsFor": 100
             },
             {
                 "itemType": "Item",
@@ -186,7 +186,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Used to upgrade hired bard instruments. Unlocks a 5th modifier when upgraded.",
-                "sellsFor": 500000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -199,7 +199,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Can be socketed into hired bard instruments. Grants +5% Music GP when socketed.",
-                "sellsFor": 25000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -212,7 +212,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Can be socketed into hired bard instruments. Grants +5% Music Skill XP when socketed.",
-                "sellsFor": 250000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -225,7 +225,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Can be socketed into hired bard instruments. Grants +5% Music Mastery XP when socketed.",
-                "sellsFor": 25000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -238,7 +238,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Can be applied hired bard instruments. Grants +5% Sheet Music drop chance when applied.",
-                "sellsFor": 100000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -251,7 +251,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Can be applied hired bard instruments. Grants -5% Music Interval when applied.",
-                "sellsFor": 100000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -264,7 +264,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Can be applied hired bard instruments. Grants +1 Unlock tier for instrument without needing to meet mastery level when applied.",
-                "sellsFor": 100000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -277,7 +277,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Used with Concert Pass Half (B) to purchase a Concert Pass.",
-                "sellsFor": 1000
+                "sellsFor": 500
             },
             {
                 "itemType": "Item",
@@ -290,7 +290,7 @@
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
                 "customDescription": "Used with Concert Pass Half (A) to purchase a Concert Pass.",
-                "sellsFor": 1000
+                "sellsFor": 500
             },
             {
                 "itemType": "Equipment",
@@ -302,7 +302,7 @@
                 "ignoreCompletion": true,
                 "obtainFromItemLog": false,
                 "golbinRaidExclusive": false,
-                "sellsFor": 2500,
+                "sellsFor": 1000,
                 "customDescription": "When worn and training the Music skill, gain Skill XP per charge in the skills the instrument supports.",
                 "tier": "none",
                 "consumesChargesOn": [{ "type": "MusicAction" }],

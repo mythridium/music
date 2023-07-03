@@ -19,7 +19,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public modifiers = new MappedModifiers();
 
     private renderedProgressBar?: ProgressBar;
-    private sheetMusicChance = 5;
+    private sheetMusicChance = 2;
 
     public readonly manager = new MusicManager(this, this.game);
     public upgrades: Upgrades;

@@ -43,9 +43,9 @@ Tips (GP) earned while training do scale with global gold increases.
 
 ### Sheet Music, Essence of Music, Gems and Utilities
 
-Training Music has a 5% chance to drop sheet music, these are used for hired bard instrument upgrades.
+Training Music has a 2% chance to drop sheet music, these are used for hired bard instrument upgrades.
 
-Sheet Music drop chance is a flat 5% and is not modified by any rarity increases, the only other boost to sheet music drop chance is applying Diamond String to your hired bards instrument. With two bards, this means you can get a total of 15% drop chance for Sheet Music.
+Sheet Music drop chance is a flat 2% and is not modified by any rarity increases, the only other boost to sheet music drop chance is applying Diamond String to your hired bards instrument. With two bards, this means you can get a total of 15% drop chance for Sheet Music.
 
 ![Items](images/items.png)
 
@@ -461,6 +461,10 @@ The cost for hiring a bard is as follows: (Starts at 10,000 GP and maxes out at 
 * Mastery Level: 99 - GP Cost: 200,000,000
 
 ## Change Log
+
+### 1.7.1
+* reduced base drop chance of sheet music from 5% to 2%
+* significantly reduced the sell value of music related items, these were not intended to be an easy way to generate gold
 
 ### 1.7.0
 * agility obstacle 10 waterfall now also benefits the Music skill
