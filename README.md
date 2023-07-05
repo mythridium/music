@@ -408,15 +408,15 @@ Trumpet: Unlocked at skill level 115
 
 The cost for hiring a bard is as follows: (Starts at 10,000 GP and maxes out at 200M GP)
 
-* Mastery Level: 1 - GP Cost:10,000
-* Mastery Level: 2 - GP Cost:11,000
-* Mastery Level: 3 - GP Cost:12,000
-* Mastery Level: 4 - GP Cost:14,000
-* Mastery Level: 5 - GP Cost:15,000
-* Mastery Level: 6 - GP Cost:17,000
-* Mastery Level: 7 - GP Cost:18,000
-* Mastery Level: 8 - GP Cost:20,000
-* Mastery Level: 9 - GP Cost:22,000
+* Mastery Level: 1 - GP Cost: 10,000
+* Mastery Level: 2 - GP Cost: 11,000
+* Mastery Level: 3 - GP Cost: 12,000
+* Mastery Level: 4 - GP Cost: 14,000
+* Mastery Level: 5 - GP Cost: 15,000
+* Mastery Level: 6 - GP Cost: 17,000
+* Mastery Level: 7 - GP Cost: 18,000
+* Mastery Level: 8 - GP Cost: 20,000
+* Mastery Level: 9 - GP Cost: 22,000
 * Mastery Level: 10 - GP Cost: 25,000
 * Mastery Level: 11 - GP Cost: 27,000
 * Mastery Level: 12 - GP Cost: 30,000
