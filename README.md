@@ -45,7 +45,7 @@ Tips (GP) earned while training do scale with global gold increases.
 
 Training Music has a 2% chance to drop sheet music, these are used for hired bard instrument upgrades.
 
-Sheet Music drop chance is a flat 2% and is not modified by any rarity increases, the only other boost to sheet music drop chance is applying Diamond String to your hired bards instrument. With two bards, this means you can get a total of 15% drop chance for Sheet Music.
+Sheet Music drop chance is a flat 2% and is not modified by any rarity increases, the only other boost to sheet music drop chance is applying Diamond String to your hired bards instrument. With two bards, this means you can get a total of 12% drop chance for Sheet Music.
 
 ![Items](images/items.png)
 
@@ -254,7 +254,55 @@ The Music skill adds a Music Outfit, which is fully integrated just like all the
 
 ![Skiller Upgrade](images/skiller-upgrade.png)
 
-### Bard Bonuses
+## The Circus
+
+The jesters have emerged from The Circus. The jesters are notorious pranksters. They have been rivals with the bards since the beginning of time, known for stealing instruments, many tussles have broken out between the bards and the jesters.
+
+The Circus is a new combat area that contains 3 types of jesters to fight.
+
+![The Circus](images/the-circus.png)
+
+### Jester
+
+![Jester](images/jester.png)
+
+### Enchanted Jester
+
+![Enchanted Jester](images/enchanted-jester.png)
+
+### Mystic Jester
+
+![Mystic Jester](images/mystic-jester.png)
+
+### Guitar Weapon
+
+The Jester can drop a Guitar which is a new 2H Weapon which requires attack and music levels to equip. The Guitar can be upgraded twice.
+
+![Guitars](images/guitar-items.png)
+
+### Guitar
+
+Drops from the Jester
+
+![Guitar](images/guitar.png)
+
+### Enchanted Guitar
+
+Upgrade Cost: 100K GP + 50 Enchanted Essence + 1 Guitar
+
+Enchanted Essence is dropped from the Enchanted Jester
+
+![Enchanted Guitar](images/enchanted-guitar.png)
+
+### Mystic Guitar
+
+Upgrade Cost: 1M GP + 50 Mystic Essence + 1 Enchanted Guitar
+
+Mystic Essence is dropped from the Mystic Jester
+
+![Mystic Guitar](images/mystic-guitar.png)
+
+## Bard Bonuses
 
 The bonuses each bard provides is as follows:
 
@@ -356,7 +404,7 @@ Trumpet: Unlocked at skill level 115
 * Mastery Level 99: -0.5s Attack Interval
 * Upgrade: +20% chance to apply Decay Curse to the Target per hit
 
-### Cost to Hire a Bard
+## Cost to Hire a Bard
 
 The cost for hiring a bard is as follows: (Starts at 10,000 GP and maxes out at 200M GP)
 
@@ -461,6 +509,12 @@ The cost for hiring a bard is as follows: (Starts at 10,000 GP and maxes out at 
 * Mastery Level: 99 - GP Cost: 200,000,000
 
 ## Change Log
+
+### 1.8.0
+* the jesters have emerged from the circus, a new combat area
+* added three new monsters found in the circus
+* added the guitar, a 2H weapon that can be upgraded twice
+* jesters drop the guitar, and the essence required to upgrade the guitar, among other music related drops
 
 ### 1.7.1
 * reduced base drop chance of sheet music from 5% to 2%
@@ -594,3 +648,13 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">Guitar icons created by Freepik - Flaticon</a>
 
 <a href="https://www.freepik.com/free-vector/aesthetic-jazz-background-musical-instrument-border-blue-vector_20346432.htm#query=musical%20background&position=16&from_view=search&track=ais">Image by rawpixel.com on Freepik</a>
+
+<a href="https://www.flaticon.com/free-icons/music-and-multimedia" title="music and multimedia icons">Music and multimedia icons created by Mihimihi - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/circus-tent" title="circus tent icons">Circus tent icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/professions-and-jobs" title="professions and jobs icons">Professions and jobs icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/jester" title="jester icons">Jester icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/jester" title="jester icons">Jester icons created by Freepik - Flaticon</a>

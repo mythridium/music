@@ -157,8 +157,149 @@
                     "mythMusic:Mystic_Oil",
                     "mythMusic:Concert_Pass_Half_A",
                     "mythMusic:Concert_Pass_Half_B",
-                    "mythMusic:Concert_Pass"
+                    "mythMusic:Concert_Pass",
+                    "mythMusic:Enchanted_Essence",
+                    "mythMusic:Mystic_Essence",
+                    "mythMusic:Guitar",
+                    "mythMusic:Enchanted_Guitar",
+                    "mythMusic:Mystic_Guitar"
                 ]
+            }
+        ],
+        "attacks": [
+            {
+                "id": "Lesser_Prank",
+                "defaultChance": 5,
+                "damage": [
+                    {
+                        "damageType": "Normal",
+                        "amplitude": 75
+                    }
+                ],
+                "prehitEffects": [],
+                "onhitEffects": [
+                    {
+                        "effectType": "Custom",
+                        "type": "Sleep",
+                        "turns": 1,
+                        "chance": 100
+                    }
+                ],
+                "cantMiss": true,
+                "attackCount": 1,
+                "attackInterval": 50,
+                "lifesteal": 0,
+                "name": "Lesser Prank",
+                "description": "The enemy plays a prank on you and applies sleep for ${onHitEffect0turns} turn (Unavoidable). If you are already asleep perform a Normal Attack instead.",
+                "descriptionGenerator": "<Attacker> plays a prank on you, <hitEffect> (<Avoidable>). If <target> <taris> already asleep perform a Normal Attack instead.",
+                "usesRunesPerProc": false
+            },
+            {
+                "id": "Prank",
+                "defaultChance": 5,
+                "damage": [
+                    {
+                        "damageType": "Normal",
+                        "amplitude": 100
+                    }
+                ],
+                "prehitEffects": [],
+                "onhitEffects": [
+                    {
+                        "effectType": "Custom",
+                        "type": "Sleep",
+                        "turns": 1,
+                        "chance": 100
+                    }
+                ],
+                "cantMiss": true,
+                "attackCount": 1,
+                "attackInterval": 50,
+                "lifesteal": 0,
+                "name": "Prank",
+                "description": "The enemy plays a prank on you and applies sleep for ${onHitEffect0turns} turn (Unavoidable). If you are already asleep perform a Normal Attack instead.",
+                "descriptionGenerator": "<Attacker> plays a prank on you, <hitEffect> (<Avoidable>). If <target> <taris> already asleep perform a Normal Attack instead.",
+                "usesRunesPerProc": false
+            },
+            {
+                "id": "Greater_Prank",
+                "defaultChance": 5,
+                "damage": [
+                    {
+                        "damageType": "Normal",
+                        "amplitude": 125
+                    }
+                ],
+                "prehitEffects": [],
+                "onhitEffects": [
+                    {
+                        "effectType": "Custom",
+                        "type": "Sleep",
+                        "turns": 1,
+                        "chance": 100
+                    }
+                ],
+                "cantMiss": true,
+                "attackCount": 1,
+                "attackInterval": 50,
+                "lifesteal": 0,
+                "name": "Greater Prank",
+                "description": "The enemy plays a prank on you and applies sleep for ${onHitEffect0turns} turn (Unavoidable). If you are already asleep perform a Normal Attack instead.",
+                "descriptionGenerator": "<Attacker> plays a prank on you, <hitEffect> (<Avoidable>). If <target> <taris> already asleep perform a Normal Attack instead.",
+                "usesRunesPerProc": false
+            },
+            {
+                "id": "Guitar_Riff",
+                "defaultChance": 40,
+                "damage": [
+                    {
+                        "damageType": "Custom",
+                        "character": "Attacker",
+                        "maxRoll": "Fixed",
+                        "maxPercent": 4,
+                        "roll": false
+                    }
+                ],
+                "prehitEffects": [],
+                "onhitEffects": [],
+                "cantMiss": true,
+                "attackCount": 5,
+                "attackInterval": 150,
+                "lifesteal": 0,
+                "name": "Guitar Riff",
+                "description": "An unavoidable attack that deals ${attackDamageMaxValue0}x${hitCount} damage over ${duration}s.",
+                "descriptionGenerator": "An <avoidable> attack that deals <damage>x<count> damage over <duration>.",
+                "isDragonbreath": false,
+                "usesRunesPerProc": false
+            },
+            {
+                "id": "Face_Melting_Guitar_Solo",
+                "defaultChance": 40,
+                "damage": [
+                    {
+                        "damageType": "Custom",
+                        "character": "Attacker",
+                        "maxRoll": "Fixed",
+                        "maxPercent": 12,
+                        "roll": false
+                    }
+                ],
+                "prehitEffects": [],
+                "onhitEffects": [
+                    {
+                        "effectType": "Burn",
+                        "chance": 25
+                    }
+                ],
+                "cantMiss": true,
+                "attackCount": 5,
+                "attackInterval": 150,
+                "lifesteal": 0,
+                "name": "Face Melting Guitar Solo",
+                "description": "An unavoidable attack that deals ${attackDamageMaxValue0}x${hitCount} damage over ${duration}s. On a hit, has a ${onHitEffect0chance}% chance to inflict Burn that deals ${onHitEffect0DamageMaxValue0}% of your current hitpoints as damage over ${onHitEffect0duration}s.",
+                "descriptionGenerator": "An <avoidable> attack that deals <damage>x<count> damage over <duration>. On a hit, <hitEffect>.",
+                "isDragonbreath": false,
+                "usesRunesPerProc": false
             }
         ],
         "items": [
@@ -311,6 +452,191 @@
                 "equipRequirements": [],
                 "equipmentStats": [],
                 "modifiers": {}
+            },
+            {
+                "itemType": "Item",
+                "id": "Enchanted_Essence",
+                "name": "Enchanted Essence",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/enchanted-essence.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Used to upgrade a Guitar.",
+                "sellsFor": 500
+            },
+            {
+                "itemType": "Item",
+                "id": "Mystic_Essence",
+                "name": "Mystic Essence",
+                "category": "Music",
+                "type": "Misc",
+                "media": "assets/items/mystic-essence.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "customDescription": "Used to upgrade an Enchanted Guitar.",
+                "sellsFor": 500
+            },
+            {
+                "itemType": "Weapon",
+                "attackType": "melee",
+                "id": "Guitar",
+                "name": "Guitar",
+                "category": "Music",
+                "type": "Equipment",
+                "media": "assets/items/guitar.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 100,
+                "tier": "none",
+                "validSlots": ["Weapon"],
+                "occupiesSlots": ["Shield"],
+                "equipRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "melvorD:Attack",
+                        "level": 10
+                    },
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 10
+                    }
+                ],
+                "equipmentStats": [
+                    {
+                        "key": "attackSpeed",
+                        "value": 3600
+                    },
+                    {
+                        "key": "stabAttackBonus",
+                        "value": -4
+                    },
+                    {
+                        "key": "slashAttackBonus",
+                        "value": 42
+                    },
+                    {
+                        "key": "blockAttackBonus",
+                        "value": 42
+                    },
+                    {
+                        "key": "meleeStrengthBonus",
+                        "value": 47
+                    }
+                ],
+                "modifiers": {}
+            },
+            {
+                "itemType": "Weapon",
+                "attackType": "melee",
+                "id": "Enchanted_Guitar",
+                "name": "Enchanted Guitar",
+                "category": "Music",
+                "type": "Equipment",
+                "media": "assets/items/enchanted-guitar.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 2000,
+                "tier": "none",
+                "validSlots": ["Weapon"],
+                "occupiesSlots": ["Shield"],
+                "equipRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "melvorD:Attack",
+                        "level": 50
+                    },
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 50
+                    }
+                ],
+                "equipmentStats": [
+                    {
+                        "key": "attackSpeed",
+                        "value": 3600
+                    },
+                    {
+                        "key": "stabAttackBonus",
+                        "value": -4
+                    },
+                    {
+                        "key": "slashAttackBonus",
+                        "value": 101
+                    },
+                    {
+                        "key": "blockAttackBonus",
+                        "value": 101
+                    },
+                    {
+                        "key": "meleeStrengthBonus",
+                        "value": 145
+                    }
+                ],
+                "modifiers": {},
+                "specialAttacks": ["mythMusic:Guitar_Riff"]
+            },
+            {
+                "itemType": "Weapon",
+                "attackType": "melee",
+                "id": "Mystic_Guitar",
+                "name": "Mystic Guitar",
+                "category": "Music",
+                "type": "Equipment",
+                "media": "assets/items/mystic-guitar.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 500000,
+                "tier": "none",
+                "validSlots": ["Weapon"],
+                "occupiesSlots": ["Shield"],
+                "equipRequirements": [
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "melvorD:Attack",
+                        "level": 80
+                    },
+                    {
+                        "type": "SkillLevel",
+                        "skillID": "mythMusic:Music",
+                        "level": 80
+                    }
+                ],
+                "equipmentStats": [
+                    {
+                        "key": "attackSpeed",
+                        "value": 3600
+                    },
+                    {
+                        "key": "stabAttackBonus",
+                        "value": -4
+                    },
+                    {
+                        "key": "slashAttackBonus",
+                        "value": 138
+                    },
+                    {
+                        "key": "blockAttackBonus",
+                        "value": 138
+                    },
+                    {
+                        "key": "meleeStrengthBonus",
+                        "value": 275
+                    },
+                    {
+                        "key": "meleeDefenceBonus",
+                        "value": 21
+                    }
+                ],
+                "modifiers": {},
+                "specialAttacks": ["mythMusic:Face_Melting_Guitar_Solo"]
             },
             {
                 "itemType": "Equipment",
@@ -856,6 +1182,282 @@
                 ],
                 "rootItemIDs": ["melvorD:Weird_Gloop"],
                 "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Enchanted_Guitar",
+                "gpCost": 100000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "mythMusic:Guitar",
+                        "quantity": 1
+                    },
+                    {
+                        "id": "mythMusic:Enchanted_Essence",
+                        "quantity": 50
+                    }
+                ],
+                "rootItemIDs": ["mythMusic:Enchanted_Essence", "mythMusic:Guitar"],
+                "isDowngrade": false
+            },
+            {
+                "upgradedItemID": "mythMusic:Mystic_Guitar",
+                "gpCost": 1000000,
+                "scCost": 0,
+                "itemCosts": [
+                    {
+                        "id": "mythMusic:Enchanted_Guitar",
+                        "quantity": 1
+                    },
+                    {
+                        "id": "mythMusic:Mystic_Essence",
+                        "quantity": 50
+                    }
+                ],
+                "rootItemIDs": ["mythMusic:Mystic_Essence", "mythMusic:Enchanted_Guitar"],
+                "isDowngrade": false
+            }
+        ],
+        "monsters": [
+            {
+                "id": "Jester",
+                "name": "Jester",
+                "media": "assets/combat/jester.png",
+                "levels": {
+                    "Hitpoints": 30,
+                    "Attack": 30,
+                    "Strength": 30,
+                    "Defence": 30,
+                    "Ranged": 1,
+                    "Magic": 1
+                },
+                "equipmentStats": [
+                    {
+                        "key": "attackSpeed",
+                        "value": 3000
+                    }
+                ],
+                "ignoreCompletion": true,
+                "attackType": "melee",
+                "specialAttacks": ["mythMusic:Lesser_Prank"],
+                "passives": [],
+                "lootChance": 10,
+                "lootTable": [
+                    {
+                        "itemID": "mythMusic:Guitar",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    },
+                    {
+                        "itemID": "mythMusic:Sheet_Music",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    }
+                ],
+                "gpDrops": {
+                    "min": 20,
+                    "max": 80
+                },
+                "canSlayer": true,
+                "isBoss": false,
+                "selectedSpell": "melvorD:WindStrike",
+                "bones": {
+                    "itemID": "melvorD:Bones",
+                    "quantity": 1
+                }
+            },
+            {
+                "id": "Enchanted_Jester",
+                "name": "Enchanted Jester",
+                "media": "assets/combat/enchanted-jester.png",
+                "levels": {
+                    "Hitpoints": 110,
+                    "Attack": 90,
+                    "Strength": 90,
+                    "Defence": 90,
+                    "Ranged": 90,
+                    "Magic": 90
+                },
+                "equipmentStats": [
+                    {
+                        "key": "attackSpeed",
+                        "value": 2400
+                    },
+                    {
+                        "key": "damageReduction",
+                        "value": 5
+                    },
+                    {
+                        "key": "magicAttackBonus",
+                        "value": 50
+                    },
+                    {
+                        "key": "magicDamageBonus",
+                        "value": 7
+                    },
+                    {
+                        "key": "magicDefenceBonus",
+                        "value": 70
+                    }
+                ],
+                "ignoreCompletion": true,
+                "attackType": "magic",
+                "specialAttacks": ["mythMusic:Prank"],
+                "passives": [],
+                "lootChance": 10,
+                "lootTable": [
+                    {
+                        "itemID": "mythMusic:Enchanted_Essence",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 6
+                    },
+                    {
+                        "itemID": "mythMusic:Essence_Of_Music",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    },
+                    {
+                        "itemID": "mythMusic:Polished_Topaz_Gem",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    },
+                    {
+                        "itemID": "mythMusic:Polished_Ruby_Gem",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    },
+                    {
+                        "itemID": "mythMusic:Polished_Sapphire_Gem",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    }
+                ],
+                "gpDrops": {
+                    "min": 100,
+                    "max": 250
+                },
+                "canSlayer": true,
+                "isBoss": false,
+                "selectedSpell": "melvorD:FireBolt",
+                "bones": {
+                    "itemID": "melvorD:Magic_Bones",
+                    "quantity": 1
+                }
+            },
+            {
+                "id": "Mystic_Jester",
+                "name": "Mystic Jester",
+                "media": "assets/combat/mystic-jester.png",
+                "levels": {
+                    "Hitpoints": 310,
+                    "Attack": 1,
+                    "Strength": 1,
+                    "Defence": 150,
+                    "Ranged": 1,
+                    "Magic": 260
+                },
+                "equipmentStats": [
+                    {
+                        "key": "attackSpeed",
+                        "value": 2400
+                    },
+                    {
+                        "key": "damageReduction",
+                        "value": 15
+                    },
+                    {
+                        "key": "magicAttackBonus",
+                        "value": 15
+                    },
+                    {
+                        "key": "meleeDefenceBonus",
+                        "value": 50
+                    },
+                    {
+                        "key": "rangedDefenceBonus",
+                        "value": 10
+                    },
+                    {
+                        "key": "magicDefenceBonus",
+                        "value": 15
+                    },
+                    {
+                        "key": "magicDamageBonus",
+                        "value": 15
+                    }
+                ],
+                "ignoreCompletion": true,
+                "attackType": "magic",
+                "specialAttacks": ["mythMusic:Greater_Prank"],
+                "passives": [],
+                "lootChance": 10,
+                "lootTable": [
+                    {
+                        "itemID": "mythMusic:Mystic_Essence",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 6
+                    },
+                    {
+                        "itemID": "mythMusic:Essence_Of_Music",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    },
+                    {
+                        "itemID": "mythMusic:Diamond_String",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    },
+                    {
+                        "itemID": "mythMusic:Pristine_Leather",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    },
+                    {
+                        "itemID": "mythMusic:Mystic_Oil",
+                        "minQuantity": 1,
+                        "maxQuantity": 1,
+                        "weight": 1
+                    }
+                ],
+                "gpDrops": {
+                    "min": 250,
+                    "max": 750
+                },
+                "canSlayer": true,
+                "isBoss": false,
+                "selectedSpell": "melvorD:WindBlast",
+                "bones": {
+                    "itemID": "melvorD:Magic_Bones",
+                    "quantity": 1
+                }
+            }
+        ],
+        "combatAreas": [
+            {
+                "id": "The_Circus",
+                "name": "The Circus",
+                "media": "assets/combat/the-circus.png",
+                "monsterIDs": ["mythMusic:Jester", "mythMusic:Enchanted_Jester", "mythMusic:Mystic_Jester"],
+                "difficulty": [1, 5],
+                "entryRequirements": []
+            }
+        ],
+        "combatAreaDisplayOrder": [
+            {
+                "insertAt": "After",
+                "afterID": "melvorD:ElerineBattlegrounds",
+                "ids": ["mythMusic:The_Circus"]
             }
         ],
         "shopPurchases": [
