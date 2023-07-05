@@ -510,6 +510,9 @@ The cost for hiring a bard is as follows: (Starts at 10,000 GP and maxes out at 
 
 ## Change Log
 
+### 1.8.1
+* reordered the music skillcapes to be listed/sorted in alphabetical order in the shop and bank
+
 ### 1.8.0
 * the jesters have emerged from the circus, a new combat area
 * added three new monsters found in the circus

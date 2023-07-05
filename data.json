@@ -125,12 +125,12 @@
             },
             {
                 "insertAt": "After",
-                "afterID": "melvorF:Township_Skillcape",
+                "afterID": "melvorD:Mining_Skillcape",
                 "ids": ["mythMusic:Music_Skillcape"]
             },
             {
                 "insertAt": "After",
-                "afterID": "melvorTotH:Superior_Township_Skillcape",
+                "afterID": "melvorTotH:Superior_Mining_Skillcape",
                 "ids": ["mythMusic:Superior_Music_Skillcape"]
             },
             {
@@ -1797,12 +1797,12 @@
         "shopDisplayOrder": [
             {
                 "insertAt": "After",
-                "afterID": "melvorF:Township_Skillcape",
+                "afterID": "melvorD:Mining_Skillcape",
                 "ids": ["mythMusic:Music_Skillcape"]
             },
             {
                 "insertAt": "After",
-                "afterID": "melvorTotH:Superior_Township_Skillcape",
+                "afterID": "melvorTotH:Superior_Mining_Skillcape",
                 "ids": ["mythMusic:Superior_Music_Skillcape"]
             },
             {
