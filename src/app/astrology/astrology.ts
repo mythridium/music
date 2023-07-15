@@ -4,6 +4,10 @@ export class MythAstrology {
     constructor(private readonly game: Game, private readonly music: Music) {}
 
     public register() {
+        if (!cloudManager.hasTotHEntitlement) {
+            return;
+        }
+
         const variel = this.game.astrology.actions.registeredObjects.get('melvorTotH:Variel');
 
         for (const astrologyModifier of variel.standardModifiers) {
@@ -36,6 +40,7 @@ export class MythAstrology {
         }
 
         variel.skills.push(this.music);
+        variel.masteryXPModifier = 'increasedSkillMasteryXPPerVariel';
 
         this.game.astrology.actions.registeredObjects.set('melvorTotH:Variel', variel);
     }

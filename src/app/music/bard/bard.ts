@@ -10,11 +10,21 @@ export function BardComponent(music: Music) {
         bard: undefined as HiredBard,
         isEnabled: false,
         modifiers: [] as BardModifier[],
+        currentMasteryLevel: 1,
         essenceIcon: function () {
             return music.manager.essenceOfMusicIcon;
         },
         setBard: function (bard: HiredBard) {
             this.bard = bard;
+            this.updateCurrentMasteryLevel();
+        },
+        updateCurrentMasteryLevel: function () {
+            if (this.bard) {
+                const instrument = this.bard.instrument;
+                const instrumentRef = music.actions.allObjects.find(action => action.id === instrument.id);
+
+                this.currentMasteryLevel = music.getMasteryLevel(instrumentRef);
+            }
         },
         updateEnabled: function (enabled: boolean) {
             this.isEnabled = enabled;

@@ -25,13 +25,30 @@ Earn tips (GP) while you train bards with various instruments, then hire the bar
 
 This mod includes a new mastery token for the skill and both skill cape and superior skill cape.
 
+## Mastery Unlocks
+
+To unlock additional modifiers, once the respective mastery level has been attained, you can choose to unlock a modifier mastery.
+
+Modifiers can be unlocked in any order once the mastery level has been attained, but once a mastery modifier has been unlocked the cost to hire the bard is increased.
+
+![Instrument Mastery](images/instrument-mastery.png)
+
+![Unlock Mastery](images/unlock-mastery.png)
+
 ## Hiring a Bard
 
 You can hire various bards to play on your behalf. These bards provide powerful bonuses to help you while you train other skills, however the more skilled a bard is, the more expensive it will become to hire them.
 
 You can only hire a single bard at a time (two if you purchase the Band Practice upgrade).
 
-The cost of hiring a bard grows exponentially more expensive per mastery level.
+The cost to hire a bard increases with the number of modifiers unlocked.
+
+The cost for hiring a bard is as follows (assuming no hire cost reduction)
+
+* 1st Mastery Unlocked - 10,000 GP
+* 2nd Mastery Unlocked - 100,000 GP
+* 3rd Mastery Unlocked - 20,000,000 GP
+* 4th Mastery Unlocked - 200,000,000 GP
 
 ![Hire a Bard](images/hire-bard.png)
 
@@ -106,15 +123,21 @@ Upgrade from Leather
 Mystic Oil
 Upgrade from Weird Gloop
 50,000 GP + 100 Diamond + 100 Weird Gloop + 50 Music Sheet
-+1 Unlock tier for instrument without needing to meet mastery level
++1 additional reward roll while training Music
 
-Mystic Oil will unlock the next modifier available even if you don't have the mastery level for it.
+Mystic Oil will roll for rewards an additional time when training the music skill.
 
-For example: You are mastery level 1, and apply Mystic Oil. You will get the level 1 and level 40 modifiers.
+This means if you have Mystic Oil applied, every time you train an instrument, the rewards are rolled an additional time.
 
-Once you reach level 40 mastery, you'll also unlock the level 75 modifier.
+This includes:
+* pets
+* rare drops
+* summoning marks
+* mastery tokens
 
-This means that when you reach level 99 mastery, this utility does nothing, so switch to one of the others.
+For example, if you have Band Practice with two bards hired, both equipped with Mystic Oil.
+
+1 tick of training Music will roll 3 times for a chance to get the pet, rare drops, summoning marks and mastery tokens.
 
 ![Apply](images/apply.png)
 
@@ -168,7 +191,7 @@ Mastery Pool checkpoints provide additional xp, mastery xp, music interval and h
 
 ## Mastery Unlocks
 
-As you level up an instruments mastery, the tips you earn increases, but the cost to hire the bard for that instrument also increases. You also unlock additional bonuses and reduce the hire cost.
+As you level up an instruments mastery, the tips you earn increases. You can also unlock additional bonuses and reduce the hire cost.
 
 ![Mastery Unlocks](images/mastery-unlocks.png)
 
@@ -404,111 +427,18 @@ Trumpet: Unlocked at skill level 115
 * Mastery Level 99: -0.5s Attack Interval
 * Upgrade: +20% chance to apply Decay Curse to the Target per hit
 
-## Cost to Hire a Bard
-
-The cost for hiring a bard is as follows: (Starts at 10,000 GP and maxes out at 200M GP)
-
-* Mastery Level: 1 - GP Cost: 10,000
-* Mastery Level: 2 - GP Cost: 11,000
-* Mastery Level: 3 - GP Cost: 12,000
-* Mastery Level: 4 - GP Cost: 14,000
-* Mastery Level: 5 - GP Cost: 15,000
-* Mastery Level: 6 - GP Cost: 17,000
-* Mastery Level: 7 - GP Cost: 18,000
-* Mastery Level: 8 - GP Cost: 20,000
-* Mastery Level: 9 - GP Cost: 22,000
-* Mastery Level: 10 - GP Cost: 25,000
-* Mastery Level: 11 - GP Cost: 27,000
-* Mastery Level: 12 - GP Cost: 30,000
-* Mastery Level: 13 - GP Cost: 34,000
-* Mastery Level: 14 - GP Cost: 37,000
-* Mastery Level: 15 - GP Cost: 41,000
-* Mastery Level: 16 - GP Cost: 46,000
-* Mastery Level: 17 - GP Cost: 50,000
-* Mastery Level: 18 - GP Cost: 56,000
-* Mastery Level: 19 - GP Cost: 62,000
-* Mastery Level: 20 - GP Cost: 68,000
-* Mastery Level: 21 - GP Cost: 75,000
-* Mastery Level: 22 - GP Cost: 83,000
-* Mastery Level: 23 - GP Cost: 92,000
-* Mastery Level: 24 - GP Cost: 102,000
-* Mastery Level: 25 - GP Cost: 113,000
-* Mastery Level: 26 - GP Cost: 125,000
-* Mastery Level: 27 - GP Cost: 138,000
-* Mastery Level: 28 - GP Cost: 153,000
-* Mastery Level: 29 - GP Cost: 169,000
-* Mastery Level: 30 - GP Cost: 187,000
-* Mastery Level: 31 - GP Cost: 207,000
-* Mastery Level: 32 - GP Cost: 229,000
-* Mastery Level: 33 - GP Cost: 254,000
-* Mastery Level: 34 - GP Cost: 281,000
-* Mastery Level: 35 - GP Cost: 311,000
-* Mastery Level: 36 - GP Cost: 344,000
-* Mastery Level: 37 - GP Cost: 380,000
-* Mastery Level: 38 - GP Cost: 421,000
-* Mastery Level: 39 - GP Cost: 465,000
-* Mastery Level: 40 - GP Cost: 515,000
-* Mastery Level: 41 - GP Cost: 570,000
-* Mastery Level: 42 - GP Cost: 630,000
-* Mastery Level: 43 - GP Cost: 697,000
-* Mastery Level: 44 - GP Cost: 771,000
-* Mastery Level: 45 - GP Cost: 853,000
-* Mastery Level: 46 - GP Cost: 944,000
-* Mastery Level: 47 - GP Cost: 1,044,000
-* Mastery Level: 48 - GP Cost: 1,155,000
-* Mastery Level: 49 - GP Cost: 1,278,000
-* Mastery Level: 50 - GP Cost: 1,414,000
-* Mastery Level: 51 - GP Cost: 1,565,000
-* Mastery Level: 52 - GP Cost: 1,731,000
-* Mastery Level: 53 - GP Cost: 1,915,000
-* Mastery Level: 54 - GP Cost: 2,119,000
-* Mastery Level: 55 - GP Cost: 2,344,000
-* Mastery Level: 56 - GP Cost: 2,593,000
-* Mastery Level: 57 - GP Cost: 2,869,000
-* Mastery Level: 58 - GP Cost: 3,174,000
-* Mastery Level: 59 - GP Cost: 3,512,000
-* Mastery Level: 60 - GP Cost: 3,885,000
-* Mastery Level: 61 - GP Cost: 4,298,000
-* Mastery Level: 62 - GP Cost: 4,755,000
-* Mastery Level: 63 - GP Cost: 5,261,000
-* Mastery Level: 64 - GP Cost: 5,820,000
-* Mastery Level: 65 - GP Cost: 6,439,000
-* Mastery Level: 66 - GP Cost: 7,124,000
-* Mastery Level: 67 - GP Cost: 7,882,000
-* Mastery Level: 68 - GP Cost: 8,720,000
-* Mastery Level: 69 - GP Cost: 9,647,000
-* Mastery Level: 70 - GP Cost: 10,673,000
-* Mastery Level: 71 - GP Cost: 11,808,000
-* Mastery Level: 72 - GP Cost: 13,063,000
-* Mastery Level: 73 - GP Cost: 14,452,000
-* Mastery Level: 74 - GP Cost: 15,989,000
-* Mastery Level: 75 - GP Cost: 17,690,000
-* Mastery Level: 76 - GP Cost: 19,571,000
-* Mastery Level: 77 - GP Cost: 21,652,000
-* Mastery Level: 78 - GP Cost: 23,954,000
-* Mastery Level: 79 - GP Cost: 26,501,000
-* Mastery Level: 80 - GP Cost: 29,320,000
-* Mastery Level: 81 - GP Cost: 32,437,000
-* Mastery Level: 82 - GP Cost: 35,887,000
-* Mastery Level: 83 - GP Cost: 39,703,000
-* Mastery Level: 84 - GP Cost: 43,925,000
-* Mastery Level: 85 - GP Cost: 48,596,000
-* Mastery Level: 86 - GP Cost: 53,763,000
-* Mastery Level: 87 - GP Cost: 59,480,000
-* Mastery Level: 88 - GP Cost: 65,805,000
-* Mastery Level: 89 - GP Cost: 72,803,000
-* Mastery Level: 90 - GP Cost: 80,545,000
-* Mastery Level: 91 - GP Cost: 89,110,000
-* Mastery Level: 92 - GP Cost: 98,586,000
-* Mastery Level: 93 - GP Cost: 109,069,000
-* Mastery Level: 94 - GP Cost: 120,667,000
-* Mastery Level: 95 - GP Cost: 133,499,000
-* Mastery Level: 96 - GP Cost: 147,695,000
-* Mastery Level: 97 - GP Cost: 163,401,000
-* Mastery Level: 98 - GP Cost: 180,776,000
-* Mastery Level: 99 - GP Cost: 200,000,000
-
 ## Change Log
+
+### 1.9.0
+* Throne of the Herald is now optional, all TotH data requires the expansion to load, this includes superior skillcape, instruments above level 100 and summoning synergies above level 100.
+* max skillcape and superior max skillcape no longer require the music skill to purchase
+* eagle + bard synergy now grants -10% Music Interval, from -5% Agility Interval
+* owl + bard synergy now grants +1.5% Mastery XP Per Maxed Star in Variel, from -5% Astrology Interval
+* bard modifiers are no longer automatically unlocked based on mastery level
+* once the required mastery level is reached, you may now choose to unlock the modifier whenever you feel like doing so
+* previous save data will automatically migrate and have the appropriate mastery unlocks already for free
+* hiring bard gp cost no longer scales with mastery level, instead the cost increases with the number of modifiers unlocked on the bard
+* mystic oil no longer grants +1 modifier unlock, now rolls an additional time for rewards while training music
 
 ### 1.8.1
 * reordered the music skillcapes to be listed/sorted in alphabetical order in the shop and bank

@@ -18,8 +18,12 @@
                         :class="{ 'text-success': modifier.isActive, 'myth-text-grey': !modifier.isActive }"
                     >
                         <span v-if="!modifier.isActive && !modifier.isUpgrade">
-                            (<img class="skill-icon-xxs mr-1" :src="cdnMedia('assets/media/main/mastery_header.svg')" />
-                            {{ modifier.level }})
+                            (
+                            <img class="skill-icon-xxs mr-1" :src="cdnMedia('assets/media/main/mastery_header.svg')" />
+                            <span :class="{ 'text-success': currentMasteryLevel >= modifier.level }">
+                                {{ modifier.level }}
+                            </span>
+                            )
                         </span>
                         <span v-if="modifier.isUpgrade">
                             <img class="skill-icon-xxs mr-1" :src="essenceIcon()" />

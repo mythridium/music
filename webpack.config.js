@@ -18,10 +18,11 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: '**/*.html', to: '[path][name][ext]', context: 'src/app' },
-                { from: 'manifest.json', to: 'manifest.json' },
-                { from: 'data.json', to: 'data.json' },
-                { from: 'src/assets', to: 'assets' }
+                { from: '**/*.html', to: '[path][name][ext]', context: 'src/app', noErrorOnMissing: true },
+                { from: 'manifest.json', to: 'manifest.json', noErrorOnMissing: true },
+                { from: 'data.json', to: 'data.json', noErrorOnMissing: true },
+                { from: 'data-toth.json', to: 'data-toth.json', noErrorOnMissing: true },
+                { from: 'src/assets', to: 'assets', noErrorOnMissing: true }
             ]
         })
     ],

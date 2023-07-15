@@ -2,14 +2,14 @@ import { Music } from '../music';
 import { HiredBard } from '../music.types';
 import { DecodeVersion } from './version.base';
 
-export class Version3 implements DecodeVersion {
+export class Version4 implements DecodeVersion {
     constructor(private readonly game: Game, private readonly music: Music) {}
 
     public decode(reader: SaveWriter) {
         const version = reader.getUint32();
 
-        if (version !== 3) {
-            throw new Error(`Did not read correct version number: ${version} - trying version 3`);
+        if (version !== 4) {
+            throw new Error(`Did not read correct version number: ${version} - trying version 4`);
         }
 
         if (reader.getBoolean()) {
@@ -20,6 +20,21 @@ export class Version3 implements DecodeVersion {
                 this.music.activeInstrument = instrument;
             }
         }
+
+        reader.getArray(reader => {
+            const instrument = reader.getNamespacedObject(this.music.actions);
+
+            if (typeof instrument !== 'string') {
+                const masteriesUnlocked: boolean[] = [];
+
+                reader.getArray(reader => {
+                    const isUnlocked = reader.getBoolean();
+                    masteriesUnlocked.push(isUnlocked);
+                });
+
+                this.music.masteriesUnlocked.set(instrument, masteriesUnlocked);
+            }
+        });
 
         reader.getComplexMap(reader => {
             const instrument = reader.getNamespacedObject(this.music.actions);
@@ -62,15 +77,5 @@ export class Version3 implements DecodeVersion {
                 value: hiredBard
             };
         });
-
-        // Migrate legacy data to new unlocked state.
-        for (const action of this.music.actions.allObjects) {
-            const masteryLevel = this.music.getMasteryLevel(action);
-            const isUnlocked = action.modifiers
-                .filter(modifier => modifier.level <= 100)
-                .map(modifier => modifier.level <= masteryLevel);
-
-            this.music.masteriesUnlocked.set(action, isUnlocked);
-        }
     }
 }

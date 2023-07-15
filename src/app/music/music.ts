@@ -1,5 +1,6 @@
 import { MusicActionEvent } from './event';
 import { UserInterface } from './user-interface';
+import { MasteryComponent } from './mastery/mastery';
 import { MusicManager } from './manager';
 import { HiredBard, Instrument, MusicSkillData } from './music.types';
 import { Decoder } from './decoder/decoder';
@@ -9,7 +10,7 @@ import { Upgrades } from './equipment/upgrades';
 import './music.scss';
 
 export class Music extends GatheringSkill<Instrument, MusicSkillData> {
-    public readonly version = 3;
+    public readonly version = 4;
     public readonly _media = 'assets/instruments/guitar.png';
     public readonly renderQueue = new MusicRenderQueue();
 
@@ -17,6 +18,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public bards = new HiredBards(this);
     public userInterface: UserInterface;
     public modifiers = new MappedModifiers();
+    public masteriesUnlocked = new Map<Instrument, boolean[]>();
 
     private renderedProgressBar?: ProgressBar;
     private sheetMusicChance = 2;
@@ -216,6 +218,21 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         }
     }
 
+    public unlockMastery(instrument: Instrument) {
+        SwalLocale.fire({
+            html: '<div id="myth-music-mastery-container"></div>',
+            showConfirmButton: false,
+            showCancelButton: false,
+            showDenyButton: false,
+            didOpen: popup => {
+                ui.create(
+                    MasteryComponent(this.game, this, instrument),
+                    popup.querySelector('#myth-music-mastery-container')
+                );
+            }
+        });
+    }
+
     public getInstrumentInterval(instrument: Instrument) {
         return this.modifyInterval(instrument.baseInterval, instrument);
     }
@@ -295,6 +312,30 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         this.sortMilestones();
         this.upgrades = new Upgrades(this, this.game);
+
+        for (const action of this.actions.allObjects) {
+            this.masteriesUnlocked.set(action, [true, false, false, false]);
+        }
+
+        const capesToExclude = ['melvorF:Max_Skillcape'];
+
+        if (cloudManager.hasTotHEntitlement) {
+            capesToExclude.push('melvorTotH:Superior_Max_Skillcape');
+        }
+
+        const skillCapes = this.game.shop.purchases.filter(purchase => capesToExclude.includes(purchase.id));
+
+        for (const cape of skillCapes) {
+            const allSkillLevelsRequirement = cape.purchaseRequirements.find(
+                req => req.type === 'AllSkillLevels'
+            ) as AllSkillLevelRequirement;
+
+            if (allSkillLevelsRequirement?.exceptions === undefined) {
+                allSkillLevelsRequirement.exceptions = new Set();
+            }
+
+            allSkillLevelsRequirement?.exceptions.add(this);
+        }
     }
 
     public preAction() {}
@@ -380,6 +421,15 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         this.addCommonRewards(rewards);
 
+        for (const bard of this.bards.all()) {
+            if (bard?.socket?.id === 'mythMusic:Mystic_Oil') {
+                this.rollForRareDrops(this.actionLevel, rewards);
+                this.addMasteryToken(rewards);
+                this.rollForPets(this.currentActionInterval);
+                this.game.summoning.rollMarksForSkill(this, this.masteryModifiedInterval);
+            }
+        }
+
         this.game.processEvent(actionEvent, this.currentActionInterval);
 
         return rewards;
@@ -459,6 +509,9 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         this.userInterface.bard1.updateModifiers();
         this.userInterface.bard2.updateModifiers();
 
+        this.userInterface.bard1.updateCurrentMasteryLevel();
+        this.userInterface.bard2.updateCurrentMasteryLevel();
+
         this.renderQueue.bardModifiers = false;
     }
 
@@ -536,6 +589,16 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         if (this.activeInstrument) {
             writer.writeNamespacedObject(this.activeInstrument);
         }
+
+        writer.writeArray(this.actions.allObjects, action => {
+            writer.writeNamespacedObject(action);
+
+            const masteriesUnlocked = this.masteriesUnlocked.get(action);
+
+            writer.writeArray(masteriesUnlocked, value => {
+                writer.writeBoolean(value);
+            });
+        });
 
         writer.writeComplexMap(this.bards.bards, (key, value, writer) => {
             writer.writeNamespacedObject(key);

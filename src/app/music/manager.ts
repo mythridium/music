@@ -92,30 +92,11 @@ export class MusicManager {
     }
 
     public calculateHireCost(instrument: Instrument) {
-        const minValue = 10000;
-        const maxValue = 200000000;
+        const instrumentRef = this.music.actions.find(action => action.id === instrument.id);
+        const unlocked = this.music.masteriesUnlocked.get(instrumentRef).filter(isUnlocked => isUnlocked).length;
+        const hireCostMap = [10000, 100000, 20000000, 200000000];
 
-        let masteryLevel = this.music.getMasteryLevel(instrument);
-
-        // Ensure the mastery level is within the valid range
-        if (masteryLevel < 1) {
-            masteryLevel = 1;
-        }
-
-        if (masteryLevel > 99) {
-            masteryLevel = 99;
-        }
-
-        // Calculate the base value for the exponential function
-        const base = Math.pow(maxValue / minValue, 1 / 98);
-
-        // Calculate the exponential value at the specified index
-        const exponentialValue = minValue * Math.pow(base, masteryLevel - 1);
-
-        // Round the exponential value to the nearest appropriate value
-        const roundedValue = Math.round(exponentialValue / 1000) * 1000;
-
-        return roundedValue;
+        return hireCostMap[unlocked - 1];
     }
 
     public getHireCostModifier(instrument: Instrument) {
@@ -137,32 +118,15 @@ export class MusicManager {
     private isModifierActive(instrument: Instrument, modifier: InstrumentModifier) {
         instrument = this.music.actions.find(action => action.id === instrument.id);
 
-        const masteryLevel = this.music.getMasteryLevel(instrument);
+        let unlockedMasteries = this.music.masteriesUnlocked.get(instrument);
+
         const bard = this.music.bards.get(instrument);
 
-        if (bard?.utility?.id === 'mythMusic:Mystic_Oil') {
-            const validModifiers: InstrumentModifier[] = [];
+        const validModifierLevels = instrument.modifiers
+            .filter((modifier, index) => unlockedMasteries[index])
+            .map(instrument => instrument.level);
 
-            for (const bardModifier of bard.instrument.modifiers) {
-                if (bardModifier.level <= masteryLevel) {
-                    validModifiers.push(bardModifier);
-                    continue;
-                }
-
-                if (bardModifier.level > masteryLevel && bardModifier.level !== 999) {
-                    validModifiers.push(bardModifier);
-                    break;
-                }
-            }
-
-            const doesExist = validModifiers.find(validModifier => validModifier.key === modifier.key);
-
-            if (doesExist) {
-                return true;
-            }
-        }
-
-        return masteryLevel >= modifier.level || (bard?.isUpgraded && modifier.level === 999);
+        return validModifierLevels.includes(modifier.level) || (bard?.isUpgraded && modifier.level === 999);
     }
 
     private isSkillModifier(modifier: InstrumentModifier): modifier is InstrumentSkillModifier {

@@ -6,10 +6,21 @@ import { MythTownship } from './township/township';
 import { MythAgility } from './agility/agility';
 import { MythAstrology } from './astrology/astrology';
 import { TinyPassiveIconsCompatibility } from './compatibility/tiny-passive-icons';
+import { MusicSkillData } from './music/music.types';
 
 declare global {
     interface Game {
         constructEventMatcher(data: GameEventMatcherData | MusicActionEventMatcherOptions): GameEventMatcher;
+    }
+
+    interface CloudManager {
+        hasTotHEntitlement: boolean;
+    }
+
+    const cloudManager: CloudManager;
+
+    interface SkillIDDataMap {
+        'mythMusic:Music': MusicSkillData;
     }
 }
 
@@ -21,6 +32,7 @@ export class App {
         await this.context.loadTemplates('music/instrument/instrument.html');
         await this.context.loadTemplates('music/bard/bard.html');
         await this.context.loadTemplates('music/equipment/equipment.html');
+        await this.context.loadTemplates('music/mastery/mastery.html');
         await this.context.loadTemplates('music/locked/locked.html');
 
         this.patchEventManager();
@@ -29,6 +41,26 @@ export class App {
         const music = this.game.registerSkill(this.game.registeredNamespaces.getNamespace('mythMusic'), Music);
 
         await this.context.gameData.addPackage('data.json');
+
+        if (cloudManager.hasTotHEntitlement) {
+            await this.context.gameData.addPackage('data-toth.json');
+
+            this.context.gameData
+                .buildPackage(builder => {
+                    builder.skillData.add({
+                        skillID: 'mythMusic:Music',
+                        data: {
+                            minibar: {
+                                defaultItems: ['mythMusic:Superior_Music_Skillcape'],
+                                upgrades: [],
+                                pets: []
+                            },
+                            instruments: []
+                        }
+                    });
+                })
+                .add();
+        }
 
         this.initCompatibility(music);
         this.initAgility(music);

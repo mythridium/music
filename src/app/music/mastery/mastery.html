@@ -1,0 +1,89 @@
+<template id="myth-music-mastery">
+    <div class="myth-music-mastery" @vue:mounted="mounted">
+        <h5 class="mb-0">
+            Unlock Mastery: <img class="skill-icon-xs ml-2 mr-1" :src="instrument.media" />
+            {{ instrument.name }}
+        </h5>
+
+        <div class="manage" v-if="state === 'view'">
+            <div
+                class="manage-section upgrade"
+                v-for="(modifier, index) in unlockableModifiers"
+                :class="{ 'with-border': index + 1 !== unlockableModifiers.length, 'with-bottom-border': index + 1 === unlockableModifiers.length }"
+            >
+                <div
+                    class="myth-info font-size-sm"
+                    :class="{ 'text-success': isUnlocked(index), 'myth-text-grey': !isUnlocked(index) }"
+                >
+                    <span v-if="!isUnlocked(index)">
+                        (<img class="skill-icon-xxs mr-1" :src="cdnMedia('assets/media/main/mastery_header.svg')" />
+                        <span :class="{ 'text-success': currentMasteryLevel >= modifier.level }">
+                            {{ modifier.level }} </span
+                        >)
+                    </span>
+                    <span>{{ modifier.description }}</span>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-lg btn-success ml-2"
+                    @click="setState('unlock', modifier)"
+                    v-if="!isUnlocked(index)"
+                    :disabled="!canUnlock(modifier)"
+                >
+                    Unlock
+                </button>
+            </div>
+
+            <button type="button" class="btn btn-lg btn-primary" @click="ok()">OK</button>
+        </div>
+
+        <!-- Unlock -->
+        <div class="unlock" v-if="state === 'unlock'">
+            <h5 v-if="essenceOfMusic.quantity > 0" class="mt-3 font-w400 font-size-sm">
+                Would you like to unlock this mastery?
+            </h5>
+            <h5 v-if="essenceOfMusic.quantity === 0" class="mt-3 font-w400 font-size-sm">
+                You do not have enough materials to unlock this mastery.
+            </h5>
+
+            <div class="font-size-sm">
+                <span :class="essenceOfMusic.quantity > 0 ? 'text-success' : 'text-danger'">1</span>
+                <img class="skill-icon-xs ml-1 mr-1" :src="essenceOfMusic.item.media" />
+                <span :class="essenceOfMusic.quantity > 0 ? 'text-success' : 'text-danger'">
+                    {{ essenceOfMusic.item.name }}
+                </span>
+            </div>
+
+            <div class="mt-1">
+                <small :class="essenceOfMusic.quantity > 0 ? 'text-success' : 'myth-text-grey'">
+                    {{ modifier?.description }}
+                </small>
+            </div>
+
+            <div class="mt-4">
+                <small class="text-danger">
+                    The cost of hiring this bard will increase to {{ getNextHireCost() }} GP
+                </small>
+            </div>
+
+            <div class="mt-4 font-size-xs" v-if="essenceOfMusic.quantity > 0">
+                <span>You have {{ essenceOfMusic.quantity }}</span>
+                <img class="skill-icon-xs ml-1 mr-1" :src="essenceOfMusic.item.media" />
+                <span>{{ essenceOfMusic.item.name }}</span>
+            </div>
+
+            <div class="myth-footer-buttons mt-4">
+                <button
+                    type="button"
+                    class="btn btn-lg btn-primary mr-2"
+                    @click="unlock(modifier)"
+                    v-if="essenceOfMusic.quantity > 0"
+                >
+                    Unlock
+                </button>
+                <button type="button" class="btn btn-lg btn-danger" @click="setState('view')">Back</button>
+            </div>
+        </div>
+    </div>
+</template>

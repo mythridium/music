@@ -67,6 +67,9 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
         hire: function () {
             music.hire(instrument);
         },
+        mastery: function () {
+            music.unlockMastery(instrument);
+        },
         updateDisabled: function () {
             this.disabled = music.bards.isHired(instrument);
         },

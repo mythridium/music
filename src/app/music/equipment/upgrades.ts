@@ -45,7 +45,7 @@ export class Upgrades {
             itemId: UpgradeType.PristineLeather,
             modifiers: [{ key: 'decreasedSkillIntervalPercent', values: [{ skill: this.music, value: 5 }] }]
         },
-        { itemId: UpgradeType.MysticOil, modifiers: [{ key: 'increasedUnlockTierForInstrument', value: 1 }] }
+        { itemId: UpgradeType.MysticOil, modifiers: [{ key: 'increasedMusicAdditionalRewardRoll', value: 1 }] }
     ];
 
     constructor(private readonly music: Music, private readonly game: Game) {

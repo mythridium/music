@@ -8,8 +8,12 @@ declare global {
         decreasedBardHireLimit: Standard;
         increasedSheetMusicDropRate: Standard;
         decreasedSheetMusicDropRate: Standard;
-        increasedUnlockTierForInstrument: Standard;
-        decreasedUnlockTierForInstrument: Standard;
+        increasedMusicAdditionalRewardRoll: Standard;
+        decreasedMusicAdditionalRewardRoll: Standard;
+    }
+
+    interface SkillModifierObject<Skill> {
+        increasedSkillMasteryXPPerVariel: Skill;
     }
 
     interface PlayerModifiers {
@@ -21,8 +25,9 @@ declare global {
         decreasedBardHireLimit: number;
         increasedSheetMusicDropRate: number;
         decreasedSheetMusicDropRate: number;
-        increasedUnlockTierForInstrument: number;
-        decreasedUnlockTierForInstrument: number;
+        increasedMusicAdditionalRewardRoll: number;
+        decreasedMusicAdditionalRewardRoll: number;
+        increasedSkillMasteryXPPerVariel: number;
     }
 }
 
@@ -108,23 +113,33 @@ export class MythModifiers {
             tags: []
         };
 
-        modifierData.increasedUnlockTierForInstrument = {
+        modifierData.increasedMusicAdditionalRewardRoll = {
             get langDescription() {
-                return '+${value} Unlock tier for instrument without needing to meet mastery level';
+                return '+${value} additional reward roll while training Music';
             },
-            description: '+${value} Unlock tier for instrument without needing to meet mastery level',
+            description: '+${value} additional reward roll while training Music',
             isSkill: false,
             isNegative: false,
             tags: []
         };
 
-        modifierData.decreasedUnlockTierForInstrument = {
+        modifierData.decreasedMusicAdditionalRewardRoll = {
             get langDescription() {
-                return '-${value} Unlock tier for instrument without needing to meet mastery level';
+                return '-${value} additional reward roll while training Music';
             },
-            description: '-${value} Unlock tier for instrument without needing to meet mastery level',
+            description: '-${value} additional reward roll while training Music',
             isSkill: false,
             isNegative: true,
+            tags: []
+        };
+
+        modifierData.increasedSkillMasteryXPPerVariel = {
+            get langDescription() {
+                return '+${value}% ${skillName} Mastery XP per maxed Star in Variel constellation in Astrology';
+            },
+            description: '+${value}% ${skillName} Mastery XP per maxed Star in Variel constellation in Astrology',
+            isSkill: true,
+            isNegative: false,
             tags: []
         };
     }
