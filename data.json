@@ -1363,46 +1363,6 @@
         ],
         "shopPurchases": [
             {
-                "id": "Band_Practice",
-                "media": "assets/band-practice.png",
-                "category": "melvorD:General",
-                "contains": {
-                    "items": [],
-                    "modifiers": {
-                        "increasedBardHireLimit": 1
-                    }
-                },
-                "cost": {
-                    "gp": {
-                        "type": "Fixed",
-                        "cost": 1000000000
-                    },
-                    "slayerCoins": {
-                        "type": "Fixed",
-                        "cost": 0
-                    },
-                    "items": [],
-                    "raidCoins": {
-                        "type": "Fixed",
-                        "cost": 0
-                    }
-                },
-                "allowQuantityPurchase": false,
-                "unlockRequirements": [],
-                "purchaseRequirements": [
-                    {
-                        "type": "SkillLevel",
-                        "skillID": "mythMusic:Music",
-                        "level": 110
-                    }
-                ],
-                "defaultBuyLimit": 1,
-                "buyLimitOverrides": [],
-                "showBuyLimit": false,
-                "customName": "Band Practice",
-                "customDescription": "Unlock the ability to hire 2 different bards in Music."
-            },
-            {
                 "id": "Concert",
                 "media": "assets/concert.png",
                 "category": "melvorD:General",
@@ -1674,7 +1634,7 @@
             {
                 "insertAt": "After",
                 "afterID": "melvorD:Multi_Tree",
-                "ids": ["mythMusic:Band_Practice", "mythMusic:Concert"]
+                "ids": ["mythMusic:Concert"]
             }
         ],
         "pets": [

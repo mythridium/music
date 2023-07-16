@@ -429,8 +429,11 @@ Trumpet: Unlocked at skill level 115
 
 ## Change Log
 
+### 1.9.1
+* band practice shop purchase now correctly only shows if TotH has been purchased
+
 ### 1.9.0
-* Throne of the Herald is now optional, all TotH data requires the expansion to load, this includes superior skillcape, instruments above level 100 and summoning synergies above level 100.
+* Throne of the Herald is now optional, all TotH data requires the expansion to load, this includes superior skillcape, instruments above level 99 and summoning synergies above level 99
 * max skillcape and superior max skillcape no longer require the music skill to purchase
 * eagle + bard synergy now grants -10% Music Interval, from -5% Agility Interval
 * owl + bard synergy now grants +1.5% Mastery XP Per Maxed Star in Variel, from -5% Astrology Interval
