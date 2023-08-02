@@ -5,10 +5,10 @@
                 <div class="col-12 pt-3 font-size-lg mb-3" v-if="bard">
                     <img class="instrument-icon" v-bind:src="bard.instrument.media" />
                     <span :class="{ 'music-color': bard.isUpgraded && bard.socket && bard.utility }">
-                        Bard: {{ bard.instrument.name }}
+                        {{ templateLangString('Myth_Music_Bard_Title', { name: bard.instrument.name }) }}
                     </span>
                     <button type="button" class="ml-2 btn btn-lg btn-success mr-1" @click="equipment()">
-                        Instrument
+                        {{ getLangString('Myth_Music_Instrument') }}
                     </button>
                 </div>
 
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="col-12 font-size-lg pt-3 pb-3" v-if="!bard">
-                    <span>Bard: Not currently hired</span>
+                    <span>{{ getLangString('Myth_Music_Bard_Not_Currently_Hired') }}</span>
                 </div>
             </div>
         </div>

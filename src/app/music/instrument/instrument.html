@@ -28,11 +28,15 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-alt-success ml-3 mr-3 mb-3 mt-1" @click="train()">Train</button>
-                    <button class="btn btn-alt-info ml-3 mr-3 mb-3 mt-1" @click="hire()" :disabled="disabled">
-                        {{ disabled ? 'Hired' : 'Hire' }}
+                    <button class="btn btn-alt-success ml-3 mr-3 mb-3 mt-1" @click="train()">
+                        {{getLangString('Myth_Music_Train')}}
                     </button>
-                    <button class="btn btn-alt-info ml-3 mr-3 mb-3 mt-1" @click="mastery()">Mastery</button>
+                    <button class="btn btn-alt-info ml-3 mr-3 mb-3 mt-1" @click="hire()" :disabled="disabled">
+                        {{ disabled ? getLangString('Myth_Music_Hired') : getLangString('Myth_Music_Hire') }}
+                    </button>
+                    <button class="btn btn-alt-info ml-3 mr-3 mb-3 mt-1" @click="mastery()">
+                        {{ getLangString('Myth_Music_Mastery') }}
+                    </button>
                 </div>
                 <div class="col-12">
                     <small

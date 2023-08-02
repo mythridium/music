@@ -48,7 +48,7 @@ export class Instrument extends BasicSkillRecipe {
     skills: string[];
 
     public get name() {
-        return this.data.name;
+        return getLangString(`Myth_Music_Instrument_${this.localID}`);
     }
 
     public get media() {

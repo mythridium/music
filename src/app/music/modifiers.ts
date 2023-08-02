@@ -35,7 +35,7 @@ export class MythModifiers {
     public registerModifiers() {
         modifierData.increasedMusicHireCost = {
             get langDescription() {
-                return '+${value}% Bard Hire Cost';
+                return getLangString('Myth_Music_Bard_Hire_Cost_Positive');
             },
             description: '+${value}% Bard Hire Cost',
             isSkill: false,
@@ -45,7 +45,7 @@ export class MythModifiers {
 
         modifierData.decreasedMusicHireCost = {
             get langDescription() {
-                return '-${value}% Bard Hire Cost';
+                return getLangString('Myth_Music_Bard_Hire_Cost_Negative');
             },
             description: '-${value}% Bard Hire Cost',
             isSkill: false,
@@ -55,7 +55,7 @@ export class MythModifiers {
 
         modifierData.increasedMusicGP = {
             get langDescription() {
-                return '+${value}% Music GP';
+                return getLangString('Myth_Music_Music_GP_Positive');
             },
             description: '+${value}% Music GP',
             isSkill: false,
@@ -65,7 +65,7 @@ export class MythModifiers {
 
         modifierData.decreasedMusicGP = {
             get langDescription() {
-                return '-${value}% Music GP';
+                return getLangString('Myth_Music_Music_GP_Negative');
             },
             description: '-${value}% Music GP',
             isSkill: false,
@@ -75,7 +75,7 @@ export class MythModifiers {
 
         modifierData.increasedBardHireLimit = {
             get langDescription() {
-                return '+${value} Bard Hire Limit';
+                return getLangString('Myth_Music_Bard_Hire_Limit_Positive');
             },
             description: '+${value} Bard Hire Limit',
             isSkill: false,
@@ -85,7 +85,7 @@ export class MythModifiers {
 
         modifierData.decreasedBardHireLimit = {
             get langDescription() {
-                return '-${value} Bard Hire Limit';
+                return getLangString('Myth_Music_Bard_Hire_Limit_Negative');
             },
             description: '-${value} Bard Hire Limit',
             isSkill: false,
@@ -95,7 +95,7 @@ export class MythModifiers {
 
         modifierData.increasedSheetMusicDropRate = {
             get langDescription() {
-                return '+${value}% Sheet Music drop chance';
+                return getLangString('Myth_Music_Sheet_Music_Drop_Chance_Positive');
             },
             description: '+${value}% Sheet Music drop chance',
             isSkill: false,
@@ -105,7 +105,7 @@ export class MythModifiers {
 
         modifierData.decreasedSheetMusicDropRate = {
             get langDescription() {
-                return '-${value}% Sheet Music drop chance';
+                return getLangString('Myth_Music_Sheet_Music_Drop_Chance_Negative');
             },
             description: '-${value}% Sheet Music drop chance',
             isSkill: false,
@@ -115,7 +115,7 @@ export class MythModifiers {
 
         modifierData.increasedMusicAdditionalRewardRoll = {
             get langDescription() {
-                return '+${value} additional reward roll while training Music';
+                return getLangString('Myth_Music_Additional_Reward_Roll_Positive');
             },
             description: '+${value} additional reward roll while training Music',
             isSkill: false,
@@ -125,7 +125,7 @@ export class MythModifiers {
 
         modifierData.decreasedMusicAdditionalRewardRoll = {
             get langDescription() {
-                return '-${value} additional reward roll while training Music';
+                return getLangString('Myth_Music_Additional_Reward_Roll_Negative');
             },
             description: '-${value} additional reward roll while training Music',
             isSkill: false,
@@ -135,7 +135,7 @@ export class MythModifiers {
 
         modifierData.increasedSkillMasteryXPPerVariel = {
             get langDescription() {
-                return '+${value}% ${skillName} Mastery XP per maxed Star in Variel constellation in Astrology';
+                return getLangString('Myth_Music_Increased_Mastery_XP_Per_Variel');
             },
             description: '+${value}% ${skillName} Mastery XP per maxed Star in Variel constellation in Astrology',
             isSkill: true,

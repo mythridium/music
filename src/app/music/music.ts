@@ -36,16 +36,10 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         for (const instrument of data.instruments) {
             this.actions.registerObject(new Instrument(namespace, instrument));
         }
-
-        loadedLangJson['MASTERY_CHECKPOINT_Music_0'] = '+3% increased Music Skill XP';
-        loadedLangJson['MASTERY_CHECKPOINT_Music_1'] = '+5% increased Music Mastery XP';
-        loadedLangJson['MASTERY_CHECKPOINT_Music_2'] = 'Decreased Music Interval by 0.25s';
-        loadedLangJson['MASTERY_CHECKPOINT_Music_3'] = '-10% Bard Hire Cost';
-        loadedLangJson['POTION_NAME_Generous_Gratuity_Potion'] = 'Generous Gratuity Potion';
     }
 
     public get name() {
-        return 'Music';
+        return getLangString('Myth_Music_Music');
     }
 
     public get actionLevel() {
@@ -126,7 +120,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             });
         } else {
             let html = `<h5 class="font-w400 text-combat-smoke font-size-sm mb-2">
-            Would you like to hire this bard:
+            ${getLangString('Myth_Music_Would_You_Like_To_Hire_This_Bard')}
             <img class="instrument-icon align-middle" src="${instrument.media}" />
             ${instrument.name}
             </h5>
@@ -154,7 +148,9 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                 html += `<span>${modifier.description}</span></small><br />`;
             }
 
-            html += `<h5 class="font-w600 text-danger font-size-sm mt-3 mb-1">This will replace the hired bard that is selected and destroys all upgrades, gems and utilities on the instrument.</h5>`;
+            html += `<h5 class="font-w600 text-danger font-size-sm mt-3 mb-1">${getLangString(
+                'Myth_Music_This_Will_Replace_The_Hired_Bard'
+            )}</h5>`;
 
             const bard1 = this.bards.get(1);
             const bard2 = this.bards.get(2);
@@ -164,8 +160,12 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                 showCancelButton: true,
                 showDenyButton: this.manager.isBandPracticeUnlocked,
                 icon: 'info',
-                confirmButtonText: bard1 ? `Replace ${bard1.instrument.name}` : 'Hire',
-                denyButtonText: bard2 ? `Replace ${bard2.instrument.name}` : 'Hire'
+                confirmButtonText: bard1
+                    ? templateLangString('Myth_Music_Replace', { name: bard1.instrument.name })
+                    : getLangString('Myth_Music_Hire'),
+                denyButtonText: bard2
+                    ? templateLangString('Myth_Music_Replace', { name: bard2.instrument.name })
+                    : getLangString('Myth_Music_Hire')
             }).then(result => {
                 if (result.isDismissed) {
                     return;

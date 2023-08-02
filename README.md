@@ -1,5 +1,13 @@
 # [Myth] Music
 
+Translations for all languages supported by melvor idle have been provided with this mod, however, I only speak English and cannot guarantee the accuracy of translations.
+
+All translations were generated using chat gpt.
+
+**If you see an incorrect or missing translation, please create an issue on github providing the correct translation. Thank you!**
+
+https://github.com/mythridium/music
+
 Does not contain actual music. Sorry. :(
 
 Disclaimer: **Please backup your save file before installing this mod.**
@@ -428,6 +436,10 @@ Trumpet: Unlocked at skill level 115
 * Upgrade: +20% chance to apply Decay Curse to the Target per hit
 
 ## Change Log
+
+### 1.10.0
+* added translations for all languages supported by melvor idle
+* please note, I only speak English, these were all fed through chat gpt, if you see an incorrect or missing translation please report this on github
 
 ### 1.9.1
 * band practice shop purchase now correctly only shows if TotH has been purchased

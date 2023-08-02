@@ -5,7 +5,7 @@
         >
             <div class="block-content block-content-full pb-0">
                 <div class="font-size-sm font-w600 text-center mb-3">
-                    <span id="instrument-locked-text">Locked</span>
+                    <span id="instrument-locked-text">{{ getLangString('Myth_Music_Locked') }}</span>
 
                     <br />
 
@@ -14,7 +14,7 @@
                     <br />
 
                     <span class="badge badge-danger badge-pill mb-1" id="instrument-next-level">
-                        Level {{ level }}
+                        {{ templateLangString('Myth_Music_Level', { level: level }) }}
                     </span>
                 </div>
             </div>

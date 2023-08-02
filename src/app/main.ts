@@ -7,6 +7,8 @@ import { MythAgility } from './agility/agility';
 import { MythAstrology } from './astrology/astrology';
 import { TinyPassiveIconsCompatibility } from './compatibility/tiny-passive-icons';
 import { MusicSkillData } from './music/music.types';
+import { languages } from './language';
+import { MythTranslation } from './translation/translation';
 
 declare global {
     interface Game {
@@ -35,6 +37,8 @@ export class App {
         await this.context.loadTemplates('music/mastery/mastery.html');
         await this.context.loadTemplates('music/locked/locked.html');
 
+        this.initLanguage();
+        this.initTranslation();
         this.patchEventManager();
         this.initModifiers();
 
@@ -45,7 +49,7 @@ export class App {
         if (cloudManager.hasTotHEntitlement) {
             await this.context.gameData.addPackage('data-toth.json');
 
-            this.context.gameData
+            await this.context.gameData
                 .buildPackage(builder => {
                     builder.skillData.add({
                         skillID: 'mythMusic:Music',
@@ -120,5 +124,42 @@ export class App {
         userInterface.init();
 
         return userInterface;
+    }
+
+    private initTranslation() {
+        const translation = new MythTranslation(this.context);
+
+        translation.init();
+    }
+
+    private initLanguage() {
+        let lang = setLang;
+
+        if (lang === 'lemon' || lang === 'carrot') {
+            lang = 'en';
+        }
+
+        const keysToNotPrefix = [
+            'MASTERY_CHECKPOINT',
+            'MASTERY_BONUS',
+            'POTION_NAME',
+            'PET_NAME',
+            'ITEM_NAME',
+            'ITEM_DESCRIPTION',
+            'SHOP_NAME',
+            'SHOP_DESCRIPTION',
+            'MONSTER_NAME',
+            'COMBAT_AREA_NAME',
+            'SPECIAL_ATTACK_NAME',
+            'SPECIAL_ATTACK_DESCRIPTION'
+        ];
+
+        for (const [key, value] of Object.entries<string>(languages[lang])) {
+            if (keysToNotPrefix.some(prefix => key.includes(prefix))) {
+                loadedLangJson[key] = value;
+            } else {
+                loadedLangJson[`Myth_Music_${key}`] = value;
+            }
+        }
     }
 }

@@ -65,7 +65,6 @@
                 "headerBgClass": "bg-music",
                 "hasGameGuide": false,
                 "canBeDefault": true,
-                "customName": "Music",
                 "action": "mythMusic:Music",
                 "skills": ["mythMusic:Music"]
             }
@@ -1727,26 +1726,32 @@
                     "masteryLevelUnlocks": [
                         {
                             "level": "1",
+                            "descriptionID": 0,
                             "description": "Each level provides +10 GP acquired for this instrument only."
                         },
                         {
                             "level": "1",
+                            "descriptionID": 1,
                             "description": "First hire modifier."
                         },
                         {
                             "level": "40",
+                            "descriptionID": 2,
                             "description": "Ability to unlock the second hire modifier."
                         },
                         {
                             "level": "75",
+                            "descriptionID": 3,
                             "description": "Ability to unlock the third hire modifier."
                         },
                         {
                             "level": "90",
+                            "descriptionID": 4,
                             "description": "-10% Bard Hire Cost for this instrument only."
                         },
                         {
                             "level": "99",
+                            "descriptionID": 5,
                             "description": "Ability to unlock the fourth hire modifier."
                         }
                     ],

@@ -1,7 +1,8 @@
 <template id="myth-music-equipment">
     <div class="myth-music-equipment">
         <h5 class="mb-0">
-            Manage Bard Instrument: <img class="skill-icon-xs ml-2 mr-1" :src="bard.instrument.media" />
+            {{ getLangString('Myth_Music_Manage_Bard_Instrument') }}
+            <img class="skill-icon-xs ml-2 mr-1" :src="bard.instrument.media" />
             {{ bard.instrument.name }}
         </h5>
 
@@ -9,9 +10,11 @@
             <div class="manage-section with-border upgrade">
                 <div class="myth-info text-success font-size-sm" v-if="bard.isUpgraded">
                     <img class="skill-icon-xs mr-1" :src="items.Essence_Of_Music.item.media" />
-                    <span>Upgraded</span>
+                    <span>{{ getLangString('Myth_Music_Upgraded') }}</span>
                 </div>
-                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.isUpgraded">Not Upgraded</div>
+                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.isUpgraded">
+                    {{ getLangString('Myth_Music_Not_Upgraded') }}
+                </div>
 
                 <button
                     type="button"
@@ -19,7 +22,7 @@
                     @click="setState('upgrade')"
                     :disabled="bard.isUpgraded"
                 >
-                    Upgrade
+                    {{ getLangString('Myth_Music_Upgrade') }}
                 </button>
             </div>
 
@@ -33,9 +36,13 @@
                         {{ description }}
                     </span>
                 </div>
-                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.socket">No Gem</div>
+                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.socket">
+                    {{ getLangString('Myth_Music_No_Gem') }}
+                </div>
 
-                <button type="button" class="btn btn-lg btn-success ml-2" @click="setState('socket')">Socket</button>
+                <button type="button" class="btn btn-lg btn-success ml-2" @click="setState('socket')">
+                    {{ getLangString('Myth_Music_Socket') }}
+                </button>
             </div>
 
             <div class="manage-section with-border utility">
@@ -48,21 +55,27 @@
                         {{ description }}
                     </span>
                 </div>
-                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.utility">No Utility</div>
+                <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.utility">
+                    {{ getLangString('Myth_Music_No_Utility') }}
+                </div>
 
-                <button type="button" class="btn btn-lg btn-success ml-2" @click="setState('utility')">Utility</button>
+                <button type="button" class="btn btn-lg btn-success ml-2" @click="setState('utility')">
+                    {{ getLangString('Myth_Music_Utility') }}
+                </button>
             </div>
 
-            <button type="button" class="btn btn-lg btn-primary" @click="ok()">OK</button>
+            <button type="button" class="btn btn-lg btn-primary" @click="ok()">
+                {{ getLangString('Myth_Music_OK') }}
+            </button>
         </div>
 
         <!-- Upgrade -->
         <div class="upgrade" v-if="state === 'upgrade'">
             <h5 v-if="items.Essence_Of_Music.quantity > 0" class="mt-3 font-w400 font-size-sm">
-                Would you like to upgrade this instrument?
+                {{ getLangString('Myth_Music_Would_You_Like_To_Upgrade') }}
             </h5>
             <h5 v-if="items.Essence_Of_Music.quantity === 0" class="mt-3 font-w400 font-size-sm">
-                You do not have enough materials to upgrade this instrument.
+                {{ getLangString('Myth_Music_You_Do_Not_Have_Enough_Materials_Instrument') }}
             </h5>
 
             <div class="font-size-sm">
@@ -80,7 +93,10 @@
             </div>
 
             <div class="mt-4 font-size-xs" v-if="items.Essence_Of_Music.quantity > 0">
-                <span>You have {{ items.Essence_Of_Music.quantity }}</span>
+                <span>
+                    {{ templateLangString('Myth_Music_You_Have_Quantity', { quantity: items.Essence_Of_Music.quantity })
+                    }}
+                </span>
                 <img class="skill-icon-xs ml-1 mr-1" :src="items.Essence_Of_Music.item.media" />
                 <span>{{ items.Essence_Of_Music.item.name }}</span>
             </div>
@@ -92,7 +108,7 @@
                     @click="upgrade()"
                     v-if="items.Essence_Of_Music.quantity > 0"
                 >
-                    Upgrade
+                    {{ getLangString('Myth_Music_Upgrade') }}
                 </button>
                 <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">Back</button>
             </div>
@@ -117,7 +133,10 @@
                     </div>
 
                     <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Polished_Topaz_Gem.quantity === 0 }">
-                        <span>You have {{ items.Polished_Topaz_Gem.quantity }}</span>
+                        <span
+                            >{{ templateLangString('Myth_Music_You_Have_Quantity', { quantity:
+                            items.Polished_Topaz_Gem.quantity }) }}</span
+                        >
                         <img class="skill-icon-xxs" :src="items.Polished_Topaz_Gem.item.media" />
                         <span>{{ items.Polished_Topaz_Gem.item.name }}</span>
                     </div>
@@ -129,7 +148,7 @@
                     @click="socket('Polished_Topaz_Gem')"
                     :disabled="items.Polished_Topaz_Gem.quantity === 0 || isSocket('Polished_Topaz_Gem')"
                 >
-                    Socket
+                    {{ getLangString('Myth_Music_Socket') }}
                 </button>
             </div>
 
@@ -150,7 +169,10 @@
                     </div>
 
                     <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Polished_Ruby_Gem.quantity === 0 }">
-                        <span>You have {{ items.Polished_Ruby_Gem.quantity }}</span>
+                        <span>
+                            {{ templateLangString('Myth_Music_You_Have_Quantity', { quantity:
+                            items.Polished_Ruby_Gem.quantity }) }}
+                        </span>
                         <img class="skill-icon-xxs" :src="items.Polished_Ruby_Gem.item.media" />
                         <span>{{ items.Polished_Ruby_Gem.item.name }}</span>
                     </div>
@@ -162,7 +184,7 @@
                     @click="socket('Polished_Ruby_Gem')"
                     :disabled="items.Polished_Ruby_Gem.quantity === 0 || isSocket('Polished_Ruby_Gem')"
                 >
-                    Socket
+                    {{ getLangString('Myth_Music_Socket') }}
                 </button>
             </div>
 
@@ -186,7 +208,10 @@
                         class="mt-2 font-size-xs"
                         :class="{ 'text-danger': items.Polished_Sapphire_Gem.quantity === 0 }"
                     >
-                        <span>You have {{ items.Polished_Sapphire_Gem.quantity }}</span>
+                        <span>
+                            {{ templateLangString('Myth_Music_You_Have_Quantity', { quantity:
+                            items.Polished_Sapphire_Gem.quantity }) }}
+                        </span>
                         <img class="skill-icon-xxs" :src="items.Polished_Sapphire_Gem.item.media" />
                         <span>{{ items.Polished_Sapphire_Gem.item.name }}</span>
                     </div>
@@ -198,12 +223,14 @@
                     @click="socket('Polished_Sapphire_Gem')"
                     :disabled="items.Polished_Sapphire_Gem.quantity === 0 || isSocket('Polished_Sapphire_Gem')"
                 >
-                    Socket
+                    {{ getLangString('Myth_Music_Socket') }}
                 </button>
             </div>
 
             <div class="myth-footer-buttons mt-4">
-                <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">Back</button>
+                <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">
+                    {{ getLangString('Myth_Music_Back') }}
+                </button>
             </div>
         </div>
 
@@ -226,7 +253,10 @@
                     </div>
 
                     <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Diamond_String.quantity === 0 }">
-                        <span>You have {{ items.Diamond_String.quantity }}</span>
+                        <span>
+                            {{ templateLangString('Myth_Music_You_Have_Quantity', { quantity:
+                            items.Diamond_String.quantity }) }}
+                        </span>
                         <img class="skill-icon-xxs" :src="items.Diamond_String.item.media" />
                         <span>{{ items.Diamond_String.item.name }}</span>
                     </div>
@@ -238,7 +268,7 @@
                     @click="utility('Diamond_String')"
                     :disabled="items.Diamond_String.quantity === 0 || isUtility('Diamond_String')"
                 >
-                    Apply
+                    {{ getLangString('Myth_Music_Apply') }}
                 </button>
             </div>
 
@@ -259,7 +289,10 @@
                     </div>
 
                     <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Pristine_Leather.quantity === 0 }">
-                        <span>You have {{ items.Pristine_Leather.quantity }}</span>
+                        <span>
+                            {{ templateLangString('Myth_Music_You_Have_Quantity', { quantity:
+                            items.Pristine_Leather.quantity }) }}
+                        </span>
                         <img class="skill-icon-xxs" :src="items.Pristine_Leather.item.media" />
                         <span>{{ items.Pristine_Leather.item.name }}</span>
                     </div>
@@ -271,7 +304,7 @@
                     @click="utility('Pristine_Leather')"
                     :disabled="items.Pristine_Leather.quantity === 0 || isUtility('Pristine_Leather')"
                 >
-                    Apply
+                    {{ getLangString('Myth_Music_Apply') }}
                 </button>
             </div>
 
@@ -292,7 +325,10 @@
                     </div>
 
                     <div class="mt-2 font-size-xs" :class="{ 'text-danger': items.Mystic_Oil.quantity === 0 }">
-                        <span>You have {{ items.Mystic_Oil.quantity }}</span>
+                        <span>
+                            {{ templateLangString('Myth_Music_You_Have_Quantity', { quantity: items.Mystic_Oil.quantity
+                            }) }}
+                        </span>
                         <img class="skill-icon-xxs" :src="items.Mystic_Oil.item.media" />
                         <span>{{ items.Mystic_Oil.item.name }}</span>
                     </div>
@@ -304,12 +340,14 @@
                     @click="utility('Mystic_Oil')"
                     :disabled="items.Mystic_Oil.quantity === 0 || isUtility('Mystic_Oil')"
                 >
-                    Apply
+                    {{ getLangString('Myth_Music_Apply') }}
                 </button>
             </div>
 
             <div class="myth-footer-buttons mt-4">
-                <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">Back</button>
+                <button type="button" class="btn btn-lg btn-danger" @click="setState('manage')">
+                    {{ getLangString('Myth_Music_Back') }}
+                </button>
             </div>
         </div>
     </div>
