@@ -78,27 +78,18 @@
                 {{ getLangString('Myth_Music_You_Do_Not_Have_Enough_Materials_Instrument') }}
             </h5>
 
-            <div class="font-size-sm">
-                <span :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'text-danger'">1</span>
-                <img class="skill-icon-xs ml-1 mr-1" :src="items.Essence_Of_Music.item.media" />
-                <span :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'text-danger'">
-                    {{ items.Essence_Of_Music.item.name }}
-                </span>
-            </div>
-
             <div class="mt-1">
                 <small :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'myth-text-grey'">
                     {{ upgradeModifier.description }}
                 </small>
             </div>
 
-            <div class="mt-4 font-size-xs" v-if="items.Essence_Of_Music.quantity > 0">
-                <span>
-                    {{ templateLangString('Myth_Music_You_Have_Quantity', { quantity: items.Essence_Of_Music.quantity })
-                    }}
-                </span>
+            <div class="font-size-sm bg-combat-inner-dark p-2 mt-4">
+                <span :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'text-danger'">1</span>
                 <img class="skill-icon-xs ml-1 mr-1" :src="items.Essence_Of_Music.item.media" />
-                <span>{{ items.Essence_Of_Music.item.name }}</span>
+                <span :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'text-danger'">
+                    {{ items.Essence_Of_Music.item.name }}
+                </span>
             </div>
 
             <div class="myth-footer-buttons mt-4">

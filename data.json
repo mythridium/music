@@ -1747,7 +1747,7 @@
                         {
                             "level": "90",
                             "descriptionID": 4,
-                            "description": "-10% Bard Hire Cost for this instrument only."
+                            "description": "-5% Bard Hire Cost for this instrument only."
                         },
                         {
                             "level": "99",
@@ -1821,13 +1821,13 @@
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedChanceToFindLostChest",
-                                    "value": 15
+                                    "key": "decreasedPassiveCookInterval",
+                                    "value": 30
                                 },
                                 {
                                     "level": 99,
-                                    "key": "decreasedPassiveCookInterval",
-                                    "value": 30
+                                    "key": "increasedChanceToFindLostChest",
+                                    "value": 10
                                 },
                                 {
                                     "level": 999,
@@ -1899,18 +1899,18 @@
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedChanceToDoubleLootCombat",
-                                    "value": 10
-                                },
-                                {
-                                    "level": 99,
                                     "key": "decreasedEnemyDamageReduction",
                                     "value": 10
                                 },
                                 {
-                                    "level": 999,
+                                    "level": 99,
                                     "key": "increasedAutoEatThreshold",
-                                    "value": 10
+                                    "value": 5
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceToDoubleLootCombat",
+                                    "value": 5
                                 }
                             ]
                         },
@@ -1938,7 +1938,7 @@
                                 {
                                     "level": 75,
                                     "key": "increasedChanceToDoubleItemsGlobal",
-                                    "value": 15
+                                    "value": 10
                                 },
                                 {
                                     "level": 99,
@@ -2056,17 +2056,17 @@
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedFlatMaxHitpoints",
-                                    "value": 10
+                                    "key": "increasedDamageReduction",
+                                    "value": 5
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedDamageReduction",
-                                    "value": 10
+                                    "key": "increasedMaxHitpoints",
+                                    "value": 5
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedMaxHitpoints",
+                                    "key": "increasedFlatMaxHitpoints",
                                     "value": 5
                                 }
                             ]
@@ -2216,7 +2216,8 @@
                         {
                             "summonIDs": ["melvorF:GolbinThief", "mythMusic:Bard"],
                             "modifiers": {
-                                "increasedGPOnEnemyHit": 30
+                                "increasedGPOnEnemyHit": 30,
+                                "increasedGPFromMonstersFlat": 175
                             },
                             "consumesOn": [
                                 {
@@ -2255,7 +2256,7 @@
                                 "increasedChanceAdditionalSkillResource": [
                                     {
                                         "skillID": "melvorD:Woodcutting",
-                                        "value": 10
+                                        "value": 30
                                     }
                                 ]
                             },
@@ -2339,7 +2340,7 @@
                                 "increasedSkillPreservationChance": [
                                     {
                                         "skillID": "melvorD:Cooking",
-                                        "value": 10
+                                        "value": 25
                                     }
                                 ]
                             },
@@ -2442,7 +2443,7 @@
                                 "increasedSkillPreservationChance": [
                                     {
                                         "skillID": "melvorD:Smithing",
-                                        "value": 5
+                                        "value": 25
                                     }
                                 ]
                             },

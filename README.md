@@ -39,6 +39,12 @@ To unlock additional modifiers, once the respective mastery level has been attai
 
 Modifiers can be unlocked in any order once the mastery level has been attained, but once a mastery modifier has been unlocked the cost to hire the bard is increased.
 
+The cost to unlock a modifier is as follows
+
+* Level 40 Mastery Unlock - 100,000 GP + 1 Essence of Music
+* Level 75 Mastery Unlock - 1,000,000 GP + 1 Essence of Music
+* Level 99 Mastery Unlock - 10,000,000 GP + 1 Essence of Music
+
 ![Instrument Mastery](images/instrument-mastery.png)
 
 ![Unlock Mastery](images/unlock-mastery.png)
@@ -55,8 +61,8 @@ The cost for hiring a bard is as follows (assuming no hire cost reduction)
 
 * 1st Mastery Unlocked - 10,000 GP
 * 2nd Mastery Unlocked - 100,000 GP
-* 3rd Mastery Unlocked - 20,000,000 GP
-* 4th Mastery Unlocked - 200,000,000 GP
+* 3rd Mastery Unlocked - 1,000,000 GP
+* 4th Mastery Unlocked - 10,000,000 GP
 
 ![Hire a Bard](images/hire-bard.png)
 
@@ -347,8 +353,8 @@ Guitar: Unlocked at skill level 1
 Banjo: Unlocked at skill level 10
 * Mastery Level 1: -0.5s Fishing Interval
 * Mastery Level 40: -10% Cooking Interval
-* Mastery Level 75: +15% chance to find a Lost Chest while Fishing (This is separate to the Special Fishing Chance)
-* Mastery Level 99: -30% Passive Cook Interval
+* Mastery Level 75: -30% Passive Cook Interval
+* Mastery Level 99: +10% chance to find a Lost Chest while Fishing (This is separate to the Special Fishing Chance)
 * Upgrade: +25% chance to gain 1 cooked version of a fish when Fishing
 
 Snare Drum: Unlocked at skill level 20
@@ -361,14 +367,14 @@ Snare Drum: Unlocked at skill level 20
 Accordion: Unlocked at skill level 30
 * Mastery Level 1: +5% Hitpoint Regeneration
 * Mastery Level 40: +15% Auto Eat Efficiency
-* Mastery Level 75: +10% Chance To Double Loot in Combat
-* Mastery Level 99: Target Damage Reduction is decreased by flat 10%
-* Upgrade: +10% Auto Eat Threshold
+* Mastery Level 75: Target Damage Reduction is decreased by flat 10%
+* Mastery Level 99: +5% Auto Eat Threshold
+* Upgrade: +5% Chance To Double Loot in Combat
 
 Bouzouki: Unlocked at skill level 40
 * Mastery Level 1: +10% Chance to Preserve Resources in Skills
 * Mastery Level 40: +10% Global GP (except Item Sales)
-* Mastery Level 75: +15% Chance to Double Items Globally
+* Mastery Level 75: +10% Chance to Double Items Globally
 * Mastery Level 99: 10% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
 * Upgrade: +15% GP From Sales
 
@@ -389,9 +395,9 @@ Xylophone: Unlocked at skill level 60
 Saxaphone: Unlocked at skill level 70
 * Mastery Level 1: +5% Global Evasion
 * Mastery Level 40: +10% Lifesteal
-* Mastery Level 75: +100 Maximum Hitpoints
-* Mastery Level 99: +10% Damage Reduction
-* Upgrade: +5% Maximum Hitpoints
+* Mastery Level 75: +5% Damage Reduction
+* Mastery Level 99: +5% Maximum Hitpoints
+* Upgrade: +50 Maximum Hitpoints
 
 Violin: Unlocked at skill level 80
 * Mastery Level 1: +10% chance to preserve resources when Runecrafting runes
@@ -436,6 +442,29 @@ Trumpet: Unlocked at skill level 115
 * Upgrade: +20% chance to apply Decay Curse to the Target per hit
 
 ## Change Log
+
+### 1.11.0
+* significantly reduced hiring cost of bards from 10k, 100k, 20m, 200m to 10k, 100k, 1m, 10m
+* unlocking modifiers now also cost gp in addition to essence of music, costs are 100k for level 40 modifier, 1m for level 75 modifier and 10m for level 99 modifier
+* bard hire cost for 95% mastery checkpoint has been reduced from -10% to -5%
+* bard hire cost for mastery level 90 has been reduced from -10% to -5%
+* switched and reduced the power of some instrument modifiers:
+  * Banjo (75) now provides Passive Cook Interval
+  * Banjo (99) now provides Chance to find a Lost Chest while Fishing and reduced from 15% to 10%
+  * Accordion (75) now provides Target Damage Reduction is decreased by flat
+  * Accordion (99) now provides Auto Eat Threshold and reduced from 10% to 5%
+  * Accordion (U) now provides Chance To Double Loot in Combat and reduced from 10% to 5%
+  * Bouzouki (75) Chance to Double Items Globally reduced from 15% to 10%
+  * Saxophone (75) now provides Damage Reduction and reduced from 10% to 5%
+  * Saxophone (99) now provides +5% Maximum Hitpoints
+  * Saxophone (U) now provides + Maximum Hitpoints and reduced from +100 to +50
+* adjusted some of the bard syngergies
+  * Golbin Thief + Bard synergy now also grants +175 GP on monster kill
+  * Ent + Bard synergy increased from 10% to 30%
+  * Pig + Bard synergy increased from 10% to 25%
+  * Salamander + Bard synergy increased from 5% to 25%
+
+* Dev Note: These changes came from feedback that some modifiers are not worth unlocking as the hire cost grows too high for the value the modifier provides. It was more advantageous to simply leave some not unlocked which was not the intended way to interact with the bards. Hopefully, now that the gp costs of the skill have been reduced, the impact of unlocking some of the less desirable modifiers are not as painful. In addition a portion of the costs have been shifted to the one time cost of unlocking modifiers which should further reduce friction in switching bards that may not have as desirable modifiers. I'm aware this goes against the original design of wanting switching bards to be painful, but the design has evolved over time and no longer really fits with the current implementation.
 
 ### 1.10.0
 * added translations for all languages supported by melvor idle

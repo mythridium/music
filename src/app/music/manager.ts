@@ -92,24 +92,24 @@ export class MusicManager {
     }
 
     public calculateHireCost(instrument: Instrument) {
+        const hireCostMap = [10000, 100000, 1000000, 10000000];
         const instrumentRef = this.music.actions.find(action => action.id === instrument.id);
         const unlocked = this.music.masteriesUnlocked.get(instrumentRef).filter(isUnlocked => isUnlocked).length;
-        const hireCostMap = [10000, 100000, 20000000, 200000000];
 
-        return hireCostMap[unlocked - 1];
+        return { costs: hireCostMap, unlocked };
     }
 
     public getHireCostModifier(instrument: Instrument) {
         let modifier = this.game.modifiers.increasedMusicHireCost - this.game.modifiers.decreasedMusicHireCost;
 
         if (this.music.isPoolTierActive(3)) {
-            modifier -= 10;
+            modifier -= 5;
         }
 
         const masteryLevel = this.music.getMasteryLevel(instrument);
 
         if (masteryLevel >= 90) {
-            modifier -= 10;
+            modifier -= 5;
         }
 
         return Math.max(modifier, -95);

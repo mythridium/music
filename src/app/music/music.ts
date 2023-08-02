@@ -77,7 +77,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         }
 
         const hireModifier = this.manager.getHireCostModifier(instrument);
-        const hireCost = Math.floor(this.manager.calculateHireCost(instrument) * (1 + hireModifier / 100));
+        const { costs, unlocked } = this.manager.calculateHireCost(instrument);
+        const hireCost = Math.floor(costs[unlocked - 1] * (1 + hireModifier / 100));
 
         const canAfford = this.game.gp.canAfford(hireCost);
 
