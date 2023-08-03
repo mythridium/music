@@ -443,6 +443,9 @@ Trumpet: Unlocked at skill level 115
 
 ## Change Log
 
+### 1.11.1
+* fixed chinese simplified and chinese traditional translations for bard
+
 ### 1.11.0
 * significantly reduced hiring cost of bards from 10k, 100k, 20m, 200m to 10k, 100k, 1m, 10m
 * unlocking modifiers now also cost gp in addition to essence of music, costs are 100k for level 40 modifier, 1m for level 75 modifier and 10m for level 99 modifier
