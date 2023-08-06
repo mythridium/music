@@ -443,6 +443,9 @@ Trumpet: Unlocked at skill level 115
 
 ## Change Log
 
+## 1.11.2
+* fixed german translations being in dutch
+
 ### 1.11.1
 * fixed chinese simplified and chinese traditional translations for bard
 

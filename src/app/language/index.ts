@@ -1,6 +1,6 @@
 import { zhCN } from './chinese-simplified';
 import { zhTW } from './chinese-traditional';
-import { de } from './dutch';
+import { de } from './german';
 import { en } from './english';
 import { fr } from './french';
 import { it } from './italian';
