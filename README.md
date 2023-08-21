@@ -349,7 +349,7 @@ Please note, Settings get reset if you switch your language.
 
 ![Settings](images/settings.png)
 
-## Standard Bard Bonuses
+## Standard Scaling Bard Bonuses (can be set in settings, not exclusive to standard gamemode)
 
 The bonuses each bard provides is as follows:
 
@@ -451,7 +451,7 @@ Trumpet: Unlocked at skill level 115
 * Mastery Level 99: -0.5s Attack Interval
 * Upgrade: +20% chance to apply Decay Curse to the Target per hit
 
-## Hardcore Bard Bonuses
+## Hardcore Scaling Bard Bonuses (can be set in settings, not exclusive to hardcore gamemode)
 
 The bonuses each bard provides is as follows:
 
