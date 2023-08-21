@@ -66,7 +66,8 @@ export class Version3 implements DecodeVersion {
         // Migrate legacy data to new unlocked state.
         for (const action of this.music.actions.allObjects) {
             const masteryLevel = this.music.getMasteryLevel(action);
-            const isUnlocked = action.modifiers
+            const isUnlocked = action
+                .modifiers(this.music.settings.modifierType)
                 .filter(modifier => modifier.level <= 100)
                 .map(modifier => modifier.level <= masteryLevel);
 

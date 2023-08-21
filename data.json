@@ -1766,7 +1766,7 @@
                             "productId": "mythMusic:Guitar",
                             "level": 1,
                             "skills": ["melvorD:Woodcutting", "melvorD:Firemaking"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedBirdNestDropRate",
@@ -1794,6 +1794,35 @@
                                     "key": "freeBonfires",
                                     "value": 1
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedBirdNestDropRate",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSkillIntervalPercent",
+                                    "skill": "melvorD:Firemaking",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedMasteryXP",
+                                    "skill": "melvorD:Firemaking",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedMinBirdNestQuantity",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "freeBonfires",
+                                    "value": 1
+                                }
                             ]
                         },
                         {
@@ -1806,7 +1835,7 @@
                             "productId": "mythMusic:Drum",
                             "level": 10,
                             "skills": ["melvorD:Fishing", "melvorD:Cooking"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "decreasedSkillInterval",
@@ -1834,6 +1863,35 @@
                                     "key": "increasedFishingCookedChance",
                                     "value": 25
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Fishing",
+                                    "value": 200
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSkillIntervalPercent",
+                                    "skill": "melvorD:Cooking",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedPassiveCookInterval",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedChanceToFindLostChest",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedFishingCookedChance",
+                                    "value": 5
+                                }
                             ]
                         },
                         {
@@ -1846,7 +1904,7 @@
                             "productId": "mythMusic:Banjo",
                             "level": 20,
                             "skills": ["melvorD:Mining", "melvorD:Smithing"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "decreasedSkillInterval",
@@ -1874,6 +1932,35 @@
                                     "key": "doubleRuneEssenceMining",
                                     "value": 2
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Mining",
+                                    "value": 100
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Smithing",
+                                    "value": 100
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedFlatSmithingCoalCost",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "doubleOresMining",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "doubleRuneEssenceMining",
+                                    "value": 1
+                                }
                             ]
                         },
                         {
@@ -1886,7 +1973,7 @@
                             "productId": "mythMusic:Accordion",
                             "level": 30,
                             "skills": ["melvorD:Hitpoints"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedHitpointRegeneration",
@@ -1912,6 +1999,33 @@
                                     "key": "increasedChanceToDoubleLootCombat",
                                     "value": 5
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedHitpointRegeneration",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedAutoEatEfficiency",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedEnemyDamageReduction",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedAutoEatThreshold",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceToDoubleLootCombat",
+                                    "value": 2
+                                }
                             ]
                         },
                         {
@@ -1924,7 +2038,7 @@
                             "productId": "mythMusic:Bouzouki",
                             "level": 40,
                             "skills": ["melvorD:Woodcutting", "melvorD:Mining", "melvorD:Firemaking"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedGlobalPreservationChance",
@@ -1950,6 +2064,33 @@
                                     "key": "increasedGPFromSales",
                                     "value": 15
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedGlobalPreservationChance",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedGPGlobal",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedChanceToDoubleItemsGlobal",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedOffItemChance",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedGPFromSales",
+                                    "value": 5
+                                }
                             ]
                         },
                         {
@@ -1962,7 +2103,7 @@
                             "productId": "mythMusic:Maraca",
                             "level": 50,
                             "skills": ["melvorD:Fletching", "melvorD:Crafting"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedSkillXP",
@@ -1992,6 +2133,37 @@
                                     "key": "increasedJavelinProduction",
                                     "value": 2
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedSkillXP",
+                                    "skill": "melvorD:Crafting",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedSkillXP",
+                                    "skill": "melvorD:Fletching",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "doubleItemsSkill",
+                                    "skill": "melvorD:Fletching",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "doubleItemsSkill",
+                                    "skill": "melvorD:Crafting",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedJavelinProduction",
+                                    "value": 1
+                                }
                             ]
                         },
                         {
@@ -2004,7 +2176,7 @@
                             "productId": "mythMusic:Xylophone",
                             "level": 60,
                             "skills": ["melvorD:Agility"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "decreasedAgilityObstacleCost",
@@ -2031,6 +2203,34 @@
                                     "key": "increasedGPFromAgilityPerActiveObstacle",
                                     "value": 25
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedAgilityObstacleCost",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedGPFromAgility",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedSkillIntervalPercent",
+                                    "skill": "melvorD:Agility",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "decreasedAgilityPillarCost",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedGPFromAgilityPerActiveObstacle",
+                                    "value": 5
+                                }
                             ]
                         },
                         {
@@ -2043,7 +2243,7 @@
                             "productId": "mythMusic:Saxophone",
                             "level": 70,
                             "skills": ["melvorD:Defence", "melvorD:Hitpoints"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedGlobalEvasion",
@@ -2069,6 +2269,33 @@
                                     "key": "increasedFlatMaxHitpoints",
                                     "value": 5
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedGlobalEvasion",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedLifesteal",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedDamageReduction",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedMaxHitpoints",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedFlatMaxHitpoints",
+                                    "value": 1
+                                }
                             ]
                         },
                         {
@@ -2081,7 +2308,7 @@
                             "productId": "mythMusic:Violin",
                             "level": 80,
                             "skills": ["melvorD:Runecrafting", "melvorD:Prayer"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedRunecraftingEssencePreservation",
@@ -2107,6 +2334,33 @@
                                     "key": "increasedChanceForElementalRune",
                                     "value": 50
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedRunecraftingEssencePreservation",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedPrayerPointsWhenHit",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedAdditionalRunecraftCountRunes",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedFlatPrayerCostReduction",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceForElementalRune",
+                                    "value": 5
+                                }
                             ]
                         },
                         {
@@ -2119,7 +2373,7 @@
                             "productId": "mythMusic:Bongo",
                             "level": 90,
                             "skills": ["melvorD:Slayer"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "decreasedSlayerTaskMonsterAccuracy",
@@ -2145,6 +2399,34 @@
                                     "key": "increasedSkillXP",
                                     "skill": "melvorD:Slayer",
                                     "value": 20
+                                }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "decreasedSlayerTaskMonsterAccuracy",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedDamageToSlayerTasks",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedSlayerCoins",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedSlayerAreaEffectNegationFlat",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedSkillXP",
+                                    "skill": "melvorD:Slayer",
+                                    "value": 5
                                 }
                             ]
                         }

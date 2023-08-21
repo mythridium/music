@@ -172,7 +172,7 @@
                             "productId": "mythMusic:French_Horn",
                             "level": 100,
                             "skills": ["melvorD:Summoning", "melvorD:Astrology"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedChanceToFindMeteorite",
@@ -200,6 +200,35 @@
                                     "key": "increasedSummoningMaxHit",
                                     "value": 35
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedChanceToFindMeteorite",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Astrology",
+                                    "value": 100
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedSkillInterval",
+                                    "skill": "melvorD:Summoning",
+                                    "value": 250
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedSummoningCreationCharges",
+                                    "value": 3
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedSummoningMaxHit",
+                                    "value": 5
+                                }
                             ]
                         },
                         {
@@ -212,7 +241,7 @@
                             "productId": "mythMusic:Harp",
                             "level": 105,
                             "skills": ["melvorD:Thieving", "melvorD:Herblore"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedChanceRandomPotionHerblore",
@@ -240,6 +269,35 @@
                                     "skill": "melvorD:Thieving",
                                     "value": 20
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedChanceRandomPotionHerblore",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedThievingStealth",
+                                    "value": 15
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "doubleItemsSkill",
+                                    "skill": "melvorD:Herblore",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedThievingAreaUniqueChance",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceToDoubleItemsSkill",
+                                    "skill": "melvorD:Thieving",
+                                    "value": 2
+                                }
                             ]
                         },
                         {
@@ -252,7 +310,7 @@
                             "productId": "mythMusic:Tambourine",
                             "level": 110,
                             "skills": ["melvorD:Township", "melvorD:Farming"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedFarmingYield",
@@ -278,6 +336,33 @@
                                     "key": "increasedChanceDoubleHarvest",
                                     "value": 25
                                 }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedFarmingYield",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedFlatFarmingYield",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedTownshipGPProduction",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedTownshipHappiness",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceDoubleHarvest",
+                                    "value": 5
+                                }
                             ]
                         },
                         {
@@ -290,7 +375,7 @@
                             "productId": "mythMusic:Trumpet",
                             "level": 115,
                             "skills": ["melvorD:Attack", "melvorD:Strength", "melvorD:Ranged", "melvorD:Magic"],
-                            "modifiers": [
+                            "standardModifiers": [
                                 {
                                     "level": 1,
                                     "key": "increasedGlobalAccuracy",
@@ -315,6 +400,33 @@
                                     "level": 999,
                                     "key": "increasedChanceToApplyDecayCurse",
                                     "value": 20
+                                }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedGlobalAccuracy",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "increasedMinHitBasedOnMaxHit",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "increasedMaxHitPercent",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "decreasedAttackInterval",
+                                    "value": 100
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedChanceToApplyDecayCurse",
+                                    "value": 1
                                 }
                             ]
                         }

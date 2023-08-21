@@ -339,7 +339,17 @@ Mystic Essence is dropped from the Mystic Jester
 
 ![Mystic Guitar](images/mystic-guitar.png)
 
-## Bard Bonuses
+## Settings
+
+You are able to set the base bard hire cost for each tier. Value must be between 100 and 999B.
+
+In addition, you can opt to use Standard or Hardcore modifier bonuses. Hardcore modifiers have been significantly reduced compared to Standard.
+
+Please note, Settings get reset if you switch your language.
+
+![Settings](images/settings.png)
+
+## Standard Bard Bonuses
 
 The bonuses each bard provides is as follows:
 
@@ -441,7 +451,114 @@ Trumpet: Unlocked at skill level 115
 * Mastery Level 99: -0.5s Attack Interval
 * Upgrade: +20% chance to apply Decay Curse to the Target per hit
 
+## Hardcore Bard Bonuses
+
+The bonuses each bard provides is as follows:
+
+Guitar: Unlocked at skill level 1
+* Mastery Level 1: +2% Chance for Bird Nests to drop in Woodcutting
+* Mastery Level 40: -5% Firemaking Interval
+* Mastery Level 75: +5% Firemaking Mastery XP
+* Mastery Level 99: +1 minimum Bird Nest's received from Woodcutting
+* Upgrade: Bonfires in Firemaking require no logs to light. Automatically relights Bonfires when depleted
+
+Banjo: Unlocked at skill level 10
+* Mastery Level 1: -0.2s Fishing Interval
+* Mastery Level 40: -5% Cooking Interval
+* Mastery Level 75: -10% Passive Cook Interval
+* Mastery Level 99: +1% chance to find a Lost Chest while Fishing (This is separate to the Special Fishing Chance)
+* Upgrade: +5% chance to gain 1 cooked version of a fish when Fishing
+
+Snare Drum: Unlocked at skill level 20
+* Mastery Level 1: -0.1s Mining Interval
+* Mastery Level 40: -0.1s Smithing Interval
+* Mastery Level 75: -1 Coal Ore Cost when Smithing
+* Mastery Level 99: x2 Ores received from Mining
+* Upgrade: x2 Rune Essence received from Mining
+
+Accordion: Unlocked at skill level 30
+* Mastery Level 1: +2% Hitpoint Regeneration
+* Mastery Level 40: +5% Auto Eat Efficiency
+* Mastery Level 75: Target Damage Reduction is decreased by flat 2%
+* Mastery Level 99: +2% Auto Eat Threshold
+* Upgrade: +2% Chance To Double Loot in Combat
+
+Bouzouki: Unlocked at skill level 40
+* Mastery Level 1: +5% Chance to Preserve Resources in Skills
+* Mastery Level 40: +5% Global GP (except Item Sales)
+* Mastery Level 75: +2% Chance to Double Items Globally
+* Mastery Level 99: 2% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
+* Upgrade: +5% GP From Sales
+
+Maracas: Unlocked at skill level 50
+* Mastery Level 1: +5% Crafting Skill XP
+* Mastery Level 40: +5% Fletching Skill XP
+* Mastery Level 75: x2 Items received from Fletching
+* Mastery Level 99: x2 Items received from Crafting
+* Upgrade: +1 base Javelins produced per action in Fletching
+
+Xylophone: Unlocked at skill level 60
+* Mastery Level 1: -5% Agility Obstacle Build Costs
+* Mastery Level 40: +5% GP From Agility
+* Mastery Level 75: -5% Agility Interval
+* Mastery Level 99: -5% Agility Pillar build costs
+* Upgrade: +5% GP from Agility per active Obstacle
+
+Saxaphone: Unlocked at skill level 70
+* Mastery Level 1: +2% Global Evasion
+* Mastery Level 40: +2% Lifesteal
+* Mastery Level 75: +2% Damage Reduction
+* Mastery Level 99: +2% Maximum Hitpoints
+* Upgrade: +10 Maximum Hitpoints
+
+Violin: Unlocked at skill level 80
+* Mastery Level 1: +5% chance to preserve resources when Runecrafting runes
+* Mastery Level 40: Gain +1 Prayer Points for each successful Enemy hit on you
+* Mastery Level 75: Create +2 Additional Runes of the same type in Runecrafting
+* Mastery Level 99: -1 Prayer Point Cost for Prayers
+* Upgrade: +5% Chance to receive random Elemental Runes from Runecrafting when creating Runes
+
+Djembe: Unlocked at skill level 90
+* Mastery Level 1: -2% Slayer Task monster Accuracy Rating
+* Mastery Level 40: +2% Damage To Slayer Tasks
+* Mastery Level 75: +5% Slayer Coins
+* Mastery Level 99: +5% Flat Slayer Area Effect Negation
+* Upgrade: +5% Slayer Skill XP
+
+French Horn: Unlocked at skill level 100
+* Mastery Level 1: +1% chance to locate a Meteorite in Astrology
+* Mastery Level 40: -0.1s Astrology Interval
+* Mastery Level 75: -0.25s Summoning Interval
+* Mastery Level 99: +3 Base Quantity for Summoning Tablet Creation
+* Upgrade: +5% Summoning Maximum Hit
+
+Harp: Unlocked at skill level 105
+* Mastery Level 1: +2% Chance to receive a Random Tier of the same Potion in Herblore
+* Mastery Level 40: +15 Stealth while Thieving
+* Mastery Level 75: x2 Items received from Herblore
+* Mastery Level 99: +2% chance to receive Thieving Area Unique Item
+* Upgrade: +2% Chance to Double Items in Thieving
+
+Tambourine: Unlocked at skill level 110
+* Mastery Level 1: +5% Farming Yield
+* Mastery Level 40: +2 harvest quantity from Farming (Cannot be doubled or multiplied)
+* Mastery Level 75: +2% Township GP Production
+* Mastery Level 99: +5% Township Happiness
+* Upgrade: +5% Chance to Double Farming Yield
+
+Trumpet: Unlocked at skill level 115
+* Mastery Level 1: +2% Accuracy Rating
+* Mastery Level 40: +1% of Maximum Hit added to Minimum Hit
+* Mastery Level 75: +2% Maximum Hit
+* Mastery Level 99: -0.1s Attack Interval
+* Upgrade: +1% chance to apply Decay Curse to the Target per hit
+
 ## Change Log
+
+## 1.12.0
+* added settings to control the base bard hire cost
+* added a hardcore setting which significantly reduces the power of hired bard modifiers
+* fixed djembe being named bongo, it is now correctly labelled as a djembe again
 
 ## 1.11.2
 * fixed german translations being in dutch

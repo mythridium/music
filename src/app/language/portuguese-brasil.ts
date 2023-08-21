@@ -150,5 +150,16 @@ export const ptBR = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Solo de Guitarra Estonteante',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         'Um ataque inevitável que causa ${attackDamageMaxValue0}x${hitCount} de dano durante ${duration}s. Em um acerto, tem uma chance de ${onHitEffect0chance}% de infligir Queimar, causando ${onHitEffect0DamageMaxValue0}% de seus pontos de vida atuais como dano durante ${onHitEffect0duration}s.',
-    Music: 'Música'
+    Music: 'Música',
+    Settings_Bard_Hire_Cost: 'Custo de Contratação do Bardo',
+    Settings_Modifiers: 'Modificadores',
+    Settings_Modifier_Scale: 'Escala do Modificador',
+    Settings_Modifier_Standard: 'Padrão',
+    Settings_Modifier_Hardcore: 'Hardcore',
+    Settings_Base_Bard_Hire_Cost_1: 'Custo de contratação base do bardo com 1 modificador desbloqueado',
+    Settings_Base_Bard_Hire_Cost_2: 'Custo de contratação base do bardo com 2 modificadores desbloqueados',
+    Settings_Base_Bard_Hire_Cost_3: 'Custo de contratação base do bardo com 3 modificadores desbloqueados',
+    Settings_Base_Bard_Hire_Cost_4: 'Custo de contratação base do bardo com 4 modificadores desbloqueados',
+    Settings_Must_Be_Larger_Then: 'O valor deve ser maior que 99',
+    Settings_Must_Be_Smaller_Then: 'O valor deve ser menor que 1.000.000.000.000'
 };

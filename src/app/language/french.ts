@@ -151,5 +151,16 @@ export const fr = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Solo de Guitare Électrisant',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         "Attaque inévitable qui inflige ${attackDamageMaxValue0}x${hitCount} dégâts pendant ${duration}s. Sur un coup, a ${onHitEffect0chance}% de chance d'infliger une Brûlure qui inflige ${onHitEffect0DamageMaxValue0}% de vos points de vie actuels en dégâts pendant ${onHitEffect0duration}s.",
-    Music: 'Musique'
+    Music: 'Musique',
+    Settings_Bard_Hire_Cost: "Coût d'embauche du barde",
+    Settings_Modifiers: 'Modificateurs',
+    Settings_Modifier_Scale: 'Échelle de modificateur',
+    Settings_Modifier_Standard: 'Standard',
+    Settings_Modifier_Hardcore: 'Difficile',
+    Settings_Base_Bard_Hire_Cost_1: "Coût de base d'embauche du barde avec 1 modificateur débloqué",
+    Settings_Base_Bard_Hire_Cost_2: "Coût de base d'embauche du barde avec 2 modificateurs débloqués",
+    Settings_Base_Bard_Hire_Cost_3: "Coût de base d'embauche du barde avec 3 modificateurs débloqués",
+    Settings_Base_Bard_Hire_Cost_4: "Coût de base d'embauche du barde avec 4 modificateurs débloqués",
+    Settings_Must_Be_Larger_Then: 'La valeur doit être supérieure à 99',
+    Settings_Must_Be_Smaller_Then: 'La valeur doit être inférieure à 1 000 000 000 000'
 };

@@ -144,5 +144,16 @@ export const ja = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'フェイスメルティングギターソロ',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         '時間経過で${duration}sにわたり${attackDamageMaxValue0}x${hitCount}ダメージを与える回避不可の攻撃。命中した場合、${onHitEffect0chance}%の確率で${onHitEffect0duration}sにわたりバーンを付与し、現在の体力の${onHitEffect0DamageMaxValue0}%をダメージとして与えます。',
-    Music: '音楽'
+    Music: '音楽',
+    Settings_Bard_Hire_Cost: 'バード雇用コスト',
+    Settings_Modifiers: '修飾子',
+    Settings_Modifier_Scale: '修飾子スケール',
+    Settings_Modifier_Standard: '標準',
+    Settings_Modifier_Hardcore: 'ハードコア',
+    Settings_Base_Bard_Hire_Cost_1: '1つの修飾子が解除された状態での基本バード雇用コスト',
+    Settings_Base_Bard_Hire_Cost_2: '2つの修飾子が解除された状態での基本バード雇用コスト',
+    Settings_Base_Bard_Hire_Cost_3: '3つの修飾子が解除された状態での基本バード雇用コスト',
+    Settings_Base_Bard_Hire_Cost_4: '4つの修飾子が解除された状態での基本バード雇用コスト',
+    Settings_Must_Be_Larger_Then: '値は99より大きい必要があります',
+    Settings_Must_Be_Smaller_Then: '値は1,000,000,000,000より小さくなる必要があります'
 };

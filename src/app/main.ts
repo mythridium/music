@@ -9,6 +9,7 @@ import { TinyPassiveIconsCompatibility } from './compatibility/tiny-passive-icon
 import { MusicSkillData } from './music/music.types';
 import { languages } from './language';
 import { MythTranslation } from './translation/translation';
+import { MusicSettings } from './music/settings';
 
 declare global {
     interface Game {
@@ -39,6 +40,7 @@ export class App {
 
         this.initLanguage();
         this.initTranslation();
+        const settings = this.initSettings();
         this.patchEventManager();
         this.initModifiers();
 
@@ -72,6 +74,7 @@ export class App {
         this.initTownship();
 
         music.userInterface = this.initInterface(music);
+        music.initSettings(settings);
     }
 
     private patchEventManager() {
@@ -86,6 +89,14 @@ export class App {
         data: GameEventMatcherData | MusicActionEventMatcherOptions
     ): data is MusicActionEventMatcherOptions {
         return data.type === 'MusicAction';
+    }
+
+    private initSettings() {
+        const settings = new MusicSettings(this.context);
+
+        settings.init();
+
+        return settings;
     }
 
     private initModifiers() {

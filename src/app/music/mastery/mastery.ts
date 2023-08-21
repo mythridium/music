@@ -78,7 +78,9 @@ export function MasteryComponent(game: Game, music: Music, instrument: Instrumen
             game.gp.remove(this.unlockGPCost);
 
             const instrumentRef = music.actions.find(action => action.id === instrument.id);
-            const index = instrumentRef.modifiers.findIndex(mod => mod.level === modifier.level);
+            const index = instrumentRef
+                .modifiers(music.settings.modifierType)
+                .findIndex(mod => mod.level === modifier.level);
             const unlockedMasteries = music.masteriesUnlocked.get(instrumentRef);
 
             unlockedMasteries[index] = true;

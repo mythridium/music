@@ -53,7 +53,7 @@ export const en = {
     Instrument_Xylophone: 'Xylophone',
     Instrument_Saxophone: 'Saxophone',
     Instrument_Violin: 'Violin',
-    Instrument_Bongo: 'Bongo',
+    Instrument_Bongo: 'Djembe',
     Instrument_French_Horn: 'French Horn',
     Instrument_Harp: 'Harp',
     Instrument_Tambourine: 'Tambourine',
@@ -143,5 +143,16 @@ export const en = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Face Melting Guitar Solo',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         'An unavoidable attack that deals ${attackDamageMaxValue0}x${hitCount} damage over ${duration}s. On a hit, has a ${onHitEffect0chance}% chance to inflict Burn that deals ${onHitEffect0DamageMaxValue0}% of your current hitpoints as damage over ${onHitEffect0duration}s.',
-    Music: 'Music'
+    Music: 'Music',
+    Settings_Bard_Hire_Cost: 'Bard Hire Cost',
+    Settings_Modifiers: 'Modifiers',
+    Settings_Modifier_Scale: 'Modifier Scale',
+    Settings_Modifier_Standard: 'Standard',
+    Settings_Modifier_Hardcore: 'Hardcore',
+    Settings_Base_Bard_Hire_Cost_1: 'Base bard hire cost with 1 modifier unlocked',
+    Settings_Base_Bard_Hire_Cost_2: 'Base bard hire cost with 2 modifiers unlocked',
+    Settings_Base_Bard_Hire_Cost_3: 'Base bard hire cost with 3 modifiers unlocked',
+    Settings_Base_Bard_Hire_Cost_4: 'Base bard hire cost with 4 modifiers unlocked',
+    Settings_Must_Be_Larger_Then: 'Value must be larger then 99',
+    Settings_Must_Be_Smaller_Then: 'Value must be smaller then 1,000,000,000,000'
 };

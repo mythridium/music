@@ -26,7 +26,7 @@ export class MusicManager {
             return [] as BardModifier[];
         }
 
-        return instrument.modifiers.map(modifier => {
+        return instrument.modifiers(this.music.settings.modifierType).map(modifier => {
             let description = '';
 
             if (this.isSkillModifier(modifier)) {
@@ -53,7 +53,8 @@ export class MusicManager {
             return [];
         }
 
-        return instrument.modifiers
+        return instrument
+            .modifiers(this.music.settings.modifierType)
             .filter(modifier => this.isModifierActive(instrument, modifier))
             .map(modifier => {
                 if ('skill' in modifier) {
@@ -92,7 +93,12 @@ export class MusicManager {
     }
 
     public calculateHireCost(instrument: Instrument) {
-        const hireCostMap = [10000, 100000, 1000000, 10000000];
+        const hireCostMap = [
+            this.music.settings.bardHireCostOne || 10000,
+            this.music.settings.bardHireCostTwo || 100000,
+            this.music.settings.bardHireCostThree || 1000000,
+            this.music.settings.bardHireCostFour || 10000000
+        ];
         const instrumentRef = this.music.actions.find(action => action.id === instrument.id);
         const unlocked = this.music.masteriesUnlocked.get(instrumentRef).filter(isUnlocked => isUnlocked).length;
 
@@ -122,7 +128,8 @@ export class MusicManager {
 
         const bard = this.music.bards.get(instrument);
 
-        const validModifierLevels = instrument.modifiers
+        const validModifierLevels = instrument
+            .modifiers(this.music.settings.modifierType)
             .filter((modifier, index) => unlockedMasteries[index])
             .map(instrument => instrument.level);
 

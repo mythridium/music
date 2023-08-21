@@ -1,3 +1,5 @@
+import { ModifierType } from './settings';
+
 export interface BardModifier {
     description: string;
     isActive: boolean;
@@ -29,7 +31,8 @@ export interface InstrumentData extends BasicSkillRecipeData {
     media: string;
     baseInterval: number;
     maxGP: number;
-    modifiers: InstrumentModifier[];
+    standardModifiers: InstrumentModifier[];
+    hardcoreModifiers: InstrumentModifier[];
     skills: string[];
 }
 
@@ -44,8 +47,10 @@ export interface HiredBard {
 export class Instrument extends BasicSkillRecipe {
     baseInterval: number;
     maxGP: number;
-    modifiers: InstrumentModifier[];
     skills: string[];
+
+    private standardModifiers: InstrumentModifier[];
+    private hardcoreModifiers: InstrumentModifier[];
 
     public get name() {
         return getLangString(`Myth_Music_Instrument_${this.localID}`);
@@ -55,12 +60,22 @@ export class Instrument extends BasicSkillRecipe {
         return this.getMediaURL(this.data.media);
     }
 
+    public modifiers(type: ModifierType) {
+        switch (type) {
+            case ModifierType.Standard:
+                return this.standardModifiers;
+            case ModifierType.Hardcore:
+                return this.hardcoreModifiers;
+        }
+    }
+
     constructor(namespace: DataNamespace, private readonly data: InstrumentData) {
         super(namespace, data);
 
         this.baseInterval = data.baseInterval;
         this.maxGP = data.maxGP;
-        this.modifiers = data.modifiers;
+        this.standardModifiers = data.standardModifiers;
+        this.hardcoreModifiers = data.hardcoreModifiers;
         this.skills = data.skills;
     }
 }

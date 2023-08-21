@@ -139,5 +139,16 @@ export const zhCN = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: '吉他独奏之面庞融化',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         '一次无法避免的攻击，在${duration}s内造成${attackDamageMaxValue0}x${hitCount}的伤害。击中时，有${onHitEffect0chance}%的几率施加燃烧效果，在${onHitEffect0duration}s内造成相当于你当前生命值${onHitEffect0DamageMaxValue0}%的伤害。',
-    Music: '音乐'
+    Music: '音乐',
+    Settings_Bard_Hire_Cost: '吟游诗人雇佣成本',
+    Settings_Modifiers: '修饰符',
+    Settings_Modifier_Scale: '修饰符比例',
+    Settings_Modifier_Standard: '标准',
+    Settings_Modifier_Hardcore: '极限',
+    Settings_Base_Bard_Hire_Cost_1: '一个修饰符解锁时的基础吟游诗人雇佣成本',
+    Settings_Base_Bard_Hire_Cost_2: '两个修饰符解锁时的基础吟游诗人雇佣成本',
+    Settings_Base_Bard_Hire_Cost_3: '三个修饰符解锁时的基础吟游诗人雇佣成本',
+    Settings_Base_Bard_Hire_Cost_4: '四个修饰符解锁时的基础吟游诗人雇佣成本',
+    Settings_Must_Be_Larger_Then: '值必须大于99',
+    Settings_Must_Be_Smaller_Then: '值必须小于1,000,000,000,000'
 };

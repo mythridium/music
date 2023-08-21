@@ -139,5 +139,16 @@ export const zhTW = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: '吉他狂熱獨奏',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         '不可迴避的攻擊，造成 ${attackDamageMaxValue0}x${hitCount} 點傷害，在 ${duration} 秒內造成。成功命中時，有 ${onHitEffect0chance}% 的機率使你燃燒，造成你當前生命值的 ${onHitEffect0DamageMaxValue0}% 的傷害，在 ${onHitEffect0duration} 秒內造成。',
-    Music: '音樂'
+    Music: '音樂',
+    Settings_Bard_Hire_Cost: '吟遊詩人雇用成本',
+    Settings_Modifiers: '修飾符',
+    Settings_Modifier_Scale: '修飾符比例',
+    Settings_Modifier_Standard: '標準',
+    Settings_Modifier_Hardcore: '極限',
+    Settings_Base_Bard_Hire_Cost_1: '解鎖1個修飾符的基本吟遊詩人雇用成本',
+    Settings_Base_Bard_Hire_Cost_2: '解鎖2個修飾符的基本吟遊詩人雇用成本',
+    Settings_Base_Bard_Hire_Cost_3: '解鎖3個修飾符的基本吟遊詩人雇用成本',
+    Settings_Base_Bard_Hire_Cost_4: '解鎖4個修飾符的基本吟遊詩人雇用成本',
+    Settings_Must_Be_Larger_Then: '值必須大於99',
+    Settings_Must_Be_Smaller_Then: '值必須小於1,000,000,000,000'
 };

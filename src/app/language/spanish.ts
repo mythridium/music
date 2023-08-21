@@ -149,5 +149,16 @@ export const es = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Solo de Guitarra que Derrite Caras',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         'Un ataque inevitable que inflige ${attackDamageMaxValue0}x${hitCount} de daño durante ${duration}s. Al golpear, tiene una probabilidad del ${onHitEffect0chance}% de infligir Quemadura que inflige ${onHitEffect0DamageMaxValue0}% de tus puntos de vida actuales como daño durante ${onHitEffect0duration}s.',
-    Music: 'Música'
+    Music: 'Música',
+    Settings_Bard_Hire_Cost: 'Costo de Contratación de Bardo',
+    Settings_Modifiers: 'Modificadores',
+    Settings_Modifier_Scale: 'Escala de Modificador',
+    Settings_Modifier_Standard: 'Estándar',
+    Settings_Modifier_Hardcore: 'Difícil',
+    Settings_Base_Bard_Hire_Cost_1: 'Costo base de contratación de bardo con 1 modificador desbloqueado',
+    Settings_Base_Bard_Hire_Cost_2: 'Costo base de contratación de bardo con 2 modificadores desbloqueados',
+    Settings_Base_Bard_Hire_Cost_3: 'Costo base de contratación de bardo con 3 modificadores desbloqueados',
+    Settings_Base_Bard_Hire_Cost_4: 'Costo base de contratación de bardo con 4 modificadores desbloqueados',
+    Settings_Must_Be_Larger_Then: 'El valor debe ser mayor que 99',
+    Settings_Must_Be_Smaller_Then: 'El valor debe ser menor que 1,000,000,000,000'
 };

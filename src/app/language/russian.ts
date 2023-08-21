@@ -151,5 +151,16 @@ export const ru = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Разжигающий душу гитарный соло',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         'Неизбежная атака, которая наносит ${attackDamageMaxValue0}x${hitCount} урона за ${duration} секунд. При попадании есть ${onHitEffect0chance}% шанс наложить ожог, который нанесет ${onHitEffect0DamageMaxValue0}% от ваших текущих очков здоровья в качестве урона за ${onHitEffect0duration} секунд.',
-    Music: 'Музыка'
+    Music: 'Музыка',
+    Settings_Bard_Hire_Cost: 'Стоимость найма барда',
+    Settings_Modifiers: 'Модификаторы',
+    Settings_Modifier_Scale: 'Масштаб модификатора',
+    Settings_Modifier_Standard: 'Стандартный',
+    Settings_Modifier_Hardcore: 'Хардкорный',
+    Settings_Base_Bard_Hire_Cost_1: 'Базовая стоимость найма барда с разблокированным 1 модификатором',
+    Settings_Base_Bard_Hire_Cost_2: 'Базовая стоимость найма барда с разблокированными 2 модификаторами',
+    Settings_Base_Bard_Hire_Cost_3: 'Базовая стоимость найма барда с разблокированными 3 модификаторами',
+    Settings_Base_Bard_Hire_Cost_4: 'Базовая стоимость найма барда с разблокированными 4 модификаторами',
+    Settings_Must_Be_Larger_Then: 'Значение должно быть больше 99',
+    Settings_Must_Be_Smaller_Then: 'Значение должно быть меньше 1 000 000 000 000'
 };

@@ -151,5 +151,16 @@ export const de = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Bretterndes Gitarrensolo',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         'Ein unvermeidbarer Angriff, der ${attackDamageMaxValue0}x${hitCount} Schaden über ${duration}s verursacht. Bei einem Treffer besteht eine ${onHitEffect0chance}% Chance, Verbrennung zuzufügen, die ${onHitEffect0DamageMaxValue0}% deiner aktuellen Trefferpunkte als Schaden über ${onHitEffect0duration}s verursacht.',
-    Music: 'Musik'
+    Music: 'Musik',
+    Settings_Bard_Hire_Cost: 'Barden Einstellungskosten',
+    Settings_Modifiers: 'Modifikatoren',
+    Settings_Modifier_Scale: 'Modifikator Skala',
+    Settings_Modifier_Standard: 'Standard',
+    Settings_Modifier_Hardcore: 'Hardcore',
+    Settings_Base_Bard_Hire_Cost_1: 'Basis Barden Einstellungskosten mit 1 freigeschaltetem Modifikator',
+    Settings_Base_Bard_Hire_Cost_2: 'Basis Barden Einstellungskosten mit 2 freigeschalteten Modifikatoren',
+    Settings_Base_Bard_Hire_Cost_3: 'Basis Barden Einstellungskosten mit 3 freigeschalteten Modifikatoren',
+    Settings_Base_Bard_Hire_Cost_4: 'Basis Barden Einstellungskosten mit 4 freigeschalteten Modifikatoren',
+    Settings_Must_Be_Larger_Then: 'Der Wert muss größer als 99 sein',
+    Settings_Must_Be_Smaller_Then: 'Der Wert muss kleiner als 1.000.000.000.000 sein'
 };

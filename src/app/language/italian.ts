@@ -151,5 +151,16 @@ export const it = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Assolo di Chitarra Bruciante',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         'Un attacco inevitabile che infligge ${attackDamageMaxValue0}x${hitCount} danni per ${duration}s. In caso di colpo, ha una probabilità del ${onHitEffect0chance}% di infliggere Bruciatura che infligge ${onHitEffect0DamageMaxValue0}% dei tuoi attuali punti ferita come danni per ${onHitEffect0duration}s.',
-    Music: 'Musica'
+    Music: 'Musica',
+    Settings_Bard_Hire_Cost: 'Costo Assunzione Bardo',
+    Settings_Modifiers: 'Modificatori',
+    Settings_Modifier_Scale: 'Scala Modificatore',
+    Settings_Modifier_Standard: 'Standard',
+    Settings_Modifier_Hardcore: 'Difficile',
+    Settings_Base_Bard_Hire_Cost_1: 'Costo di assunzione di base del bardo con 1 modificatore sbloccato',
+    Settings_Base_Bard_Hire_Cost_2: 'Costo di assunzione di base del bardo con 2 modificatori sbloccati',
+    Settings_Base_Bard_Hire_Cost_3: 'Costo di assunzione di base del bardo con 3 modificatori sbloccati',
+    Settings_Base_Bard_Hire_Cost_4: 'Costo di assunzione di base del bardo con 4 modificatori sbloccati',
+    Settings_Must_Be_Larger_Then: 'Il valore deve essere maggiore di 99',
+    Settings_Must_Be_Smaller_Then: 'Il valore deve essere minore di 1.000.000.000.000'
 };

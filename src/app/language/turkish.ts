@@ -146,5 +146,16 @@ export const tr = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: 'Yüz Eriten Gitar Suluğu',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         '${duration}s içinde ${attackDamageMaxValue0}x${hitCount} hasar veren kaçınılmaz bir saldırı. Vuruşta, şu anki canınızın ${onHitEffect0DamageMaxValue0}% kadarını ${onHitEffect0duration}s boyunca hasar olarak verme şansı vardır (%${onHitEffect0chance}).',
-    Music: 'Müzik'
+    Music: 'Müzik',
+    Settings_Bard_Hire_Cost: 'Bard İşe Alma Maliyeti',
+    Settings_Modifiers: 'Değiştiriciler',
+    Settings_Modifier_Scale: 'Değiştirici Ölçeği',
+    Settings_Modifier_Standard: 'Standart',
+    Settings_Modifier_Hardcore: 'Zorlu',
+    Settings_Base_Bard_Hire_Cost_1: '1 değiştirici açıldığında temel bardo işe alma maliyeti',
+    Settings_Base_Bard_Hire_Cost_2: '2 değiştirici açıldığında temel bardo işe alma maliyeti',
+    Settings_Base_Bard_Hire_Cost_3: '3 değiştirici açıldığında temel bardo işe alma maliyeti',
+    Settings_Base_Bard_Hire_Cost_4: '4 değiştirici açıldığında temel bardo işe alma maliyeti',
+    Settings_Must_Be_Larger_Then: "Değer 99'dan büyük olmalıdır",
+    Settings_Must_Be_Smaller_Then: "Değer 1.000.000.000.000'den küçük olmalıdır"
 };

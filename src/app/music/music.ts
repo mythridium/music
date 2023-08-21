@@ -6,6 +6,7 @@ import { HiredBard, Instrument, MusicSkillData } from './music.types';
 import { Decoder } from './decoder/decoder';
 import { HiredBards } from './hired-bards';
 import { Upgrades } from './equipment/upgrades';
+import { ChangeType, MusicSettings } from './settings';
 
 import './music.scss';
 
@@ -17,6 +18,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public activeInstrument: Instrument;
     public bards = new HiredBards(this);
     public userInterface: UserInterface;
+    public settings: MusicSettings;
     public modifiers = new MappedModifiers();
     public masteriesUnlocked = new Map<Instrument, boolean[]>();
 
@@ -268,6 +270,16 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         for (const component of this.userInterface.instruments.values()) {
             component.updateDisabled();
         }
+    }
+
+    public initSettings(settings: MusicSettings) {
+        this.settings = settings;
+
+        this.settings.onChange(ChangeType.Modifiers, () => {
+            setTimeout(() => {
+                this.computeProvidedStats(true);
+            }, 10);
+        });
     }
 
     public onLevelUp(oldLevel: number, newLevel: number) {

@@ -142,5 +142,16 @@ export const ko = {
     SPECIAL_ATTACK_NAME_Face_Melting_Guitar_Solo: '얼굴을 녹이는 기타 솔로',
     SPECIAL_ATTACK_DESCRIPTION_Face_Melting_Guitar_Solo:
         '기간 동안 ${attackDamageMaxValue0}x${hitCount}의 데미지를 입히는 피할 수 없는 공격입니다. 히트 시, ${onHitEffect0chance}%의 확률로 화상을 입히며 현재 체력의 ${onHitEffect0DamageMaxValue0}%를 기간 동안 데미지로 입힙니다.',
-    Music: '음악'
+    Music: '음악',
+    Settings_Bard_Hire_Cost: '바드 고용 비용',
+    Settings_Modifiers: '수정자',
+    Settings_Modifier_Scale: '수정자 비율',
+    Settings_Modifier_Standard: '표준',
+    Settings_Modifier_Hardcore: '하드코어',
+    Settings_Base_Bard_Hire_Cost_1: '1개의 수정자가 해제된 상태의 기본 바드 고용 비용',
+    Settings_Base_Bard_Hire_Cost_2: '2개의 수정자가 해제된 상태의 기본 바드 고용 비용',
+    Settings_Base_Bard_Hire_Cost_3: '3개의 수정자가 해제된 상태의 기본 바드 고용 비용',
+    Settings_Base_Bard_Hire_Cost_4: '4개의 수정자가 해제된 상태의 기본 바드 고용 비용',
+    Settings_Must_Be_Larger_Then: '값은 99보다 커야 합니다',
+    Settings_Must_Be_Smaller_Then: '값은 1,000,000,000,000보다 작아야 합니다'
 };
