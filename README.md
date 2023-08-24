@@ -555,6 +555,9 @@ Trumpet: Unlocked at skill level 115
 
 ## Change Log
 
+# 1.13.0
+* added support for atlas of discovery
+
 ## 1.12.0
 * added settings to control the base bard hire cost
 * added a hardcore setting which significantly reduces the power of hired bard modifiers

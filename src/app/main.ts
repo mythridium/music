@@ -10,6 +10,7 @@ import { MusicSkillData } from './music/music.types';
 import { languages } from './language';
 import { MythTranslation } from './translation/translation';
 import { MusicSettings } from './music/settings';
+import { isAoD } from './utils';
 
 declare global {
     interface Game {
@@ -78,11 +79,19 @@ export class App {
     }
 
     private patchEventManager() {
-        this.context.patch(Game, 'constructEventMatcher').after((_patch, data) => {
-            if (this.isMusicEvent(data)) {
-                return new MusicActionEventMatcher(data, this.game);
-            }
-        });
+        if (isAoD()) {
+            this.context.patch(GameEventSystem, 'constructMatcher').after((_patch, data) => {
+                if (this.isMusicEvent(data)) {
+                    return new MusicActionEventMatcher(data, this.game);
+                }
+            });
+        } else {
+            this.context.patch(Game, 'constructEventMatcher').after((_patch, data) => {
+                if (this.isMusicEvent(data)) {
+                    return new MusicActionEventMatcher(data, this.game);
+                }
+            });
+        }
     }
 
     private isMusicEvent(

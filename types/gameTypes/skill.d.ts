@@ -19,7 +19,10 @@ interface RareSkillDropData {
     /** Requirements for the drop */
     requirements: AnyRequirementData[];
 }
-declare type RareSkillDropChance = FixedSkillDropChance | LevelScalingSkillDropChance | TotalMasteryScalingSkillDropChance;
+declare type RareSkillDropChance =
+    | FixedSkillDropChance
+    | LevelScalingSkillDropChance
+    | TotalMasteryScalingSkillDropChance;
 declare type FixedSkillDropChance = {
     type: 'Fixed';
     chance: number;
@@ -112,9 +115,12 @@ declare abstract class Skill<DataType extends BaseSkillData> extends NamespacedO
     /** Media of string without CDN */
     abstract readonly _media: string;
     abstract renderQueue: SkillRenderQueue;
-    constructor(namespace: DataNamespace, id: string, 
-    /** Game object to which this skill is registered to */
-    game: Game);
+    constructor(
+        namespace: DataNamespace,
+        id: string,
+        /** Game object to which this skill is registered to */
+        game: Game
+    );
     getItemForRegistration(id: string): AnyItem;
     onLoad(): void;
     render(): void;
@@ -206,7 +212,10 @@ declare class MasterySkillRenderQueue<ActionType extends MasteryAction> extends 
     masteryPool: boolean;
 }
 /** Base class for skills that have mastery */
-declare abstract class SkillWithMastery<ActionType extends MasteryAction, DataType extends MasterySkillData> extends Skill<DataType> implements Action {
+declare abstract class SkillWithMastery<ActionType extends MasteryAction, DataType extends MasterySkillData>
+    extends Skill<DataType>
+    implements Action
+{
     get hasMastery(): boolean;
     actions: NamespaceRegistry<ActionType>;
     actionMastery: Map<MasteryAction, ActionMastery>;
@@ -355,7 +364,10 @@ interface MasteryProgress {
     nextLevelXP: number;
 }
 /** Base class for gathering skills. E.g. Skills that return resources but does not consume them. */
-declare abstract class GatheringSkill<ActionType extends MasteryAction, DataType extends MasterySkillData> extends SkillWithMastery<ActionType, DataType> implements ActiveAction, Serializable {
+declare abstract class GatheringSkill<ActionType extends MasteryAction, DataType extends MasterySkillData>
+    extends SkillWithMastery<ActionType, DataType>
+    implements ActiveAction, Serializable
+{
     /** Timer for skill action */
     actionTimer: Timer;
     abstract renderQueue: GatheringSkillRenderQueue<ActionType>;
@@ -429,7 +441,10 @@ declare abstract class GatheringSkill<ActionType extends MasteryAction, DataType
     deserialize(reader: DataReader, version: number, idMap: NumericIDMap): void;
 }
 /** Base class for crafting skills. E.g. Skills that consume resources to make other resources. */
-declare abstract class CraftingSkill<T extends MasteryAction, DataType extends MasterySkillData> extends GatheringSkill<T, DataType> {
+declare abstract class CraftingSkill<T extends MasteryAction, DataType extends MasterySkillData> extends GatheringSkill<
+    T,
+    DataType
+> {
     /** Gets the costs for the currently selected recipe */
     abstract getCurrentRecipeCosts(): Costs;
     /** Gets the ingredient preservation chance for the currently selected recipe */
@@ -546,5 +561,6 @@ declare class Rewards extends Costs {
     forceGiveRewards(): boolean;
     reset(): void;
     setSource(source: string): void;
+    setActionInterval(number: number): void;
 }
 declare type AnySkill = Skill<any>;

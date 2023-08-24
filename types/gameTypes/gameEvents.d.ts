@@ -1,14 +1,50 @@
 /** Base Class for all game events */
-declare class GameEvent {
-}
+declare class GameEvent {}
 /** Base Class for matching game events */
 declare abstract class GameEventMatcher {
     /** Determines if the input event matches the conditions outlined by the matcher */
     abstract doesEventMatch(event: GameEvent): boolean;
+    game: Game;
 }
-declare type GameEventMatcherData = WoodcuttingEventMatcherOptions | FishingActionEventMatcherOptions | FiremakingActionEventMatcherOptions | BonfireLitEventMatcherOptions | CookingActionEventMatcherOptions | MiningActionEventMatcherOptions | SmithingActionEventMatcherOptions | ThievingActionEventMatcherOptions | FarmingPlantActionEventMatcherOptions | FarmingHarvestActionEventMatcherOptions | FletchingActionEventMatcherOptions | CraftingActionEventMatcherOptions | RunecraftingActionEventMatcherOptions | HerbloreActionEventMatcherOptions | AgilityActionEventMatcherOptions | SummoningActionEventMatcherOptions | AstrologyActionEventMatcherOptions | AltMagicActionEventMatcherOptions | MonsterDropEventMatcherOptions | PlayerAttackEventMatcherOptions | EnemyAttackEventMatcherOptions | FoodEatenEventMatcherOptions | PrayerPointConsumptionEventMatcherOptions | PlayerHitpointsRegenerationEventMatcherOptions | PlayerSummonAttackEventMatcherOptions | RuneConsumptionEventMatcherOptions | PotionUsedEventMatcherOptions | PotionChargeUsedEventMatcherOptions | MonsterKilledEventMatcherOptions | ItemEquippedEventMatcherOptions | FoodEquippedEventMatcherOptions | ShopPurchaseMadeEventMatcherOptions | SummonTabletUsedEventMatcherOptions;
+declare class IntervaledGameEvent extends GameEvent {
+    interval: number;
+}
+declare type GameEventMatcherData =
+    | WoodcuttingEventMatcherOptions
+    | FishingActionEventMatcherOptions
+    | FiremakingActionEventMatcherOptions
+    | BonfireLitEventMatcherOptions
+    | CookingActionEventMatcherOptions
+    | MiningActionEventMatcherOptions
+    | SmithingActionEventMatcherOptions
+    | ThievingActionEventMatcherOptions
+    | FarmingPlantActionEventMatcherOptions
+    | FarmingHarvestActionEventMatcherOptions
+    | FletchingActionEventMatcherOptions
+    | CraftingActionEventMatcherOptions
+    | RunecraftingActionEventMatcherOptions
+    | HerbloreActionEventMatcherOptions
+    | AgilityActionEventMatcherOptions
+    | SummoningActionEventMatcherOptions
+    | AstrologyActionEventMatcherOptions
+    | AltMagicActionEventMatcherOptions
+    | MonsterDropEventMatcherOptions
+    | PlayerAttackEventMatcherOptions
+    | EnemyAttackEventMatcherOptions
+    | FoodEatenEventMatcherOptions
+    | PrayerPointConsumptionEventMatcherOptions
+    | PlayerHitpointsRegenerationEventMatcherOptions
+    | PlayerSummonAttackEventMatcherOptions
+    | RuneConsumptionEventMatcherOptions
+    | PotionUsedEventMatcherOptions
+    | PotionChargeUsedEventMatcherOptions
+    | MonsterKilledEventMatcherOptions
+    | ItemEquippedEventMatcherOptions
+    | FoodEquippedEventMatcherOptions
+    | ShopPurchaseMadeEventMatcherOptions
+    | SummonTabletUsedEventMatcherOptions;
 /** Base Class for all skill action events */
-declare class SkillActionEvent extends GameEvent {
+declare class SkillActionEvent extends IntervaledGameEvent {
     /** If the potion was active during the action */
     get isPotionActive(): boolean;
     /** If the action was sucessful. (e.g. not stunned or food burned) */
@@ -43,10 +79,11 @@ declare class WoodcuttingActionEvent extends SkillActionEvent {
     /** If a bird's nest or similar item was received during the action */
     nestGiven: boolean;
     constructor(
-    /** The skill the event originated from */
-    skill: Woodcutting, 
-    /** The active woodcutting trees during the event */
-    actions: Set<WoodcuttingTree>);
+        /** The skill the event originated from */
+        skill: Woodcutting,
+        /** The active woodcutting trees during the event */
+        actions: Set<WoodcuttingTree>
+    );
 }
 interface WoodcuttingEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'WoodcuttingAction';
@@ -74,12 +111,13 @@ declare class FishingActionEvent extends SkillActionEvent {
     /** If a cooked version exists for the primary reward */
     cookedVersionExists: boolean;
     constructor(
-    /** The skill the event originated from */
-    skill: Fishing, 
-    /** The fish being caught */
-    action: Fish, 
-    /** The area being fished in */
-    area: FishingArea);
+        /** The skill the event originated from */
+        skill: Fishing,
+        /** The fish being caught */
+        action: Fish,
+        /** The area being fished in */
+        area: FishingArea
+    );
 }
 interface FishingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'FishingAction';
@@ -106,10 +144,11 @@ declare class FiremakingActionEvent extends SkillActionEvent {
     /** The log being burnt */
     action: FiremakingLog;
     constructor(
-    /** The Source Skill for the event */
-    skill: Firemaking, 
-    /** The log being burnt */
-    action: FiremakingLog);
+        /** The Source Skill for the event */
+        skill: Firemaking,
+        /** The log being burnt */
+        action: FiremakingLog
+    );
 }
 interface FiremakingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'FiremakingAction';
@@ -126,10 +165,11 @@ declare class BonfireLitEvent extends GameEvent {
     /** The log a bonfire is being lit with */
     log: FiremakingLog;
     constructor(
-    /** The Source skill for the event */
-    skill: Firemaking, 
-    /** The log a bonfire is being lit with */
-    log: FiremakingLog);
+        /** The Source skill for the event */
+        skill: Firemaking,
+        /** The log a bonfire is being lit with */
+        log: FiremakingLog
+    );
 }
 interface BonfireLitEventMatcherOptions {
     type: 'BonfireLit';
@@ -151,12 +191,13 @@ declare class CookingActionEvent extends SkillActionEvent {
     /** If anything was passive cooking during the event */
     isPassiveCooking: boolean;
     constructor(
-    /** The source skill for the event */
-    skill: Cooking, 
-    /** The current recipe being cooked */
-    action: CookingRecipe, 
-    /** The category being cooked in */
-    category: CookingCategory);
+        /** The source skill for the event */
+        skill: Cooking,
+        /** The current recipe being cooked */
+        action: CookingRecipe,
+        /** The category being cooked in */
+        category: CookingCategory
+    );
 }
 interface CookingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'CookingAction';
@@ -184,10 +225,11 @@ declare class MiningActionEvent extends SkillActionEvent {
     /** If a smithed version of the primary product exists */
     smithedVersionExists: boolean;
     constructor(
-    /** The source skill for the event */
-    skill: Mining, 
-    /** The current rock being mined */
-    action: MiningRock);
+        /** The source skill for the event */
+        skill: Mining,
+        /** The current rock being mined */
+        action: MiningRock
+    );
 }
 interface MiningActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'MiningAction';
@@ -220,10 +262,11 @@ declare class SmithingActionEvent extends SkillActionEvent {
     /** The current recipe being smithed */
     action: SmithingRecipe;
     constructor(
-    /** The source skill for the event */
-    skill: Smithing, 
-    /** The current recipe being smithed */
-    action: SmithingRecipe);
+        /** The source skill for the event */
+        skill: Smithing,
+        /** The current recipe being smithed */
+        action: SmithingRecipe
+    );
 }
 interface SmithingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'SmithingAction';
@@ -251,12 +294,13 @@ declare class ThievingActionEvent extends SkillActionEvent {
     /** If a common drop from the NPC was obtained */
     commonDropObtained: boolean;
     constructor(
-    /** The source skill for the event */
-    skill: Thieving, 
-    /** The current NPC being stolen from */
-    npc: ThievingNPC, 
-    /** The area the NPC is from */
-    area: ThievingArea);
+        /** The source skill for the event */
+        skill: Thieving,
+        /** The current NPC being stolen from */
+        npc: ThievingNPC,
+        /** The area the NPC is from */
+        area: ThievingArea
+    );
 }
 interface ThievingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'ThievingAction';
@@ -293,10 +337,11 @@ declare class FarmingPlantActionEvent extends GameEvent {
     /** The farming recipe being planted */
     action: FarmingRecipe;
     constructor(
-    /** The source skill for the event */
-    skill: Farming, 
-    /** The farming recipe being planted */
-    action: FarmingRecipe);
+        /** The source skill for the event */
+        skill: Farming,
+        /** The farming recipe being planted */
+        action: FarmingRecipe
+    );
 }
 interface FarmingHarvestActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'FarmingHarvestAction';
@@ -317,10 +362,11 @@ declare class FarmingHarvestActionEvent extends SkillActionEvent {
     /** The farming recipe being harvested */
     action: FarmingRecipe;
     constructor(
-    /** The source skill for the event */
-    skill: Farming, 
-    /** The farming recipe being harvested */
-    action: FarmingRecipe);
+        /** The source skill for the event */
+        skill: Farming,
+        /** The farming recipe being harvested */
+        action: FarmingRecipe
+    );
 }
 declare class FletchingActionEvent extends SkillActionEvent {
     /** The source skill for the event */
@@ -330,10 +376,11 @@ declare class FletchingActionEvent extends SkillActionEvent {
     /** The alternative recipe ID of the action */
     altRecipeID: number;
     constructor(
-    /** The source skill for the event */
-    skill: Fletching, 
-    /** The fletching recipe being made */
-    action: FletchingRecipe);
+        /** The source skill for the event */
+        skill: Fletching,
+        /** The fletching recipe being made */
+        action: FletchingRecipe
+    );
 }
 interface FletchingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'FletchingAction';
@@ -360,10 +407,11 @@ declare class CraftingActionEvent extends SkillActionEvent {
     /** The crafting recipe being made */
     action: CraftingRecipe;
     constructor(
-    /** The source skill for the event */
-    skill: Crafting, 
-    /** The crafting recipe being made */
-    action: CraftingRecipe);
+        /** The source skill for the event */
+        skill: Crafting,
+        /** The crafting recipe being made */
+        action: CraftingRecipe
+    );
 }
 interface CraftingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'CraftingAction';
@@ -384,10 +432,11 @@ declare class RunecraftingActionEvent extends SkillActionEvent {
     /** The runecrafting recipe being made */
     action: RunecraftingRecipe;
     constructor(
-    /** The source skill for the event */
-    skill: Runecrafting, 
-    /** The runecrafting recipe being made */
-    action: RunecraftingRecipe);
+        /** The source skill for the event */
+        skill: Runecrafting,
+        /** The runecrafting recipe being made */
+        action: RunecraftingRecipe
+    );
 }
 declare type RunecraftingSubCategory = 'ElementalRunes' | 'Staff' | 'None';
 interface RunecraftingActionEventMatcherOptions extends SkillActionEventMatcherOptions {
@@ -415,10 +464,11 @@ declare class HerbloreActionEvent extends SkillActionEvent {
     /** The herblore recipe being made */
     action: HerbloreRecipe;
     constructor(
-    /** The source skill for the event */
-    skill: Herblore, 
-    /** The herblore recipe being made */
-    action: HerbloreRecipe);
+        /** The source skill for the event */
+        skill: Herblore,
+        /** The herblore recipe being made */
+        action: HerbloreRecipe
+    );
 }
 interface HerbloreActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'HerbloreAction';
@@ -439,10 +489,11 @@ declare class AgilityActionEvent extends SkillActionEvent {
     /** The obstacle being completed */
     action: AgilityObstacle;
     constructor(
-    /** The source skill for the event */
-    skill: Agility, 
-    /** The obstacle being completed */
-    action: AgilityObstacle);
+        /** The source skill for the event */
+        skill: Agility,
+        /** The obstacle being completed */
+        action: AgilityObstacle
+    );
 }
 interface AgilityActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'AgilityAction';
@@ -464,10 +515,11 @@ declare class SummoningActionEvent extends SkillActionEvent {
     action: SummoningRecipe;
     altRecipeID: number;
     constructor(
-    /** The source skill for the event */
-    skill: Summoning, 
-    /** The summoning recipe being made */
-    action: SummoningRecipe);
+        /** The source skill for the event */
+        skill: Summoning,
+        /** The summoning recipe being made */
+        action: SummoningRecipe
+    );
 }
 interface SummoningActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'SummoningAction';
@@ -488,10 +540,11 @@ declare class AstrologyActionEvent extends SkillActionEvent {
     /** The astrology recipe being made */
     action: AstrologyRecipe;
     constructor(
-    /** The source skill for the event */
-    skill: Astrology, 
-    /** The astrology recipe being made */
-    action: AstrologyRecipe);
+        /** The source skill for the event */
+        skill: Astrology,
+        /** The astrology recipe being made */
+        action: AstrologyRecipe
+    );
 }
 interface AstrologyActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'AstrologyAction';
@@ -511,12 +564,13 @@ declare class AltMagicActionEvent extends SkillActionEvent {
     /** If alternative runes were used during this event */
     altRunes: boolean;
     constructor(
-    /** The source skill for the event */
-    skill: AltMagic, 
-    /** The spell being cast */
-    spell: AltMagicSpell, 
-    /** If alternative runes were used during this event */
-    altRunes: boolean);
+        /** The source skill for the event */
+        skill: AltMagic,
+        /** The spell being cast */
+        spell: AltMagicSpell,
+        /** If alternative runes were used during this event */
+        altRunes: boolean
+    );
 }
 interface AltMagicActionEventMatcherOptions extends SkillActionEventMatcherOptions {
     type: 'AltMagicAction';
@@ -544,12 +598,13 @@ declare class MonsterDropEvent extends GameEvent {
     /** The drop was/is a herb seed */
     herbSeed: boolean;
     constructor(
-    /** The item that was dropped */
-    item: AnyItem, 
-    /** The quantity dropped */
-    quantity: number, 
-    /** The drop was/is a herb seed */
-    herbSeed: boolean);
+        /** The item that was dropped */
+        item: AnyItem,
+        /** The quantity dropped */
+        quantity: number,
+        /** The drop was/is a herb seed */
+        herbSeed: boolean
+    );
 }
 interface MonsterDropEventMatcherOptions {
     type: 'MonsterDrop';
@@ -567,10 +622,11 @@ declare class PlayerAttackEvent extends GameEvent {
     /** The attack type of the player */
     attackType: AttackType;
     constructor(
-    /** The attack that was used */
-    attack: SpecialAttack, 
-    /** The attack type of the player */
-    attackType: AttackType);
+        /** The attack that was used */
+        attack: SpecialAttack,
+        /** The attack type of the player */
+        attackType: AttackType
+    );
 }
 interface PlayerAttackEventMatcherOptions {
     type: 'PlayerAttack';
@@ -588,10 +644,11 @@ declare class EnemyAttackEvent extends GameEvent {
     /** The attack type of the player */
     attackType: AttackType;
     constructor(
-    /** The attack that was used */
-    attack: SpecialAttack, 
-    /** The attack type of the player */
-    attackType: AttackType);
+        /** The attack that was used */
+        attack: SpecialAttack,
+        /** The attack type of the player */
+        attackType: AttackType
+    );
 }
 interface EnemyAttackEventMatcherOptions {
     type: 'EnemyAttack';
@@ -611,12 +668,13 @@ declare class FoodEatenEvent extends GameEvent {
     /** The amoun that was healed */
     healed: number;
     constructor(
-    /** The Food item that was eaten */
-    food: FoodItem, 
-    /** The amount of the item that was eaten */
-    quantity: number, 
-    /** The amoun that was healed */
-    healed: number);
+        /** The Food item that was eaten */
+        food: FoodItem,
+        /** The amount of the item that was eaten */
+        quantity: number,
+        /** The amoun that was healed */
+        healed: number
+    );
 }
 interface FoodEatenEventMatcherOptions {
     type: 'FoodEaten';
@@ -629,8 +687,9 @@ declare class PrayerPointConsumptionEvent extends GameEvent {
     /** The amount of points used */
     pointsUsed: number;
     constructor(
-    /** The amount of points used */
-    pointsUsed: number);
+        /** The amount of points used */
+        pointsUsed: number
+    );
 }
 interface PrayerPointConsumptionEventMatcherOptions {
     type: 'PrayerPointConsumption';
@@ -668,8 +727,9 @@ declare class RuneConsumptionEvent extends GameEvent {
     /** If the runes were preserved */
     preserved: boolean;
     constructor(
-    /** The runes that were consumed */
-    runes: AnyItemQuantity[]);
+        /** The runes that were consumed */
+        runes: AnyItemQuantity[]
+    );
 }
 interface RuneConsumptionEventMatcherOptions {
     type: 'RuneConsumption';
@@ -684,10 +744,11 @@ declare class PotionUsedEvent extends GameEvent {
     /** The number of charges gained from the potion */
     charges: number;
     constructor(
-    /** The potion item that was used */
-    potion: PotionItem, 
-    /** The number of charges gained from the potion */
-    charges: number);
+        /** The potion item that was used */
+        potion: PotionItem,
+        /** The number of charges gained from the potion */
+        charges: number
+    );
 }
 interface PotionUsedEventMatcherOptions {
     type: 'PotionUsed';
@@ -702,8 +763,9 @@ declare class PotionChargeUsedEvent extends GameEvent {
     /** If the charges were preserved */
     preserved: boolean;
     constructor(
-    /** The potion item that charges were consumed from */
-    potion: PotionItem);
+        /** The potion item that charges were consumed from */
+        potion: PotionItem
+    );
 }
 interface PotionChargeUsedEventMatcherOptions {
     type: 'PotionChargeUsed';
@@ -718,10 +780,11 @@ declare class MonsterKilledEvent extends GameEvent {
     /** The attack type that the player was using when the monster was killed */
     killedByType: AttackType;
     constructor(
-    /** The monster that was killed */
-    monster: Monster, 
-    /** The attack type that the player was using when the monster was killed */
-    killedByType: AttackType);
+        /** The monster that was killed */
+        monster: Monster,
+        /** The attack type that the player was using when the monster was killed */
+        killedByType: AttackType
+    );
 }
 interface MonsterKilledEventMatcherOptions {
     type: 'MonsterKilled';
@@ -743,10 +806,11 @@ declare class ItemEquippedEvent extends GameEvent {
     /** The quantity of the item that was equipped */
     quantity: number;
     constructor(
-    /** The item that was equipped */
-    item: EquipmentItem, 
-    /** The quantity of the item that was equipped */
-    quantity: number);
+        /** The item that was equipped */
+        item: EquipmentItem,
+        /** The quantity of the item that was equipped */
+        quantity: number
+    );
 }
 interface ItemEquippedEventMatcherOptions {
     type: 'ItemEquipped';
@@ -764,10 +828,11 @@ declare class FoodEquippedEvent extends GameEvent {
     /** The quantity of the food that was equipped */
     quantity: number;
     constructor(
-    /** The food that was equipped */
-    item: FoodItem, 
-    /** The quantity of the food that was equipped */
-    quantity: number);
+        /** The food that was equipped */
+        item: FoodItem,
+        /** The quantity of the food that was equipped */
+        quantity: number
+    );
 }
 interface FoodEquippedEventMatcherOptions {
     type: 'FoodEquipped';
@@ -785,10 +850,11 @@ declare class ShopPurchaseMadeEvent extends GameEvent {
     /** The quantity of the purchase bought */
     quantity: number;
     constructor(
-    /** The Purchase that was made */
-    purchase: ShopPurchase, 
-    /** The quantity of the purchase bought */
-    quantity: number);
+        /** The Purchase that was made */
+        purchase: ShopPurchase,
+        /** The quantity of the purchase bought */
+        quantity: number
+    );
 }
 interface ShopPurchaseMadeEventMatcherOptions {
     type: 'ShopPurchaseMade';
@@ -804,8 +870,9 @@ declare class SummonTabletUsedEvent extends GameEvent {
     /** The table that was used */
     tablet: EquipmentItem;
     constructor(
-    /** The table that was used */
-    tablet: EquipmentItem);
+        /** The table that was used */
+        tablet: EquipmentItem
+    );
 }
 interface SummonTabletUsedEventMatcherOptions {
     type: 'SummonTabletUsed';
