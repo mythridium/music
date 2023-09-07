@@ -7,7 +7,6 @@ import { Decoder } from './decoder/decoder';
 import { HiredBards } from './hired-bards';
 import { Upgrades } from './equipment/upgrades';
 import { ChangeType, MusicSettings } from './settings';
-import { isAoD } from '../utils';
 
 import './music.scss';
 
@@ -347,11 +346,13 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                 req => req.type === 'AllSkillLevels'
             ) as AllSkillLevelRequirement;
 
-            if (allSkillLevelsRequirement?.exceptions === undefined) {
-                allSkillLevelsRequirement.exceptions = new Set();
-            }
+            if (allSkillLevelsRequirement !== undefined) {
+                if (allSkillLevelsRequirement.exceptions === undefined) {
+                    allSkillLevelsRequirement.exceptions = new Set();
+                }
 
-            allSkillLevelsRequirement?.exceptions.add(this);
+                allSkillLevelsRequirement.exceptions.add(this);
+            }
         }
     }
 
@@ -400,10 +401,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         const rewards = new Rewards(this.game);
         const actionEvent = new MusicActionEvent(this, this.activeInstrument);
 
-        if (isAoD()) {
-            rewards.setActionInterval(this.actionInterval);
-        }
-
+        rewards.setActionInterval(this.actionInterval);
         rewards.addXP(this, this.activeInstrument.baseExperience);
         rewards.addGP(this.manager.getGoldToAward(this.activeInstrument));
 
@@ -451,12 +449,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             }
         }
 
-        if (isAoD()) {
-            actionEvent.interval = this.currentActionInterval;
-            this._events.emit('action', actionEvent);
-        } else {
-            this.game.processEvent(actionEvent, this.currentActionInterval);
-        }
+        actionEvent.interval = this.currentActionInterval;
+        this._events.emit('action', actionEvent);
 
         return rewards;
     }

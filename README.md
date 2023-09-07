@@ -555,6 +555,10 @@ Trumpet: Unlocked at skill level 115
 
 ## Change Log
 
+# 1.13.1
+* fixed music being locked in ancient relics gamemode
+* fixed skill cape exception check
+
 # 1.13.0
 * added support for atlas of discovery
 

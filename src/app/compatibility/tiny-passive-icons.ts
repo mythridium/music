@@ -1,5 +1,4 @@
 import { Music } from '../music/music';
-import { isAoD } from '../utils';
 
 export class TinyPassiveIconsCompatibility {
     constructor(private readonly context: Modding.ModContext, private readonly music: Music) {}
@@ -19,7 +18,7 @@ export class TinyPassiveIconsCompatibility {
                     }
 
                     if (useCDN) {
-                        const cdnDir = isAoD() ? CDNDIR() : CDNDIR;
+                        const cdnDir = CDNDIR();
                         return `${cdnDir}${media}`;
                     } else {
                         return media;
