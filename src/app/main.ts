@@ -18,6 +18,7 @@ declare global {
 
     interface CloudManager {
         hasTotHEntitlement: boolean;
+        hasAoDEntitlement: boolean;
     }
 
     const cloudManager: CloudManager;
@@ -68,6 +69,15 @@ export class App {
                 .add();
         }
 
+        if (cloudManager.hasAoDEntitlement) {
+            await this.context.gameData.addPackage('data-aod.json');
+        }
+
+        if (cloudManager.hasTotHEntitlement && cloudManager.hasAoDEntitlement) {
+            await this.context.gameData.addPackage('data-aod-toth.json');
+        }
+
+        this.patchMusicTalismans();
         this.patchUnlock(music);
         this.initCompatibility(music);
         this.initAgility(music);
@@ -87,19 +97,23 @@ export class App {
     }
 
     private patchUnlock(music: Music) {
-        this.context.patch(Music, 'decode').after(() => {
+        this.context.patch(EventManager, 'loadEvents').after(() => {
             if (this.game.currentGamemode.id === 'melvorAoD:AncientRelics') {
                 music.setUnlock(true);
             }
         });
+    }
 
-        this.context.patch(Game, 'setupCurrentGamemode').before(() => {
-            if (
-                this.game.currentGamemode.id === 'melvorAoD:AncientRelics' &&
-                this.game.currentGamemode.startingSkills &&
-                !this.game.currentGamemode.startingSkills.has(music)
-            ) {
-                this.game.currentGamemode.startingSkills.add(music);
+    private patchMusicTalismans() {
+        this.context.patch(Bank, 'claimItemOnClick').after((patch, item) => {
+            if (this.game.currentGamemode.id === 'melvorAoD:AncientRelics') {
+                if (item.id === 'mythMusic:Ancient_Coin_Token' || item.id === 'mythMusic:Ancient_Mask_Token') {
+                    awardRandomSkillLevelCapIncreaseForPre99(5);
+                }
+
+                if (item.id === 'mythMusic:Ancient_Skull_Token') {
+                    awardRandomSkillLevelCapIncreaseForPost99(6);
+                }
             }
         });
     }

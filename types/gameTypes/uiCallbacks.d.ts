@@ -48,6 +48,14 @@ declare function openWikiLink(): void;
 declare function openExpansionSteamLink(): void;
 declare function openExpandedEditionSteamLink(): void;
 declare function viewMonsterStats(monster: Monster): void;
-declare const changePage: (page: Page, subCategory?: number, skill?: AnySkill, showRaidShop?: boolean, toggleSidebar?: boolean) => void;
+declare const changePage: (
+    page: Page,
+    subCategory?: number,
+    skill?: AnySkill,
+    showRaidShop?: boolean,
+    toggleSidebar?: boolean
+) => void;
 /** Function for reading an lore entry */
 declare function readLore(loreID: number): void;
+declare function awardRandomSkillLevelCapIncreaseForPre99(count: number): void;
+declare function awardRandomSkillLevelCapIncreaseForPost99(count: number): void;

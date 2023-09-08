@@ -119,6 +119,15 @@ export const fr = {
     ITEM_NAME_Generous_Gratuity_Potion_III: 'Potion de Généreuse Gratitude III',
     ITEM_NAME_Generous_Gratuity_Potion_IV: 'Potion de Généreuse Gratitude IV',
     ITEM_NAME_Mastery_Token_Music: 'Jetons de Maîtrise (Musique)',
+    ITEM_NAME_Ancient_Coin_Token: 'Jetons de pièces anciennes',
+    ITEM_DESCRIPTION_Ancient_Coin_Token:
+        'Accorde une augmentation de niveau dans le mode de jeu des reliques anciennes.',
+    ITEM_NAME_Ancient_Mask_Token: 'Jetons de masque ancien',
+    ITEM_DESCRIPTION_Ancient_Mask_Token:
+        'Accorde une augmentation de niveau dans le mode de jeu des reliques anciennes.',
+    ITEM_NAME_Ancient_Skull_Token: 'Jeton Crâne Antique',
+    ITEM_DESCRIPTION_Ancient_Skull_Token:
+        'Accorde une augmentation de niveau dans le mode de jeu des reliques anciennes.',
     MASTERY_BONUS_Music_0: 'Chaque niveau confère +10 GP acquis pour cet instrument uniquement.',
     MASTERY_BONUS_Music_1: "Premier modificateur d'embauche.",
     MASTERY_BONUS_Music_2: "Capacité de débloquer le deuxième modificateur d'embauche.",

@@ -1,0 +1,48 @@
+{
+    "$schema": "https://melvoridle.com/assets/schema/gameData.json",
+    "namespace": "mythMusic",
+    "modifications": {
+        "dungeons": [
+            {
+                "id": "melvorD:Undead_Graveyard",
+                "oneTimeRewardID": "mythMusic:Ancient_Coin_Token"
+            },
+            {
+                "id": "melvorF:Air_God_Dungeon",
+                "oneTimeRewardID": "mythMusic:Ancient_Mask_Token"
+            }
+        ]
+    },
+    "data": {
+        "items": [
+            {
+                "id": "Ancient_Coin_Token",
+                "name": "Ancient Coin Token",
+                "category": "Music",
+                "type": "Token",
+                "media": "assets/items/ancient-coin-token.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 1500,
+                "itemType": "Token",
+                "customDescription": "Grants level increase in the ancient relics gamemode.",
+                "modifiers": {}
+            },
+            {
+                "id": "Ancient_Mask_Token",
+                "name": "Ancient Mask Token",
+                "category": "Music",
+                "type": "Token",
+                "media": "assets/items/ancient-mask-token.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 1500,
+                "itemType": "Token",
+                "customDescription": "Grants level increase in the ancient relics gamemode.",
+                "modifiers": {}
+            }
+        ]
+    }
+}

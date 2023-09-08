@@ -555,6 +555,12 @@ Trumpet: Unlocked at skill level 115
 
 ## Change Log
 
+# 1.13.2
+* fixed music being locked in ancient relics gamemode on existing saves when enabling the mod for the first time
+* added one time rewards for undead graveyard, air god dungeon and lava lake dungeon
+* these one time rewards are tokens which when consumed grant level cap increases in the ancient relics gamemode, they do nothing in other gamemodes and can be sold
+* these tokens are equivalent to clearing 2 base game dungeons and 1 toth dungeon to help offset the additional skill
+
 # 1.13.1
 * fixed music being locked in ancient relics gamemode
 * fixed skill cape exception check
@@ -765,3 +771,5 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.flaticon.com/free-icons/jester" title="jester icons">Jester icons created by Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/jester" title="jester icons">Jester icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/cultures" title="cultures icons">Cultures icons created by Freepik - Flaticon</a>

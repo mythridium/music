@@ -1,0 +1,30 @@
+{
+    "$schema": "https://melvoridle.com/assets/schema/gameData.json",
+    "namespace": "mythMusic",
+    "modifications": {
+        "dungeons": [
+            {
+                "id": "melvorTotH:Underground_Lava_Lake",
+                "oneTimeRewardID": "mythMusic:Ancient_Skull_Token"
+            }
+        ]
+    },
+    "data": {
+        "items": [
+            {
+                "id": "Ancient_Skull_Token",
+                "name": "Ancient Skull Token",
+                "category": "Music",
+                "type": "Token",
+                "media": "assets/items/ancient-skull-token.png",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 1500,
+                "itemType": "Token",
+                "customDescription": "Grants level increase in the ancient relics gamemode.",
+                "modifiers": {}
+            }
+        ]
+    }
+}
