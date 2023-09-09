@@ -53,6 +53,7 @@ export const it = {
     Instrument_Banjo: 'Tamburo a Cilindro',
     Instrument_Accordion: 'Fisarmonica',
     Instrument_Bouzouki: 'Bouzouki',
+    Instrument_Flute: 'Flauto',
     Instrument_Maraca: 'Maraca',
     Instrument_Xylophone: 'Xilofono',
     Instrument_Saxophone: 'Sassofono',

@@ -53,6 +53,7 @@ export const es = {
     Instrument_Banjo: 'Batería',
     Instrument_Accordion: 'Acordeón',
     Instrument_Bouzouki: 'Bouzouki',
+    Instrument_Flute: 'Flauta',
     Instrument_Maraca: 'Maraca',
     Instrument_Xylophone: 'Xilófono',
     Instrument_Saxophone: 'Saxofón',

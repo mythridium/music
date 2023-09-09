@@ -53,6 +53,7 @@ export const tr = {
     Instrument_Banjo: 'Davul',
     Instrument_Accordion: 'Akordion',
     Instrument_Bouzouki: 'Buzuki',
+    Instrument_Flute: 'Flüt',
     Instrument_Maraca: 'Marakas',
     Instrument_Xylophone: 'Ksilofon',
     Instrument_Saxophone: 'Saksofon',

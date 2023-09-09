@@ -55,6 +55,7 @@ export const fr = {
     Instrument_Banjo: 'Tambour',
     Instrument_Accordion: 'Accordéon',
     Instrument_Bouzouki: 'Bouzouki',
+    Instrument_Flute: 'Flûte',
     Instrument_Maraca: 'Maraca',
     Instrument_Xylophone: 'Xylophone',
     Instrument_Saxophone: 'Saxophone',

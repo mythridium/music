@@ -35,7 +35,7 @@ export class UserInterface {
 
             this.modifySkillInfoClass(this.mainContainer);
 
-            for (const instrument of this.music.actions.registeredObjects.values()) {
+            for (const instrument of this.music.sortedMasteryActions) {
                 const component = InstrumentComponent(this.music, instrument, this.game);
 
                 ui.create(component, this.instrumentsContainer);

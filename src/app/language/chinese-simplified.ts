@@ -49,6 +49,7 @@ export const zhCN = {
     Instrument_Banjo: '小军鼓',
     Instrument_Accordion: '手风琴',
     Instrument_Bouzouki: '布祖基',
+    Instrument_Flute: '长笛',
     Instrument_Maraca: '沙槌',
     Instrument_Xylophone: '木琴',
     Instrument_Saxophone: '萨克斯管',

@@ -417,6 +417,13 @@ Bouzouki: Unlocked at skill level 40
 * Mastery Level 99: 10% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
 * Upgrade: +15% GP From Sales
 
+Flute: Unlocked at skill level 45 (AoD only)
+* Mastery Level 1: +10% chance to preserve dig site map excavation actions
+* Mastery Level 40: -10% Cartography survey interval
+* Mastery Level 75: -10% dig site map refinement cost
+* Mastery Level 99: +2 minimum Items found in Archaeology
+* Upgrade: Gain GP equal to +15 per Archaeology Skill Level per excavation action that locates no Artefacts
+
 Maracas: Unlocked at skill level 50
 * Mastery Level 1: +5% Crafting Skill XP
 * Mastery Level 40: +5% Fletching Skill XP
@@ -452,28 +459,28 @@ Djembe: Unlocked at skill level 90
 * Mastery Level 99: +25% Flat Slayer Area Effect Negation
 * Upgrade: +20% Slayer Skill XP
 
-French Horn: Unlocked at skill level 100
+French Horn: Unlocked at skill level 100 (TotH only)
 * Mastery Level 1: +5% chance to locate a Meteorite in Astrology
 * Mastery Level 40: -0.5s Astrology Interval
 * Mastery Level 75: -1s Summoning Interval
 * Mastery Level 99: +15 Base Quantity for Summoning Tablet Creation
 * Upgrade: +35% Summoning Maximum Hit
 
-Harp: Unlocked at skill level 105
+Harp: Unlocked at skill level 105 (TotH only)
 * Mastery Level 1: +10% Chance to receive a Random Tier of the same Potion in Herblore
 * Mastery Level 40: +50 Stealth while Thieving
 * Mastery Level 75: x4 Items received from Herblore
 * Mastery Level 99: +15% chance to receive Thieving Area Unique Item
 * Upgrade: +20% Chance to Double Items in Thieving
 
-Tambourine: Unlocked at skill level 110
+Tambourine: Unlocked at skill level 110 (TotH only)
 * Mastery Level 1: +10% Farming Yield
 * Mastery Level 40: +15 harvest quantity from Farming (Cannot be doubled or multiplied)
 * Mastery Level 75: +10% Township GP Production
 * Mastery Level 99: +50% Township Happiness
 * Upgrade: +25% Chance to Double Farming Yield
 
-Trumpet: Unlocked at skill level 115
+Trumpet: Unlocked at skill level 115 (TotH only)
 * Mastery Level 1: +5% Accuracy Rating
 * Mastery Level 40: +5% of Maximum Hit added to Minimum Hit
 * Mastery Level 75: +10% Maximum Hit
@@ -519,6 +526,13 @@ Bouzouki: Unlocked at skill level 40
 * Mastery Level 99: 2% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
 * Upgrade: +5% GP From Sales
 
+Flute: Unlocked at skill level 45 (AoD only)
+* Mastery Level 1: +5% chance to preserve dig site map excavation actions
+* Mastery Level 40: -5% Cartography survey interval
+* Mastery Level 75: -5% dig site map refinement cost
+* Mastery Level 99: +1 minimum Items found in Archaeology
+* Upgrade: Gain GP equal to +5 per Archaeology Skill Level per excavation action that locates no Artefacts
+
 Maracas: Unlocked at skill level 50
 * Mastery Level 1: +5% Crafting Skill XP
 * Mastery Level 40: +5% Fletching Skill XP
@@ -554,28 +568,28 @@ Djembe: Unlocked at skill level 90
 * Mastery Level 99: +5% Flat Slayer Area Effect Negation
 * Upgrade: +5% Slayer Skill XP
 
-French Horn: Unlocked at skill level 100
+French Horn: Unlocked at skill level 100 (TotH Only)
 * Mastery Level 1: +1% chance to locate a Meteorite in Astrology
 * Mastery Level 40: -0.1s Astrology Interval
 * Mastery Level 75: -0.25s Summoning Interval
 * Mastery Level 99: +3 Base Quantity for Summoning Tablet Creation
 * Upgrade: +5% Summoning Maximum Hit
 
-Harp: Unlocked at skill level 105
+Harp: Unlocked at skill level 105 (TotH Only)
 * Mastery Level 1: +2% Chance to receive a Random Tier of the same Potion in Herblore
 * Mastery Level 40: +15 Stealth while Thieving
 * Mastery Level 75: x2 Items received from Herblore
 * Mastery Level 99: +2% chance to receive Thieving Area Unique Item
 * Upgrade: +2% Chance to Double Items in Thieving
 
-Tambourine: Unlocked at skill level 110
+Tambourine: Unlocked at skill level 110 (TotH Only)
 * Mastery Level 1: +5% Farming Yield
 * Mastery Level 40: +2 harvest quantity from Farming (Cannot be doubled or multiplied)
 * Mastery Level 75: +2% Township GP Production
 * Mastery Level 99: +5% Township Happiness
 * Upgrade: +5% Chance to Double Farming Yield
 
-Trumpet: Unlocked at skill level 115
+Trumpet: Unlocked at skill level 115 (TotH Only)
 * Mastery Level 1: +2% Accuracy Rating
 * Mastery Level 40: +1% of Maximum Hit added to Minimum Hit
 * Mastery Level 75: +2% Maximum Hit
@@ -583,6 +597,9 @@ Trumpet: Unlocked at skill level 115
 * Upgrade: +1% chance to apply Decay Curse to the Target per hit
 
 ## Change Log
+
+# 1.13.4
+* added a new instrument, the flute which focuses on cartography and archaeology
 
 # 1.13.3
 * added ancient relics for music
@@ -806,3 +823,5 @@ Images obtained from the following sources, attribution provided.
 <a href="https://www.flaticon.com/free-icons/jester" title="jester icons">Jester icons created by Freepik - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/cultures" title="cultures icons">Cultures icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/flute" title="flute icons">Flute icons created by Freepik - Flaticon</a>

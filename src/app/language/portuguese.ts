@@ -53,6 +53,7 @@ export const pt = {
     Instrument_Banjo: 'Tamborim',
     Instrument_Accordion: 'Acordeão',
     Instrument_Bouzouki: 'Bouzouki',
+    Instrument_Flute: 'Flauta',
     Instrument_Maraca: 'Maraca',
     Instrument_Xylophone: 'Xilofone',
     Instrument_Saxophone: 'Saxofone',

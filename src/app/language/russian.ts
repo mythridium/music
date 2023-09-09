@@ -53,6 +53,7 @@ export const ru = {
     Instrument_Banjo: 'Барабан',
     Instrument_Accordion: 'Аккордеон',
     Instrument_Bouzouki: 'Бузуки',
+    Instrument_Flute: 'Флейта',
     Instrument_Maraca: 'Маракас',
     Instrument_Xylophone: 'Ксилофон',
     Instrument_Saxophone: 'Саксофон',

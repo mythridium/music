@@ -49,6 +49,7 @@ export const zhTW = {
     Instrument_Banjo: '小军鼓',
     Instrument_Accordion: '手風琴',
     Instrument_Bouzouki: '希臘三弦琴',
+    Instrument_Flute: '長笛',
     Instrument_Maraca: '沙槌',
     Instrument_Xylophone: '木琴',
     Instrument_Saxophone: '薩克斯風',

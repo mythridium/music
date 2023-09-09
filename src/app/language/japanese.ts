@@ -50,6 +50,7 @@ export const ja = {
     Instrument_Banjo: 'スネアドラム',
     Instrument_Accordion: 'アコーディオン',
     Instrument_Bouzouki: 'ブズーキ',
+    Instrument_Flute: 'フルート',
     Instrument_Maraca: 'マラカス',
     Instrument_Xylophone: '木琴',
     Instrument_Saxophone: 'サックス',

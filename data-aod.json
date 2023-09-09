@@ -216,6 +216,73 @@
                                 "chance": 0.0005
                             }
                         }
+                    ],
+                    "instruments": [
+                        {
+                            "id": "Flute",
+                            "name": "Flute",
+                            "media": "assets/instruments/flute.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 41,
+                            "maxGP": 325,
+                            "productId": "mythMusic:Flute",
+                            "level": 45,
+                            "skills": ["melvorAoD:Archaeology", "melvorAoD:Cartography"],
+                            "standardModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedChanceToPreserveMapCharges",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSurveyInterval",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedMapRefinementCost",
+                                    "value": 10
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedMinimumItemsFoundInArchaeology",
+                                    "value": 2
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedGPPerArchaeologyLevelNoArtefact",
+                                    "value": 15
+                                }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "key": "increasedChanceToPreserveMapCharges",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 40,
+                                    "key": "decreasedSurveyInterval",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 75,
+                                    "key": "decreasedMapRefinementCost",
+                                    "value": 5
+                                },
+                                {
+                                    "level": 99,
+                                    "key": "increasedMinimumItemsFoundInArchaeology",
+                                    "value": 1
+                                },
+                                {
+                                    "level": 999,
+                                    "key": "increasedGPPerArchaeologyLevelNoArtefact",
+                                    "value": 5
+                                }
+                            ]
+                        }
                     ]
                 }
             }

@@ -51,6 +51,7 @@ export const ko = {
     Instrument_Banjo: '스네어 드럼',
     Instrument_Accordion: '아코디언',
     Instrument_Bouzouki: '부조키',
+    Instrument_Flute: '플룻',
     Instrument_Maraca: '마라카',
     Instrument_Xylophone: '실로폰',
     Instrument_Saxophone: '색소폰',
