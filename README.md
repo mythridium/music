@@ -339,6 +339,35 @@ Mystic Essence is dropped from the Mystic Jester
 
 ![Mystic Guitar](images/mystic-guitar.png)
 
+## Ancient Relics Gamemode
+
+![Ancient Relics](images/ancient-relics.png)
+
+Music has Ancient Relics
+
+#1: +50% Music Mastery XP
+#2: +10% chance to obtain Shrimp while training Music
+#3: 1% increased chance to locate Ancient Relics
+#4: +50% Global GP (except Item Sales)
+#5: -20% Music Interval
+Master Relic: +1 Bard Hire Limit
+
+(Yes, this means you can have 3 hired bards)
+
+### Lesser Relic
+
+Music also has a Lesser Relic which grants:
+
+-5% Music Interval
++5% Music GP
++10% Magic Maximum Hit
+
+### Level Cap Increase Tokens
+
+Defeating Undead Graveyard, Air God Dungeon and Lava Lake Dungeon will grant an ancient token which when consumed will add Level Cap Increases.
+
+These tokens are a one time reward from these dungeons and effectively act as 3 additional dungeon completions. This is to offset the additional increases required for another skill being added. You can choose to use the tokens at any time you want after being earned.
+
 ## Settings
 
 You are able to set the base bard hire cost for each tier. Value must be between 100 and 999B.
@@ -554,6 +583,10 @@ Trumpet: Unlocked at skill level 115
 * Upgrade: +1% chance to apply Decay Curse to the Target per hit
 
 ## Change Log
+
+# 1.13.3
+* added ancient relics for music
+* added a lesser relic for music
 
 # 1.13.2
 * fixed music being locked in ancient relics gamemode on existing saves when enabling the mod for the first time

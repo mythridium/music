@@ -42,6 +42,10 @@ export const es = {
     Sheet_Music_Drop_Chance_Negative: '-${value}% Posibilidad de Obtener Partituras',
     Additional_Reward_Roll_Positive: '+${value} Tirada Adicional de Recompensa al Entrenar Música',
     Additional_Reward_Roll_Negative: '-${value} Tirada Adicional de Recompensa al Entrenar Música',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Positive:
+        '+${value}% de probabilidad de obtener camarones mientras entrenas Música',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Negative:
+        '-${value}% de probabilidad de obtener camarones mientras entrenas Música',
     Increased_Mastery_XP_Per_Variel:
         '+${value}% XP de Maestría ${skillName} por cada Estrella máxima en la constelación de Variel en Astrología',
     Instrument_Guitar: 'Guitarra',
@@ -123,6 +127,7 @@ export const es = {
     ITEM_DESCRIPTION_Ancient_Mask_Token: 'Concede un aumento de nivel en el modo de juego de reliquias antiguas.',
     ITEM_NAME_Ancient_Skull_Token: 'Ficha Cráneo Antiguo',
     ITEM_DESCRIPTION_Ancient_Skull_Token: 'Concede un aumento de nivel en el modo de juego de reliquias antiguas.',
+    ITEM_NAME_Music_Lesser_Relic: 'Reliquia Musical Menor',
     MASTERY_BONUS_Music_0: 'Cada nivel proporciona +10 GP adquiridos solo para este instrumento.',
     MASTERY_BONUS_Music_1: 'Primer modificador de contratación.',
     MASTERY_BONUS_Music_2: 'Habilidad para desbloquear el segundo modificador de contratación.',
@@ -135,7 +140,7 @@ export const es = {
     MASTERY_CHECKPOINT_Music_3: '-5% de Costo de Contratación de Bardos',
     POTION_NAME_Generous_Gratuity_Potion: 'Poción Generosa de Propina',
     SHOP_NAME_Band_Practice: 'Práctica de Banda',
-    SHOP_DESCRIPTION_Band_Practice: 'Desbloquea la habilidad de contratar a 2 bardos diferentes en Música.',
+    SHOP_DESCRIPTION_Band_Practice: 'Desbloquea la capacidad de contratar un bardo adicional en Música.',
     COMBAT_AREA_NAME_The_Circus: 'El Circo',
     MONSTER_NAME_Jester: 'Bufón',
     MONSTER_NAME_Enchanted_Jester: 'Bufón Encantado',

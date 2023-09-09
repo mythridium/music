@@ -38,8 +38,10 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public registerData(namespace: DataNamespace, data: MusicSkillData) {
         super.registerData(namespace, data);
 
-        for (const instrument of data.instruments) {
-            this.actions.registerObject(new Instrument(namespace, instrument));
+        if (data.instruments) {
+            for (const instrument of data.instruments) {
+                this.actions.registerObject(new Instrument(namespace, instrument));
+            }
         }
     }
 
@@ -160,66 +162,78 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
             const bard1 = this.bards.get(1);
             const bard2 = this.bards.get(2);
+            const bard3 = this.bards.get(3);
+
+            const hiredBards = [bard1, bard2, bard3];
+
+            const getText = (bard: HiredBard) =>
+                bard
+                    ? templateLangString('Myth_Music_Replace', { name: bard.instrument.name })
+                    : getLangString('Myth_Music_Hire');
+
+            html += `<div class="bard-hire-footer mt-3"><button type="button" class="bard-1-confirm font-size-xs btn btn-primary m-1" aria-label="" value="bard-1" style="display: inline-block;">${getText(
+                bard1
+            )}</button>`;
+
+            if (this.manager.isBandPracticeUnlocked) {
+                html += `<button type="button" class="bard-2-confirm font-size-xs btn btn-primary m-1" aria-label="" value="bard-2" style="display: inline-block;">${getText(
+                    bard2
+                )}</button>`;
+            }
+
+            if (this.manager.isMasterAncientRelicUnlocked) {
+                html += `<button type="button" class="bard-3-confirm font-size-xs btn btn-primary m-1" aria-label="" value="bard-3" style="display: inline-block;">${getText(
+                    bard3
+                )}</button>`;
+            }
+
+            html += `</div>`;
 
             SwalLocale.fire({
                 html,
                 showCancelButton: true,
-                showDenyButton: this.manager.isBandPracticeUnlocked,
+                showConfirmButton: false,
+                showDenyButton: false,
+                customClass: {
+                    cancelButton: 'font-size-xs btn btn-danger m-1',
+                    actions: 'mt-0'
+                },
                 icon: 'info',
-                confirmButtonText: bard1
-                    ? templateLangString('Myth_Music_Replace', { name: bard1.instrument.name })
-                    : getLangString('Myth_Music_Hire'),
-                denyButtonText: bard2
-                    ? templateLangString('Myth_Music_Replace', { name: bard2.instrument.name })
-                    : getLangString('Myth_Music_Hire')
-            }).then(result => {
-                if (result.isDismissed) {
-                    return;
+                didOpen: popup => {
+                    hiredBards.forEach((bard, index) => {
+                        const confirmBard = popup.querySelector<HTMLButtonElement>(`.bard-${index + 1}-confirm`);
+
+                        if (confirmBard) {
+                            confirmBard.onclick = () => {
+                                this.game.gp.remove(hireCost);
+
+                                if (bard) {
+                                    this.bards.remove(bard.instrument);
+                                }
+
+                                const hiredBard: HiredBard = {
+                                    instrument,
+                                    slot: bard?.slot ?? index + 1,
+                                    isUpgraded: false,
+                                    socket: undefined,
+                                    utility: undefined
+                                };
+
+                                this.bards.set(instrument, hiredBard);
+
+                                (<any>this.userInterface)[`bard${hiredBard.slot}`].setBard(hiredBard);
+
+                                this.computeProvidedStats(true);
+
+                                this.userInterface.instruments.forEach(component => {
+                                    component.updateDisabled();
+                                });
+
+                                popup.querySelector<HTMLButtonElement>('.swal2-cancel').click();
+                            };
+                        }
+                    });
                 }
-
-                this.game.gp.remove(hireCost);
-
-                if (result.isConfirmed) {
-                    if (bard1) {
-                        this.bards.remove(bard1.instrument);
-                    }
-
-                    const hiredBard: HiredBard = {
-                        instrument,
-                        slot: 1,
-                        isUpgraded: false,
-                        socket: undefined,
-                        utility: undefined
-                    };
-
-                    this.bards.set(instrument, hiredBard);
-
-                    this.userInterface.bard1.setBard(hiredBard);
-                }
-
-                if (result.isDenied) {
-                    if (bard2) {
-                        this.bards.remove(bard2?.instrument);
-                    }
-
-                    const hiredBard: HiredBard = {
-                        instrument,
-                        slot: 2,
-                        isUpgraded: false,
-                        socket: undefined,
-                        utility: undefined
-                    };
-
-                    this.bards.set(instrument, hiredBard);
-
-                    this.userInterface.bard2.setBard(hiredBard);
-                }
-
-                this.computeProvidedStats(true);
-
-                this.userInterface.instruments.forEach(component => {
-                    component.updateDisabled();
-                });
             });
         }
     }
@@ -438,6 +452,14 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             rewards.addItemByID('mythMusic:Sheet_Music', 1);
         }
 
+        const shrimpChance =
+            this.game.modifiers.increasedChanceToObtainShrimpWhileTrainingMusic -
+            this.game.modifiers.decreasedChanceToObtainShrimpWhileTrainingMusic;
+
+        if (rollPercentage(shrimpChance)) {
+            rewards.addItemByID('melvorD:Shrimp', 1);
+        }
+
         this.addCommonRewards(rewards);
 
         for (const bard of this.bards.all()) {
@@ -525,12 +547,15 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         this.userInterface.bard1.updateEnabled(true); // Bard 1 is always available.
         this.userInterface.bard2.updateEnabled(this.manager.isBandPracticeUnlocked);
+        this.userInterface.bard3.updateEnabled(this.manager.isMasterAncientRelicUnlocked);
 
         this.userInterface.bard1.updateModifiers();
         this.userInterface.bard2.updateModifiers();
+        this.userInterface.bard3.updateModifiers();
 
         this.userInterface.bard1.updateCurrentMasteryLevel();
         this.userInterface.bard2.updateCurrentMasteryLevel();
+        this.userInterface.bard3.updateCurrentMasteryLevel();
 
         this.renderQueue.bardModifiers = false;
     }

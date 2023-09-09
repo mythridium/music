@@ -42,6 +42,10 @@ export const tr = {
     Sheet_Music_Drop_Chance_Negative: '-${value}% Nota Kağıdı düşme şansı',
     Additional_Reward_Roll_Positive: '+${value} ekstra ödül turu Müzik eğitimi sırasında',
     Additional_Reward_Roll_Negative: '-${value} ekstra ödül turu Müzik eğitimi sırasında',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Positive:
+        'Müzik eğitimi sırasında +%${value} oranında Karides elde etme şansı',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Negative:
+        'Müzik eğitimi sırasında -%${value} oranında Karides elde etme şansı',
     Increased_Mastery_XP_Per_Variel:
         'Astrolojideki Variel takımyıldızının her bir yıldızı için +%${value} ${skillName} Ustalık XP',
     Instrument_Guitar: 'Gitar',
@@ -120,6 +124,7 @@ export const tr = {
     ITEM_DESCRIPTION_Ancient_Mask_Token: 'Antik kalıntılar oyun modunda seviye artışı sağlar.',
     ITEM_NAME_Ancient_Skull_Token: 'Antik Kafatası Jetonu',
     ITEM_DESCRIPTION_Ancient_Skull_Token: 'Antik kalıntılar oyun modunda seviye artışı sağlar.',
+    ITEM_NAME_Music_Lesser_Relic: 'Müzik Küçük Kalıntı',
     MASTERY_BONUS_Music_0: 'Her seviye sadece bu enstrüman için +10 GP sağlar.',
     MASTERY_BONUS_Music_1: 'İlk işe alma değiştiricisi.',
     MASTERY_BONUS_Music_2: 'İkinci işe alma değiştiricisini açma yeteneği.',
@@ -132,7 +137,7 @@ export const tr = {
     MASTERY_CHECKPOINT_Music_3: '-%5 Bard İşe Alma Maliyeti',
     POTION_NAME_Generous_Gratuity_Potion: 'Cömert Bahşiş İksiri',
     SHOP_NAME_Band_Practice: 'Grup Çalışması',
-    SHOP_DESCRIPTION_Band_Practice: 'Müzikte 2 farklı bardi işe alma yeteneğini açar.',
+    SHOP_DESCRIPTION_Band_Practice: 'Müzikte ek bir bardo kiralamak için yeteneği açın.',
     COMBAT_AREA_NAME_The_Circus: 'Sirk',
     MONSTER_NAME_Jester: 'Şakağız',
     MONSTER_NAME_Enchanted_Jester: 'Büyülü Şakağız',

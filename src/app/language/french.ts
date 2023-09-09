@@ -44,6 +44,10 @@ export const fr = {
         "+${value} Lancer de récompense supplémentaire lors de l'entraînement de la Musique",
     Additional_Reward_Roll_Negative:
         "-${value} Lancer de récompense supplémentaire lors de l'entraînement de la Musique",
+    Chance_To_Obtain_Shrimp_While_Training_Music_Positive:
+        "+${value}% de chance d'obtenir des crevettes pendant l'entraînement musical",
+    Chance_To_Obtain_Shrimp_While_Training_Music_Negative:
+        "-${value}% de chance d'obtenir des crevettes pendant l'entraînement musical",
     Increased_Mastery_XP_Per_Variel:
         '+${value}% ${skillName} XP de Maîtrise par étoile maximisée dans la constellation de Variel en astrologie',
     Instrument_Guitar: 'Guitare',
@@ -128,6 +132,7 @@ export const fr = {
     ITEM_NAME_Ancient_Skull_Token: 'Jeton Crâne Antique',
     ITEM_DESCRIPTION_Ancient_Skull_Token:
         'Accorde une augmentation de niveau dans le mode de jeu des reliques anciennes.',
+    ITEM_NAME_Music_Lesser_Relic: 'Relique Musicale Inférieure',
     MASTERY_BONUS_Music_0: 'Chaque niveau confère +10 GP acquis pour cet instrument uniquement.',
     MASTERY_BONUS_Music_1: "Premier modificateur d'embauche.",
     MASTERY_BONUS_Music_2: "Capacité de débloquer le deuxième modificateur d'embauche.",
@@ -140,7 +145,7 @@ export const fr = {
     MASTERY_CHECKPOINT_Music_3: "-5% de coût d'embauche de barde",
     POTION_NAME_Generous_Gratuity_Potion: 'Potion de Généreuse Gratitude',
     SHOP_NAME_Band_Practice: 'Pratique de groupe',
-    SHOP_DESCRIPTION_Band_Practice: "Débloquez la possibilité d'embaucher 2 bardes différents en Musique.",
+    SHOP_DESCRIPTION_Band_Practice: "Débloquez la capacité d'embaucher un barde supplémentaire en Musique.",
     COMBAT_AREA_NAME_The_Circus: 'Le Cirque',
     MONSTER_NAME_Jester: 'Bouffon',
     MONSTER_NAME_Enchanted_Jester: 'Bouffon Enchanté',

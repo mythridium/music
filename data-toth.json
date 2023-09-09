@@ -17,7 +17,7 @@
                 "contains": {
                     "items": [],
                     "modifiers": {
-                        "increasedBardHireLimit": 1
+                        "bandPractice": 1
                     }
                 },
                 "cost": {

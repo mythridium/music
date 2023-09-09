@@ -15,7 +15,11 @@ export class MusicManager {
     }
 
     public get isBandPracticeUnlocked() {
-        return this.game.modifiers.increasedBardHireLimit > 0;
+        return this.game.modifiers.bandPractice > 0;
+    }
+
+    public get isMasterAncientRelicUnlocked() {
+        return this.game.modifiers.masterAncientRelic > 0;
     }
 
     constructor(private readonly music: Music, private readonly game: Game) {}

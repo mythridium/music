@@ -42,6 +42,10 @@ export const ru = {
     Sheet_Music_Drop_Chance_Negative: '-${value}% шанс выпадения нотного листа',
     Additional_Reward_Roll_Positive: '+${value} дополнительный бросок награды при обучении музыки',
     Additional_Reward_Roll_Negative: '-${value} дополнительный бросок награды при обучении музыки',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Positive:
+        '+${value}% шанс получить креветку во время тренировки музыки',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Negative:
+        '-${value}% шанс получить креветку во время тренировки музыки',
     Increased_Mastery_XP_Per_Variel:
         '+${value}% XP мастерства ${skillName} за каждую максимизированную звезду в созвездии Вариэль в Астрологии',
     Instrument_Guitar: 'Гитара',
@@ -125,6 +129,7 @@ export const ru = {
     ITEM_DESCRIPTION_Ancient_Mask_Token: 'Повышает уровень в режиме игры с древними реликвиями.',
     ITEM_NAME_Ancient_Skull_Token: 'Токен Древний Череп',
     ITEM_DESCRIPTION_Ancient_Skull_Token: 'Повышает уровень в режиме игры с древними реликвиями.',
+    ITEM_NAME_Music_Lesser_Relic: 'Музыкальная меньшая реликвия',
     MASTERY_BONUS_Music_0: 'Каждый уровень дает +10 GP только для этого инструмента.',
     MASTERY_BONUS_Music_1: 'Первый модификатор при найме.',
     MASTERY_BONUS_Music_2: 'Возможность разблокировать второй модификатор при найме.',
@@ -137,7 +142,7 @@ export const ru = {
     MASTERY_CHECKPOINT_Music_3: '-5% стоимость найма барда',
     POTION_NAME_Generous_Gratuity_Potion: 'Зелье щедрой чаевой',
     SHOP_NAME_Band_Practice: 'Репетиция группы',
-    SHOP_DESCRIPTION_Band_Practice: 'Разблокировка возможности нанимать 2 разных барда в музыке.',
+    SHOP_DESCRIPTION_Band_Practice: 'Разблокирует возможность найма дополнительного барда в музыке.',
     COMBAT_AREA_NAME_The_Circus: 'Цирк',
     MONSTER_NAME_Jester: 'Шут',
     MONSTER_NAME_Enchanted_Jester: 'Зачарованный шут',

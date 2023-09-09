@@ -42,6 +42,10 @@ export const pt = {
     Sheet_Music_Drop_Chance_Negative: '-${value}% chance de cair Partitura de Música',
     Additional_Reward_Roll_Positive: '+${value} rolagem de recompensa adicional durante o treinamento de Música',
     Additional_Reward_Roll_Negative: '-${value} rolagem de recompensa adicional durante o treinamento de Música',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Positive:
+        '+${value}% de chance de obter Camarão durante o treinamento de Música',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Negative:
+        '-${value}% de chance de obter Camarão durante o treinamento de Música',
     Increased_Mastery_XP_Per_Variel:
         '+${value}% de XP de Mestre ${skillName} por Estrela máxima na constelação de Variel em Astrologia',
     Instrument_Guitar: 'Guitarra',
@@ -123,6 +127,7 @@ export const pt = {
     ITEM_DESCRIPTION_Ancient_Mask_Token: 'Concede aumento de nível no modo de jogo de relíquias antigas.',
     ITEM_NAME_Ancient_Skull_Token: 'Ficha Crânio Antigo',
     ITEM_DESCRIPTION_Ancient_Skull_Token: 'Concede aumento de nível no modo de jogo de relíquias antigas.',
+    ITEM_NAME_Music_Lesser_Relic: 'Relíquia Menor de Música',
     MASTERY_BONUS_Music_0: 'Cada nível concede +10 GP adquirido apenas para este instrumento.',
     MASTERY_BONUS_Music_1: 'Primeiro modificador de contratação.',
     MASTERY_BONUS_Music_2: 'Habilidade para desbloquear o segundo modificador de contratação.',
@@ -135,7 +140,7 @@ export const pt = {
     MASTERY_CHECKPOINT_Music_3: '-5% Custo de Contratação de Bardo',
     POTION_NAME_Generous_Gratuity_Potion: 'Poção Generosa de Gratificação',
     SHOP_NAME_Band_Practice: 'Prática de Banda',
-    SHOP_DESCRIPTION_Band_Practice: 'Destrava a habilidade de contratar 2 bardos diferentes em Música.',
+    SHOP_DESCRIPTION_Band_Practice: 'Desbloquear a habilidade de contratar um bardo adicional em Música.',
     COMBAT_AREA_NAME_The_Circus: 'O Circo',
     MONSTER_NAME_Jester: 'Bufão',
     MONSTER_NAME_Enchanted_Jester: 'Bufão Encantado',

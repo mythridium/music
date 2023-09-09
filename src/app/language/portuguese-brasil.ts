@@ -43,6 +43,10 @@ export const ptBR = {
     Sheet_Music_Drop_Chance_Negative: '-${value}% Chance de Obter Partituras',
     Additional_Reward_Roll_Positive: '+${value} rolagem de recompensa adicional ao treinar Música',
     Additional_Reward_Roll_Negative: '-${value} rolagem de recompensa adicional ao treinar Música',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Positive:
+        'Chance de +${value}% de obter Camarão durante o treinamento de Música',
+    Chance_To_Obtain_Shrimp_While_Training_Music_Negative:
+        'Chance de -${value}% de obter Camarão durante o treinamento de Música',
     Increased_Mastery_XP_Per_Variel:
         '+${value}% XP de Mestre ${skillName} por estrela máxima na constelação de Variel na Astrologia',
     Instrument_Guitar: 'Guitarra',
@@ -124,6 +128,7 @@ export const ptBR = {
     ITEM_DESCRIPTION_Ancient_Mask_Token: 'Concede aumento de nível no modo de jogo de relíquias antigas.',
     ITEM_NAME_Ancient_Skull_Token: 'Ficha Crânio Antigo',
     ITEM_DESCRIPTION_Ancient_Skull_Token: 'Concede aumento de nível no modo de jogo de relíquias antigas.',
+    ITEM_NAME_Music_Lesser_Relic: 'Relíquia Menor de Música',
     MASTERY_BONUS_Music_0: 'Cada nível concede +10 GP adquiridos apenas para este instrumento.',
     MASTERY_BONUS_Music_1: 'Primeiro modificador de contratação.',
     MASTERY_BONUS_Music_2: 'Habilidade de destravar o segundo modificador de contratação.',
@@ -136,7 +141,7 @@ export const ptBR = {
     MASTERY_CHECKPOINT_Music_3: '-5% de Custo de Contratação de Bardo',
     POTION_NAME_Generous_Gratuity_Potion: 'Poção de Gratificação Generosa',
     SHOP_NAME_Band_Practice: 'Prática de Banda',
-    SHOP_DESCRIPTION_Band_Practice: 'Destrave a habilidade de contratar 2 bardos diferentes em Música.',
+    SHOP_DESCRIPTION_Band_Practice: 'Desbloqueie a habilidade de contratar um bardo adicional na Música.',
     COMBAT_AREA_NAME_The_Circus: 'O Circo',
     MONSTER_NAME_Jester: 'Bobo da Corte',
     MONSTER_NAME_Enchanted_Jester: 'Bobo da Corte Encantado',

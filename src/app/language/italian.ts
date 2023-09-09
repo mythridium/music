@@ -42,6 +42,10 @@ export const it = {
     Sheet_Music_Drop_Chance_Negative: '-${value}% Probabilità Caduta Partiture Musicali',
     Additional_Reward_Roll_Positive: "+${value} lancio di premio aggiuntivo durante l'allenamento di Musica",
     Additional_Reward_Roll_Negative: "-${value} lancio di premio aggiuntivo durante l'allenamento di Musica",
+    Chance_To_Obtain_Shrimp_While_Training_Music_Positive:
+        "Probabilità del +${value}% di ottenere Gamberetti durante l'allenamento in Musica",
+    Chance_To_Obtain_Shrimp_While_Training_Music_Negative:
+        "Probabilità del -${value}% di ottenere Gamberetti durante l'allenamento in Musica",
     Increased_Mastery_XP_Per_Variel:
         '+${value}% XP Maestria ${skillName} per ogni Stella massimizzata nella costellazione Variel in Astrologia',
     Instrument_Guitar: 'Chitarra',
@@ -125,6 +129,7 @@ export const it = {
     ITEM_DESCRIPTION_Ancient_Mask_Token: 'Conferisce un aumento di livello nella modalità di gioco Reliquie Antiche.',
     ITEM_NAME_Ancient_Skull_Token: 'Gettone Teschio Antico',
     ITEM_DESCRIPTION_Ancient_Skull_Token: 'Conferisce un aumento di livello nella modalità di gioco Reliquie Antiche.',
+    ITEM_NAME_Music_Lesser_Relic: 'Reliquia Minore della Musica',
     MASTERY_BONUS_Music_0: 'Ogni livello fornisce +10 GP acquisiti solo per questo strumento.',
     MASTERY_BONUS_Music_1: 'Primo modificatore di assunzione.',
     MASTERY_BONUS_Music_2: 'Abilità di sbloccare il secondo modificatore di assunzione.',
@@ -137,7 +142,7 @@ export const it = {
     MASTERY_CHECKPOINT_Music_3: '-5% di costo di assunzione dei bardi',
     POTION_NAME_Generous_Gratuity_Potion: 'Pozione di Generosa Gratitudine',
     SHOP_NAME_Band_Practice: 'Esercitazione Band',
-    SHOP_DESCRIPTION_Band_Practice: 'Sblocca la capacità di assumere 2 diversi bardi in Musica.',
+    SHOP_DESCRIPTION_Band_Practice: 'Sblocca la capacità di assumere un bard aggiuntivo in Musica.',
     COMBAT_AREA_NAME_The_Circus: 'Il Circo',
     MONSTER_NAME_Jester: 'Giullare',
     MONSTER_NAME_Enchanted_Jester: 'Giullare Incantato',

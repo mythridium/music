@@ -4,8 +4,10 @@ declare global {
         decreasedMusicHireCost: Standard;
         increasedMusicGP: Standard;
         decreasedMusicGP: Standard;
-        increasedBardHireLimit: Standard;
-        decreasedBardHireLimit: Standard;
+        bandPractice: Standard;
+        masterAncientRelic: Standard;
+        increasedChanceToObtainShrimpWhileTrainingMusic: Standard;
+        decreasedChanceToObtainShrimpWhileTrainingMusic: Standard;
         increasedSheetMusicDropRate: Standard;
         decreasedSheetMusicDropRate: Standard;
         increasedMusicAdditionalRewardRoll: Standard;
@@ -21,8 +23,10 @@ declare global {
         decreasedMusicHireCost: number;
         increasedMusicGP: number;
         decreasedMusicGP: number;
-        increasedBardHireLimit: number;
-        decreasedBardHireLimit: number;
+        bandPractice: number;
+        masterAncientRelic: number;
+        increasedChanceToObtainShrimpWhileTrainingMusic: number;
+        decreasedChanceToObtainShrimpWhileTrainingMusic: number;
         increasedSheetMusicDropRate: number;
         decreasedSheetMusicDropRate: number;
         increasedMusicAdditionalRewardRoll: number;
@@ -73,7 +77,7 @@ export class MythModifiers {
             tags: []
         };
 
-        modifierData.increasedBardHireLimit = {
+        modifierData.bandPractice = {
             get langDescription() {
                 return getLangString('Myth_Music_Bard_Hire_Limit_Positive');
             },
@@ -83,13 +87,33 @@ export class MythModifiers {
             tags: []
         };
 
-        modifierData.decreasedBardHireLimit = {
+        modifierData.masterAncientRelic = {
             get langDescription() {
-                return getLangString('Myth_Music_Bard_Hire_Limit_Negative');
+                return getLangString('Myth_Music_Bard_Hire_Limit_Positive');
             },
-            description: '-${value} Bard Hire Limit',
+            description: '+${value} Bard Hire Limit',
             isSkill: false,
-            isNegative: true,
+            isNegative: false,
+            tags: []
+        };
+
+        modifierData.increasedChanceToObtainShrimpWhileTrainingMusic = {
+            get langDescription() {
+                return getLangString('Myth_Music_Chance_To_Obtain_Shrimp_While_Training_Music_Positive');
+            },
+            description: '+${value}% chance to obtain Shrimp while training Music',
+            isSkill: false,
+            isNegative: false,
+            tags: []
+        };
+
+        modifierData.decreasedChanceToObtainShrimpWhileTrainingMusic = {
+            get langDescription() {
+                return getLangString('Myth_Music_Chance_To_Obtain_Shrimp_While_Training_Music_Negative');
+            },
+            description: '-${value}% chance to obtain Shrimp while training Music',
+            isSkill: false,
+            isNegative: false,
             tags: []
         };
 

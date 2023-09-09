@@ -14,7 +14,121 @@
         ]
     },
     "data": {
+        "ancientRelics": [
+            {
+                "id": "MusicRelic1",
+                "name": "Music Relic 1",
+                "skillID": "mythMusic:Music",
+                "number": 1,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedMasteryXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 50
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "MusicRelic2",
+                "name": "Music Relic 2",
+                "skillID": "mythMusic:Music",
+                "number": 2,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedChanceToObtainShrimpWhileTrainingMusic": 10
+                }
+            },
+            {
+                "id": "MusicRelic3",
+                "name": "Music Relic 3",
+                "skillID": "mythMusic:Music",
+                "number": 3,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedChanceToLocateAncientRelic": 1
+                }
+            },
+            {
+                "id": "MusicRelic4",
+                "name": "Music Relic 4",
+                "skillID": "mythMusic:Music",
+                "number": 4,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedGPGlobal": 50
+                }
+            },
+            {
+                "id": "MusicRelic5",
+                "name": "Music Relic 5",
+                "skillID": "mythMusic:Music",
+                "number": 5,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "decreasedSkillIntervalPercent": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 20
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "MusicRelic6",
+                "name": "Music Master Relic",
+                "skillID": "mythMusic:Music",
+                "number": 6,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "masterAncientRelic": 1
+                }
+            }
+        ],
+        "bankSortOrder": [
+            {
+                "insertAt": "After",
+                "afterID": "melvorAoD:Astrology_Lesser_Relic",
+                "ids": ["mythMusic:Music_Lesser_Relic"]
+            }
+        ],
         "items": [
+            {
+                "itemType": "Equipment",
+                "id": "Music_Lesser_Relic",
+                "name": "Music Lesser Relic",
+                "category": "Combat",
+                "type": "Consumable",
+                "media": "assets/items/music-lesser-relic.png",
+                "tier": "none",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 1,
+                "validSlots": ["Consumable"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {
+                    "decreasedSkillIntervalPercent": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 5
+                        }
+                    ],
+                    "increasedMusicGP": 5,
+                    "increasedMagicMaxHit": 10
+                },
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    },
+                    {
+                        "type": "PlayerAttack"
+                    }
+                ]
+            },
             {
                 "id": "Ancient_Coin_Token",
                 "name": "Ancient Coin Token",
@@ -42,6 +156,68 @@
                 "itemType": "Token",
                 "customDescription": "Grants level increase in the ancient relics gamemode.",
                 "modifiers": {}
+            }
+        ],
+        "skillData": [
+            {
+                "skillID": "mythMusic:Music",
+                "data": {
+                    "rareDrops": [
+                        {
+                            "itemID": "mythMusic:Music_Lesser_Relic",
+                            "quantity": 300,
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.1
+                            },
+                            "gamemodes": ["melvorAoD:AncientRelics"]
+                        }
+                    ],
+                    "completedAncientRelic": "mythMusic:MusicRelic6",
+                    "ancientRelics": [
+                        {
+                            "relicID": "mythMusic:MusicRelic1",
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.0005
+                            }
+                        },
+                        {
+                            "relicID": "mythMusic:MusicRelic2",
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.0005
+                            }
+                        },
+                        {
+                            "relicID": "mythMusic:MusicRelic3",
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.0005
+                            }
+                        },
+                        {
+                            "relicID": "mythMusic:MusicRelic4",
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.0005
+                            }
+                        },
+                        {
+                            "relicID": "mythMusic:MusicRelic5",
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.0005
+                            }
+                        }
+                    ]
+                }
             }
         ]
     }

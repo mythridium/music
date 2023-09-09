@@ -66,16 +66,18 @@ export class Version4 implements DecodeVersion {
                 this.music.bards.set(instrument, hiredBard);
             }
 
-            const bard1 = this.music.bards.get(1);
-            const bard2 = this.music.bards.get(2);
-
-            this.music.userInterface.bard1.setBard(bard1);
-            this.music.userInterface.bard2.setBard(bard2);
-
             return {
                 key: instrument,
                 value: hiredBard
             };
         });
+
+        const bard1 = this.music.bards.get(1);
+        const bard2 = this.music.bards.get(2);
+        const bard3 = this.music.bards.get(3);
+
+        this.music.userInterface.bard1.setBard(bard1);
+        this.music.userInterface.bard2.setBard(bard2);
+        this.music.userInterface.bard3.setBard(bard3);
     }
 }

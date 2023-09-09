@@ -9,6 +9,7 @@ export class UserInterface {
     public locked: ReturnType<typeof LockedComponent>;
     public bard1: ReturnType<typeof BardComponent>;
     public bard2: ReturnType<typeof BardComponent>;
+    public bard3: ReturnType<typeof BardComponent>;
 
     public get mainContainer() {
         return document.getElementById('main-container');
@@ -47,9 +48,11 @@ export class UserInterface {
 
             this.bard1 = BardComponent(this.music);
             this.bard2 = BardComponent(this.music);
+            this.bard3 = BardComponent(this.music);
 
             ui.create(this.bard1, this.bardContainer);
             ui.create(this.bard2, this.bardContainer);
+            ui.create(this.bard3, this.bardContainer);
         });
 
         this.context.patch(NotificationQueue, 'notify').replace(patch => {
