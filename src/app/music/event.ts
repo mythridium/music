@@ -17,10 +17,10 @@ export interface MusicActionEventMatcherOptions extends SkillActionEventMatcherO
     actionIDs?: string[];
 }
 
-export class MusicActionEventMatcher extends SkillActionEventMatcher {
+export class MusicActionEventMatcher extends SkillActionEventMatcher<MusicActionEvent> {
     /** If present, the recipe of the action must match a member */
     public actions?: Set<Instrument>;
-    public type = 'MusicAction';
+    public type = <any>'MusicAction';
 
     constructor(options: MusicActionEventMatcherOptions, game: Game) {
         super(options, game);
@@ -39,12 +39,12 @@ export class MusicActionEventMatcher extends SkillActionEventMatcher {
         );
     }
 
-    public _assignNonRaidHandler(handler: MittHandler<unknown>) {
+    public _assignNonRaidHandler(handler: Handler<MusicActionEvent>) {
         const music = this.game.skills.getObjectByID('mythMusic:Music') as Music;
         music.on('action', handler);
     }
 
-    public _unassignNonRaidHandler(handler: MittHandler<unknown>) {
+    public _unassignNonRaidHandler(handler: Handler<MusicActionEvent>) {
         const music = this.game.skills.getObjectByID('mythMusic:Music') as Music;
         music.off('action', handler);
     }

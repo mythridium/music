@@ -122,7 +122,7 @@ export class MusicSettings {
             onChange(value, previousValue) {
                 that.emitChange(ChangeType.Modifiers, value, previousValue);
             }
-        });
+        } as Modding.Settings.DropdownConfig);
     }
 
     public get bardHireCostOne() {

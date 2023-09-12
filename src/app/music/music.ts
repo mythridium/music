@@ -13,7 +13,7 @@ import './music.scss';
 export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public readonly version = 4;
     public readonly _media = 'assets/instruments/guitar.png';
-    public readonly _events = mitt();
+    public readonly _events = window.mitt();
     public readonly on = this._events.on;
     public readonly off = this._events.off;
     public readonly renderQueue = new MusicRenderQueue();

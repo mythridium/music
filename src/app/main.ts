@@ -12,10 +12,6 @@ import { MythTranslation } from './translation/translation';
 import { MusicSettings } from './music/settings';
 
 declare global {
-    interface Game {
-        constructEventMatcher(data: GameEventMatcherData | MusicActionEventMatcherOptions): GameEventMatcher;
-    }
-
     interface CloudManager {
         hasTotHEntitlement: boolean;
         hasAoDEntitlement: boolean;
@@ -73,11 +69,7 @@ export class App {
             await this.context.gameData.addPackage('data-aod.json');
         }
 
-        if (cloudManager.hasTotHEntitlement && cloudManager.hasAoDEntitlement) {
-            await this.context.gameData.addPackage('data-aod-toth.json');
-        }
-
-        this.patchMusicTalismans();
+        this.patchSkillForUnlock(music);
         this.patchUnlock(music);
         this.initCompatibility(music);
         this.initAgility(music);
@@ -91,29 +83,41 @@ export class App {
     private patchEventManager() {
         this.context.patch(GameEventSystem, 'constructMatcher').after((_patch, data) => {
             if (this.isMusicEvent(data)) {
-                return new MusicActionEventMatcher(data, this.game);
+                return new MusicActionEventMatcher(data, this.game) as any;
             }
         });
     }
 
     private patchUnlock(music: Music) {
         this.context.patch(EventManager, 'loadEvents').after(() => {
-            if (this.game.currentGamemode.id === 'melvorAoD:AncientRelics') {
+            if (this.game.currentGamemode.allowDungeonLevelCapIncrease) {
                 music.setUnlock(true);
+                music.increasedLevelCap = this.game.attack.increasedLevelCap;
             }
         });
     }
 
-    private patchMusicTalismans() {
-        this.context.patch(Bank, 'claimItemOnClick').after((patch, item) => {
-            if (this.game.currentGamemode.id === 'melvorAoD:AncientRelics') {
-                if (item.id === 'mythMusic:Ancient_Coin_Token' || item.id === 'mythMusic:Ancient_Mask_Token') {
-                    awardRandomSkillLevelCapIncreaseForPre99(5);
-                }
+    private patchSkillForUnlock(music: Music) {
+        if ('determineRandomSkillsForUnlock' in window) {
+            const _determineRandomSkillsForUnlock = determineRandomSkillsForUnlock;
+            window.determineRandomSkillsForUnlock = function (...args) {
+                music._unlocked = false;
+                _determineRandomSkillsForUnlock(...args);
+                music._unlocked = true;
+            };
+        }
 
-                if (item.id === 'mythMusic:Ancient_Skull_Token') {
-                    awardRandomSkillLevelCapIncreaseForPost99(6);
-                }
+        this.context.patch(CombatManager, 'awardSkillLevelCapIncreaseForDungeonCompletion').before(dungeon => {
+            if (dungeon.id === 'melvorF:Impending_Darkness') {
+                music.setLevelCap(100);
+            } else if (dungeon.id === 'melvorTotH:Throne_of_the_Herald') {
+                music.setLevelCap(120);
+            } else if (dungeon.namespace === 'melvorTotH') {
+                const amount = Math.min(3, 120 - this.game.attack.overrideLevelCap);
+                music.increaseLevelCap(amount);
+            } else {
+                const amount = Math.min(5, 99 - this.game.attack.overrideLevelCap);
+                music.increaseLevelCap(amount);
             }
         });
     }

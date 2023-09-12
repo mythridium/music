@@ -1,6 +1,6 @@
 {
     "name": "myth-music",
-    "version": "1.13.4",
+    "version": "1.13.5",
     "description": "Melvor Idle mod that adds the music skill.",
     "main": "manifest.json",
     "scripts": {
@@ -16,6 +16,7 @@
         "copy-webpack-plugin": "11.0.0",
         "css-loader": "6.7.3",
         "del": "7.0.0",
+        "melvor-types": "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/tarball/bd5611f",
         "mitt": "3.0.1",
         "sass": "1.62.1",
         "sass-loader": "13.2.2",

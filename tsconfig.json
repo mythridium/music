@@ -9,5 +9,5 @@
         "esModuleInterop": true,
         "moduleResolution": "node"
     },
-    "include": ["src/**/*", "types/**/*"]
+    "include": ["src/**/*", "node_modules/melvor-types"]
 }
