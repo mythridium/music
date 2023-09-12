@@ -362,12 +362,6 @@ Music also has a Lesser Relic which grants:
 +5% Music GP
 +10% Magic Maximum Hit
 
-### Level Cap Increase Tokens
-
-Defeating Undead Graveyard, Air God Dungeon and Lava Lake Dungeon will grant an ancient token which when consumed will add Level Cap Increases.
-
-These tokens are a one time reward from these dungeons and effectively act as 3 additional dungeon completions. This is to offset the additional increases required for another skill being added. You can choose to use the tokens at any time you want after being earned.
-
 ## Settings
 
 You are able to set the base bard hire cost for each tier. Value must be between 100 and 999B.
