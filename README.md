@@ -592,6 +592,9 @@ Trumpet: Unlocked at skill level 115 (TotH Only)
 
 ## Change Log
 
+# 1.13.6
+* minor code cleanup, no change in functionality
+
 # 1.13.5
 * removed 'ancient coin token', 'ancient mask token' and 'ancient skull token'
 * music skill level cap in the ancient relics gamemode now scales with combat stats level cap

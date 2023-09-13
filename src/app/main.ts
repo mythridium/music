@@ -22,6 +22,26 @@ declare global {
     interface SkillIDDataMap {
         'mythMusic:Music': MusicSkillData;
     }
+
+    interface SkillValue {
+        skill: AnySkill;
+        value: number;
+    }
+
+    interface Gamemode {
+        /** The number of skill cap increase choices obtained per dungeon completion before Level 99 if allowDungeonLevelCapIncrease = true */
+        skillCapIncreasesPre99: number;
+        /** The number of skill cap increase choices obtained per dungeon completion after Level 99 if allowDungeonLevelCapIncrease = true */
+        skillCapIncreasesPost99: number;
+        /** Skills that auto level per dungeon completion before Level 99 if allowDungeonLevelCapIncrease = true */
+        autoLevelSkillsPre99: SkillValue[];
+        /** Skills that auto level per dungeon completion after Level 99 if allowDungeonLevelCapIncrease = true */
+        autoLevelSkillsPost99: SkillValue[];
+        /** Skills that are part of the cap increase pool before Level 99 obtained per dungeon completion if allowDungeonLevelCapIncrease = true */
+        skillCapRollsPre99: SkillValue[];
+        /** Skills that are part of the cap increase pool after Level 99 obtained per dungeon completion if allowDungeonLevelCapIncrease = true */
+        skillCapRollsPost99: SkillValue[];
+    }
 }
 
 export class App {
@@ -69,7 +89,7 @@ export class App {
             await this.context.gameData.addPackage('data-aod.json');
         }
 
-        this.patchSkillForUnlock(music);
+        this.patchGamemodes(music);
         this.patchUnlock(music);
         this.initCompatibility(music);
         this.initAgility(music);
@@ -88,36 +108,33 @@ export class App {
         });
     }
 
+    private patchGamemodes(music: Music) {
+        this.game.gamemodes.forEach(gamemode => {
+            if (gamemode.allowDungeonLevelCapIncrease) {
+                if (!gamemode.startingSkills) {
+                    gamemode.startingSkills = new Set();
+                }
+
+                if (!gamemode.autoLevelSkillsPre99) {
+                    gamemode.autoLevelSkillsPre99 = [];
+                }
+
+                if (!gamemode.autoLevelSkillsPost99) {
+                    gamemode.autoLevelSkillsPost99 = [];
+                }
+
+                gamemode.startingSkills.add(music);
+                gamemode.autoLevelSkillsPre99.push({ skill: music, value: 5 });
+                gamemode.autoLevelSkillsPost99.push({ skill: music, value: 3 });
+            }
+        });
+    }
+
     private patchUnlock(music: Music) {
         this.context.patch(EventManager, 'loadEvents').after(() => {
             if (this.game.currentGamemode.allowDungeonLevelCapIncrease) {
                 music.setUnlock(true);
                 music.increasedLevelCap = this.game.attack.increasedLevelCap;
-            }
-        });
-    }
-
-    private patchSkillForUnlock(music: Music) {
-        if ('determineRandomSkillsForUnlock' in window) {
-            const _determineRandomSkillsForUnlock = determineRandomSkillsForUnlock;
-            window.determineRandomSkillsForUnlock = function (...args) {
-                music._unlocked = false;
-                _determineRandomSkillsForUnlock(...args);
-                music._unlocked = true;
-            };
-        }
-
-        this.context.patch(CombatManager, 'awardSkillLevelCapIncreaseForDungeonCompletion').before(dungeon => {
-            if (dungeon.id === 'melvorF:Impending_Darkness') {
-                music.setLevelCap(100);
-            } else if (dungeon.id === 'melvorTotH:Throne_of_the_Herald') {
-                music.setLevelCap(120);
-            } else if (dungeon.namespace === 'melvorTotH') {
-                const amount = Math.min(3, 120 - this.game.attack.overrideLevelCap);
-                music.increaseLevelCap(amount);
-            } else {
-                const amount = Math.min(5, 99 - this.game.attack.overrideLevelCap);
-                music.increaseLevelCap(amount);
             }
         });
     }
