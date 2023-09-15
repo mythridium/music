@@ -245,6 +245,24 @@
                         }
                     ]
                 }
+            },
+            {
+                "skillID": "melvorD:Summoning",
+                "data": {
+                    "synergies": [
+                        {
+                            "summonIDs": ["melvorAoD:Barrier", "mythMusic:Bard"],
+                            "modifiers": {
+                                "increasedBarrierSummonDamage": 25
+                            },
+                            "consumesOn": [
+                                {
+                                    "type": "PlayerSummonAttack"
+                                }
+                            ]
+                        }
+                    ]
+                }
             }
         ]
     }

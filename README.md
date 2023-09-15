@@ -592,6 +592,9 @@ Trumpet: Unlocked at skill level 115 (TotH Only)
 
 ## Change Log
 
+# 1.13.7
+* added summoning synergy for tortoise + bard
+
 # 1.13.6
 * minor code cleanup, no change in functionality
 

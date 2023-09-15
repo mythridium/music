@@ -28,6 +28,10 @@ declare global {
         value: number;
     }
 
+    interface Game {
+        music: Music;
+    }
+
     interface Gamemode {
         /** The number of skill cap increase choices obtained per dungeon completion before Level 99 if allowDungeonLevelCapIncrease = true */
         skillCapIncreasesPre99: number;
@@ -61,7 +65,7 @@ export class App {
         this.patchEventManager();
         this.initModifiers();
 
-        const music = this.game.registerSkill(this.game.registeredNamespaces.getNamespace('mythMusic'), Music);
+        this.game.music = this.game.registerSkill(this.game.registeredNamespaces.getNamespace('mythMusic'), Music);
 
         await this.context.gameData.addPackage('data.json');
 
@@ -89,15 +93,15 @@ export class App {
             await this.context.gameData.addPackage('data-aod.json');
         }
 
-        this.patchGamemodes(music);
-        this.patchUnlock(music);
-        this.initCompatibility(music);
-        this.initAgility(music);
-        this.initAstrology(music);
+        this.patchGamemodes(this.game.music);
+        this.patchUnlock(this.game.music);
+        this.initCompatibility(this.game.music);
+        this.initAgility(this.game.music);
+        this.initAstrology(this.game.music);
         this.initTownship();
 
-        music.userInterface = this.initInterface(music);
-        music.initSettings(settings);
+        this.game.music.userInterface = this.initInterface(this.game.music);
+        this.game.music.initSettings(settings);
     }
 
     private patchEventManager() {
