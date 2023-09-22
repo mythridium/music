@@ -2061,8 +2061,8 @@
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedGPFromSales",
-                                    "value": 15
+                                    "key": "increasedGPFlat",
+                                    "value": 100
                                 }
                             ],
                             "hardcoreModifiers": [
@@ -2088,8 +2088,8 @@
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedGPFromSales",
-                                    "value": 5
+                                    "key": "increasedGPFlat",
+                                    "value": 25
                                 }
                             ]
                         },

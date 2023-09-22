@@ -409,7 +409,7 @@ Bouzouki: Unlocked at skill level 40
 * Mastery Level 40: +10% Global GP (except Item Sales)
 * Mastery Level 75: +10% Chance to Double Items Globally
 * Mastery Level 99: 10% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
-* Upgrade: +15% GP From Sales
+* Upgrade: +100 GP gained when earning GP, except Alt. Magic and Item Sales
 
 Flute: Unlocked at skill level 45 (AoD only)
 * Mastery Level 1: +10% chance to preserve dig site map excavation actions
@@ -518,7 +518,7 @@ Bouzouki: Unlocked at skill level 40
 * Mastery Level 40: +5% Global GP (except Item Sales)
 * Mastery Level 75: +2% Chance to Double Items Globally
 * Mastery Level 99: 2% increased chance to receive Global Rare Items, Mastery Tokens, Bird Nests from Woodcutting, Gems from Mining, and Coal from Firemaking
-* Upgrade: +5% GP From Sales
+* Upgrade: +25 GP gained when earning GP, except Alt. Magic and Item Sales
 
 Flute: Unlocked at skill level 45 (AoD only)
 * Mastery Level 1: +5% chance to preserve dig site map excavation actions
@@ -591,6 +591,9 @@ Trumpet: Unlocked at skill level 115 (TotH Only)
 * Upgrade: +1% chance to apply Decay Curse to the Target per hit
 
 ## Change Log
+
+# 1.13.8
+* replaced Bouzouki upgrade modifier from GP From Sales to GP gained when earning GP, except Alt. Magic and Item Sales
 
 # 1.13.7
 * added summoning synergy for tortoise + bard
