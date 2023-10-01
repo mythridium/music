@@ -91,7 +91,7 @@ export class MusicManager {
         const increasedGPModifier = component.getGPModifier();
 
         gpMultiplier *= 1 + increasedGPModifier / 100;
-        gpToAdd = Math.floor(gpMultiplier * gpToAdd);
+        gpToAdd = Math.floor(gpMultiplier * gpToAdd + this.game.modifiers.increasedGPFlat);
 
         return gpToAdd;
     }

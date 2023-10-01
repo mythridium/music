@@ -51,7 +51,7 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             const gpModifier = this.getGPModifier();
             const modGp = (gp: number) => {
                 gp *= 1 + gpModifier / 100;
-                gp = Math.floor(gp);
+                gp = Math.floor(gp + game.modifiers.increasedGPFlat);
                 return gp;
             };
 

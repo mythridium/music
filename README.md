@@ -592,6 +592,9 @@ Trumpet: Unlocked at skill level 115 (TotH Only)
 
 ## Change Log
 
+# 1.13.9
+* fixed music gp gains not considering flat gp increases such as golden wreath
+
 # 1.13.8
 * replaced Bouzouki upgrade modifier from GP From Sales to GP gained when earning GP, except Alt. Magic and Item Sales
 
