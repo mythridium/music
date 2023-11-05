@@ -77,11 +77,6 @@ export class UserInterface {
 
             return patch();
         });
-
-        // Fix completion log bug that doesn't set current level for modded skills.
-        this.context.patch(Completion, 'updateSkillProgress').after(() => {
-            this.game.completion.skillProgress.currentCount.add(this.music.namespace, Math.max(this.music.level, 0));
-        });
     }
 
     private modifySkillInfoClass(mainContainer: HTMLElement) {
