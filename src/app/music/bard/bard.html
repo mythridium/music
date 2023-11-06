@@ -28,7 +28,7 @@
                         <span v-if="modifier.isUpgrade">
                             <img class="skill-icon-xxs mr-1" :src="essenceIcon()" />
                         </span>
-                        <span>{{ modifier.description }}</span>
+                        <span v-html="modifier.description"></span>
                     </div>
                 </div>
 

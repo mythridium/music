@@ -33,7 +33,7 @@
                         v-for="description of getModifier(bard.socket.localID)"
                         class="text-success font-size-sm mt-1 text-left"
                     >
-                        {{ description }}
+                        <span v-html="description"></span>
                     </span>
                 </div>
                 <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.socket">
@@ -52,7 +52,7 @@
                         v-for="description of getModifier(bard.utility.localID)"
                         class="text-success font-size-sm mt-1 text-left"
                     >
-                        {{ description }}
+                        <span v-html="description"></span>
                     </span>
                 </div>
                 <div class="myth-info myth-text-grey font-size-sm" v-if="!bard.utility">
@@ -80,7 +80,7 @@
 
             <div class="mt-1">
                 <small :class="items.Essence_Of_Music.quantity > 0 ? 'text-success' : 'myth-text-grey'">
-                    {{ upgradeModifier.description }}
+                    <span v-html="upgradeModifier.description"></span>
                 </small>
             </div>
 
@@ -119,7 +119,7 @@
                             v-for="description of items.Polished_Topaz_Gem.descriptions"
                             :class="isSocket('Polished_Topaz_Gem') ? 'text-success' : 'myth-text-grey'"
                         >
-                            {{ description }}
+                            <span v-html="description"></span>
                         </small>
                     </div>
 
@@ -155,7 +155,7 @@
                             v-for="description of items.Polished_Ruby_Gem.descriptions"
                             :class="isSocket('Polished_Ruby_Gem') ? 'text-success' : 'myth-text-grey'"
                         >
-                            {{ description }}
+                            <span v-html="description"></span>
                         </small>
                     </div>
 
@@ -191,7 +191,7 @@
                             v-for="description of items.Polished_Sapphire_Gem.descriptions"
                             :class="isSocket('Polished_Sapphire_Gem') ? 'text-success' : 'myth-text-grey'"
                         >
-                            {{ description }}
+                            <span v-html="description"></span>
                         </small>
                     </div>
 
@@ -239,7 +239,7 @@
                             v-for="description of items.Diamond_String.descriptions"
                             :class="isUtility('Diamond_String') ? 'text-success' : 'myth-text-grey'"
                         >
-                            {{ description }}
+                            <span v-html="description"></span>
                         </small>
                     </div>
 
@@ -275,7 +275,7 @@
                             v-for="description of items.Pristine_Leather.descriptions"
                             :class="isUtility('Pristine_Leather') ? 'text-success' : 'myth-text-grey'"
                         >
-                            {{ description }}
+                            <span v-html="description"></span>
                         </small>
                     </div>
 
@@ -311,7 +311,7 @@
                             v-for="description of items.Mystic_Oil.descriptions"
                             :class="isUtility('Mystic_Oil') ? 'text-success' : 'myth-text-grey'"
                         >
-                            {{ description }}
+                            <span v-html="description"></span>
                         </small>
                     </div>
 

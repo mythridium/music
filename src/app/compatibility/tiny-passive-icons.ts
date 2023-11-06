@@ -4,7 +4,7 @@ export class TinyPassiveIconsCompatibility {
     constructor(private readonly context: Modding.ModContext, private readonly music: Music) {}
 
     public patch() {
-        this.context.onModsLoaded(() => {
+        /* this.context.onModsLoaded(() => {
             if (!this.isLoaded()) {
                 return;
             }
@@ -25,7 +25,7 @@ export class TinyPassiveIconsCompatibility {
                     }
                 };
             }
-        });
+        }); */
     }
 
     private isLoaded() {

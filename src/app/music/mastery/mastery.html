@@ -22,7 +22,7 @@
                             {{ modifier.level }} </span
                         >)
                     </span>
-                    <span>{{ modifier.description }}</span>
+                    <span v-html="modifier.description"></span>
                 </div>
 
                 <button
@@ -51,9 +51,10 @@
             </h5>
 
             <div>
-                <small :class="essenceOfMusic.quantity > 0 ? 'text-success' : 'myth-text-grey'">
-                    {{ modifier?.description }}
-                </small>
+                <small
+                    :class="essenceOfMusic.quantity > 0 ? 'text-success' : 'myth-text-grey'"
+                    v-html="modifier.description"
+                ></small>
             </div>
 
             <div class="mt-3">
