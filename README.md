@@ -592,6 +592,9 @@ Trumpet: Unlocked at skill level 115 (TotH Only)
 
 ## Change Log
 
+# 1.13.12
+* improved compatibility with tiny passive icons
+
 # 1.13.11
 * fixed compatibility with tiny passive icons
 

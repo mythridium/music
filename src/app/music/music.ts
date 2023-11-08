@@ -104,7 +104,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             for (const modifier of this.manager.getModifiers(instrument)) {
                 html += `<small class="${modifier.isActive ? 'text-success' : 'myth-text-grey'}">`;
 
-                if (!modifier.isActive) {
+                if (!modifier.isActive && !modifier.isUpgrade) {
                     html += `
                     <span>
                         (<img class="skill-icon-xxs mr-1"

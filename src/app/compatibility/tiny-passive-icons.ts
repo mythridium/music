@@ -1,34 +1,52 @@
 import { Music } from '../music/music';
 
 export class TinyPassiveIconsCompatibility {
+    private readonly tinyIconTags = {
+        increasedMusicHireCost: ['myth_music', 'gp'],
+        decreasedMusicHireCost: ['myth_music', 'gp'],
+        increasedMusicGP: ['myth_music', 'gp'],
+        decreasedMusicGP: ['myth_music', 'gp'],
+        bandPractice: ['myth_music'],
+        masterAncientRelic: ['myth_music'],
+        increasedChanceToObtainShrimpWhileTrainingMusic: ['myth_music', 'shrimp'],
+        decreasedChanceToObtainShrimpWhileTrainingMusic: ['myth_music', 'shrimp'],
+        increasedSheetMusicDropRate: ['myth_music', 'Sheet_Music'],
+        decreasedSheetMusicDropRate: ['myth_music', 'Sheet_Music'],
+        increasedMusicAdditionalRewardRoll: ['myth_music'],
+        decreasedMusicAdditionalRewardRoll: ['myth_music'],
+        increasedSkillMasteryXPPerVariel: ['skill']
+    };
+
     constructor(private readonly context: Modding.ModContext, private readonly music: Music) {}
 
     public patch() {
-        /* this.context.onModsLoaded(() => {
+        this.context.onModsLoaded(() => {
             if (!this.isLoaded()) {
                 return;
             }
 
-            if ('cdnMedia' in window) {
-                const that = this;
+            const tinyIcons = mod.api.tinyIcons;
 
-                window.cdnMedia = function cdnMedia(media) {
-                    if (media.includes('music.svg')) {
-                        return that.music.media;
-                    }
+            const mythTags: Record<string, string> = {
+                myth_music: this.music.media,
+                shrimp: tinyIcons.getIconResourcePath('bank', 'shrimp'),
+                Sheet_Music: this.context.getResourceUrl('assets/items/sheet-music.png')
+            };
 
-                    if (useCDN) {
-                        const cdnDir = CDNDIR();
-                        return `${cdnDir}${media}`;
-                    } else {
-                        return media;
-                    }
-                };
+            for (const instrument of this.music.actions.allObjects) {
+                mythTags[instrument.localID] = instrument.media;
             }
-        }); */
+
+            for (const rareDrop of this.music.rareDrops) {
+                mythTags[rareDrop.item.localID] = rareDrop.item.media;
+            }
+
+            tinyIcons.addTagSources(mythTags);
+            tinyIcons.addCustomModifiers(this.tinyIconTags);
+        });
     }
 
     private isLoaded() {
-        return mod.manager.isEnabled() && mod.manager.getLoadedModList().includes('Tiny Passive Icons');
+        return mod.manager.getLoadedModList().includes('Tiny Icons');
     }
 }
