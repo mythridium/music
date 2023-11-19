@@ -1,6 +1,52 @@
 {
     "$schema": "https://melvoridle.com/assets/schema/gameData.json",
     "namespace": "mythMusic",
+    "modifications": {
+        "items": [
+            {
+                "id": "melvorTotH:Superior_Max_Skillcape",
+                "modifiers": {
+                    "add": {
+                        "decreasedSkillInterval": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 800
+                            }
+                        ],
+                        "decreasedMusicHireCost": 10,
+                        "increasedMusicGP": 10,
+                        "increasedMasteryXP": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 10
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "id": "melvorTotH:Superior_Cape_Of_Completion",
+                "modifiers": {
+                    "add": {
+                        "decreasedSkillInterval": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 800
+                            }
+                        ],
+                        "decreasedMusicHireCost": 10,
+                        "increasedMusicGP": 10,
+                        "increasedMasteryXP": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 10
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
     "data": {
         "bankSortOrder": [
             {
