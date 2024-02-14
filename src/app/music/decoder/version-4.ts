@@ -33,6 +33,8 @@ export class Version4 implements DecodeVersion {
                 });
 
                 this.music.masteriesUnlocked.set(instrument, masteriesUnlocked);
+            } else {
+                reader.getArray(reader => reader.getBoolean());
             }
         });
 
@@ -79,5 +81,9 @@ export class Version4 implements DecodeVersion {
         this.music.userInterface.bard1.setBard(bard1);
         this.music.userInterface.bard2.setBard(bard2);
         this.music.userInterface.bard3.setBard(bard3);
+
+        if (this.music.shouldResetAction) {
+            this.music.resetActionState();
+        }
     }
 }

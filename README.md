@@ -592,6 +592,9 @@ Trumpet: Unlocked at skill level 115 (TotH Only)
 
 ## Change Log
 
+# 1.13.14
+* fixed save files not loading when disabling other mods that add instruments to the music mod
+
 # 1.13.13
 * fixed superior max cape and superior cape of completion not inheriting music skillcape modifiers
 
