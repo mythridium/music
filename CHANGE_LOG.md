@@ -1,5 +1,10 @@
 ## Change Log
 
+# 1.2.0
+* added compatibility with into the abyss game version
+* no new content has been added, sorry :(
+* replaced 99 fishing modifier with 'chance to recieve one random special item from Fishing when catching a special item'
+
 # 1.13.15
 * fixed incorrect bards being loaded when using Quicksave and Quickload mod
 
