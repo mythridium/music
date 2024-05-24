@@ -5,9 +5,28 @@ import { BardModifier, HiredBard } from '../music.types';
 import './bard.scss';
 
 export function BardComponent(music: Music) {
+    let hiredBard: HiredBard = undefined;
+
     return {
         $template: '#myth-music-bard',
-        bard: undefined as HiredBard,
+        get media() {
+            return hiredBard?.instrument?.media;
+        },
+        get name() {
+            return hiredBard?.instrument?.name;
+        },
+        get hasBard() {
+            return hiredBard !== undefined;
+        },
+        get isUpgraded() {
+            return hiredBard?.isUpgraded ?? false;
+        },
+        get socket() {
+            return hiredBard?.socket !== undefined;
+        },
+        get utility() {
+            return hiredBard?.utility !== undefined;
+        },
         isEnabled: false,
         modifiers: [] as BardModifier[],
         currentMasteryLevel: 1,
@@ -15,12 +34,12 @@ export function BardComponent(music: Music) {
             return music.manager.essenceOfMusicIcon;
         },
         setBard: function (bard: HiredBard) {
-            this.bard = bard;
+            hiredBard = bard;
             this.updateCurrentMasteryLevel();
         },
         updateCurrentMasteryLevel: function () {
-            if (this.bard) {
-                const instrument = this.bard.instrument;
+            if (hiredBard) {
+                const instrument = hiredBard.instrument;
                 const instrumentRef = music.actions.allObjects.find(action => action.id === instrument.id);
 
                 this.currentMasteryLevel = music.getMasteryLevel(instrumentRef);
@@ -32,12 +51,12 @@ export function BardComponent(music: Music) {
         updateModifiers: function () {
             this.modifiers = [];
 
-            if (this.bard) {
-                this.modifiers = music.manager.getModifiers(this.bard.instrument);
+            if (hiredBard) {
+                this.modifiers = music.manager.getModifiers(hiredBard.instrument);
             }
         },
         equipment: function () {
-            const bard = this.bard;
+            const bard = hiredBard;
 
             SwalLocale.fire({
                 html: '<div id="myth-music-equipment-container"></div>',

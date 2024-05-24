@@ -2,17 +2,17 @@
     <div class="block block-rounded block-link-pop border-top border-music border-4x" v-if="isEnabled">
         <div class="text-center mb-1">
             <div class="row gutters-tiny">
-                <div class="col-12 pt-3 font-size-lg mb-3" v-if="bard">
-                    <img class="instrument-icon" v-bind:src="bard.instrument.media" />
-                    <span :class="{ 'music-color': bard.isUpgraded && bard.socket && bard.utility }">
-                        {{ templateLangString('Myth_Music_Bard_Title', { name: bard.instrument.name }) }}
+                <div class="col-12 pt-3 font-size-lg mb-3" v-if="hasBard">
+                    <img class="instrument-icon" v-bind:src="media" />
+                    <span :class="{ 'music-color': isUpgraded && socket && utility }">
+                        {{ templateLangString('Myth_Music_Bard_Title', { name: name }) }}
                     </span>
                     <button type="button" class="ml-2 btn btn-lg btn-success mr-1" @click="equipment()">
                         {{ getLangString('Myth_Music_Instrument') }}
                     </button>
                 </div>
 
-                <div class="col-12 pb-3 pr-3 pl-3" v-if="bard">
+                <div class="col-12 pb-3 pr-3 pl-3" v-if="hasBard">
                     <div
                         v-for="modifier in modifiers"
                         :class="{ 'text-success': modifier.isActive, 'myth-text-grey': !modifier.isActive }"
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 font-size-lg pt-3 pb-3" v-if="!bard">
+                <div class="col-12 font-size-lg pt-3 pb-3" v-if="!hasBard">
                     <span>{{ getLangString('Myth_Music_Bard_Not_Currently_Hired') }}</span>
                 </div>
             </div>

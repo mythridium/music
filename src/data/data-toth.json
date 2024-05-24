@@ -2,6 +2,50 @@
     "$schema": "https://melvoridle.com/assets/schema/gameData.json",
     "namespace": "mythMusic",
     "modifications": {
+        "skillData": [
+            {
+                "skillID": "melvorD:Astrology",
+                "data": {
+                    "skillIDs": { "add": ["mythMusic:Music"] },
+                    "masteryXPModifier": "skillMasteryXPPerVariel",
+                    "recipes": [
+                        {
+                            "id": "melvorTotH:Variel",
+                            "standardModifiers": [
+                                {
+                                    "index": 0,
+                                    "modifiers": {
+                                        "add": {
+                                            "increasedSkillXP": [{ "skillID": "mythMusic:Music", "value": 1 }]
+                                        }
+                                    }
+                                },
+                                {
+                                    "index": 1,
+                                    "modifiers": {
+                                        "add": {
+                                            "increasedMasteryXP": [{ "skillID": "mythMusic:Music", "value": 1 }]
+                                        }
+                                    }
+                                }
+                            ],
+                            "uniqueModifiers": [
+                                {
+                                    "index": 0,
+                                    "modifiers": {
+                                        "add": {
+                                            "decreasedSkillIntervalPercent": [
+                                                { "skillID": "mythMusic:Music", "value": 1 }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ],
         "items": [
             {
                 "id": "melvorTotH:Superior_Max_Skillcape",
@@ -221,59 +265,85 @@
                             "standardModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedChanceToFindMeteorite",
-                                    "value": 5
+                                    "modifiers": {
+                                        "increasedChanceToFindMeteorite": 5
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "decreasedSkillInterval",
-                                    "skill": "melvorD:Astrology",
-                                    "value": 500
+                                    "modifiers": {
+                                        "decreasedSkillInterval": [
+                                            {
+                                                "value": 500,
+                                                "skillID": "melvorD:Astrology"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "decreasedSkillInterval",
-                                    "skill": "melvorD:Summoning",
-                                    "value": 1000
+                                    "modifiers": {
+                                        "decreasedSkillInterval": [
+                                            {
+                                                "value": 1000,
+                                                "skillID": "melvorD:Summoning"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedSummoningCreationCharges",
-                                    "value": 15
+                                    "modifiers": {
+                                        "increasedSummoningCreationCharges": 15
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedSummoningMaxHit",
-                                    "value": 35
+                                    "modifiers": {
+                                        "increasedSummoningMaxHit": 35
+                                    }
                                 }
                             ],
                             "hardcoreModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedChanceToFindMeteorite",
-                                    "value": 1
+                                    "modifiers": {
+                                        "increasedChanceToFindMeteorite": 1
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "decreasedSkillInterval",
-                                    "skill": "melvorD:Astrology",
-                                    "value": 100
+                                    "modifiers": {
+                                        "decreasedSkillInterval": [
+                                            {
+                                                "value": 100,
+                                                "skillID": "melvorD:Astrology"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "decreasedSkillInterval",
-                                    "skill": "melvorD:Summoning",
-                                    "value": 250
+                                    "modifiers": {
+                                        "decreasedSkillInterval": [
+                                            {
+                                                "value": 250,
+                                                "skillID": "melvorD:Summoning"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedSummoningCreationCharges",
-                                    "value": 3
+                                    "modifiers": {
+                                        "increasedSummoningCreationCharges": 3
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedSummoningMaxHit",
-                                    "value": 5
+                                    "modifiers": {
+                                        "increasedSummoningMaxHit": 5
+                                    }
                                 }
                             ]
                         },
@@ -290,59 +360,85 @@
                             "standardModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedChanceRandomPotionHerblore",
-                                    "value": 10
+                                    "modifiers": {
+                                        "increasedChanceRandomPotionHerblore": 10
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedThievingStealth",
-                                    "value": 50
+                                    "modifiers": {
+                                        "increasedThievingStealth": 50
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "doubleItemsSkill",
-                                    "skill": "melvorD:Herblore",
-                                    "value": 2
+                                    "modifiers": {
+                                        "doubleItemsSkill": [
+                                            {
+                                                "value": 2,
+                                                "skillID": "melvorD:Herblore"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedThievingAreaUniqueChance",
-                                    "value": 15
+                                    "modifiers": {
+                                        "increasedThievingAreaUniqueChance": 15
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedChanceToDoubleItemsSkill",
-                                    "skill": "melvorD:Thieving",
-                                    "value": 20
+                                    "modifiers": {
+                                        "increasedChanceToDoubleItemsSkill": [
+                                            {
+                                                "value": 20,
+                                                "skillID": "melvorD:Thieving"
+                                            }
+                                        ]
+                                    }
                                 }
                             ],
                             "hardcoreModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedChanceRandomPotionHerblore",
-                                    "value": 2
+                                    "modifiers": {
+                                        "increasedChanceRandomPotionHerblore": 2
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedThievingStealth",
-                                    "value": 15
+                                    "modifiers": {
+                                        "increasedThievingStealth": 15
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "doubleItemsSkill",
-                                    "skill": "melvorD:Herblore",
-                                    "value": 1
+                                    "modifiers": {
+                                        "doubleItemsSkill": [
+                                            {
+                                                "value": 1,
+                                                "skillID": "melvorD:Herblore"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedThievingAreaUniqueChance",
-                                    "value": 2
+                                    "modifiers": {
+                                        "increasedThievingAreaUniqueChance": 2
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedChanceToDoubleItemsSkill",
-                                    "skill": "melvorD:Thieving",
-                                    "value": 2
+                                    "modifiers": {
+                                        "increasedChanceToDoubleItemsSkill": [
+                                            {
+                                                "value": 2,
+                                                "skillID": "melvorD:Thieving"
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         },
@@ -359,55 +455,65 @@
                             "standardModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedFarmingYield",
-                                    "value": 10
+                                    "modifiers": {
+                                        "increasedFarmingYield": 10
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedFlatFarmingYield",
-                                    "value": 15
+                                    "modifiers": {
+                                        "increasedFlatFarmingYield": 15
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedTownshipGPProduction",
-                                    "value": 10
+                                    "modifiers": {
+                                        "increasedTownshipGPProduction": 10
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedTownshipHappiness",
-                                    "value": 50
+                                    "modifiers": {
+                                        "increasedTownshipHappiness": 50
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedChanceDoubleHarvest",
-                                    "value": 25
+                                    "modifiers": {
+                                        "increasedChanceDoubleHarvest": 25
+                                    }
                                 }
                             ],
                             "hardcoreModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedFarmingYield",
-                                    "value": 5
+                                    "modifiers": {
+                                        "increasedFarmingYield": 5
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedFlatFarmingYield",
-                                    "value": 2
+                                    "modifiers": {
+                                        "increasedFlatFarmingYield": 2
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedTownshipGPProduction",
-                                    "value": 2
+                                    "modifiers": {
+                                        "increasedTownshipGPProduction": 2
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "increasedTownshipHappiness",
-                                    "value": 5
+                                    "modifiers": {
+                                        "increasedTownshipHappiness": 5
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedChanceDoubleHarvest",
-                                    "value": 5
+                                    "modifiers": {
+                                        "increasedChanceDoubleHarvest": 5
+                                    }
                                 }
                             ]
                         },
@@ -424,55 +530,75 @@
                             "standardModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedGlobalAccuracy",
-                                    "value": 5
+                                    "modifiers": {
+                                        "increasedGlobalAccuracy": 5
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedMinHitBasedOnMaxHit",
-                                    "value": 5
+                                    "modifiers": {
+                                        "increasedMinHitBasedOnMaxHit": 5
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedMaxHitPercent",
-                                    "value": 10
+                                    "modifiers": {
+                                        "increasedMaxHitPercent": 10
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "decreasedAttackInterval",
-                                    "value": 500
+                                    "modifiers": {
+                                        "decreasedAttackInterval": 500
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedChanceToApplyDecayCurse",
-                                    "value": 20
+                                    "combatEffects": [
+                                        {
+                                            "effectID": "melvorF:Decay",
+                                            "chance": 20,
+                                            "appliesWhen": "PostAttack",
+                                            "descriptionLang": "CUSTOM_APPLICATOR_CURSE_ON_ATTACK"
+                                        }
+                                    ]
                                 }
                             ],
                             "hardcoreModifiers": [
                                 {
                                     "level": 1,
-                                    "key": "increasedGlobalAccuracy",
-                                    "value": 2
+                                    "modifiers": {
+                                        "increasedGlobalAccuracy": 2
+                                    }
                                 },
                                 {
                                     "level": 40,
-                                    "key": "increasedMinHitBasedOnMaxHit",
-                                    "value": 1
+                                    "modifiers": {
+                                        "increasedMinHitBasedOnMaxHit": 1
+                                    }
                                 },
                                 {
                                     "level": 75,
-                                    "key": "increasedMaxHitPercent",
-                                    "value": 2
+                                    "modifiers": {
+                                        "increasedMaxHitPercent": 2
+                                    }
                                 },
                                 {
                                     "level": 99,
-                                    "key": "decreasedAttackInterval",
-                                    "value": 100
+                                    "modifiers": {
+                                        "decreasedAttackInterval": 100
+                                    }
                                 },
                                 {
                                     "level": 999,
-                                    "key": "increasedChanceToApplyDecayCurse",
-                                    "value": 1
+                                    "combatEffects": [
+                                        {
+                                            "effectID": "melvorF:Decay",
+                                            "chance": 1,
+                                            "appliesWhen": "PostAttack",
+                                            "descriptionLang": "CUSTOM_APPLICATOR_CURSE_ON_ATTACK"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -553,9 +679,15 @@
                         },
                         {
                             "summonIDs": ["melvorTotH:LightningSpirit", "mythMusic:Bard"],
-                            "modifiers": {
-                                "increasedGlobalStunChance": 5
-                            },
+                            "modifiers": {},
+                            "combatEffects": [
+                                {
+                                    "effectID": "melvorD:Stun",
+                                    "chance": 5,
+                                    "appliesWhen": "HitWithAttack",
+                                    "descriptionLang": "CUSTOM_APPLICATOR_STUN_ON_HIT"
+                                }
+                            ],
                             "consumesOn": [
                                 {
                                     "type": "PlayerSummonAttack"
@@ -564,9 +696,15 @@
                         },
                         {
                             "summonIDs": ["melvorTotH:Siren", "mythMusic:Bard"],
-                            "modifiers": {
-                                "increasedGlobalSleepChance": 5
-                            },
+                            "modifiers": {},
+                            "combatEffects": [
+                                {
+                                    "effectID": "melvorD:Sleep",
+                                    "chance": 5,
+                                    "appliesWhen": "HitWithAttack",
+                                    "descriptionLang": "CUSTOM_APPLICATOR_SLEEP_ON_HIT"
+                                }
+                            ],
                             "consumesOn": [
                                 {
                                     "type": "PlayerSummonAttack"
@@ -575,10 +713,30 @@
                         },
                         {
                             "summonIDs": ["melvorTotH:Spider", "mythMusic:Bard"],
-                            "modifiers": {
-                                "increasedChanceToApplyPoison": 5,
-                                "increased15SlowStunChance2Turns": 5
-                            },
+                            "modifiers": {},
+                            "combatEffects": [
+                                {
+                                    "effectID": "melvorD:Slow",
+                                    "chance": 5,
+                                    "initialParams": [
+                                        {
+                                            "name": "magnitude",
+                                            "value": 15
+                                        },
+                                        {
+                                            "name": "turns",
+                                            "value": 2
+                                        }
+                                    ],
+                                    "appliesWhen": "HitWithAttack",
+                                    "descriptionLang": "CUSTOM_APPLICATOR_SLOW_ON_HIT"
+                                },
+                                {
+                                    "effectID": "melvorD:Poison",
+                                    "chance": 5,
+                                    "appliesWhen": "HitWithAttack"
+                                }
+                            ],
                             "consumesOn": [
                                 {
                                     "type": "PlayerSummonAttack"
@@ -587,8 +745,14 @@
                         },
                         {
                             "summonIDs": ["melvorTotH:Spectre", "mythMusic:Bard"],
-                            "modifiers": {
-                                "decreasedEnemyDamageReduction": 5
+                            "modifiers": {},
+                            "enemyModifiers": {
+                                "flatResistance": [
+                                    {
+                                        "damageTypeID": "melvorD:Normal",
+                                        "value": -5
+                                    }
+                                ]
                             },
                             "consumesOn": [
                                 {

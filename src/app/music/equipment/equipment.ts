@@ -57,6 +57,7 @@ export function EquipmentComponent(music: Music, bard: HiredBard) {
             this.completeUpgrade();
         },
         completeUpgrade() {
+            // @ts-ignore // TODO: TYPES
             music.computeProvidedStats(true);
             music.renderQueue.bardModifiers = true;
             music.renderQueue.gpRange = true;

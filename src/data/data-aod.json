@@ -1,0 +1,678 @@
+{
+    "$schema": "https://melvoridle.com/assets/schema/gameData.json",
+    "namespace": "mythMusic",
+    "dependentData": [
+        {
+            "namespace": "mythMusic",
+            "data": {
+                "skillLevelCapIncreases": [
+                    {
+                        "id": "Post99Dungeons",
+                        "levelType": "Standard",
+                        "requirementSets": [
+                            {
+                                "id": 0,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Ancient_Sanctuary",
+                                        "count": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 1,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Underground_Lava_Lake",
+                                        "count": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 2,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Lightning_Region",
+                                        "count": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 3,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Lair_of_the_Spider_Queen",
+                                        "count": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 4,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Cursed_Forest",
+                                        "count": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 5,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Necromancers_Palace",
+                                        "count": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 6,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Throne_of_the_Herald",
+                                        "count": 1
+                                    }
+                                ]
+                            }
+                        ],
+                        "fixedIncreases": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "increase": 3,
+                                "maximum": 120
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ThroneOfTheHeraldSet120",
+                        "levelType": "Standard",
+                        "requirementSets": [
+                            {
+                                "id": 0,
+                                "requirements": [
+                                    {
+                                        "type": "DungeonCompletion",
+                                        "dungeonID": "melvorTotH:Throne_of_the_Herald",
+                                        "count": 1
+                                    }
+                                ]
+                            }
+                        ],
+                        "setIncreases": [
+                            {
+                                "skillID": "mythMusic:Music",
+                                "value": 120
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "modifications": {
+        "gamemodes": [
+            {
+                "id": "melvorAoD:AncientRelics",
+                "startingSkills": {
+                    "add": ["mythMusic:Music"]
+                },
+                "skillUnlockRequirements": [
+                    {
+                        "skillID": "mythMusic:Music",
+                        "requirements": [
+                            {
+                                "type": "SkillLevel",
+                                "skillID": "melvorD:Attack",
+                                "level": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "data": {
+        "skillLevelCapIncreases": [
+            {
+                "id": "Pre99Dungeons",
+                "levelType": "Standard",
+                "requirementSets": [
+                    {
+                        "id": 0,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Chicken_Coop",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Undead_Graveyard",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Spider_Forest",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Frozen_Cove",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Deep_Sea_Ship",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 5,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Volcanic_Cave",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Bandit_Base",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 7,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorD:Hall_of_Wizards",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 8,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Air_God_Dungeon",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Water_God_Dungeon",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 10,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Earth_God_Dungeon",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 11,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Fire_God_Dungeon",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 12,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Dragons_Den",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 13,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Miolite_Caves",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 14,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Infernal_Stronghold",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 15,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Into_the_Mist",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 16,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Impending_Darkness",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 17,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorAoD:Golem_Territory",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 18,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorAoD:Unholy_Forest",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 19,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorAoD:Trickery_Temple",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorAoD:Cult_Grounds",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    {
+                        "id": 21,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorAoD:Underwater_City",
+                                "count": 1
+                            }
+                        ]
+                    }
+                ],
+                "fixedIncreases": [
+                    {
+                        "skillID": "mythMusic:Music",
+                        "increase": 5,
+                        "maximum": 99
+                    }
+                ]
+            },
+            {
+                "id": "ImpendingDarknessSet100",
+                "levelType": "Standard",
+                "requirementSets": [
+                    {
+                        "id": 0,
+                        "requirements": [
+                            {
+                                "type": "DungeonCompletion",
+                                "dungeonID": "melvorF:Impending_Darkness",
+                                "count": 1
+                            }
+                        ]
+                    }
+                ],
+                "setIncreases": [
+                    {
+                        "skillID": "mythMusic:Music",
+                        "value": 100
+                    }
+                ]
+            }
+        ],
+        "ancientRelics": [
+            {
+                "id": "MusicRelic1",
+                "name": "Music Relic 1",
+                "skillID": "mythMusic:Music",
+                "number": 1,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedMasteryXP": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 50
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "MusicRelic2",
+                "name": "Music Relic 2",
+                "skillID": "mythMusic:Music",
+                "number": 2,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedChanceToObtainShrimpWhileTrainingMusic": 10
+                }
+            },
+            {
+                "id": "MusicRelic3",
+                "name": "Music Relic 3",
+                "skillID": "mythMusic:Music",
+                "number": 3,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedChanceToLocateAncientRelic": 1
+                }
+            },
+            {
+                "id": "MusicRelic4",
+                "name": "Music Relic 4",
+                "skillID": "mythMusic:Music",
+                "number": 4,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "increasedGPGlobal": 50
+                }
+            },
+            {
+                "id": "MusicRelic5",
+                "name": "Music Relic 5",
+                "skillID": "mythMusic:Music",
+                "number": 5,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "decreasedSkillIntervalPercent": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 20
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "MusicRelic6",
+                "name": "Music Master Relic",
+                "skillID": "mythMusic:Music",
+                "number": 6,
+                "description": "A relic from the ancient times of Music.",
+                "modifiers": {
+                    "masterAncientRelic": 1
+                }
+            }
+        ],
+        "bankSortOrder": [
+            {
+                "insertAt": "After",
+                "afterID": "melvorAoD:Astrology_Lesser_Relic",
+                "ids": ["mythMusic:Music_Lesser_Relic"]
+            }
+        ],
+        "items": [
+            {
+                "itemType": "Equipment",
+                "id": "Music_Lesser_Relic",
+                "name": "Music Lesser Relic",
+                "category": "Combat",
+                "type": "Consumable",
+                "media": "assets/items/music-lesser-relic.png",
+                "tier": "none",
+                "ignoreCompletion": true,
+                "obtainFromItemLog": false,
+                "golbinRaidExclusive": false,
+                "sellsFor": 1,
+                "validSlots": ["Consumable"],
+                "occupiesSlots": [],
+                "equipRequirements": [],
+                "equipmentStats": [],
+                "modifiers": {
+                    "decreasedSkillIntervalPercent": [
+                        {
+                            "skillID": "mythMusic:Music",
+                            "value": 5
+                        }
+                    ],
+                    "increasedMusicGP": 5,
+                    "increasedMagicMaxHit": 10
+                },
+                "consumesOn": [
+                    {
+                        "type": "MusicAction"
+                    },
+                    {
+                        "type": "PlayerAttack"
+                    }
+                ]
+            }
+        ],
+        "skillData": [
+            {
+                "skillID": "mythMusic:Music",
+                "data": {
+                    "rareDrops": [
+                        {
+                            "itemID": "mythMusic:Music_Lesser_Relic",
+                            "quantity": 300,
+                            "requirements": [],
+                            "chance": {
+                                "type": "Fixed",
+                                "chance": 0.1
+                            },
+                            "gamemodes": ["melvorAoD:AncientRelics"]
+                        }
+                    ],
+                    "ancientRelicSets": [
+                        {
+                            "realmID": "melvorD:Melvor",
+                            "relicDrops": [
+                                {
+                                    "relicID": "mythMusic:MusicRelic1",
+                                    "requirements": [],
+                                    "chance": {
+                                        "type": "Fixed",
+                                        "chance": 0.0005
+                                    }
+                                },
+                                {
+                                    "relicID": "mythMusic:MusicRelic2",
+                                    "requirements": [],
+                                    "chance": {
+                                        "type": "Fixed",
+                                        "chance": 0.0005
+                                    }
+                                },
+                                {
+                                    "relicID": "mythMusic:MusicRelic3",
+                                    "requirements": [],
+                                    "chance": {
+                                        "type": "Fixed",
+                                        "chance": 0.0005
+                                    }
+                                },
+                                {
+                                    "relicID": "mythMusic:MusicRelic4",
+                                    "requirements": [],
+                                    "chance": {
+                                        "type": "Fixed",
+                                        "chance": 0.0005
+                                    }
+                                },
+                                {
+                                    "relicID": "mythMusic:MusicRelic5",
+                                    "requirements": [],
+                                    "chance": {
+                                        "type": "Fixed",
+                                        "chance": 0.0005
+                                    }
+                                }
+                            ],
+                            "completedRelicID": "mythMusic:MusicRelic6",
+                            "levelUpUnlocks": [20, 99]
+                        }
+                    ],
+                    "instruments": [
+                        {
+                            "id": "Flute",
+                            "name": "Flute",
+                            "media": "assets/instruments/flute.png",
+                            "baseInterval": 3000,
+                            "baseExperience": 41,
+                            "maxGP": 325,
+                            "productId": "mythMusic:Flute",
+                            "level": 45,
+                            "skills": ["melvorAoD:Archaeology", "melvorAoD:Cartography"],
+                            "standardModifiers": [
+                                {
+                                    "level": 1,
+                                    "modifiers": {
+                                        "increasedChanceToPreserveMapCharges": 10
+                                    }
+                                },
+                                {
+                                    "level": 40,
+                                    "modifiers": {
+                                        "decreasedSurveyInterval": 10
+                                    }
+                                },
+                                {
+                                    "level": 75,
+                                    "modifiers": {
+                                        "decreasedMapRefinementCost": 10
+                                    }
+                                },
+                                {
+                                    "level": 99,
+                                    "modifiers": {
+                                        "increasedMinimumItemsFoundInArchaeology": 2
+                                    }
+                                },
+                                {
+                                    "level": 999,
+                                    "modifiers": {
+                                        "increasedGPPerArchaeologyLevelNoArtefact": 15
+                                    }
+                                }
+                            ],
+                            "hardcoreModifiers": [
+                                {
+                                    "level": 1,
+                                    "modifiers": {
+                                        "increasedChanceToPreserveMapCharges": 5
+                                    }
+                                },
+                                {
+                                    "level": 40,
+                                    "modifiers": {
+                                        "decreasedSurveyInterval": 5
+                                    }
+                                },
+                                {
+                                    "level": 75,
+                                    "modifiers": {
+                                        "decreasedMapRefinementCost": 5
+                                    }
+                                },
+                                {
+                                    "level": 99,
+                                    "modifiers": {
+                                        "increasedMinimumItemsFoundInArchaeology": 1
+                                    }
+                                },
+                                {
+                                    "level": 999,
+                                    "modifiers": {
+                                        "increasedGPPerArchaeologyLevelNoArtefact": 5
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "skillID": "melvorD:Summoning",
+                "data": {
+                    "synergies": [
+                        {
+                            "summonIDs": ["melvorAoD:Barrier", "mythMusic:Bard"],
+                            "modifiers": {
+                                "increasedBarrierSummonDamage": 25
+                            },
+                            "consumesOn": [
+                                {
+                                    "type": "PlayerSummonAttack"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
