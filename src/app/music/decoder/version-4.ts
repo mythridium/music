@@ -38,6 +38,8 @@ export class Version4 implements DecodeVersion {
             }
         });
 
+        this.music.bards.clear();
+
         reader.getComplexMap(reader => {
             const instrument = reader.getNamespacedObject(this.music.actions);
             const slot = reader.getUint32();
@@ -81,6 +83,10 @@ export class Version4 implements DecodeVersion {
         this.music.userInterface.bard1.setBard(bard1);
         this.music.userInterface.bard2.setBard(bard2);
         this.music.userInterface.bard3.setBard(bard3);
+
+        this.music.userInterface.instruments.forEach(component => {
+            component.updateDisabled();
+        });
 
         if (this.music.shouldResetAction) {
             this.music.resetActionState();

@@ -5,5 +5,6 @@ angular.json
 package.json
 package-lock.json
 README.md
+CHANGE_LOG.md
 .browserslistrc
 .npmrc

@@ -1,6 +1,6 @@
 {
     "name": "myth-music",
-    "version": "1.13.14",
+    "version": "1.13.15",
     "description": "Melvor Idle mod that adds the music skill.",
     "main": "manifest.json",
     "scripts": {
