@@ -3,7 +3,7 @@
     "namespace": "mythMusic",
     "dependentData": [
         {
-            "namespace": "mythMusic",
+            "namespace": "melvorTotH",
             "data": {
                 "skillLevelCapIncreases": [
                     {
