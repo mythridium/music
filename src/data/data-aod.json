@@ -138,6 +138,12 @@
         ]
     },
     "data": {
+        "ancientRelicsDisplayOrder": [
+            {
+                "insertAt": "End",
+                "ids": ["mythMusic:Music"]
+            }
+        ],
         "skillLevelCapIncreases": [
             {
                 "id": "Pre99Dungeons",
