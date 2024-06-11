@@ -18,35 +18,8 @@ export interface Upgrade {
     descriptions: string[];
 }
 
-interface UpgradeModifier {
-    itemId: UpgradeType;
-    modifiers: ModifierArrayElement[];
-}
-
 export class Upgrades {
     private readonly upgrades = new Map<UpgradeType, Upgrade>();
-
-    public modifiers: UpgradeModifier[] = [
-        { itemId: UpgradeType.EssenceOfMusic, modifiers: [] },
-        { itemId: UpgradeType.PolishedTopazGem, modifiers: [{ key: 'increasedMusicGP', value: 5 }] },
-        {
-            itemId: UpgradeType.PolishedRubyGem,
-            modifiers: [{ key: 'increasedSkillXP', values: [{ skill: this.music, value: 5 }] }]
-        },
-        {
-            itemId: UpgradeType.PolishedSapphireGem,
-            modifiers: [{ key: 'increasedMasteryXP', values: [{ skill: this.music, value: 5 }] }]
-        },
-        {
-            itemId: UpgradeType.DiamondString,
-            modifiers: [{ key: 'increasedSheetMusicDropRate', value: 5 }]
-        },
-        {
-            itemId: UpgradeType.PristineLeather,
-            modifiers: [{ key: 'decreasedSkillIntervalPercent', values: [{ skill: this.music, value: 5 }] }]
-        },
-        { itemId: UpgradeType.MysticOil, modifiers: [{ key: 'increasedMusicAdditionalRewardRoll', value: 1 }] }
-    ];
 
     constructor(private readonly music: Music, private readonly game: Game) {
         this.calculate();
@@ -55,22 +28,17 @@ export class Upgrades {
     public calculate() {
         for (const type of Object.values(UpgradeType)) {
             const item = this.game.items.getObjectByID(`mythMusic:${type}`);
-            const modifiers = this.modifiers.find(modifier => modifier.itemId === type).modifiers;
+            const modifiers = this.music.upgradeModifiers.find(
+                modifier => modifier.itemId === `mythMusic:${type}`
+            ).modifiers;
 
             this.upgrades.set(type, {
                 itemId: type,
                 item,
                 quantity: this.game.bank.getQty(item),
                 modifiers,
-                descriptions: modifiers
-                    .map(modifier => {
-                        if (this.isSkillModifier(modifier)) {
-                            return printPlayerModifier(modifier.key, modifier.values[0]);
-                        } else {
-                            return printPlayerModifier(modifier.key, modifier.value);
-                        }
-                    })
-                    .map(([description]) => description)
+                // @ts-ignore // TODO: TYPES
+                descriptions: [modifiers.describePlain()]
             });
         }
     }
@@ -88,9 +56,5 @@ export class Upgrades {
 
         upgrade.quantity -= amount;
         this.game.bank.removeItemQuantityByID(upgrade.item.id, amount, true);
-    }
-
-    private isSkillModifier(modifier: ModifierArrayElement): modifier is SkillModifierArrayElement {
-        return 'values' in modifier;
     }
 }

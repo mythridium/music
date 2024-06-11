@@ -2,8 +2,8 @@
     <div class="myth-music-mastery" @vue:mounted="mounted">
         <h5 class="mb-0">
             {{ getLangString('Myth_Music_Unlock_Mastery') }}
-            <img class="skill-icon-xs ml-2 mr-1" :src="instrument.media" />
-            {{ instrument.name }}
+            <img class="skill-icon-xs ml-2 mr-1" :src="media" />
+            {{ name }}
         </h5>
 
         <div class="manage" v-if="state === 'view'">

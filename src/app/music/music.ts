@@ -2,10 +2,10 @@ import { MusicActionEvent } from './event';
 import { UserInterface } from './user-interface';
 import { MasteryComponent } from './mastery/mastery';
 import { MusicManager } from './manager';
-import { HiredBard, Instrument, MusicSkillData } from './music.types';
+import { HiredBard, Instrument, MusicSkillData, UpgradeModifier } from './music.types';
 import { Decoder } from './decoder/decoder';
 import { HiredBards } from './hired-bards';
-import { Upgrades } from './equipment/upgrades';
+import { UpgradeType, Upgrades } from './equipment/upgrades';
 import { ChangeType, MusicSettings } from './settings';
 
 import './music.scss';
@@ -22,17 +22,19 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public bards = new HiredBards(this);
     public userInterface: UserInterface;
     public settings: MusicSettings;
-    public modifiers = new MappedModifiers();
     public masteriesUnlocked = new Map<Instrument, boolean[]>();
 
     private renderedProgressBar?: ProgressBar;
     private sheetMusicChance = 2;
 
-    public readonly manager = new MusicManager(this, this.game);
+    public readonly manager: MusicManager;
     public upgrades: Upgrades;
+    public upgradeModifiers: UpgradeModifier[] = [];
 
     constructor(namespace: DataNamespace, public readonly game: Game) {
         super(namespace, 'Music', game);
+
+        this.manager = new MusicManager(this, this.game);
     }
 
     public registerData(namespace: DataNamespace, data: MusicSkillData) {
@@ -40,7 +42,13 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         if (data.instruments) {
             for (const instrument of data.instruments) {
-                this.actions.registerObject(new Instrument(namespace, instrument));
+                this.actions.registerObject(new Instrument(namespace, instrument, this.game));
+            }
+        }
+
+        if (data.upgrades) {
+            for (const upgrade of data.upgrades) {
+                this.upgradeModifiers.push(new UpgradeModifier(upgrade, this.game));
             }
         }
     }
@@ -144,7 +152,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                     html += `
                     <span>
                         (<img class="skill-icon-xxs mr-1"
-                        src="${cdnMedia('assets/media/main/mastery_header.svg')}" />
+                        src="${assets.getURI('assets/media/main/mastery_header.svg')}" />
                         ${modifier.level})
                     </span>`;
                 }
@@ -223,6 +231,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
                                 (<any>this.userInterface)[`bard${hiredBard.slot}`].setBard(hiredBard);
 
+                                // @ts-ignore // TODO: TYPES
                                 this.computeProvidedStats(true);
 
                                 this.userInterface.instruments.forEach(component => {
@@ -260,9 +269,9 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public getFlatIntervalModifier(instrument: Instrument) {
         let modifier = super.getFlatIntervalModifier(instrument);
 
-        if (this.isPoolTierActive(2)) {
+        /* if (this.isPoolTierActive(2)) {
             modifier -= 250;
-        }
+        } */
 
         return modifier;
     }
@@ -274,6 +283,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             this.renderQueue.actionMastery.add(instrument);
         }
 
+        // @ts-ignore // TODO: TYPES
         this.computeProvidedStats(false);
 
         this.renderQueue.grants = true;
@@ -294,6 +304,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         this.settings.onChange(ChangeType.Modifiers, () => {
             setTimeout(() => {
+                // @ts-ignore // TODO: TYPES
                 this.computeProvidedStats(true);
             }, 10);
         });
@@ -309,6 +320,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         super.onMasteryLevelUp(action, oldLevel, newLevel);
 
         if (newLevel >= action.level) {
+            // @ts-ignore // TODO: TYPES
             this.computeProvidedStats(true);
         }
 
@@ -349,7 +361,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         const capesToExclude = ['melvorF:Max_Skillcape'];
 
-        if (cloudManager.hasTotHEntitlement) {
+        if (cloudManager.hasTotHEntitlementAndIsEnabled) {
             capesToExclude.push('melvorTotH:Superior_Max_Skillcape');
         }
 
@@ -378,37 +390,41 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
     public onEquipmentChange() {}
 
-    public computeProvidedStats(updatePlayer = true) {
-        this.modifiers.reset();
+    public addProvidedStats() {
+        // @ts-ignore // TODO: TYPES
+        super.addProvidedStats();
 
         for (const bard of this.bards.all()) {
             const modifiers = this.manager.getModifiersForApplication(bard.instrument);
-            this.modifiers.addArrayModifiers(modifiers);
+
+            for (const modifier of modifiers) {
+                // @ts-ignore // TODO: TYPES
+                this.providedStats.addStatObject(bard.instrument, modifier);
+            }
 
             if (bard.socket) {
-                const upgrade = this.upgrades.modifiers.find(
-                    modifier => `mythMusic:${modifier.itemId}` === bard.socket.id
-                );
+                const upgrade = this.upgrades['upgrades'].get(bard.socket.localID as UpgradeType);
 
                 if (upgrade) {
-                    this.modifiers.addArrayModifiers(upgrade.modifiers);
+                    // @ts-ignore // TODO: TYPES
+                    this.providedStats.addStatObject(bard.instrument, upgrade.modifiers);
                 }
             }
 
             if (bard.utility) {
-                const upgrade = this.upgrades.modifiers.find(
-                    modifier => `mythMusic:${modifier.itemId}` === bard.utility.id
-                );
+                const upgrade = this.upgrades['upgrades'].get(bard.utility.localID as UpgradeType);
 
                 if (upgrade) {
-                    this.modifiers.addArrayModifiers(upgrade.modifiers);
+                    // @ts-ignore // TODO: TYPES
+                    this.providedStats.addStatObject(bard.instrument, upgrade.modifiers);
                 }
             }
         }
+    }
 
-        if (updatePlayer) {
-            this.game.combat.player.computeAllStats();
-        }
+    public isMasteryActionUnlocked(action: Instrument) {
+        // @ts-ignore // TODO: TYPES
+        return this.isBasicSkillRecipeUnlocked(action);
     }
 
     public get actionRewards() {
@@ -443,8 +459,12 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
         for (const bard of this.bards.all()) {
             if (bard?.socket?.id === 'mythMusic:Diamond_String') {
-                sheetMusicChance +=
-                    this.game.modifiers.increasedSheetMusicDropRate - this.game.modifiers.decreasedSheetMusicDropRate;
+                // @ts-ignore // TODO: TYPES
+                const query = this.getActionModifierQuery(this.activeInstrument);
+                // @ts-ignore // TODO: TYPES
+                const sheetChance = this.game.modifiers.getValue('mythMusic:sheetMusicDropRate', query);
+
+                sheetMusicChance += sheetChance;
             }
         }
 
@@ -452,9 +472,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             rewards.addItemByID('mythMusic:Sheet_Music', 1);
         }
 
-        const shrimpChance =
-            this.game.modifiers.increasedChanceToObtainShrimpWhileTrainingMusic -
-            this.game.modifiers.decreasedChanceToObtainShrimpWhileTrainingMusic;
+        // @ts-ignore // TODO: TYPES
+        const shrimpChance = this.game.modifiers.getValue('mythMusic:chanceToObtainShrimpWhileTrainingMusic', {});
 
         if (rollPercentage(shrimpChance)) {
             rewards.addItemByID('melvorD:Shrimp', 1);
@@ -480,9 +499,9 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public getXPModifier(instrument?: Instrument) {
         let modifier = super.getXPModifier(instrument);
 
-        if (this.isPoolTierActive(0)) {
+        /* if (this.isPoolTierActive(0)) {
             modifier += 3;
-        }
+        } */
 
         return modifier;
     }
@@ -490,9 +509,9 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public getMasteryXPModifier(instrument: Instrument) {
         let modifier = super.getMasteryXPModifier(instrument);
 
-        if (this.isPoolTierActive(1)) {
+        /* if (this.isPoolTierActive(1)) {
             modifier += 5;
-        }
+        } */
 
         return modifier;
     }
@@ -521,7 +540,9 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
                 masteryXP,
                 baseMasteryXP,
                 poolXP,
-                this.getInstrumentInterval(component.instrument)
+                this.getInstrumentInterval(component.instrument),
+                // @ts-ignore // TODO: TYPES
+                this.game.defaultRealm
             );
         }
 
@@ -616,6 +637,15 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
 
     public getTotalUnlockedMasteryActions() {
         return this.actions.reduce(levelUnlockSum(this), 0);
+    }
+
+    // @ts-ignore // TODO: TYPES
+    public getRegistry(type: ScopeSourceType) {
+        switch (type) {
+            // @ts-ignore // TODO: TYPES
+            case ScopeSourceType.Action:
+                return this.actions;
+        }
     }
 
     public resetActionState() {

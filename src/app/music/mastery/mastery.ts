@@ -16,7 +16,8 @@ interface EssenceOfMusic {
 export function MasteryComponent(game: Game, music: Music, instrument: Instrument) {
     return {
         $template: '#myth-music-mastery',
-        instrument,
+        media: instrument.media,
+        name: instrument.name,
         state: State.View,
         modifier: undefined as BardModifier,
         essenceOfMusic: undefined as EssenceOfMusic,
@@ -99,6 +100,7 @@ export function MasteryComponent(game: Game, music: Music, instrument: Instrumen
             };
         },
         completeUpgrade: function () {
+            // @ts-ignore // TODO: TYPES
             music.computeProvidedStats(true);
             music.renderQueue.bardModifiers = true;
             music.renderQueue.gpRange = true;

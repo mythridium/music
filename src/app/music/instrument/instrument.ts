@@ -20,16 +20,17 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
                 .querySelector(`#${this.localId}`)
                 .querySelector('#grants-container') as HTMLElement;
 
-            this.xpIcon = new XPIcon(grantsContainer, 0, 0, 32);
-            this.masteryIcon = new MasteryXPIcon(grantsContainer, 0, 0, 32);
-            this.masteryPoolIcon = new MasteryPoolIcon(grantsContainer, 0, 32);
-            this.intervalIcon = new IntervalIcon(grantsContainer, 0, 32);
+            this.xpIcon = grantsContainer.querySelector('#music-xp');
+            this.masteryIcon = grantsContainer.querySelector('#music-mastery-xp');
+            this.masteryPoolIcon = grantsContainer.querySelector('#music-pool-xp');
+            this.intervalIcon = grantsContainer.querySelector('#music-interval');
 
-            const progressBar = document
+            this.progressBar = document
                 .querySelector(`#${this.localId}`)
-                .querySelector('.progress-bar') as HTMLElement;
+                // @ts-ignore // TODO: TYPES
+                .querySelector<ProgressBar>('progress-bar');
 
-            this.progressBar = new ProgressBar(progressBar, 'bg-secondary');
+            //this.progressBar = new ProgressBar(progressBar, 'bg-secondary');
         },
         updateGrants: function (
             xp: number,
@@ -37,12 +38,17 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             masteryXP: number,
             baseMasteryXP: number,
             masteryPoolXP: number,
-            interval: number
+            interval: number,
+            // @ts-ignore // TODO: TYPES
+            realm: Realm
         ) {
             this.xpIcon.setXP(xp, baseXP);
             this.masteryIcon.setXP(masteryXP, baseMasteryXP);
             this.masteryPoolIcon.setXP(masteryPoolXP);
-            this.intervalIcon.setInterval(interval);
+            // @ts-ignore // TODO: TYPES
+            game.unlockedRealms.length > 1 ? this.masteryPoolIcon.setRealm(realm) : this.masteryPoolIcon.hideRealms();
+            // @ts-ignore // TODO: TYPES
+            this.intervalIcon.setInterval(interval, music.getIntervalSources(instrument));
         },
         updateGPRange: function () {
             let minGP = this.getMinGPRoll();
@@ -51,7 +57,8 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             const gpModifier = this.getGPModifier();
             const modGp = (gp: number) => {
                 gp *= 1 + gpModifier / 100;
-                gp = Math.floor(gp + game.modifiers.increasedGPFlat);
+                // @ts-ignore // TODO: TYPES
+                gp = Math.floor(gp + game.modifiers.getValue('melvorD:flatCurrencyGain', game.gp.modQuery));
                 return gp;
             };
 
@@ -85,8 +92,10 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             return instrument.maxGP + music.getMasteryLevel(instrument) * 10;
         },
         getGPModifier: function () {
-            let increasedGPModifier = game.modifiers.increasedGPGlobal - game.modifiers.decreasedGPGlobal;
-            increasedGPModifier += game.modifiers.increasedMusicGP - game.modifiers.decreasedMusicGP;
+            // @ts-ignore // TODO: TYPES
+            let increasedGPModifier = game.music.getCurrencyModifier(game.gp);
+            // @ts-ignore // TODO: TYPES
+            increasedGPModifier += game.modifiers.getValue('mythMusic:musicGP', game.gp.modQuery);
 
             return increasedGPModifier;
         }

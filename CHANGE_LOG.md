@@ -1,5 +1,10 @@
 ## Change Log
 
+# 1.2.0
+* added support for game version 1.3
+* no new content has been added, sorry :(
+* replaced 99 fishing modifier with 'chance to receive one random special item from Fishing when catching a special item'
+
 # 1.13.15
 * fixed incorrect bards being loaded when using Quicksave and Quickload mod
 

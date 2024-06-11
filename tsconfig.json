@@ -2,12 +2,26 @@
     "compilerOptions": {
         "outDir": "./build/",
         "noImplicitAny": true,
-        "module": "es6",
-        "target": "es6",
+        "module": "esnext",
+        "target": "esnext",
         "allowJs": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "moduleResolution": "node"
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "lib": ["DOM", "WebWorker", "esnext"],
+        "paths": {
+            "src/*": ["src/*"]
+        }
     },
-    "include": ["src/**/*", "node_modules/melvor-types"]
+    "include": ["src", "node_modules/melvor-types"],
+    "exclude": ["node_modules/melvor-types/src/libraryTypes/tippyGlobal.d.ts"],
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    }
 }

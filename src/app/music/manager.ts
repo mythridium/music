@@ -1,5 +1,5 @@
 import { Music } from './music';
-import { BardModifier, Instrument, InstrumentModifier, InstrumentSkillModifier } from './music.types';
+import { BardModifier, Instrument, InstrumentModifier } from './music.types';
 
 export class MusicManager {
     public get elements() {
@@ -7,7 +7,7 @@ export class MusicManager {
 
         fragment.append(getTemplateNode('myth-music'));
 
-        return [...fragment.children];
+        return [...Array.from(fragment.children)];
     }
 
     public get essenceOfMusicIcon() {
@@ -15,11 +15,13 @@ export class MusicManager {
     }
 
     public get isBandPracticeUnlocked() {
-        return this.game.modifiers.bandPractice > 0;
+        // @ts-ignore // TODO: TYPES
+        return this.game.modifiers.getValue('mythMusic:bandPractice', {}) > 0;
     }
 
     public get isMasterAncientRelicUnlocked() {
-        return this.game.modifiers.masterAncientRelic > 0;
+        // @ts-ignore // TODO: TYPES
+        return this.game.modifiers.getValue('mythMusic:masterAncientRelic', {}) > 0;
     }
 
     constructor(private readonly music: Music, private readonly game: Game) {}
@@ -31,16 +33,7 @@ export class MusicManager {
         }
 
         return instrument.modifiers(this.music.settings.modifierType).map(modifier => {
-            let description = '';
-
-            if (this.isSkillModifier(modifier)) {
-                [description] = printPlayerModifier(modifier.key, {
-                    skill: this.game.skills.find(skill => skill.id === modifier.skill),
-                    value: modifier.value
-                });
-            } else {
-                [description] = printPlayerModifier(modifier.key, modifier.value);
-            }
+            let description = modifier.describePlain();
 
             return {
                 description,
@@ -59,25 +52,7 @@ export class MusicManager {
 
         return instrument
             .modifiers(this.music.settings.modifierType)
-            .filter(modifier => this.isModifierActive(instrument, modifier))
-            .map(modifier => {
-                if ('skill' in modifier) {
-                    return {
-                        key: modifier.key,
-                        values: [
-                            {
-                                skill: this.game.skills.find(skill => skill.id === modifier.skill),
-                                value: modifier.value
-                            }
-                        ]
-                    } as SkillModifierArrayElement;
-                } else {
-                    return {
-                        key: modifier.key,
-                        value: modifier.value
-                    } as StandardModifierArrayElement;
-                }
-            });
+            .filter(modifier => this.isModifierActive(instrument, modifier));
     }
 
     public getGoldToAward(instrument: Instrument) {
@@ -91,7 +66,10 @@ export class MusicManager {
         const increasedGPModifier = component.getGPModifier();
 
         gpMultiplier *= 1 + increasedGPModifier / 100;
-        gpToAdd = Math.floor(gpMultiplier * gpToAdd + this.game.modifiers.increasedGPFlat);
+        gpToAdd = Math.floor(
+            // @ts-ignore // TODO: TYPES
+            gpMultiplier * gpToAdd + this.game.modifiers.getValue('melvorD:flatCurrencyGain', this.game.gp.modQuery)
+        );
 
         return gpToAdd;
     }
@@ -110,17 +88,12 @@ export class MusicManager {
     }
 
     public getHireCostModifier(instrument: Instrument) {
-        let modifier = this.game.modifiers.increasedMusicHireCost - this.game.modifiers.decreasedMusicHireCost;
-
-        if (this.music.isPoolTierActive(3)) {
-            modifier -= 5;
-        }
-
-        const masteryLevel = this.music.getMasteryLevel(instrument);
-
-        if (masteryLevel >= 90) {
-            modifier -= 5;
-        }
+        // @ts-ignore // TODO: TYPES
+        let modifier = this.game.modifiers.getValue(
+            'mythMusic:musicHireCost',
+            // @ts-ignore // TODO: TYPES
+            this.music.getActionModifierQuery(instrument)
+        );
 
         return Math.max(modifier, -95);
     }
@@ -135,12 +108,8 @@ export class MusicManager {
         const validModifierLevels = instrument
             .modifiers(this.music.settings.modifierType)
             .filter((modifier, index) => unlockedMasteries[index])
-            .map(instrument => instrument.level);
+            .map(modifier => modifier.level);
 
         return validModifierLevels.includes(modifier.level) || (bard?.isUpgraded && modifier.level === 999);
-    }
-
-    private isSkillModifier(modifier: InstrumentModifier): modifier is InstrumentSkillModifier {
-        return 'skill' in modifier;
     }
 }

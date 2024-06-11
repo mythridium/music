@@ -387,7 +387,7 @@ Banjo: Unlocked at skill level 10
 * Mastery Level 1: -0.5s Fishing Interval
 * Mastery Level 40: -10% Cooking Interval
 * Mastery Level 75: -30% Passive Cook Interval
-* Mastery Level 99: +10% chance to find a Lost Chest while Fishing (This is separate to the Special Fishing Chance)
+* Mastery Level 99: +10% chance to recieve one random special item from Fishing when catching a special item
 * Upgrade: +25% chance to gain 1 cooked version of a fish when Fishing
 
 Snare Drum: Unlocked at skill level 20
@@ -496,7 +496,7 @@ Banjo: Unlocked at skill level 10
 * Mastery Level 1: -0.2s Fishing Interval
 * Mastery Level 40: -5% Cooking Interval
 * Mastery Level 75: -10% Passive Cook Interval
-* Mastery Level 99: +1% chance to find a Lost Chest while Fishing (This is separate to the Special Fishing Chance)
+* Mastery Level 99: +1% chance to recieve one random special item from Fishing when catching a special item
 * Upgrade: +5% chance to gain 1 cooked version of a fish when Fishing
 
 Snare Drum: Unlocked at skill level 20
