@@ -11,7 +11,7 @@ enum State {
     Utility = 'utility'
 }
 
-export function EquipmentComponent(music: Music, bard: HiredBard) {
+export function EquipmentComponent(music: Music, bard: HiredBard, onUpdate: (bard: HiredBard) => void) {
     return {
         $template: '#myth-music-equipment',
         bard,
@@ -35,6 +35,7 @@ export function EquipmentComponent(music: Music, bard: HiredBard) {
             music.bards.set(bard.instrument, bard);
 
             this.completeUpgrade();
+            onUpdate(bard);
         },
         socket: function (type: UpgradeType) {
             music.upgrades.removeQuantity(type);
@@ -45,6 +46,7 @@ export function EquipmentComponent(music: Music, bard: HiredBard) {
             music.bards.set(bard.instrument, bard);
 
             this.completeUpgrade();
+            onUpdate(bard);
         },
         utility: function (type: UpgradeType) {
             music.upgrades.removeQuantity(type);
@@ -55,6 +57,7 @@ export function EquipmentComponent(music: Music, bard: HiredBard) {
             music.bards.set(bard.instrument, bard);
 
             this.completeUpgrade();
+            onUpdate(bard);
         },
         completeUpgrade() {
             // @ts-ignore // TODO: TYPES

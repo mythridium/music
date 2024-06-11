@@ -1,5 +1,8 @@
 ## Change Log
 
+# 1.2.1
+* fixed hired bards view not updating as expected
+
 # 1.2.0
 * added support for game version 1.3
 * no new content has been added, sorry :(

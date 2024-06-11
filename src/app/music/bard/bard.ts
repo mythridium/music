@@ -4,28 +4,38 @@ import { BardModifier, HiredBard } from '../music.types';
 
 import './bard.scss';
 
+export interface BardContext {
+    media: string;
+    name: string;
+    isUpgraded: boolean;
+    socketId: string;
+    utilityId: string;
+    instrumentId: string;
+}
+
 export function BardComponent(music: Music) {
     let hiredBard: HiredBard = undefined;
 
     return {
         $template: '#myth-music-bard',
+        bard: undefined as BardContext,
         get media() {
-            return hiredBard?.instrument?.media;
+            return this.bard?.media;
         },
         get name() {
-            return hiredBard?.instrument?.name;
+            return this.bard?.name;
         },
         get hasBard() {
-            return hiredBard !== undefined;
+            return this.bard !== undefined;
         },
         get isUpgraded() {
-            return hiredBard?.isUpgraded ?? false;
+            return this.bard?.isUpgraded ?? false;
         },
         get socket() {
-            return hiredBard?.socket !== undefined;
+            return this.bard?.socketId !== undefined;
         },
         get utility() {
-            return hiredBard?.utility !== undefined;
+            return this.bard?.utilityId !== undefined;
         },
         isEnabled: false,
         modifiers: [] as BardModifier[],
@@ -35,12 +45,24 @@ export function BardComponent(music: Music) {
         },
         setBard: function (bard: HiredBard) {
             hiredBard = bard;
+
+            if (!bard) {
+                this.bard = undefined;
+            } else {
+                this.bard = {
+                    instrumentId: bard.instrument?.id,
+                    media: bard.instrument?.media,
+                    name: bard.instrument?.name,
+                    isUpgraded: bard.isUpgraded,
+                    socketId: bard.socket?.id,
+                    utilityId: bard.utility?.id
+                };
+            }
             this.updateCurrentMasteryLevel();
         },
         updateCurrentMasteryLevel: function () {
-            if (hiredBard) {
-                const instrument = hiredBard.instrument;
-                const instrumentRef = music.actions.allObjects.find(action => action.id === instrument.id);
+            if (this.bard) {
+                const instrumentRef = music.actions.allObjects.find(action => action.id === this.bard.instrumentId);
 
                 this.currentMasteryLevel = music.getMasteryLevel(instrumentRef);
             }
@@ -51,20 +73,23 @@ export function BardComponent(music: Music) {
         updateModifiers: function () {
             this.modifiers = [];
 
-            if (hiredBard) {
-                this.modifiers = music.manager.getModifiers(hiredBard.instrument);
+            if (this.bard) {
+                const instrumentRef = music.actions.allObjects.find(action => action.id === this.bard.instrumentId);
+
+                this.modifiers = music.manager.getModifiers(instrumentRef);
             }
         },
         equipment: function () {
-            const bard = hiredBard;
-
             SwalLocale.fire({
                 html: '<div id="myth-music-equipment-container"></div>',
                 showConfirmButton: false,
                 showCancelButton: false,
                 showDenyButton: false,
                 didOpen: popup => {
-                    ui.create(EquipmentComponent(music, bard), popup.querySelector('#myth-music-equipment-container'));
+                    ui.create(
+                        EquipmentComponent(music, hiredBard, this.setBard),
+                        popup.querySelector('#myth-music-equipment-container')
+                    );
                 }
             });
         }
