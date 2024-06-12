@@ -46,7 +46,7 @@ export const zhTW = {
     Increased_Mastery_XP_Per_Variel: '+${value}% ${skillName} 精通經驗值，來自占星術中 Variel 星座的滿星',
     Instrument_Guitar: '吉他',
     Instrument_Drum: '班卓琴',
-    Instrument_Banjo: '小军鼓',
+    Instrument_Banjo: '小軍鼓',
     Instrument_Accordion: '手風琴',
     Instrument_Bouzouki: '希臘三弦琴',
     Instrument_Flute: '長笛',

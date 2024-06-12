@@ -479,7 +479,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
             rewards.addItemByID('melvorD:Shrimp', 1);
         }
 
-        this.addCommonRewards(rewards);
+        // @ts-ignore // TODO: TYPES
+        this.addCommonRewards(rewards, this.activeInstrument);
 
         for (const bard of this.bards.all()) {
             if (bard?.socket?.id === 'mythMusic:Mystic_Oil') {

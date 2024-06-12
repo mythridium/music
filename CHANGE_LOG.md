@@ -1,9 +1,13 @@
 ## Change Log
 
-# 1.2.1
+# 1.14.2
+* fixed ancient relics not being rolled
+* fixed chinese traditional translation for snare drum
+
+# 1.14.1
 * fixed hired bards view not updating as expected
 
-# 1.2.0
+# 1.14.0
 * added support for game version 1.3
 * no new content has been added, sorry :(
 * replaced 99 fishing modifier with 'chance to receive one random special item from Fishing when catching a special item'

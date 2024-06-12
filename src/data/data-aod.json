@@ -407,7 +407,6 @@
                 "name": "Music Relic 1",
                 "skillID": "mythMusic:Music",
                 "number": 1,
-                "description": "A relic from the ancient times of Music.",
                 "modifiers": {
                     "increasedMasteryXP": [
                         {
@@ -422,7 +421,6 @@
                 "name": "Music Relic 2",
                 "skillID": "mythMusic:Music",
                 "number": 2,
-                "description": "A relic from the ancient times of Music.",
                 "modifiers": {
                     "increasedChanceToObtainShrimpWhileTrainingMusic": 10
                 }
@@ -432,7 +430,6 @@
                 "name": "Music Relic 3",
                 "skillID": "mythMusic:Music",
                 "number": 3,
-                "description": "A relic from the ancient times of Music.",
                 "modifiers": {
                     "increasedChanceToLocateAncientRelic": 1
                 }
@@ -442,7 +439,6 @@
                 "name": "Music Relic 4",
                 "skillID": "mythMusic:Music",
                 "number": 4,
-                "description": "A relic from the ancient times of Music.",
                 "modifiers": {
                     "increasedGPGlobal": 50
                 }
@@ -452,7 +448,6 @@
                 "name": "Music Relic 5",
                 "skillID": "mythMusic:Music",
                 "number": 5,
-                "description": "A relic from the ancient times of Music.",
                 "modifiers": {
                     "decreasedSkillIntervalPercent": [
                         {
@@ -467,7 +462,6 @@
                 "name": "Music Master Relic",
                 "skillID": "mythMusic:Music",
                 "number": 6,
-                "description": "A relic from the ancient times of Music.",
                 "modifiers": {
                     "masterAncientRelic": 1
                 }
