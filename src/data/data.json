@@ -91,6 +91,11 @@
         "bankSortOrder": [
             {
                 "insertAt": "After",
+                "afterID": "melvorF:Mastery_Token_Astrology",
+                "ids": ["mythMusic:Mastery_Token_Music"]
+            },
+            {
+                "insertAt": "After",
                 "afterID": "melvorF:Farming_Potion_IV",
                 "ids": [
                     "mythMusic:Generous_Gratuity_Potion_I",

@@ -1,5 +1,8 @@
 ## Change Log
 
+# 1.14.4
+* fixed default sort order of music mastery token
+
 # 1.14.3
 * fixed variel not showing that it also affects the music skill, this was purely visual on the tile
 * fixed chinese traditional translation for bard

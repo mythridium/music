@@ -2,5 +2,6 @@ node_modules
 packed
 dist
 build
+.output
 images/backup
 .tsimp
