@@ -1,5 +1,11 @@
 ## Change Log
 
+# 1.14.5
+* while jesters love to play a good prank, they were being too harsh to the locals
+* reduced the damage of all jesters at the circus to be more inline with monsters of the same slayer tier
+* mystic jester is now a master task, previously an elite task
+* adjusted enchanted jester and mystic jester stat allocations
+
 # 1.14.4
 * fixed default sort order of music mastery token
 
