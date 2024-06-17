@@ -27,7 +27,7 @@ export class MusicActionEventMatcher extends SkillActionEventMatcher<MusicAction
 
         if (options.actionIDs !== undefined) {
             const music = game.skills.find(skill => skill.id === 'mythMusic:Music') as Music;
-            this.actions = music.actions.getSetForConstructor(options.actionIDs, this, Instrument.name);
+            this.actions = music.actions.getSetFromIds(options.actionIDs);
         }
     }
 

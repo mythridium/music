@@ -14,7 +14,7 @@ export interface Upgrade {
     itemId: UpgradeType;
     item: Item;
     quantity: number;
-    modifiers: ModifierArrayElement[];
+    modifiers: StatObject[];
     descriptions: string[];
 }
 

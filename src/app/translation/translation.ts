@@ -2,6 +2,7 @@ export class MythTranslation {
     constructor(private readonly context: Modding.ModContext) {}
 
     public init() {
+        // @ts-ignore TODO: TYPES
         this.context.patch(Item, 'name').get(function (patch) {
             if (this.namespace === 'mythMusic') {
                 return getLangString(`ITEM_NAME_${this.localID}`);
@@ -10,6 +11,7 @@ export class MythTranslation {
             return patch();
         });
 
+        // @ts-ignore TODO: TYPES
         this.context.patch(Item, 'description').get(function (patch) {
             if (this.namespace === 'mythMusic' && this._customDescription !== undefined) {
                 return getLangString(`ITEM_DESCRIPTION_${this.localID}`);
@@ -34,6 +36,7 @@ export class MythTranslation {
             return patch();
         });
 
+        // @ts-ignore TODO: TYPES
         this.context.patch(Monster, 'name').get(function (patch) {
             if (this.namespace === 'mythMusic') {
                 return getLangString(`MONSTER_NAME_${this.localID}`);

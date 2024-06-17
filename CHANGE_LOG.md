@@ -1,5 +1,8 @@
 ## Change Log
 
+# 1.14.6
+* fixed ancient relics not being rolled twice with the mystic oil upgrade
+
 # 1.14.5
 * while jesters love to play a good prank, they were being too harsh to the locals
 * reduced the damage of all jesters at the circus to be more inline with monsters of the same slayer tier

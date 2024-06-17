@@ -7,14 +7,6 @@ export interface BardModifier {
     level: number;
 }
 
-export interface InstrumentModifier {
-    level: number;
-    modifiers?: {};
-    enemyModifiers?: {};
-    conditionalModifiers?: [];
-    combatEffects?: [];
-}
-
 export interface MusicSkillData extends MasterySkillData {
     instruments: InstrumentData[];
     upgrades: UpgradeData[];
@@ -25,8 +17,8 @@ export interface InstrumentData extends BasicSkillRecipeData {
     media: string;
     baseInterval: number;
     maxGP: number;
-    standardModifiers: InstrumentModifier[];
-    hardcoreModifiers: InstrumentModifier[];
+    standardModifiers: StatObject[];
+    hardcoreModifiers: StatObject[];
     skills: string[];
 }
 
@@ -89,7 +81,7 @@ export class Instrument extends BasicSkillRecipe {
 
 export interface UpgradeData {
     itemId: string;
-    modifiers: InstrumentModifier[];
+    modifiers: StatObject[];
 }
 
 export class UpgradeModifier {

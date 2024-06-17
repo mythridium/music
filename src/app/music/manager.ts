@@ -1,5 +1,5 @@
 import { Music } from './music';
-import { BardModifier, Instrument, InstrumentModifier } from './music.types';
+import { BardModifier, Instrument } from './music.types';
 
 export class MusicManager {
     public get elements() {
@@ -98,7 +98,7 @@ export class MusicManager {
         return Math.max(modifier, -95);
     }
 
-    private isModifierActive(instrument: Instrument, modifier: InstrumentModifier) {
+    private isModifierActive(instrument: Instrument, modifier: StatObject) {
         instrument = this.music.actions.find(action => action.id === instrument.id);
 
         let unlockedMasteries = this.music.masteriesUnlocked.get(instrument);

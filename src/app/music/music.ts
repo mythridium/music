@@ -24,7 +24,7 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
     public settings: MusicSettings;
     public masteriesUnlocked = new Map<Instrument, boolean[]>();
 
-    private renderedProgressBar?: ProgressBar;
+    private renderedProgressBar?: ProgressBarElement;
     private sheetMusicChance = 2;
 
     public readonly manager: MusicManager;
@@ -485,7 +485,8 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         for (const bard of this.bards.all()) {
             if (bard?.socket?.id === 'mythMusic:Mystic_Oil') {
                 this.rollForRareDrops(this.actionLevel, rewards);
-                this.addMasteryToken(rewards);
+                this.rollForMasteryTokens(rewards, this.activeInstrument.realm);
+                this.rollForAncientRelics(this.activeInstrument.level, this.activeInstrument.realm);
                 this.rollForPets(this.currentActionInterval);
                 this.game.summoning.rollMarksForSkill(this, this.masteryModifiedInterval);
             }
@@ -634,10 +635,6 @@ export class Music extends GatheringSkill<Instrument, MusicSkillData> {
         this.userInterface.locked.update();
 
         this.renderQueue.visibleInstruments = false;
-    }
-
-    public getTotalUnlockedMasteryActions() {
-        return this.actions.reduce(levelUnlockSum(this), 0);
     }
 
     // @ts-ignore // TODO: TYPES

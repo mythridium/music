@@ -12,6 +12,7 @@ declare global {
     interface CloudManager {
         hasTotHEntitlementAndIsEnabled: boolean;
         hasAoDEntitlementAndIsEnabled: boolean;
+        hasItAEntitlementAndIsEnabled: boolean;
     }
 
     const cloudManager: CloudManager;
@@ -73,6 +74,7 @@ export class App {
             await this.context.gameData
                 .buildPackage(builder => {
                     builder.skillData.add({
+                        // @ts-ignore
                         skillID: 'mythMusic:Music',
                         data: {
                             minibar: {
@@ -80,6 +82,7 @@ export class App {
                                 upgrades: [],
                                 pets: []
                             },
+                            // @ts-ignore
                             instruments: [],
                             upgrades: []
                         }
@@ -132,13 +135,12 @@ export class App {
             }
 
             await this.context.gameData.addPackage({
+                $schema: '',
                 namespace: 'mythMusic:Music',
                 modifications: {
-                    // @ts-ignore // TODO: TYPES
                     gamemodes: [
                         {
                             id: 'melvorAoD:AncientRelics',
-                            // @ts-ignore // TODO: TYPES
                             levelCapIncreases: {
                                 add: levelCapIncreases
                             }

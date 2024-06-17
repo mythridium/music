@@ -14,7 +14,7 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
         minGP: 0,
         maxGP: 0,
         disabled: false,
-        progressBar: {} as ProgressBar,
+        progressBar: {} as ProgressBarElement,
         mounted: function () {
             const grantsContainer = document
                 .querySelector(`#${this.localId}`)
@@ -28,7 +28,7 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             this.progressBar = document
                 .querySelector(`#${this.localId}`)
                 // @ts-ignore // TODO: TYPES
-                .querySelector<ProgressBar>('progress-bar');
+                .querySelector<ProgressBarElement>('progress-bar');
 
             //this.progressBar = new ProgressBar(progressBar, 'bg-secondary');
         },
