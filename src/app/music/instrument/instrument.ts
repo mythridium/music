@@ -29,8 +29,6 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
                 .querySelector(`#${this.localId}`)
                 // @ts-ignore // TODO: TYPES
                 .querySelector<ProgressBarElement>('progress-bar');
-
-            //this.progressBar = new ProgressBar(progressBar, 'bg-secondary');
         },
         updateGrants: function (
             xp: number,
@@ -43,7 +41,9 @@ export function InstrumentComponent(music: Music, instrument: Instrument, game: 
             realm: Realm
         ) {
             this.xpIcon.setXP(xp, baseXP);
+            this.xpIcon.setSources(game.music.getXPSources(instrument));
             this.masteryIcon.setXP(masteryXP, baseMasteryXP);
+            this.masteryIcon.setSources(game.music.getMasteryXPSources(instrument));
             this.masteryPoolIcon.setXP(masteryPoolXP);
             // @ts-ignore // TODO: TYPES
             game.unlockedRealms.length > 1 ? this.masteryPoolIcon.setRealm(realm) : this.masteryPoolIcon.hideRealms();

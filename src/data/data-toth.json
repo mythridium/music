@@ -6,11 +6,11 @@
             {
                 "skillID": "melvorD:Astrology",
                 "data": {
-                    "masteryXPModifier": "skillMasteryXPPerVariel",
                     "recipes": [
                         {
                             "id": "melvorTotH:Variel",
                             "skillIDs": { "add": ["mythMusic:Music"] },
+                            "masteryXPModifier": "mythMusic:skillMasteryXPPerVariel",
                             "standardModifiers": [
                                 {
                                     "index": 0,

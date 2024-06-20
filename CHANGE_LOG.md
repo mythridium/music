@@ -1,5 +1,9 @@
 ## Change Log
 
+# 1.14.7
+* fixed bard + owl synergy not functioning
+* added xp and mastery source tooltips
+
 # 1.14.6
 * fixed ancient relics not being rolled twice with the mystic oil upgrade
 
