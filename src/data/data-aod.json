@@ -115,28 +115,6 @@
             }
         }
     ],
-    "modifications": {
-        "gamemodes": [
-            {
-                "id": "melvorAoD:AncientRelics",
-                "startingSkills": {
-                    "add": ["mythMusic:Music"]
-                },
-                "skillUnlockRequirements": [
-                    {
-                        "skillID": "mythMusic:Music",
-                        "requirements": [
-                            {
-                                "type": "SkillLevel",
-                                "skillID": "melvorD:Attack",
-                                "level": 1
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
     "data": {
         "ancientRelicsDisplayOrder": [
             {

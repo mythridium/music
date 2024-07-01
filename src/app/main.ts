@@ -95,10 +95,12 @@ export class App {
             await this.context.gameData.addPackage('data/data-aod.json');
         }
 
-        await this.initGamemodes();
-        this.patchUnlock(this.game.music);
-        this.initCompatibility(this.game.music);
-        this.initTownship();
+        this.context.onModsLoaded(async () => {
+            await this.initGamemodes();
+            this.patchUnlock(this.game.music);
+            this.initCompatibility(this.game.music);
+            this.initTownship();
+        });
 
         this.game.music.userInterface = this.initInterface(this.game.music);
         this.game.music.initSettings(settings);
@@ -134,18 +136,33 @@ export class App {
                 levelCapIncreases.push(...['mythMusic:Post99Dungeons', 'mythMusic:ThroneOfTheHeraldSet120']);
             }
 
+            const gamemodes = this.game.gamemodes.filter(gamemode => gamemode.allowAncientRelicDrops);
+
             await this.context.gameData.addPackage({
                 $schema: '',
                 namespace: 'mythMusic:Music',
                 modifications: {
-                    gamemodes: [
-                        {
-                            id: 'melvorAoD:AncientRelics',
-                            levelCapIncreases: {
-                                add: levelCapIncreases
+                    gamemodes: gamemodes.map(gamemode => ({
+                        id: gamemode.id,
+                        levelCapIncreases: {
+                            add: levelCapIncreases
+                        },
+                        startingSkills: {
+                            add: ['mythMusic:Music']
+                        },
+                        skillUnlockRequirements: [
+                            {
+                                skillID: 'mythMusic:Music',
+                                requirements: [
+                                    {
+                                        type: 'SkillLevel',
+                                        skillID: 'melvorD:Attack',
+                                        level: 1
+                                    }
+                                ]
                             }
-                        }
-                    ]
+                        ]
+                    }))
                 }
             });
         }

@@ -1,5 +1,8 @@
 ## Change Log
 
+# 1.14.8
+* music should now be unlocked and increase level cap for all gamemodes that allow ancient relic drops instead of just the default ancient relic gamemode
+
 # 1.14.7
 * fixed bard + owl synergy not functioning
 * added xp and mastery source tooltips
