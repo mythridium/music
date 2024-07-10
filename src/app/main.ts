@@ -136,7 +136,13 @@ export class App {
                 levelCapIncreases.push(...['mythMusic:Post99Dungeons', 'mythMusic:ThroneOfTheHeraldSet120']);
             }
 
-            const gamemodes = this.game.gamemodes.filter(gamemode => gamemode.allowAncientRelicDrops);
+            const gamemodes = this.game.gamemodes.filter(
+                gamemode =>
+                    gamemode.defaultInitialLevelCap !== undefined &&
+                    gamemode.levelCapIncreases?.length &&
+                    gamemode.useDefaultSkillUnlockRequirements === true &&
+                    gamemode.allowSkillUnlock === false
+            );
 
             await this.context.gameData.addPackage({
                 $schema: '',
