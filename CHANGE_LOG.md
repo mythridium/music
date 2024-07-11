@@ -1,5 +1,8 @@
 ## Change Log
 
+# 1.14.10
+* updated item upgrades to use new item upgrades modification api
+
 # 1.14.9
 * adjusted gamemode skill unlock logic
 

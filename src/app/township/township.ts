@@ -84,29 +84,38 @@ export class MythTownship {
                 return;
             }
 
-            // Delete the existing item upgrade as we need to amend it with the new data.
-            // Could optionally add to the item upgrade, but I want to use the builder
-            // so I don't need to think about all the little details for registration. Let Malc
-            // deal with it.
-            for (const item of itemUpgrade.rootItems) {
-                this.game.bank.itemUpgrades.delete(item);
-            }
-
             builder.itemUpgrades.add({
                 upgradedItemID: itemUpgrade.upgradedItem.id,
-                currencyCosts: itemUpgrade.currencyCosts.map(currency => ({
-                    id: currency.currency.id,
-                    quantity: currency.quantity
-                })),
+                currencyCosts: itemUpgrade.currencyCosts
+                    .filter(cost => !cost.currency.isModded)
+                    .map(currency => ({
+                        id: currency.currency.id,
+                        quantity: currency.quantity
+                    })),
                 itemCosts: [
-                    ...itemUpgrade.itemCosts.map(cost => ({ id: cost.item.id, quantity: 1 })),
+                    ...itemUpgrade.itemCosts
+                        .filter(cost => !cost.item.isModded)
+                        .map(cost => ({ id: cost.item.id, quantity: 1 })),
                     {
                         id: `mythMusic:Bards_${type}`,
                         quantity: 1
                     }
                 ],
-                rootItemIDs: [...itemUpgrade.rootItems.map(item => item.id), `mythMusic:Bards_${type}`],
+                rootItemIDs: [`mythMusic:Bards_${type}`],
                 isDowngrade: itemUpgrade.isDowngrade
+            });
+
+            // @ts-ignore // TODO: TYPES
+            builder.itemUpgrades.modify({
+                id: itemUpgrade.upgradedItem.id,
+                itemCosts: {
+                    add: [
+                        {
+                            id: `mythMusic:Bards_${type}`,
+                            quantity: 1
+                        }
+                    ]
+                }
             });
         }
     }
