@@ -209,6 +209,27 @@
                                 "key": "decreasedMusicHireCost"
                             }
                         ]
+                    },
+                    {
+                        "scopes": {
+                            "skill": true,
+                            "action": true
+                        },
+                        "scopeSource": "mythMusic:Music",
+                        "descriptions": [
+                            {
+                                "text": "-${value}% Bard Hire Cost for ${actionName}",
+                                "lang": "Myth_Music_Bard_Hire_Cost_Negative",
+                                "below": 0,
+                                "includeSign": false
+                            },
+                            {
+                                "text": "+${value}% Bard Hire Cost for ${actionName}",
+                                "lang": "Myth_Music_Bard_Hire_Cost_Positive",
+                                "above": 0,
+                                "includeSign": false
+                            }
+                        ]
                     }
                 ]
             },
@@ -2057,7 +2078,13 @@
                         },
                         {
                             "modifiers": {
-                                "mythMusic:musicHireCost": -5
+                                "mythMusic:musicHireCost": [
+                                    {
+                                        "skillID": "mythMusic:Music",
+                                        "actionID": "mythMusic:Guitar",
+                                        "value": -5
+                                    }
+                                ]
                             },
                             "level": 90
                         }

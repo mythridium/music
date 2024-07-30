@@ -1,5 +1,8 @@
 ## Change Log
 
+# 1.14.11
+* fixed mastery hire cost reduction applying to all actions
+
 # 1.14.10
 * updated item upgrades to use new item upgrades modification api
 
