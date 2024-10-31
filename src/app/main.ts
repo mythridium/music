@@ -50,7 +50,11 @@ export class App {
     constructor(private readonly context: Modding.ModContext, private readonly game: Game) {}
 
     public async init() {
-        mod.api.mythCombatSimulator?.registerNamespace('mythMusic');
+        mod.api.mythCombatSimulator?.registerNamespace('mythMusic', {
+            name: 'Music',
+            icon: 'assets/instruments/guitar.png',
+            header: { title: 'Music', description: 'Modify your configuration for the music skill.' }
+        });
 
         await this.context.loadTemplates('app/music/music.html');
         await this.context.loadTemplates('app/music/instrument/instrument.html');
