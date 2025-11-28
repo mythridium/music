@@ -1,12 +1,13 @@
+import { TinyPassiveIconsCompatibility } from './compatibility/tiny-passive-icons';
+import { languages } from './language';
 import { MusicActionEventMatcher, MusicActionEventMatcherOptions } from './music/event';
 import { Music } from './music/music';
+import { MusicSkillData } from './music/music.types';
+import { initQueueOMaticIntegration } from './music/queue-adapter';
+import { MusicSettings } from './music/settings';
 import { UserInterface } from './music/user-interface';
 import { MythTownship } from './township/township';
-import { TinyPassiveIconsCompatibility } from './compatibility/tiny-passive-icons';
-import { MusicSkillData } from './music/music.types';
-import { languages } from './language';
 import { MythTranslation } from './translation/translation';
-import { MusicSettings } from './music/settings';
 
 declare global {
     interface CloudManager {
@@ -100,6 +101,7 @@ export class App {
             this.patchUnlock(this.game.music);
             this.initCompatibility(this.game.music);
             this.initTownship();
+            this.initQueueOMatic();
         });
 
         this.game.music.userInterface = this.initInterface(this.game.music);
@@ -237,5 +239,9 @@ export class App {
                 loadedLangJson[`Myth_Music_${key}`] = value;
             }
         }
+    }
+
+    private initQueueOMatic() {
+        initQueueOMaticIntegration(this.context);
     }
 }
