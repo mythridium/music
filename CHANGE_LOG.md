@@ -1,5 +1,8 @@
 ## Change Log
 
+# 1.14.12
+* contributed by ZeldoKavira: added QueueOMatic support
+
 # 1.14.11
 * fixed mastery hire cost reduction applying to all actions
 
